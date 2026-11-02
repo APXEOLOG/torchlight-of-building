@@ -209,6 +209,8 @@ export interface SkillOffense {
 export interface BaseActiveSkill extends BaseSkill {
   mainStats?: ("str" | "dex" | "int")[];
   kinds: InferredSkillKind[];
+  cooldownSec?: number;
+  durationSec?: number;
   // Named value arrays for level-scaling offense/mods/buffMods (1-40).
   // Keys must match factory function expectations in active-factories.ts.
   levelValues?: LevelValues;

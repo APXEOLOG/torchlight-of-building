@@ -2565,6 +2565,88 @@ describe("resolveBuffSkillMods", () => {
     expect(iceBondBuffMod?.value).toBeCloseTo(24 * 1.4);
   });
 
+  describe("Preparation", () => {
+    const buffValue = (
+      skill: string,
+      dmgModType: string,
+      supports: { name: string }[],
+      config: object = {},
+    ): number | undefined => {
+      const results = calculateOffense({
+        loadout: createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
+          { name: skill, supports },
+        ]),
+        configuration: { ...frostbittenEnabledConfig, ...config },
+      });
+      const mod = results.skills["[Test] Simple Attack"]?.resolvedMods.find(
+        (m) =>
+          m.type === "DmgPct" &&
+          m.dmgModType === dmgModType &&
+          m.src?.includes(skill) === true,
+      ) as DmgPctMod | undefined;
+      return mod?.value;
+    };
+
+    test("a buff without Preparation stays fully active", () => {
+      expect(buffValue("Bull's Rage", "melee", [])).toBeCloseTo(27);
+    });
+
+    test("uses the cooldown when it's longer than the interval", () => {
+      // 6s duration, cast every 10s because of the cooldown
+      expect(
+        buffValue("Bull's Rage", "melee", [{ name: "Preparation" }]),
+      ).toBeCloseTo(27 * 0.6);
+    });
+
+    test("Extended Duration raises uptime", () => {
+      // 6s * 1.225 = 7.35s of every 10s
+      expect(
+        buffValue("Bull's Rage", "melee", [
+          { name: "Preparation" },
+          { name: "Extended Duration" },
+        ]),
+      ).toBeCloseTo(27 * 0.735);
+    });
+
+    test("no Mass Effect charges when the cooldown outlasts the interval", () => {
+      expect(
+        buffValue("Bull's Rage", "melee", [
+          { name: "Preparation" },
+          { name: "Mass Effect" },
+        ]),
+      ).toBeCloseTo(27 * 0.6);
+    });
+
+    test("uses the interval when the cooldown is shorter", () => {
+      // 8s cooldown / 1.225 = 6.5s, so cast every 8s for 5s of curse
+      expect(
+        buffValue(
+          "Timid",
+          "hit",
+          [{ name: "Preparation" }, { name: "Cooldown Reduction" }],
+          { targetEnemyIsCursed: true },
+        ),
+      ).toBeCloseTo(39 * 0.625);
+    });
+
+    test("a buff with no duration stays fully active", () => {
+      expect(
+        buffValue("Mana Boil", "spell", [{ name: "Preparation" }]),
+      ).toBeCloseTo(16.65);
+    });
+
+    test("buffsAlwaysActive ignores uptime but still has no charges", () => {
+      expect(
+        buffValue(
+          "Bull's Rage",
+          "melee",
+          [{ name: "Preparation" }, { name: "Mass Effect" }],
+          { buffsAlwaysActive: true },
+        ),
+      ).toBeCloseTo(27);
+    });
+  });
+
   test("Well-Fought Battle increases buff skill effect", () => {
     // Ice Bond at level 20: 33% base
     // Well-Fought Battle at level 20: 10% skill effect per use, with 3 uses = 30%

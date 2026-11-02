@@ -1024,6 +1024,8 @@ const listPassiveSkillSlots = (loadout: Loadout): SkillSlot[] => {
   return slots.filter((s) => s !== undefined);
 };
 
+const DEFAULT_CHARGES_ON_USE = 2;
+
 const findSkill = (
   name: ActiveSkillName | PassiveSkillName,
 ): BaseActiveSkill | BasePassiveSkill | undefined => {
@@ -1051,6 +1053,30 @@ const calcBuffSkillType = (
     return "warcry";
   }
   return "other";
+};
+
+// Preparation casts the skill every interval, or as soon as the cooldown ends if that's longer.
+// When the cooldown doesn't finish before the next cast, the skill never stores a charge.
+const calcPreparationEffects = (
+  skill: BaseActiveSkill | BasePassiveSkill,
+  skillMods: Mod[],
+  config: Configuration,
+): { uptime: number; chargesOnUse: number } => {
+  const interval = findMod(skillMods, "PrepareIntervalSec")?.value;
+  if (interval === undefined || skill.type !== "Active") {
+    return { uptime: 1, chargesOnUse: DEFAULT_CHARGES_ON_USE };
+  }
+  const { cooldownSec, durationSec } = skill as BaseActiveSkill;
+  const cooldown = (cooldownSec ?? 0) / calcEffMult(skillMods, "CdrPct");
+  const chargesOnUse = cooldown >= interval ? 0 : DEFAULT_CHARGES_ON_USE;
+  if (durationSec === undefined || config.buffsAlwaysActive) {
+    return { uptime: 1, chargesOnUse };
+  }
+  const duration = durationSec * calcEffMult(skillMods, "SkillEffDurationPct");
+  return {
+    uptime: Math.min(1, duration / Math.max(interval, cooldown)),
+    chargesOnUse,
+  };
 };
 
 // resolves mods coming from skills that provide buffs (levelBuffMods)
@@ -1151,6 +1177,11 @@ const resolveBuffSkillMods = (
     }
 
     const prenormMods = [...loadoutMods, ...supportMods, ...levelMods];
+    const { uptime, chargesOnUse } = calcPreparationEffects(
+      skill,
+      prenormMods,
+      config,
+    );
     const {
       skillEffMult,
       auraEffMult,
@@ -1164,6 +1195,7 @@ const resolveBuffSkillMods = (
       derivedCtx,
       skill.name,
       numAuraSkills,
+      chargesOnUse,
     );
 
     // === Apply multipliers to buff mods ===
@@ -1190,7 +1222,10 @@ const resolveBuffSkillMods = (
         }
       }
 
-      resolvedMods.push({ ...mod, value: finalValue } as Mod);
+      resolvedMods.push({
+        ...mod,
+        value: multValue(finalValue, uptime),
+      } as Mod);
     }
   }
   return resolvedMods;
@@ -1438,6 +1473,7 @@ const resolveBuffSkillEffMults = (
   derivedCtx: DerivedCtx,
   buffSkillName: string,
   numAuraSkills: number,
+  chargesOnUse: number,
 ): {
   skillEffMult: number;
   auraEffMult: number;
@@ -1466,7 +1502,12 @@ const resolveBuffSkillEffMults = (
   );
 
   pushNormalizedStackable(mods, prenormMods, "skill_use", 3);
-  pushNormalizedStackable(mods, prenormMods, "skill_charges_on_use", 2);
+  pushNormalizedStackable(
+    mods,
+    prenormMods,
+    "skill_charges_on_use",
+    chargesOnUse,
+  );
   pushNormalizedStackable(
     mods,
     prenormMods,

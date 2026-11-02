@@ -267,6 +267,8 @@ interface RawSkill {
   mainStats?: ("str" | "dex" | "int")[];
   manaCostMultiplierPct?: number;
   sealedManaPct?: number;
+  cooldownSec?: number;
+  durationSec?: number;
   parsedLevelModValues?: Record<string, Record<number, number>>;
   parsedAffixDefs?: Record<0 | 1 | 2 | 3, ActivationMediumAffixDef[]>;
   progressionTable?: ProgressionColumn[];
@@ -756,6 +758,22 @@ const extractSkillFromTlidbHtml = (
     }
   });
 
+  // Extract Cooldown for active skills (e.g., "10 s" → 10)
+  let cooldownSec: number | undefined;
+  currentCard.find("div.d-flex").each((_, elem) => {
+    const label = $(elem).find("div").first().text().trim();
+    if (label === "Cooldown") {
+      const match = $(elem)
+        .find("div.ps-2")
+        .text()
+        .trim()
+        .match(/^([\d.]+) s$/);
+      if (match?.[1] !== undefined) {
+        cooldownSec = parseFloat(match[1]);
+      }
+    }
+  });
+
   // Extract Sealed Mana for passive skills (e.g., "20%" → 20)
   let sealedManaPct: number | undefined;
   currentCard.find("div.d-flex").each((_, elem) => {
@@ -870,6 +888,11 @@ const extractSkillFromTlidbHtml = (
     }
   }
 
+  // Extract buff duration from the skill details (e.g., "Lasts 6s." → 6)
+  const durationMatch = description.join("\n").match(/Lasts ([\d.]+) ?s\b/);
+  const durationSec =
+    durationMatch?.[1] !== undefined ? parseFloat(durationMatch[1]) : undefined;
+
   return {
     type: skillType,
     name,
@@ -878,6 +901,8 @@ const extractSkillFromTlidbHtml = (
     mainStats,
     manaCostMultiplierPct,
     sealedManaPct,
+    cooldownSec,
+    durationSec,
     parsedLevelModValues,
     parsedAffixDefs,
     progressionTable,
@@ -1474,6 +1499,8 @@ const main = async (options: Options): Promise<void> => {
         ...baseSkill,
         ...(raw.mainStats !== undefined && { mainStats: raw.mainStats }),
         kinds,
+        ...(raw.cooldownSec !== undefined && { cooldownSec: raw.cooldownSec }),
+        ...(raw.durationSec !== undefined && { durationSec: raw.durationSec }),
         ...(levelValues !== undefined && { levelValues }),
       };
 

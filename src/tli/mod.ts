@@ -418,6 +418,7 @@ interface ModDefinitions {
   SpellBurstAdditionalDmgPct: { value: number; addn: true };
   PlaySafe: { value: number };
   CdrPct: { value: number };
+  PrepareIntervalSec: { value: number };
   SkillAreaPct: {
     value: number;
     skillAreaModType: SkillAreaModType;

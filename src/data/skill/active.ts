@@ -13,6 +13,8 @@ export const ActiveSkills = [
       "Counterattack:\nDeals 20-125 Secondary Fire Damage.",
     ],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 6,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -24,6 +26,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 2,
   },
   {
     type: "Active",
@@ -36,6 +39,8 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: ["dot"],
+    cooldownSec: 0.5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -46,6 +51,8 @@ export const ActiveSkills = [
       "Casts the skill and gains Euphoria:\n+35% additional damage for Projectile and Beam Skills\n+35% additional Ailment Damage for Projectile and Beam Skills\n-16% Attack and Cast Speed while this skill lasts. This effect is not affected by the effects of Empower Skills\nLasts 6s.",
     ],
     kinds: [],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -80,6 +87,8 @@ export const ActiveSkills = [
       "Gains 1 stack of buff for every enemy who enters the Arcane Circle for the first time",
     ],
     kinds: [],
+    cooldownSec: 10,
+    durationSec: 6,
     levelValues: {
       spellDmgPctPerStack: [
         1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2,
@@ -98,6 +107,7 @@ export const ActiveSkills = [
       "Archery Bond:\nSentry lasts 6s.\nSkill's max base Sentry quantity is 1\nSentry grants Euphoria to Nearby allies within 4m:\nProjectile Quantity is fixed at 1\n+30% additional Projectile Damage\n+20% Attack Speed for Attack Projectile Skills\n+20% Cast Speed for Spell Projectile Skills",
     ],
     kinds: [],
+    cooldownSec: 6,
   },
   {
     type: "Active",
@@ -146,6 +156,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str"],
     kinds: ["deal_damage", "hit_enemies"],
+    durationSec: 10,
     levelValues: {
       sweepWeaponAtkDmgPct: [
         142, 146, 150, 153, 157, 161, 164, 168, 172, 175, 179, 183, 186, 190,
@@ -193,6 +204,8 @@ export const ActiveSkills = [
       "Casts the skill and Curses enemies within the target area.\nCursed enemies +39% additional Cold Damage taken.\nLasts 5s.",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 5,
     levelValues: {
       dmgPct: [
         20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
@@ -210,6 +223,8 @@ export const ActiveSkills = [
       "Black Hole:\nDeals 249-249 Persistent Erosion Damage.\nKnockback effect from this skill is reversed\nWhen the skill deals Damage Over Time, it inflicts 100 Affliction on the enemy. Effect Cooldown: 1 s\nThe Black Hole knocks back enemies inside of it every 0.5s.\nLasts 4s.\nCasts the skill and gains Euphoria:\nYou deal + 3.5% additional Damage Over Time to enemies in the Black Hole for every 10 Affliction they have for 4s.",
     ],
     kinds: ["deal_damage", "dot"],
+    cooldownSec: 10,
+    durationSec: 4,
   },
   {
     type: "Active",
@@ -282,6 +297,8 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["deal_damage", "dot", "hit_enemies"],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -305,6 +322,7 @@ export const ActiveSkills = [
       "Casts the skill and moves in the target direction.\nThe skill and some Mobility Skills share the same cooldown.\n+24% additional Cooldown Recovery Speed for this skill",
     ],
     kinds: [],
+    cooldownSec: 3,
   },
   {
     type: "Active",
@@ -324,6 +342,8 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 1,
+    durationSec: 2,
   },
   {
     type: "Active",
@@ -335,6 +355,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 8,
   },
   {
     type: "Active",
@@ -346,6 +367,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 2,
   },
   {
     type: "Active",
@@ -371,6 +393,8 @@ export const ActiveSkills = [
       "Buff:\nBuffs grant +8% character Movement Speed\nLasts 6s.\nStacks up to 3 time(s).",
     ],
     kinds: [],
+    cooldownSec: 6,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -382,6 +406,8 @@ export const ActiveSkills = [
       "This skill costs Life instead of Mana",
     ],
     kinds: [],
+    cooldownSec: 10,
+    durationSec: 6,
     levelValues: {
       meleeDmgPct: [
         17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24,
@@ -402,6 +428,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 1,
   },
   {
     type: "Active",
@@ -424,6 +451,8 @@ export const ActiveSkills = [
       "While this skill lasts, loses 2% Max Life and Max Energy Shield every second",
     ],
     kinds: ["hit_enemies"],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -436,6 +465,8 @@ export const ActiveSkills = [
       "75% of the bonuses for Movement Speed is also applied to the additional Attack Speed of the skill, up to +60% additional Attack Speed",
     ],
     kinds: [],
+    cooldownSec: 1,
+    durationSec: 1,
   },
   {
     type: "Active",
@@ -505,6 +536,8 @@ export const ActiveSkills = [
       "Casts the skill and lets out a Warcry:\nTaunts Nearby enemies.\n+20% Tracking Area for Shadow Strike Skills while the skill lasts\n+20% Tracking Area for Shadow Strike Skills while the skill lasts\nLasts for 3s",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 3,
     levelValues: {
       shadowStrikeSkillDmgPerEnemy: [
         4.95, 4.95, 4.95, 4.95, 4.95, 4.95, 4.95, 4.95, 4.95, 4.95, 4.95, 4.95,
@@ -534,6 +567,8 @@ export const ActiveSkills = [
       "Casts the skill and lets out a Warcry:\nTaunts Nearby enemies.\n+6% additional Minion Damage per enemy affected. Stacks up to 8 times\nLasts 3s.",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -546,6 +581,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -590,6 +626,8 @@ export const ActiveSkills = [
       "Casts the skill and Curses enemies within the target area.\nCursed enemies +39% additional Erosion Damage taken.\n+10% chance to Wilt when you are hit by a Cursed enemy\nLasts 5s.",
     ],
     kinds: ["inflict_ailment"],
+    cooldownSec: 8,
+    durationSec: 5,
     levelValues: {
       dmgPct: [
         20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
@@ -631,6 +669,8 @@ export const ActiveSkills = [
       "Casts the skill and gains Euphoria:\nGains 19.5 Command\n7.8% additional Minion Damage while the skill lasts\n+20% Minion Movement Speed while the skill lasts",
     ],
     kinds: ["summon_minions"],
+    cooldownSec: 5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -642,6 +682,7 @@ export const ActiveSkills = [
       "Casts the skill and gains Euphoria:\nWhile the skill lasts, Spirit Magi deal higher damage to rarer enemies, up to +31.5 additional damage\nLasts for 3s",
     ],
     kinds: ["summon_spirit_magus"],
+    cooldownSec: 5,
   },
   {
     type: "Active",
@@ -653,6 +694,8 @@ export const ActiveSkills = [
       "If at least 4 stack(s) of Tenacity Blessing are active when casting the skill, loses all 4 stack(s) of Tenacity Blessing and gains additional Defense:",
     ],
     kinds: [],
+    cooldownSec: 6,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -663,6 +706,8 @@ export const ActiveSkills = [
       "Casts the skill and gains defensive effect:\n+21% Injury Buffer while the skill lasts\nLasts 5s.",
     ],
     kinds: [],
+    cooldownSec: 6,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -685,6 +730,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -728,6 +774,8 @@ export const ActiveSkills = [
       "Casts the skill and Curses enemies within the target area.\n+39% additional Lightning Damage taken by Cursed enemies\nLasts 5s.",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 5,
     levelValues: {
       lightningDmgPct: [
         20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
@@ -745,6 +793,8 @@ export const ActiveSkills = [
       "Casts the skill and gains Euphoria:\n24.5% additional Minion Elemental Damage while the skill lasts\nLasts 6s.",
     ],
     kinds: [],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -754,6 +804,7 @@ export const ActiveSkills = [
       "Repeatedly casts Vendetta, targeting a random enemy within a 12m radius each time. Starts with -30% additional Attack Speed, +5% additional Attack Speed per repeat cast. Repeat limit: 30 times.\nThis skill cannot be supported by Activation Medium Skills.\nClick it again while casting to interrupt.",
     ],
     kinds: [],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -764,6 +815,8 @@ export const ActiveSkills = [
       "Casts the skill and Curses enemies within the target area.\n+39% additional Damage Over Time taken by Cursed enemies\nLasts 5s.",
     ],
     kinds: ["dot"],
+    cooldownSec: 8,
+    durationSec: 5,
     levelValues: {
       dmgPct: [
         20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
@@ -784,6 +837,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -794,6 +848,8 @@ export const ActiveSkills = [
       "Casts the skill and lets out a Warcry:\nTaunts Nearby enemies.\n5.9% additional damage dealt by Slash-Strike skills for each enemy affected, stacking up to 8 times\n5.9% additional Ailment Damage dealt by Slash-Strike skills per enemy affected, stacking up to 8 times\nLasts 3s.",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 3,
     levelValues: {
       slashStrikeSkillDmgPerEnemy: [
         4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4,
@@ -819,6 +875,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -830,6 +887,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 15,
   },
   {
     type: "Active",
@@ -853,6 +911,8 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -864,6 +924,8 @@ export const ActiveSkills = [
       "Casts the skill and gains Euphoria:\n+3% additional damage for each enemy affected. Stacks up to 10 times\n+8% Mark Effect for each enemy affected, stacking up to 10 times.\nLasts 6s.",
     ],
     kinds: [],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -898,6 +960,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "dot", "hit_enemies"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -957,6 +1020,8 @@ export const ActiveSkills = [
       "Casts the skill and gains defensive effect:\n+40% Energy Shield Charge Speed while the skill lasts\nEnergy Shield starts to Charge immediately\nLasts 5s.",
     ],
     kinds: [],
+    cooldownSec: 6,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -980,6 +1045,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies", "inflict_ailment"],
+    cooldownSec: 3,
   },
   {
     type: "Active",
@@ -1026,6 +1092,8 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -1037,6 +1105,8 @@ export const ActiveSkills = [
       "Frost Shield:\nDeals 80-121 Spell Cold Damage.",
     ],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 6,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -1116,6 +1186,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "dot", "inflict_ailment"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -1180,6 +1251,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: [],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -1215,6 +1287,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -1249,6 +1322,7 @@ export const ActiveSkills = [
       "At the end of the skill channeling, generates an area that follows the caster. Sentries within this area gain Euphoria:\n+12% additional damage for Sentries in the area while the skill lasts\nLasts for 6s\n+33% additional Empower Effect for this skill for every 1 channeled stack\nIf the channeling of this skill stops at max channeled stacks, +3s duration for Sentries in this area.\nMovement is not restricted when the skill is being channeled.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -1262,6 +1336,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -1273,6 +1348,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 8,
   },
   {
     type: "Active",
@@ -1346,6 +1422,7 @@ export const ActiveSkills = [
       "The Ice Sentry grants Euphoria to the character:\nWhile the buff is active, the character's other skills +24% additional Cold Damage against Frostbitten enemies",
     ],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 1,
     levelValues: {
       coldDmgPctVsFrostbitten: [
         14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21,
@@ -1365,6 +1442,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["hit_enemies", "inflict_ailment"],
+    cooldownSec: 8,
   },
   {
     type: "Active",
@@ -1448,6 +1526,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -1517,6 +1596,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -1579,6 +1659,8 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 2,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -1599,6 +1681,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex", "int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 8,
   },
   {
     type: "Active",
@@ -1610,6 +1693,8 @@ export const ActiveSkills = [
       "This skill +100% additional Status Effect for every 1 Minion owned, stacking up to 7 time(s).",
     ],
     kinds: ["summon_minions"],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -1620,6 +1705,7 @@ export const ActiveSkills = [
       "Gains Euphoria upon casting the skill:\n16.65% additional Spell Damage while the skill lasts\nConsumes 16.65% additional Spell Damage while the skill lasts Mana every second.\nLoses the Euphoria effect when Mana drops to 0.",
     ],
     kinds: [],
+    cooldownSec: 10,
     levelValues: {
       spellDmgPct: [
         10, 10.35, 10.7, 11.05, 11.4, 11.75, 12.1, 12.45, 12.8, 13.15, 13.5,
@@ -1640,6 +1726,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -1727,6 +1814,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 12,
   },
   {
     type: "Active",
@@ -1738,6 +1826,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 8,
   },
   {
     type: "Active",
@@ -1777,6 +1866,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "dot", "hit_enemies"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -1789,6 +1879,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -1799,6 +1890,7 @@ export const ActiveSkills = [
       "Casts the skill and creates an area that follows the caster for 6s.\nCasts the skill and gains Euphoria:\nWhile the skill lasts, Spirit Magi within range 107.5 initial Growth",
     ],
     kinds: ["summon_spirit_magus"],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -1810,6 +1902,7 @@ export const ActiveSkills = [
       "15.25% Blur Rating above its max stack when casting skills",
     ],
     kinds: [],
+    cooldownSec: 6,
   },
   {
     type: "Active",
@@ -1820,6 +1913,7 @@ export const ActiveSkills = [
       "Casts this skill and Curses enemies within the target area.\nCursed enemies can gain Ill Omen\n+40% Skill Area for the skill\n+40% additional duration for this skill\nLasts for 5s",
     ],
     kinds: [],
+    cooldownSec: 8,
   },
   {
     type: "Active",
@@ -1831,6 +1925,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 0.1,
   },
   {
     type: "Active",
@@ -1886,6 +1981,8 @@ export const ActiveSkills = [
       "Casts the skill and gains defensive effect:\nSynthetic Troop Minions restore 11.75% of Max Life per second while the skill lasts\nLasts 6s.",
     ],
     kinds: ["summon_synthetic_troops"],
+    cooldownSec: 6,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -1898,6 +1995,8 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -1921,6 +2020,8 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -1942,6 +2043,8 @@ export const ActiveSkills = [
       "Casts the skill and lets out a Warcry:\nTaunts Nearby enemies.\n4.95% additional damage dealt by Demolisher skills for each enemy affected, stacking up to 8 times\n4.95% additional Ailment Damage dealt by Demolisher skills per enemy affected, stacking up to 8 times\n+4% Demolisher Charge Recovery Speed for each enemy affected, stacking up to 8 times\nLasts 3.5s.",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 3.5,
   },
   {
     type: "Active",
@@ -1976,6 +2079,8 @@ export const ActiveSkills = [
       "Refreshes the Barrier owned upon casting the skill",
     ],
     kinds: [],
+    cooldownSec: 6,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -1988,6 +2093,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2000,6 +2106,8 @@ export const ActiveSkills = [
       "Restores 1160 Life in 4 s",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -2022,6 +2130,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 0.2,
   },
   {
     type: "Active",
@@ -2043,6 +2152,8 @@ export const ActiveSkills = [
       "Casts the skill and gains Euphoria:\n+5% additional Minion Damage for every Summon Skill cast. Stacks up to 5 time(s)\nLasts 6s.",
     ],
     kinds: ["summon_minions"],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -2094,6 +2205,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -2105,6 +2217,7 @@ export const ActiveSkills = [
       "The Safeguard Sentry grants defensive effect to allies:\n-8% additional damage taken as the buff lasts\n-20% additional damage dealt by enemies outside the circle as the buff lasts",
     ],
     kinds: [],
+    cooldownSec: 6,
   },
   {
     type: "Active",
@@ -2117,6 +2230,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2152,6 +2266,8 @@ export const ActiveSkills = [
       "Casts the skill and Curses enemies within the target area.\n+39% additional Fire Damage taken by Cursed enemies\n+10% chance to be Ignited when you are hit by a Cursed enemy\nLasts 5s.",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -2177,6 +2293,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "dot", "hit_enemies"],
+    cooldownSec: 5,
   },
   {
     type: "Active",
@@ -2189,6 +2306,8 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -2200,6 +2319,8 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 10,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -2210,6 +2331,8 @@ export const ActiveSkills = [
       "Casts the skill and gains Euphoria:\n+3% Cast Speed for every stack of Focus Blessing you have while the skill lasts. Stacks up to 8 time(s)\n+15% additional Spell Damage while the skill lasts\nLasts 6s.",
     ],
     kinds: [],
+    cooldownSec: 10,
+    durationSec: 6,
     levelValues: {
       spellDmgPct: [
         5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13,
@@ -2233,6 +2356,8 @@ export const ActiveSkills = [
       "While this is active, Skills supported by Clockwork Core gain unique effects from Alternate Spacetime Youga",
     ],
     kinds: [],
+    cooldownSec: 16,
+    durationSec: 7,
   },
   {
     type: "Active",
@@ -2276,6 +2401,7 @@ export const ActiveSkills = [
       "This skill inflicts 5 stack(s) of Slow on enemies at the starting point, the target location, and in proximity to the path",
     ],
     kinds: [],
+    cooldownSec: 3,
   },
   {
     type: "Active",
@@ -2302,6 +2428,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "dot", "hit_enemies"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2323,6 +2450,7 @@ export const ActiveSkills = [
       "Casts the skill and lets out a Warcry:\nTaunts Nearby enemies.\n5.95% additional damage and Ailment Damage for Combo Finishers for each enemy affected, stacking up to 8 time(s)\nWhile the skill lasts, +6% Skill Area for Combo skills for each Combo Finisher cast. Stacks up to 5 time(s)\nLasts for 3s",
     ],
     kinds: [],
+    cooldownSec: 8,
   },
   {
     type: "Active",
@@ -2334,6 +2462,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -2403,6 +2532,7 @@ export const ActiveSkills = [
       "Gains 1 stack of buff for each enemy hit with this skill, stacking up to 8 times\nKnockback effect from this skill is reversed",
     ],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 3,
   },
   {
     type: "Active",
@@ -2461,6 +2591,7 @@ export const ActiveSkills = [
       "Star Stalker:\nWhile inside the area, the character gains Euphoria:\n+32% additional Damage Over Time\nThe Flying Speed of the Projectile is 100% of the character's Movement Speed\nThe Projectile lasts for 4s\nThe Projectiles launched by this skill are not affected by Penetrate, Jump, or Return effects",
     ],
     kinds: ["dot"],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -2475,6 +2606,8 @@ export const ActiveSkills = [
       "While this is active, Projectile Skills supported by Clockwork Core trigger Recall when touching walls or the vault",
     ],
     kinds: [],
+    cooldownSec: 16,
+    durationSec: 8,
   },
   {
     type: "Active",
@@ -2487,6 +2620,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2497,6 +2631,8 @@ export const ActiveSkills = [
       "Casts the skill and gains defensive effect: Absorbs Absorb 70% damage taken. Cannot absorb Damage Over Time.\n1500 damaged absorbed of damage taken.\nAbsorbs up to Absorb 70% damage taken. Cannot absorb Damage Over Time.\n1500 damaged absorbed damage.\nLasts 6s.",
     ],
     kinds: ["dot"],
+    cooldownSec: 6,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -2510,6 +2646,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int", "dex"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2522,6 +2659,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["summon_minions", "summon_synthetic_troops"],
+    cooldownSec: 5,
   },
   {
     type: "Active",
@@ -2560,6 +2698,7 @@ export const ActiveSkills = [
       "-0.1s Cooldown for this skill for each enemy linked by Chains of Enslavement. Effective times limit equals Max Link Quantity",
     ],
     kinds: [],
+    cooldownSec: 3.3,
   },
   {
     type: "Active",
@@ -2583,6 +2722,8 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -2605,6 +2746,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 4,
   },
   {
     type: "Active",
@@ -2617,6 +2759,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2629,6 +2772,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2642,6 +2786,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "dot"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2676,6 +2821,8 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex", "int"],
     kinds: [],
+    cooldownSec: 10,
+    durationSec: 6,
   },
   {
     type: "Active",
@@ -2715,6 +2862,7 @@ export const ActiveSkills = [
       "The Thunderlight Sentry grants Euphoria to allies:\nWhile the buff is active, +20% Numbed Effect\nDamage triggers Lucky when buffs are persistent",
     ],
     kinds: [],
+    cooldownSec: 3,
   },
   {
     type: "Active",
@@ -2776,6 +2924,8 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -2790,6 +2940,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2800,6 +2951,8 @@ export const ActiveSkills = [
       "Casts the skill and Curses enemies within the target area.\n+39% additional Hit Damage taken by Cursed enemies\nLasts 5s.",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 5,
     levelValues: {
       dmgPct: [
         20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
@@ -2819,6 +2972,7 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
   },
   {
     type: "Active",
@@ -2830,6 +2984,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["str", "int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 8,
   },
   {
     type: "Active",
@@ -2861,6 +3016,7 @@ export const ActiveSkills = [
       "Teleports to a random enemy within 9m, then triggers the Main Skill 1 time and +30% additional Attack Damage for the triggered skill.\nThis skill cannot be supported by Activation Medium Skills.\nCan only be used when a non-Channeled, non-Mobility, or Main Melee Attack Skill is equipped.",
     ],
     kinds: [],
+    cooldownSec: 3,
   },
   {
     type: "Active",
@@ -2874,6 +3030,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int", "dex"],
     kinds: ["deal_damage", "dot"],
+    cooldownSec: 2,
   },
   {
     type: "Active",
@@ -2884,6 +3041,8 @@ export const ActiveSkills = [
       "Casts the skill and Curses enemies within the target area.\n+39% additional Physical Damage taken by Cursed enemies\n+10% chance to be Traumatized when hit by a Cursed enemy\nLasts 5s.",
     ],
     kinds: [],
+    cooldownSec: 8,
+    durationSec: 5,
   },
   {
     type: "Active",
@@ -2916,6 +3075,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["deal_damage", "hit_enemies"],
+    cooldownSec: 0.1,
   },
   {
     type: "Active",
@@ -2928,6 +3088,8 @@ export const ActiveSkills = [
       "Defeating enemies can increase the Charging Progress of this skill. At 15 Charging Progress, gains 1 Charge. Defeating a Normal/Magic/Rare/Boss enemy grants 1/3/6/100 Charging Progress.",
     ],
     kinds: [],
+    cooldownSec: 0.5,
+    durationSec: 3,
   },
   {
     type: "Active",
@@ -2954,6 +3116,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["dex"],
     kinds: ["deal_damage", "hit_enemies", "inflict_ailment"],
+    durationSec: 4,
   },
   {
     type: "Active",
@@ -2965,6 +3128,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: [],
+    cooldownSec: 10,
   },
   {
     type: "Active",
@@ -2976,6 +3140,7 @@ export const ActiveSkills = [
     ],
     mainStats: ["int"],
     kinds: ["hit_enemies"],
+    cooldownSec: 8,
   },
   {
     type: "Active",

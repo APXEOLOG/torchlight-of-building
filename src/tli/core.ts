@@ -85,6 +85,8 @@ export interface Configuration {
   hasFullMana: boolean;
   // default to false
   hasLowMana: boolean;
+  // default to false: buffs from Preparation count at their average uptime
+  buffsAlwaysActive: boolean;
   // default to false
   enemyParalyzed: boolean;
   // default to false
@@ -255,6 +257,7 @@ export const DEFAULT_CONFIGURATION: Configuration = {
   hasTenacityBlessing: false,
   hasFullMana: false,
   hasLowMana: false,
+  buffsAlwaysActive: false,
   enemyParalyzed: false,
   enemyNumbed: false,
   enemyNumbedStacks: undefined,

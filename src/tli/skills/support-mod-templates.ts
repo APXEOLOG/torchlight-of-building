@@ -181,6 +181,13 @@ const allSupportParsers = [
     type: "FocusBuffEffPct",
     value: c.value,
   })),
+  t("prepares the supported skill every {value:dec} s").output((c) => ({
+    type: "PrepareIntervalSec",
+    value: c.value,
+  })),
+  t("{value:+dec%} cooldown recovery speed for the supported skill").output(
+    (c) => ({ type: "CdrPct", value: c.value }),
+  ),
   t("{value:+dec%} duration for the supported skill").output((c) => ({
     type: "SkillEffDurationPct",
     value: c.value,

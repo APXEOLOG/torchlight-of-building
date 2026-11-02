@@ -462,6 +462,17 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
             min={0}
           />
 
+          <label className="text-right text-zinc-50">
+            Buffs Always Active
+            <InfoTooltip text="Off: buffs cast by Preparation count at their average uptime" />
+          </label>
+          <input
+            type="checkbox"
+            checked={config.buffsAlwaysActive}
+            onChange={(e) => onUpdate({ buffsAlwaysActive: e.target.checked })}
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
+
           <label className="text-right text-zinc-50">Enemy Paralyzed</label>
           <input
             type="checkbox"
