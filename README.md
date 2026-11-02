@@ -12,6 +12,10 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Importing your character
+
+You can import your character from the game's log. See [docs/claude/player-import.md](docs/claude/player-import.md).
+
 ## Want to contribute? 
 
 * Reach out to me on discord. I am aclinia on the torchlight infinite.

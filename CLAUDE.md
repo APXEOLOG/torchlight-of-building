@@ -310,6 +310,8 @@ describe("feature", () => {
 
 For UI work, read [docs/claude/ui-development.md](docs/claude/ui-development.md).
 
+For the game log importer, its build format and manual entries, read [docs/claude/player-import.md](docs/claude/player-import.md).
+
 ## Claude Skills
 
 Guided workflows for common tasks (invoke with `/skill-name`):
