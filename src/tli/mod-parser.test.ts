@@ -2587,18 +2587,48 @@ test("parse unsigned projectile speed", () => {
   expect(result).toEqual([{ type: "ProjSpdPct", value: 4.5, addn: false }]);
 });
 
-test("parse tradeoff dex >= str attack speed", () => {
+test("parse tradeoff while dual wielding", () => {
   const result = parseMod(
-    "+20% additional Attack Speed when Dexterity is no less than Strength",
+    "While Dual Wielding, -10% additional Attack Speed, -30% Attack Block Chance, and +55% additional Melee Damage",
   );
-  expect(result).toEqual([{ type: "TradeoffDexGteStrAspdPct", value: 20 }]);
+  expect(result).toEqual([
+    { type: "AspdPct", value: -10, addn: true, cond: "is_dual_wielding" },
+    { type: "AttackBlockChancePct", value: -30, cond: "is_dual_wielding" },
+    {
+      type: "DmgPct",
+      value: 55,
+      dmgModType: "melee",
+      addn: true,
+      cond: "is_dual_wielding",
+    },
+  ]);
 });
 
-test("parse tradeoff str >= dex attack damage", () => {
-  const result = parseMod(
-    "+25% additional Attack Damage when Strength is no less than Dexterity",
-  );
-  expect(result).toEqual([{ type: "TradeoffStrGteDexDmgPct", value: 25 }]);
+test("parse lines from the Rosa 2 Frost Spike build", () => {
+  expect(parseMod("+60% damage while standing still")).toEqual([
+    {
+      type: "DmgPct",
+      value: 60,
+      dmgModType: "global",
+      addn: false,
+      cond: "is_standing_still",
+    },
+  ]);
+  expect(parseMod("+20% Frostbite Effect")).toEqual([
+    { type: "FrostbiteEffPct", value: 20 },
+  ]);
+  expect(parseMod("Support Skill's Mana Multiplier is fixed at 95%.")).toEqual([
+    { type: "OverrideSupportSkillManaMultPct", value: 95 },
+  ]);
+  expect(parseMod("+9% Attack Damage while Dual Wielding")).toEqual([
+    {
+      type: "DmgPct",
+      value: 9,
+      dmgModType: "attack",
+      addn: false,
+      cond: "is_dual_wielding",
+    },
+  ]);
 });
 
 test("parse additional lightning damage against numbed enemies", () => {

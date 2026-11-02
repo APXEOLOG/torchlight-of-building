@@ -249,6 +249,7 @@ export const Conditions = [
   "has_used_mobility_skill_recently",
   "has_moved_recently",
   "is_moving",
+  "is_standing_still",
   "has_cast_curse_recently",
   "taking_damage_over_time",
   // pactspirits
@@ -577,8 +578,6 @@ interface ModDefinitions {
   JoinedForceAddOffhandToMainhandPct: { value: number };
   Conductive: { value: number };
   ChangeTenacityToAddnDmgPct: { value: number };
-  TradeoffDexGteStrAspdPct: { value: number };
-  TradeoffStrGteDexDmgPct: { value: number };
   // hero-specific mods
   Blasphemer: object;
   // bing2

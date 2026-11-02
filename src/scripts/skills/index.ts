@@ -182,6 +182,11 @@ export const SKILL_PARSERS: SkillParserEntry[] = [
     parser: electrocuteParser,
   },
   {
+    skillName: "Fearless",
+    categories: ["passive"],
+    parser: preciseFearlessParser,
+  },
+  {
     skillName: "Precise: Fearless",
     categories: ["passive"],
     parser: preciseFearlessParser,

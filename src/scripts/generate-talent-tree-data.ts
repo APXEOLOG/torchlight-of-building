@@ -83,11 +83,9 @@ const parseAffix = (htmlContent: string): string => {
   const decoded = decodeHtmlEntities(htmlContent);
   const $ = cheerio.load(decoded);
 
-  // The tooltip holds the node name, then the affix text in data-source="attr" blocks
-  return $('[data-source="attr"]')
-    .map((_, block) => $(block).html() ?? "")
-    .get()
-    .flatMap((html) => html.split(/<br\s*\/?>/i))
+  // The first data-source="attr" block is the node's affix. A later one is its version under a Prophecy hero trait.
+  return ($('[data-source="attr"]').first().html() ?? "")
+    .split(/<br\s*\/?>/i)
     .map((line) => stripTalentNotes(cheerio.load(line).text()))
     .filter((line) => line.length > 0)
     .join("\n");

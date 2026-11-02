@@ -134,19 +134,19 @@ const heroTraitModFactories: Partial<Record<HeroTraitName, ModFactory>> = {
     },
     {
       type: "AddnMainHandDmgPct",
-      value: [20, 27, 34, 41, 48][i],
+      value: [10, 16, 22, 28, 34][i],
       cond: "realm_of_mercury",
     },
   ],
   "Boundless Sanctuary": (i) => [
     {
       type: "DmgPct",
-      value: [6, 7, 8, 9, 10][i],
+      value: [4, 5, 6, 7, 8][i],
       dmgModType: "elemental",
       addn: true,
       per: {
         stackable: "num_enemies_inside_realm_of_mercury",
-        valueLimit: [60, 70, 80, 90, 100][i],
+        valueLimit: [40, 50, 60, 70, 80][i],
       },
     },
   ],

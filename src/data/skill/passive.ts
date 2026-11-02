@@ -192,6 +192,22 @@ export const PassiveSkills = [
       "Activates the Aura, you and allies within a certain area gain the following buff:\n+80% Critical Strike Rating for Melee Skills\n+30% additional Melee Skill Damage",
     ],
     sealedManaPct: 50,
+    levelValues: {
+      meleeCritRatingPct: [
+        61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78,
+        79, 80, 81, 81.5, 82, 82.5, 83, 83.5, 84, 84.5, 85, 85.5, 86, 86.5, 87,
+        87.5, 88, 88.5, 89, 89.5, 90, 90.5,
+      ],
+      meleeDmgPct: [
+        11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+        29, 30, 31, 31.5, 32, 32.5, 33, 33.5, 34, 34.5, 35, 35.5, 36, 36.5, 37,
+        37.5, 38, 38.5, 39, 39.5, 40, 40.5,
+      ],
+      meleeAspdPct: [
+        8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+        8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+      ],
+    },
   },
   {
     type: "Passive",

@@ -285,8 +285,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+10% Attack and Cast Speed when at Full Mana\n+15% Max Mana\n+3% Attack and Cast Speed for each stack of Max Focus Blessing while at Full Mana. Stacks up to 18 time(s)",
+        rawAffix: "+10% Attack and Cast Speed when at Full Mana\n+15% Max Mana",
         position: { x: 4, y: 0 },
         prerequisite: { x: 3, y: 1 },
         maxPoints: 1,
@@ -301,8 +300,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "8% of damage is taken from Mana before life\n8% of damage is taken from Mana before life\nGains 1 stack(s) of Focus Blessing for every 10% Mana consumed. Interval: 0.3s",
+        rawAffix: "8% of damage is taken from Mana before life",
         position: { x: 6, y: 0 },
         prerequisite: { x: 5, y: 0 },
         maxPoints: 1,
@@ -772,8 +770,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+20% Numbed Effect\n+50% Numbed Effect if Agility Blessing was consumed recently",
+        rawAffix: "+20% Numbed Effect",
         position: { x: 6, y: 0 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -820,7 +817,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "-4% to the Max Life and Energy Shield thresholds for inflicting Numbed\nInflicts 1 additional stack(s) of Numbed\nConsumes 3 stack(s) of Agility Blessing when dealing Lightning Damage to inflict 2 stack(s) of Numbed on enemies within 10m around the target. Interval: 1 s\nInflicts 1 additional stack(s) of Numbed",
+          "-4% to the Max Life and Energy Shield thresholds for inflicting Numbed\nInflicts 1 additional stack(s) of Numbed",
         position: { x: 6, y: 1 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -850,8 +847,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Immune to Numbed\nMinions are immune to Lightning Damage\nWhile having Lucky Damage, consumes 1 stack of Agility Blessing every 4s, making Hit Damage Very Lucky for the next 4s",
+        rawAffix: "Immune to Numbed\nMinions are immune to Lightning Damage",
         position: { x: 3, y: 2 },
         prerequisite: { x: 2, y: 2 },
         maxPoints: 1,
@@ -867,8 +863,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Inflicts Numbed when dealing Hit Lightning Damage\nInflicts Numbed when dealing Hit Lightning Damage\nGains 1 stack(s) of Agility Blessing when dealing damage to a Numbed enemy",
+        rawAffix: "Inflicts Numbed when dealing Hit Lightning Damage",
         position: { x: 6, y: 2 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -1027,8 +1022,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+6% additional Attack Speed while Dual Wielding\nConsumes 1 stack of Agility Blessing when casting an Attack Skill\n90% of Multistrike Chance also applies to Attack Damage bonuses when an Attack Skill consumes Agility Blessing",
+        rawAffix: "+6% additional Attack Speed while Dual Wielding",
         position: { x: 6, y: 0 },
         prerequisite: { x: 5, y: 0 },
         maxPoints: 1,
@@ -1051,8 +1045,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "25% chance to gain Attack Aggression on defeat\nGains Attack Aggression on hit\n+100% Attack Aggression Effect if Agility Blessing was consumed recently",
+        rawAffix: "25% chance to gain Attack Aggression on defeat",
         position: { x: 3, y: 1 },
         prerequisite: { x: 2, y: 1 },
         maxPoints: 1,
@@ -1123,8 +1116,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Gains a stack Agility Blessing when using Mobility Skills\nGains a stack Agility Blessing when using Mobility Skills\nGains max stacks of Agility Blessing and +6% additional Attack Speed for 4s upon reaching Max Multistrike Count",
+        rawAffix: "Gains a stack Agility Blessing when using Mobility Skills",
         position: { x: 6, y: 2 },
         prerequisite: { x: 5, y: 2 },
         maxPoints: 1,
@@ -1162,8 +1154,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Multistrikes deal 16% increasing damage\nMultistrike will not be interrupted if Agility Blessing was consumed recently\nMultistrikes deal 16% increasing damage",
+        rawAffix: "Multistrikes deal 16% increasing damage",
         position: { x: 6, y: 3 },
         prerequisite: { x: 5, y: 3 },
         maxPoints: 1,
@@ -1267,7 +1258,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "+2% additional Attack Speed for each time you have Regained in the last 8s. Stacks up to 4 time(s)\n+2% additional Attack Speed for each time you have Regained in the last 8s. Stacks up to 4 time(s)\n+3% Attack Speed for each time Agility Blessing was consumed recently. Stacks up to 12 time(s)",
+          "+2% additional Attack Speed for each time you have Regained in the last 8s. Stacks up to 4 time(s)",
         position: { x: 6, y: 0 },
         prerequisite: { x: 5, y: 0 },
         maxPoints: 1,
@@ -1290,8 +1281,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "-16% additional Regain Interval\n-16% additional Regain Interval\nGains 1 stack of Agility Blessing upon Regaining",
+        rawAffix: "-16% additional Regain Interval",
         position: { x: 4, y: 1 },
         prerequisite: { x: 3, y: 2 },
         maxPoints: 1,
@@ -1308,7 +1298,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "+2% additional Cast Speed for each time you have Regained in the last 8s. Stacks up to 4 time(s)\n+2% additional Cast Speed for each time you have Regained in the last 8s. Stacks up to 4 time(s)\n+3% Cast Speed for each time Agility Blessing was consumed recently. Stacks up to 12 time(s)",
+          "+2% additional Cast Speed for each time you have Regained in the last 8s. Stacks up to 4 time(s)",
         position: { x: 6, y: 1 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -1362,8 +1352,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "When Regaining, inflicts Paralysis on enemies within 10m\nUpon Regaining, consumes 1 stack of Agility Blessing to inflict Paralysis, Weaken, Slow, and Taunt on enemies within 10m",
+        rawAffix: "When Regaining, inflicts Paralysis on enemies within 10m",
         position: { x: 6, y: 2 },
         prerequisite: { x: 5, y: 2 },
         maxPoints: 1,
@@ -1583,8 +1572,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+1 Fire Skill Level\n+1 Fire Skill Level\nIf you have dealt Fire Damage recently, 0.6% additional Lightning and Cold Damage for each stack of Max Focus Blessing. Stacks up to 18 time(s)",
+        rawAffix: "+1 Fire Skill Level",
         position: { x: 6, y: 2 },
         prerequisite: { x: 5, y: 3 },
         maxPoints: 1,
@@ -1615,8 +1603,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+1 Lightning Skill Level\n+1 Lightning Skill Level\nIf you have dealt Lightning Damage recently, 0.6% additional Cold and Fire Damage for each stack of Max Focus Blessing. Stacks up to 18 time(s)",
+        rawAffix: "+1 Lightning Skill Level",
         position: { x: 6, y: 3 },
         prerequisite: { x: 5, y: 3 },
         maxPoints: 1,
@@ -1647,7 +1634,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "Upon inflicting damage, penetrates 3% of Elemental Resistance for each type of Elemental Ailment the enemy has\nGains 1 stack of Focus Blessing when hitting an enemy with Elemental Ailments\nUpon inflicting damage, penetrates 3% of Elemental Resistance for each type of Elemental Ailment the enemy has",
+          "Upon inflicting damage, penetrates 3% of Elemental Resistance for each type of Elemental Ailment the enemy has",
         position: { x: 3, y: 4 },
         prerequisite: { x: 2, y: 4 },
         maxPoints: 1,
@@ -1663,7 +1650,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "-5% additional Elemental Damage taken for every type of Elemental Damage recently received\nConverts 1% of Physical Damage taken and 2% of Erosion Damage taken to random Elemental Damage for each stack of Max Focus Blessing. Stacks up to 18 time(s)",
+          "-5% additional Elemental Damage taken for every type of Elemental Damage recently received",
         position: { x: 5, y: 4 },
         prerequisite: { x: 4, y: 4 },
         maxPoints: 1,
@@ -1671,8 +1658,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+1 Cold Skill Level\n+1 Cold Skill Level\nIf you have dealt Cold Damage recently, 0.6% additional Fire and Lightning Damage for each stack of Max Focus Blessing. Stacks up to 18 time(s)",
+        rawAffix: "+1 Cold Skill Level",
         position: { x: 6, y: 4 },
         prerequisite: { x: 5, y: 3 },
         maxPoints: 1,
@@ -3518,7 +3504,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "When consuming Spell Burst, immediately starts Charging Energy Shield. Interval: 2 s\nImmediately starts Charging Energy Shield when Tangle casts a skill. Interval: 2 s\nWhen consuming Spell Burst, immediately starts Charging Energy Shield. Interval: 2 s\nImmediately starts Charging Energy Shield when Tangle casts a skill. Interval: 2 s\n+2% Energy Shield Charge Speed for each stack of Max Focus Blessing. Stacks up to 18 time(s)",
+          "When consuming Spell Burst, immediately starts Charging Energy Shield. Interval: 2 s\nImmediately starts Charging Energy Shield when Tangle casts a skill. Interval: 2 s",
         position: { x: 3, y: 2 },
         prerequisite: { x: 2, y: 2 },
         maxPoints: 1,
@@ -3533,8 +3519,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+12% Intelligence\n+1 to Max Focus Blessing Stacks while having at least 500 Intelligence",
+        rawAffix: "+12% Intelligence",
         position: { x: 5, y: 2 },
         prerequisite: { x: 4, y: 2 },
         maxPoints: 1,
@@ -3580,8 +3565,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Inflicts Frail when dealing Spell Damage\nInflicts Frail when dealing Spell Damage\n+8% Frail Effect for each stack of Max Focus Blessing. Stacks up to 18 time(s)",
+        rawAffix: "Inflicts Frail when dealing Spell Damage",
         position: { x: 6, y: 3 },
         prerequisite: { x: 5, y: 3 },
         maxPoints: 1,
@@ -3680,7 +3664,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "+8% Projectile Speed\nProjectile Damage increases with the distance traveled, dealing up to +48% damage to Distant enemies\nProjectile Damage increases with the distance traveled, dealing up to +60% damage to Distant enemies\nGains 1 stack of Agility Blessing when a Projectile Skill hits a distant enemy",
+          "+8% Projectile Speed\nProjectile Damage increases with the distance traveled, dealing up to +48% damage to Distant enemies",
         position: { x: 4, y: 0 },
         prerequisite: { x: 3, y: 0 },
         maxPoints: 1,
@@ -3688,8 +3672,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+1 to Parabolic Projectile Splits quantity\n+70% Skill Area for Projectile Skills if Agility Blessing was consumed recently",
+        rawAffix: "+1 to Parabolic Projectile Splits quantity",
         position: { x: 6, y: 0 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -3720,8 +3703,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+60% Projectile Damage against enemies in proximity\nThere is a 50% chance to consume 1 stack of Agility Blessing when casting a Projectile Skill\n+140% Critical Strike Rating when a Projectile Skill consumes Agility Blessing",
+        rawAffix: "+60% Projectile Damage against enemies in proximity",
         position: { x: 4, y: 1 },
         prerequisite: { x: 3, y: 1 },
         maxPoints: 1,
@@ -3736,8 +3718,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+1 Jumps\nIf Agility Blessing was consumed recently, +32% Projectile Speed for every +1 Jump(s). Stacks up to 4 time(s)",
+        rawAffix: "+1 Jumps",
         position: { x: 6, y: 1 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -3790,8 +3771,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+2 Horizontal Projectile Penetration(s)\n+12% Armor DMG Mitigation Penetration for Projectile Skills if Agility Blessing was consumed recently",
+        rawAffix: "+2 Horizontal Projectile Penetration(s)",
         position: { x: 6, y: 2 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -3821,8 +3801,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+50% Evasion gained from Helmet\nWhen hit while having at least 10 stack(s) of Agility Blessing, consumes 10 stack(s) of Agility Blessing instead of losing Deflection. Interval: 3 s",
+        rawAffix: "+50% Evasion gained from Helmet",
         position: { x: 4, y: 3 },
         prerequisite: { x: 3, y: 3 },
         maxPoints: 1,
@@ -3943,8 +3922,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+10% additional Base Damage for Two-Handed Weapons\n1.5% Strength per stack of Tenacity Blessing while wielding a Two-Handed Weapon. Stacks up to 18 time(s)",
+        rawAffix: "+10% additional Base Damage for Two-Handed Weapons",
         position: { x: 6, y: 0 },
         prerequisite: { x: 5, y: 0 },
         maxPoints: 1,
@@ -3977,7 +3955,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "+80% inflicted Paralysis Effect when holding a Two-Handed Weapon\n-10% additional Attack and Cast Speed while wielding a Two-Handed Weapon\n+3% chance for Attack Skills to deal Double Damage per stack of Tenacity Blessing while wielding a Two-Handed Weapon. Stacks up to 18 time(s)",
+          "+80% inflicted Paralysis Effect when holding a Two-Handed Weapon",
         position: { x: 6, y: 1 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -4054,7 +4032,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "Gains 1 stack(s) of Tenacity Blessing per second when at Full Life\n+1 Max Tenacity Blessing stacks at Full Life",
+          "Gains 1 stack(s) of Tenacity Blessing per second when at Full Life",
         position: { x: 4, y: 3 },
         prerequisite: { x: 3, y: 3 },
         maxPoints: 1,
@@ -4069,8 +4047,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+12% Strength\n+12% Strength\n+12% Strength when the Main Skill has the Strength tag, but lacks both Dexterity and Intelligence tags",
+        rawAffix: "+12% Strength",
         position: { x: 6, y: 3 },
         prerequisite: { x: 5, y: 3 },
         maxPoints: 1,
@@ -4115,8 +4092,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+40% Skill Area if Main Skill is not used in the last 2 s\n+6% Skill Area for each stack of Tenacity Blessing. Stacks up to 18 time(s)",
+        rawAffix: "+40% Skill Area if Main Skill is not used in the last 2 s",
         position: { x: 5, y: 4 },
         prerequisite: { x: 4, y: 4 },
         maxPoints: 1,
@@ -4176,8 +4152,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+10% additional damage against Frozen enemies\n+4 Max Frostbite Rating per stack of Max Focus Blessing. Stacks up to 18 time(s)",
+        rawAffix: "+10% additional damage against Frozen enemies",
         position: { x: 6, y: 0 },
         prerequisite: { x: 5, y: 0 },
         maxPoints: 1,
@@ -4200,8 +4175,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Inflicts Frostbite when dealing Hit Cold Damage\nInflicts Frostbite when dealing Hit Cold Damage\n+5% Frost-Seal Duration for each stack of Max Focus Blessing. Stacks up to 18 time(s)",
+        rawAffix: "Inflicts Frostbite when dealing Hit Cold Damage",
         position: { x: 3, y: 1 },
         prerequisite: { x: 2, y: 1 },
         maxPoints: 1,
@@ -4255,7 +4229,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "+18% Cold Resistance\nMinions are immune to Cold Damage\nMinions are immune to Frostbite and Freeze\nImmune to Frostbite while having at least 10 stack(s) of Max Focus Blessing",
+          "+18% Cold Resistance\nMinions are immune to Cold Damage\nMinions are immune to Frostbite and Freeze",
         position: { x: 3, y: 2 },
         prerequisite: { x: 2, y: 2 },
         maxPoints: 1,
@@ -4348,7 +4322,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "Inflicts Cold Infiltration when dealing damage to Frostbitten enemies\nInflicts Cold Infiltration when dealing damage to Frostbitten enemies\n+5 Critical Strike Rating against Frostbitten enemies for each stack of Max Focus Blessing. Stacks up to 18 time(s)",
+          "Inflicts Cold Infiltration when dealing damage to Frostbitten enemies",
         position: { x: 4, y: 4 },
         prerequisite: { x: 3, y: 4 },
         maxPoints: 1,
@@ -6101,8 +6075,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+5% Block Ratio when holding a Shield\n+5% Max Block Ratio while having at least 10 stack(s) of Tenacity Blessing",
+        rawAffix: "+5% Block Ratio when holding a Shield",
         position: { x: 6, y: 1 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -6155,8 +6128,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+4 to the minimum number of enemies affected by Warcry\n+4 to the minimum number of enemies affected by Warcry\nWhen casting a Warcry Skill, gains 1 stack of Tenacity Blessing for each enemy affected",
+        rawAffix: "+4 to the minimum number of enemies affected by Warcry",
         position: { x: 6, y: 2 },
         prerequisite: { x: 5, y: 2 },
         maxPoints: 1,
@@ -6232,8 +6204,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+40% Defense gained from Chest Armor\n100% of Attack Block Chance bonuses also applies to Spell Block Chance while having at least 10 stack(s) of Tenacity Blessing",
+        rawAffix: "+40% Defense gained from Chest Armor",
         position: { x: 3, y: 4 },
         prerequisite: { x: 2, y: 4 },
         maxPoints: 1,
@@ -6249,7 +6220,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "0.5% Elemental Resistance per 3000 Armor. Stacks up to 6%\n0.5% Erosion Resistance per 3000 Armor. Stacks up to 6%\n1.5% Elemental Resistance and Erosion Resistance for each stack of Tenacity Blessing. Stacks up to 18 time(s)",
+          "0.5% Elemental Resistance per 3000 Armor. Stacks up to 6%\n0.5% Erosion Resistance per 3000 Armor. Stacks up to 6%",
         position: { x: 6, y: 4 },
         prerequisite: { x: 5, y: 4 },
         maxPoints: 1,
@@ -6582,8 +6553,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+4% additional Fire Damage\n+8% chance to Ignite targets\n+3% Ignite Chance per stack of Tenacity Blessing. Stacks up to 18 time(s)",
+        rawAffix: "+4% additional Fire Damage\n+8% chance to Ignite targets",
         position: { x: 4, y: 1 },
         prerequisite: { x: 3, y: 1 },
         maxPoints: 1,
@@ -6599,7 +6569,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "+1% Fire Damage per 12 Strength\n+1% Minion Fire Damage per 12 Strength\nGains 1 stack of Tenacity Blessing when dealing damage to Ignited enemies. Interval: 0.1s\n+10 Affliction per second for each stack of Tenacity Blessing. Stacks up to 18 time(s)",
+          "+1% Fire Damage per 12 Strength\n+1% Minion Fire Damage per 12 Strength",
         position: { x: 6, y: 1 },
         prerequisite: { x: 5, y: 1 },
         maxPoints: 1,
@@ -6685,7 +6655,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       {
         nodeType: "legendary",
         rawAffix:
-          "+40% Ignite Chance against enemies that haven't been Ignited\nThe inflicted Ignite is replaced with Scorch while having at least 10 stack(s) of Tenacity Blessing",
+          "+40% Ignite Chance against enemies that haven't been Ignited",
         position: { x: 6, y: 3 },
         prerequisite: { x: 5, y: 4 },
         maxPoints: 1,
@@ -6741,8 +6711,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Inflicts 1 additional stack(s) of Ignite\n+1 to Max Ignite Stacks while having at least 10 stack(s) of Tenacity Blessing",
+        rawAffix: "Inflicts 1 additional stack(s) of Ignite",
         position: { x: 6, y: 4 },
         prerequisite: { x: 5, y: 4 },
         maxPoints: 1,
@@ -6800,8 +6769,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "+25% additional damage against Low Life enemies\n+60% additional damage against enemies at Low Life or Full Life while having at least 10 stack(s) of Tenacity Blessing",
+        rawAffix: "+25% additional damage against Low Life enemies",
         position: { x: 6, y: 0 },
         prerequisite: { x: 5, y: 0 },
         maxPoints: 1,
@@ -6893,8 +6861,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Gains a stack of Fortitude when using a Melee Skill\nGains a stack of Fortitude when using a Melee Skill\nGains 1 stack(s) of Tenacity Blessing when casting a Melee Skill",
+        rawAffix: "Gains a stack of Fortitude when using a Melee Skill",
         position: { x: 6, y: 2 },
         prerequisite: { x: 5, y: 2 },
         maxPoints: 1,
@@ -6924,8 +6891,7 @@ export const TalentTrees: readonly TalentTreeData[] = [
       },
       {
         nodeType: "legendary",
-        rawAffix:
-          "Restores 3% of Life on defeat\n-30% additional Life Regain Interval while having at least 3 stack(s) of Tenacity Blessing",
+        rawAffix: "Restores 3% of Life on defeat",
         position: { x: 4, y: 3 },
         prerequisite: { x: 3, y: 3 },
         maxPoints: 1,

@@ -474,8 +474,10 @@ const calculateHeroTraitMods = (
     if (trait !== undefined) {
       const memoryMods = collectModsFromAffixes(memory?.affixes ?? []);
       const addedLevel = findMod(memoryMods, "HeroTraitLevel")?.value ?? 0;
-      const memoryLevel = memory?.level ?? 40;
-      const baseLevel = memoryLevel >= 40 ? 3 : memoryLevel >= 20 ? 2 : 1;
+      // A trait with no memory slot stays at level 1.
+      const memoryLevel = memory?.level ?? 1;
+      // A fully upgraded memory adds 1 level to its trait.
+      const baseLevel = memoryLevel >= 40 ? 2 : 1;
       const level = baseLevel + addedLevel;
       mods.push(...getHeroTraitMods(trait.name, level));
       traitLevels.push({ name: trait.name as HeroTraitName, level });
@@ -615,7 +617,7 @@ const calculateImplicitMods = (): Mod[] => {
     },
     {
       type: "DmgPct",
-      value: 3,
+      value: 2,
       dmgModType: "elemental",
       addn: true,
       per: { stackable: "unsealed_mana_pct", amt: 10 },
@@ -951,6 +953,7 @@ const filterModsByCond = (
       )
       .with("has_moved_recently", () => config.hasMovedRecently)
       .with("is_moving", () => config.isMoving)
+      .with("is_standing_still", () => !config.isMoving)
       .with("has_cast_curse_recently", () => config.hasCastCurseRecently)
       .with("is_dual_wielding", () => derivedCtx.dualWielding)
       .with("has_one_handed_weapon", () => {
@@ -1871,10 +1874,9 @@ const resolveModsForOffenseSkill = (
       config.numSpellSkillsUsedRecently,
     );
     normalize("mana_consumed_recently", config.manaConsumedRecently ?? 0);
-    normalize(
-      "unsealed_mana_pct",
-      100 - resourcePool.sealedResources.sealedManaPct,
-    );
+    // Measured in game: Realm gives its full +20% with 7% of Max Mana left unsealed, so the percentage
+    // is of the unsealed pool, which Realm keeps topped up.
+    normalize("unsealed_mana_pct", 100);
     normalize(
       "unsealed_life_pct",
       100 - resourcePool.sealedResources.sealedLifePct,
@@ -2098,28 +2100,6 @@ const resolveModsForOffenseSkill = (
       }
     }
   };
-  const pushTradeoff = (): void => {
-    const { str, dex } = resourcePool.stats;
-    const tradeoffDexGteStrAspdPct = findMod(mods, "TradeoffDexGteStrAspdPct");
-    const tradeoffStrGteDexDmgPct = findMod(mods, "TradeoffStrGteDexDmgPct");
-    if (tradeoffDexGteStrAspdPct !== undefined && dex >= str) {
-      mods.push({
-        type: "AspdPct",
-        addn: true,
-        value: tradeoffDexGteStrAspdPct.value,
-        src: "Tradeoff",
-      });
-    }
-    if (tradeoffStrGteDexDmgPct !== undefined && str >= dex) {
-      mods.push({
-        type: "DmgPct",
-        addn: true,
-        dmgModType: "attack",
-        value: tradeoffStrGteDexDmgPct.value,
-        src: "Tradeoff",
-      });
-    }
-  };
   const pushWhimsy = (): void => {
     if (!config.targetEnemyHasWhimsySignal) return;
 
@@ -2232,7 +2212,7 @@ const resolveModsForOffenseSkill = (
     }
 
     const maxFrostbiteLimit =
-      findMod(mods, "MaxFrostbiteRatingLimitOverride")?.value ?? 100;
+      findMod(mods, "MaxFrostbiteRatingLimitOverride")?.value ?? 120;
 
     const maxFrostbiteRating = Math.min(
       maxFrostbiteLimit,
@@ -2242,7 +2222,7 @@ const resolveModsForOffenseSkill = (
     normalize("frostbite_rating", frostbitePoints);
 
     const frostbiteEffMult = calcEffMult(mods, "FrostbiteEffPct");
-    const baseFrostbiteValPerPoint = 0.5 * frostbiteEffMult;
+    const baseFrostbiteValPerPoint = frostbiteEffMult;
     const frostbiteVal = baseFrostbiteValPerPoint * frostbitePoints;
     mods.push({
       type: "DmgPct",
@@ -2412,7 +2392,6 @@ const resolveModsForOffenseSkill = (
       .length,
   );
   pushBerserkingBlade();
-  pushTradeoff();
   pushWhimsy();
   pushAttackAggression();
   pushSpellAggression();

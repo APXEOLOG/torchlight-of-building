@@ -42,7 +42,7 @@ const parseWillpowerBlob = (input: string): Mod[] | undefined => {
       value: parseFloat(dmgMatch[1]),
       dmgModType: GLOBAL,
       addn: true,
-      per: { stackable: "willpower" },
+      per: { stackable: "willpower", multiplicative: true },
     });
   }
 

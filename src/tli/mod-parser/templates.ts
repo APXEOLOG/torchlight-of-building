@@ -295,7 +295,7 @@ export const allParsers = [
     addn: false,
     cond: "has_blocked_recently",
   })),
-  t("{value:+dec%} attack damage when dual wielding").output((c) => ({
+  t("{value:+dec%} attack damage {(when|while)} dual wielding").output((c) => ({
     type: "DmgPct",
     value: c.value,
     dmgModType: "attack",
@@ -2197,13 +2197,49 @@ export const allParsers = [
   t(
     "changes the base effect of tenacity blessing to: {value:+dec%} additional damage",
   ).output((c) => ({ type: "ChangeTenacityToAddnDmgPct", value: c.value })),
-  // Tradeoff mods (Impermanence core talent)
+  // Tradeoff core talent
   t(
-    "{value:+dec%} additional attack speed when dexterity is no less than strength",
-  ).output((c) => ({ type: "TradeoffDexGteStrAspdPct", value: c.value })),
+    "while dual wielding, {aspd:+dec%} additional attack speed, {block:+dec%} attack block chance, and {dmg:+dec%} additional melee damage",
+  ).outputMany([
+    spec((c) => ({
+      type: "AspdPct",
+      value: c.aspd,
+      addn: true,
+      cond: "is_dual_wielding",
+    })),
+    spec((c) => ({
+      type: "AttackBlockChancePct",
+      value: c.block,
+      cond: "is_dual_wielding",
+    })),
+    spec((c) => ({
+      type: "DmgPct",
+      value: c.dmg,
+      dmgModType: "melee",
+      addn: true,
+      cond: "is_dual_wielding",
+    })),
+  ]),
+  t("{value:+dec%} damage while standing still").output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "global",
+    addn: false,
+    cond: "is_standing_still",
+  })),
+  t("{value:+dec%} frostbite effect").output((c) => ({
+    type: "FrostbiteEffPct",
+    value: c.value,
+  })),
   t(
-    "{value:+dec%} additional attack damage when strength is no less than dexterity",
-  ).output((c) => ({ type: "TradeoffStrGteDexDmgPct", value: c.value })),
+    "inflicts cold infiltration when dealing damage to frostbitten enemies",
+  ).output(() => ({ type: "InflictsInfiltration", infiltrationType: "cold" })),
+  t("{value:+dec%} attack speed while dual wielding").output((c) => ({
+    type: "AspdPct",
+    value: c.value,
+    addn: false,
+    cond: "is_dual_wielding",
+  })),
   // Gear-specific mods
   t(
     "{value:+dec%} [{modType:CritRatingModType}] critical strike rating for this gear",
@@ -2597,7 +2633,9 @@ export const allParsers = [
     skillName: c.skillName,
     level: c.level,
   })),
-  t("support skill's mana multiplier is set to {value:dec%}.").output((c) => ({
+  t(
+    "support skill's mana multiplier is {(set to|fixed at)} {value:dec%}.",
+  ).output((c) => ({
     type: "OverrideSupportSkillManaMultPct",
     value: c.value,
   })),

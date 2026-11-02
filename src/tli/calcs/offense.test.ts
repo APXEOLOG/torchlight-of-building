@@ -1948,14 +1948,14 @@ describe("resolveSelectedSkillSupportMods via calculateOffense", () => {
   test("all four support skills (haunt, willpower, steamroll, quick decision) combine correctly", () => {
     // All at level 20:
     //   Haunt: DmgPct 0.8% (additional/more, global)
-    //   Willpower: MaxWillpowerStacks 6, DmgPct 6% additional per stack (36% total)
+    //   Willpower: MaxWillpowerStacks 6, DmgPct 6% additional per stack, multiplying (41.85% total)
     //   Steamroll: AspdPct -15% (increased), DmgPct 40.5% (additional, melee)
     //   Quick Decision: AspdAndCspdPct 24.5% (additional/more)
     //
     // Damage calculation:
     //   Base: 100
     //   Haunt (+0.8% more): 100 * 1.008 = 100.8
-    //   Willpower (+6% * 6 stacks = +36% more): 100.8 * 1.36 = 137.088
+    //   Willpower (1.06 ^ 6 stacks = +41.85% more): 100.8 * 1.4185 = 142.98
     //   Steamroll (+40.5% more melee): 137.088 * 1.405 = 192.609
     //
     // Attack speed calculation:
@@ -1984,7 +1984,7 @@ describe("resolveSelectedSkillSupportMods via calculateOffense", () => {
     });
 
     validate(results, "[Test] Simple Attack", {
-      avgHit: 189.18144,
+      avgHit: 197.32168,
       aspd: 0.996,
     });
   });
@@ -2246,6 +2246,47 @@ describe("resolveSelectedSkillMods via calculateOffense", () => {
     expect(
       skillMods.filter((m) => m.type === "DmgPct").map((m) => m.value),
     ).toEqual(dmgPcts);
+  });
+
+  test("Frostbite adds 1% additional Cold Damage taken per Frostbite Rating", () => {
+    const results = calculateOffense({
+      loadout: createFrostSpikeLoadout(20),
+      configuration: {
+        ...defaultConfiguration,
+        enemyFrostbittenEnabled: true,
+        enemyFrostbittenPoints: 50,
+      },
+    });
+    const frostbite = results.skills["Frost Spike"]?.resolvedMods.find(
+      (m) => m.src === "Frostbite",
+    );
+    expect(frostbite).toMatchObject({ type: "DmgPct", value: 50 });
+  });
+
+  test.each([
+    { maxRating: 60, expected: 70 },
+    { maxRating: 110, expected: 120 },
+    { maxRating: 200, expected: 120 },
+  ])("Frostbite Rating is 10 plus bonuses, capped at 120 ($maxRating bonus)", ({
+    maxRating,
+    expected,
+  }) => {
+    const results = calculateOffense({
+      loadout: {
+        ...createFrostSpikeLoadout(20),
+        customAffixLines: [
+          {
+            text: "test",
+            mods: [{ type: "MaxFrostbiteRating", value: maxRating }],
+          },
+        ],
+      },
+      configuration: { ...defaultConfiguration, enemyFrostbittenEnabled: true },
+    });
+    const frostbite = results.skills["Frost Spike"]?.resolvedMods.find(
+      (m) => m.src === "Frostbite",
+    );
+    expect(frostbite).toMatchObject({ value: expected });
   });
 
   test("Frost Spike conversion mod affects damage calculation", () => {
