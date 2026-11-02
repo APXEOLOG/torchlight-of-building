@@ -3663,6 +3663,61 @@ describe("shadow damage", () => {
     // Total: 201 * (1 + 1.3) = 462.3
     validate(results, "Frost Spike", { avgHit: 462.3 });
   });
+
+  const createChanceInput = (
+    mods: AffixLine[],
+    configuration = defaultConfiguration,
+  ) => ({
+    loadout: initLoadout({
+      gearPage: { equippedGear: { mainHand: baseWeapon }, inventory: [] },
+      customAffixLines: mods,
+      skillPage: {
+        activeSkills: {
+          1: {
+            skillName: "Frost Spike" as const,
+            enabled: true,
+            level: 20,
+            supportSkills: {},
+          },
+        },
+        passiveSkills: {},
+      },
+    }),
+    configuration,
+  });
+
+  test("a chance of extra Shadows averages its outcomes", () => {
+    const input = createChanceInput(
+      affixLines([
+        { type: "ShadowQuant", value: 3 },
+        { type: "ShadowQuantChance", chancePct: 33, value: 3 },
+      ]),
+    );
+    const results = calculateOffense(input);
+    // 3 hits: 160%. 6 hits: 250%. Average: 0.67 * 160 + 0.33 * 250 = 189.7%
+    // Total: 201 * (1 + 1.897) = 582.3
+    validate(results, "Frost Spike", { avgHit: 582.297 });
+  });
+
+  test("a chance of extra Shadows with none otherwise counts failed rolls as 0", () => {
+    const input = createChanceInput(
+      affixLines([{ type: "ShadowQuantChance", chancePct: 33, value: 3 }]),
+    );
+    const results = calculateOffense(input);
+    // 3 hits: 160%. No hits: 0%. Average: 0.33 * 160 = 52.8%
+    // Total: 201 * (1 + 0.528) = 307.13
+    validate(results, "Frost Spike", { avgHit: 307.128 });
+  });
+
+  test("a configured Shadow count ignores the chance", () => {
+    const input = createChanceInput(
+      affixLines([{ type: "ShadowQuantChance", chancePct: 33, value: 3 }]),
+      createShadowConfig(3),
+    );
+    const results = calculateOffense(input);
+    // 3 hits: 160%. Total: 201 * 2.6 = 522.6
+    validate(results, "Frost Spike", { avgHit: 522.6 });
+  });
 });
 
 // Resistance and Armor Penetration tests

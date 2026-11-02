@@ -1056,6 +1056,13 @@ export const allParsers = [
       t("shadow quantity {value:+int}"),
     ])
     .output((c) => ({ type: "ShadowQuant", value: c.value })),
+  t(
+    "{chancePct:dec%} chance to gain {value:+int} shadows when using the shadow strike skill",
+  ).output((c) => ({
+    type: "ShadowQuantChance",
+    chancePct: c.chancePct,
+    value: c.value,
+  })),
   t("{value:+dec%} [additional] shadow damage").output((c) => ({
     type: "ShadowDmgPct",
     value: c.value,
@@ -1612,6 +1619,16 @@ export const allParsers = [
   t(
     "{value:+dec%} chance to gain a stack of focus blessing upon inflicting damage to a frostbitten enemy. interval: {interval:dec}s",
   ).output(() => ({ type: "GeneratesFocusBlessing" })),
+  t(
+    "{value:+dec%} chance for non-critical strikes to grant {stacks:int} stack of focus blessing",
+  ).output(() => ({ type: "GeneratesFocusBlessing" })),
+  t(
+    "{value:+dec%} for non-critical strikes to grant {stacks:int} stack of any blessing",
+  ).outputMany([
+    spec(() => ({ type: "GeneratesFocusBlessing" })),
+    spec(() => ({ type: "GeneratesAgilityBlessing" })),
+    spec(() => ({ type: "GeneratesTenacityBlessing" })),
+  ]),
   t(
     "{value:+dec%} chance to gain {stacks:int} stack of tenacity blessing when casting a skill. interval: {interval:int} s",
   ).output(() => ({ type: "GeneratesTenacityBlessing" })),

@@ -847,6 +847,33 @@ test("parse shadow quantity", () => {
   expect(result).toEqual([{ type: "ShadowQuant", value: 2 }]);
 });
 
+test("parse chance of extra shadows", () => {
+  const result = parseMod(
+    "33% chance to gain +3 Shadows when using the Shadow Strike skill",
+  );
+  expect(result).toEqual([
+    { type: "ShadowQuantChance", chancePct: 33, value: 3 },
+  ]);
+});
+
+test("parse focus blessing from non-critical strikes", () => {
+  const result = parseMod(
+    "+20% chance for Non-Critical Strikes to grant 1 stack of Focus Blessing",
+  );
+  expect(result).toEqual([{ type: "GeneratesFocusBlessing" }]);
+});
+
+test("parse any blessing from non-critical strikes", () => {
+  const result = parseMod(
+    "+30% for Non-Critical Strikes to grant 1 stack of any Blessing",
+  );
+  expect(result).toEqual([
+    { type: "GeneratesFocusBlessing" },
+    { type: "GeneratesAgilityBlessing" },
+    { type: "GeneratesTenacityBlessing" },
+  ]);
+});
+
 test("parse adds damage as", () => {
   const result = parseMod("Adds 18% of Physical Damage to Cold Damage");
   expect(result).toEqual([

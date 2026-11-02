@@ -406,6 +406,7 @@ interface ModDefinitions {
   AddsDmgAsPct: { from: DmgChunkType; to: DmgChunkType; value: number };
   MaxWillpowerStacks: { value: number };
   ShadowQuant: { value: number };
+  ShadowQuantChance: { chancePct: number; value: number };
   ShadowDmgPct: { value: number; addn: boolean };
   LuckyDmg: object;
   LuckyCrit: object;

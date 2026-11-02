@@ -718,16 +718,32 @@ const calcBaseHitOverview = (
 
 const calculateAddnDmgFromShadows = (
   numShadowHits: number,
+  chanceMods: ModT<"ShadowQuantChance">[] = [],
 ): ModT<"DmgPct"> | undefined => {
-  if (numShadowHits <= 0) return;
   const shotgunCoefficientPct = 30;
+  const outcomes = chanceMods.reduce(
+    (acc, m) =>
+      acc.flatMap((o) => [
+        { hits: o.hits + m.value, weight: (o.weight * m.chancePct) / 100 },
+        { hits: o.hits, weight: (o.weight * (100 - m.chancePct)) / 100 },
+      ]),
+    [{ hits: numShadowHits, weight: 1 }],
+  );
+  const landed = outcomes.filter((o) => o.hits > 0);
+  if (landed.length === 0) return;
+  // A chance of extra Shadows counts as its average over many uses. No Shadows adds nothing, so a roll that leaves 0 counts as 0.
+  const value = R.sumBy(
+    landed,
+    (o) => o.weight * (100 + (o.hits - 1) * shotgunCoefficientPct),
+  );
+  const avgHits = R.sumBy(landed, (o) => o.weight * o.hits);
 
   return {
     type: "DmgPct",
     addn: true,
-    value: 100 + (numShadowHits - 1) * shotgunCoefficientPct,
+    value,
     dmgModType: "global",
-    src: `Shadow Strike: ${numShadowHits} hits`,
+    src: `Shadow Strike: ${chanceMods.length === 0 ? numShadowHits : avgHits.toFixed(2)} hits`,
   };
 };
 
@@ -2026,7 +2042,15 @@ const resolveModsForOffenseSkill = (
   const pushShadowStrike = () => {
     if (skill.tags.includes("Shadow Strike")) {
       const numShadowHits = calculateNumShadowHits(mods, config);
-      const dmgFromShadowMod = calculateAddnDmgFromShadows(numShadowHits);
+      // A Shadow count set in the configuration is exact, so chances don't add to it.
+      const chanceMods =
+        config.numShadowHits === undefined
+          ? filterMods(mods, "ShadowQuantChance")
+          : [];
+      const dmgFromShadowMod = calculateAddnDmgFromShadows(
+        numShadowHits,
+        chanceMods,
+      );
       if (dmgFromShadowMod !== undefined) {
         const shadowDmgPctMods = filterMods(mods, "ShadowDmgPct");
         const shadowDmgMult = calcEffMult(shadowDmgPctMods);
