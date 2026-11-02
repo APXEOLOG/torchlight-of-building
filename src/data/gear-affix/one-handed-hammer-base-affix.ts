@@ -149,4 +149,20 @@ export const ONE_HANDED_HAMMER_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "2",
     craftableAffix: "+8% Life Regain and Energy Shield Regain",
   },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Hammer",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "Main Skill is supported by Lv. 10 Quick Return",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Hammer",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "Main Skill is supported by Lv. 10 Increased Area",
+  },
 ];

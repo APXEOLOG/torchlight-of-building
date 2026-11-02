@@ -1891,7 +1891,6 @@ const resolveModsForOffenseSkill = (
     normalize("seconds_with_elite_nearby", config.numSecondsWithEliteNearby);
     normalize("enemy_numbed_stacks", config.enemyNumbedStacks ?? 10);
     normalize("dance_of_frost", config.danceOfFrostStacks ?? 0);
-    normalize("frostbite_rating", config.enemyFrostbittenPoints ?? 0);
     normalize("twisted_spacetime", config.twistedSpacetimeStacks ?? 5);
     normalize("num_ice_puppet_stacks", config.numIcePuppetStacks ?? 0);
     normalize("num_times_regained_recently", config.numTimesRegainedRecently);
@@ -2227,7 +2226,10 @@ const resolveModsForOffenseSkill = (
     }
   };
   const pushFrostbite = (): void => {
-    if (!config.enemyFrostbittenEnabled) return;
+    if (!config.enemyFrostbittenEnabled) {
+      normalize("frostbite_rating", config.enemyFrostbittenPoints ?? 0);
+      return;
+    }
 
     const maxFrostbiteLimit =
       findMod(mods, "MaxFrostbiteRatingLimitOverride")?.value ?? 100;
@@ -2237,6 +2239,7 @@ const resolveModsForOffenseSkill = (
       10 + sumByValue(filterMods(mods, "MaxFrostbiteRating")),
     );
     const frostbitePoints = config.enemyFrostbittenPoints ?? maxFrostbiteRating;
+    normalize("frostbite_rating", frostbitePoints);
 
     const frostbiteEffMult = calcEffMult(mods, "FrostbiteEffPct");
     const baseFrostbiteValPerPoint = 0.5 * frostbiteEffMult;

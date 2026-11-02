@@ -8,11 +8,19 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Boss",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Warcry, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Always attempts to trigger the supported skill when there is a boss within (6–20) m. Interval: 0.1s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -82,12 +90,16 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Burst Activation",
     tags: [],
     description: [
+      "Supports Spell Skills that deal damage or skills that can activate Spell Burst.\nCannot support Passive Skills and Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "When Spell Burst is fully charged, triggers the supported skill on the nearest enemy within 25m and attempts to trigger the supported skill's Spell Burst",
-      "(-15–-1)% additional Hit Damage for skills cast by Spell Burst when Spell Burst is activated by the supported skill",
+      "(-15–-1)% additional Hit Damage for the supported skills cast by Spell Burst",
       "-40% Movement Speed for 2 s when the supported skill activates Spell Burst",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Spell"], requiredKind: "deal_damage" },
+      "spell_burst",
+    ],
+    cannotSupportTargets: [{ skillType: "passive" }, { tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
   },
   {
@@ -95,9 +107,10 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Channel",
     tags: [],
     description: [
+      "Supports Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "When channeling the Supported Skill, sends 1 Instruction for every 2 stack(s) channeled",
     ],
-    supportTargets: [],
+    supportTargets: [{ tags: ["Channeled"] }],
     cannotSupportTargets: [],
     manaCostMultiplierPct: 100,
     affixDefs: {
@@ -132,10 +145,11 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Critical Strike",
     tags: [],
     description: [
+      "Supports skills that hit the enemy.\nThis skill cannot support Summon Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "When the supported skill lands a Critical Strike, sends (2–3) Instruction(s). Interval: 0.03 s.",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: ["hit_enemies"],
+    cannotSupportTargets: [{ tags: ["Summon"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -169,11 +183,19 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Demolisher",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Warcry, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill upon gaining Demolisher Charge. Interval: 0.1s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -243,11 +265,19 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Elite",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Warcry, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Always attempts to trigger the supported skill when there is an Elite within (6–20) m. Interval: 0.2 s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -317,11 +347,18 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Energy Shield",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Always attempts to trigger the supported skill when Energy Shield is lower than (20–95)% . Interval: 0.1s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -391,12 +428,16 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Instruction",
     tags: [],
     description: [
+      "Supports Active Skill that deal damage.\nCannot support Channeled Skills and Attack Mobility Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill on the closest enemy within 20m every (0.4–1.0)s.",
       "During the trigger interval, each Instruction adds +(6–7)% damage to the next skill triggered by the Supported Skill, up to +(54–63)% additional damage",
       "-80% additional damage for manually used Supported Skill",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [{ skillType: "active", requiredKind: "deal_damage" }],
+    cannotSupportTargets: [
+      { tags: ["Channeled"] },
+      { tags: ["Attack", "Mobility"] },
+    ],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -446,11 +487,12 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Life",
     tags: [],
     description: [
+      "Supports Restoration and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Always attempts to trigger the Supported Skill when HP is lower than (20–95)% . Disabled while any Restoration Skill is active",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [{ tags: ["Restoration"] }, { tags: ["Elixir"] }],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -520,9 +562,10 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Lock On",
     tags: [],
     description: [
+      "Supports Active Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Locks On enemies within 25 m when you use the supported skill",
     ],
-    supportTargets: [],
+    supportTargets: [{ skillType: "active" }],
     cannotSupportTargets: [],
     manaCostMultiplierPct: 100,
   },
@@ -531,10 +574,11 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Minion",
     tags: [],
     description: [
+      "Supports Synthetic Troop Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill and replenishes the Minions of the supported skill to the maximum upon entering the stage",
       "+(30–36)% additional damage for Minions summoned by the supported skill",
     ],
-    supportTargets: [],
+    supportTargets: [{ tags: ["Synthetic Troop"] }],
     cannotSupportTargets: [],
     manaCostMultiplierPct: 100,
     affixDefs: {
@@ -585,11 +629,15 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Motionless",
     tags: [],
     description: [
+      "Supports Attack Skills and Spell Skills that deal damage.\nCannot support Passive Skills and Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Automatically and continuously cast the supported skill at the nearest enemy within 25m while standing still",
       "Auto-used supported skills +10% additional damage",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Attack"], requiredKind: "deal_damage" },
+      { tags: ["Spell"], requiredKind: "deal_damage" },
+    ],
+    cannotSupportTargets: [{ skillType: "passive" }, { tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -627,11 +675,20 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Multistrike",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Mobility, Warcry, and Elixir Skills.\nCannot support Channeled Skills and Attack Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill upon reaching the max Multistrike Count. Interval: 0.1s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Mobility"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }, { tags: ["Attack"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -701,11 +758,19 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Perpetual Motion",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Warcry, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Always attempts to trigger the supported skill. Interval: 0.2s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -775,11 +840,12 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Preparation",
     tags: [],
     description: [
+      "Supports Active Skills.\nCannot support Channeled Skills and Attack Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Prepares the supported skill every (4–5) s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [{ skillType: "active" }],
+    cannotSupportTargets: [{ tags: ["Channeled"] }, { tags: ["Attack"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -833,14 +899,35 @@ export const ActivationMediumSkills = [
   },
   {
     type: "Activation Medium",
+    name: "Activation Medium: Rejuvenation",
+    tags: [],
+    description: [
+      "Supports Restoration and Elixir Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
+      "Always attempts to trigger the Supported Skill when HP is lower than 50% . Disabled while any Restoration Skill is active",
+      "The supported skill +5% additional Cooldown Recovery Speed",
+    ],
+    supportTargets: [{ tags: ["Restoration"] }, { tags: ["Elixir"] }],
+    cannotSupportTargets: [],
+    manaCostMultiplierPct: 100,
+  },
+  {
+    type: "Activation Medium",
     name: "Activation Medium: Resonance",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Warcry, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill when Resonance is activated",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -898,11 +985,19 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Resonance Activation",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Warcry, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Activates Resonance when you use the supported skill",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -960,12 +1055,16 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Rhythm",
     tags: [],
     description: [
+      "Supports Active Skill that deal damage.\nCannot support Channeled Skills and Attack Mobility Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill on the closest enemy within 20m every (0.3–0.5)s.",
       "The next skill triggered by the supported skill +3% additional damage for every 1m of movement made during the trigger interval, up to +(18–21)%.",
       "-80% additional damage for manually used Supported Skill",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [{ skillType: "active", requiredKind: "deal_damage" }],
+    cannotSupportTargets: [
+      { tags: ["Channeled"] },
+      { tags: ["Attack", "Mobility"] },
+    ],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -1015,11 +1114,19 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Root",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Warcry, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill upon stopping moving. Interval: 0.1s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -1089,11 +1196,12 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Root Attack",
     tags: [],
     description: [
+      "Supports Attack Skills that deal damage.\nCannot support Passive Skills and Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Automatically attempts to use a supported Attack Skill on the closest enemy when stopping moving. Interval: (0.2–0.3) s",
       "Every 1m moved adds +(10–20)% damage to the next auto used supported skill, up to +(46–65)% . During Multistrike, the bonus persists until the multistrike ends",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [{ tags: ["Attack"], requiredKind: "deal_damage" }],
+    cannotSupportTargets: [{ skillType: "passive" }, { tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -1143,11 +1251,12 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Sentry",
     tags: [],
     description: [
-      "Always attempts to trigger the Supported Skill if no Sentries are within (10–20) m. Interval: 0.3 s",
+      "Supports Sentry Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
+      "Always attempts to trigger the Supported Skill if no Sentries are within (10–20) m. Interval: 0.1 s",
       "+(16–19)% additional damage for the supported skill",
-      "+2 Sentries that can be deployed at a time by the supported skill",
+      "+2 Sentries that can be deployed at a time by the supported skill-30% Movement Speed",
     ],
-    supportTargets: [],
+    supportTargets: [{ tags: ["Sentry"] }],
     cannotSupportTargets: [],
     manaCostMultiplierPct: 100,
     affixDefs: {
@@ -1155,40 +1264,40 @@ export const ActivationMediumSkills = [
         { affix: "+(20-25)% additional damage for the supported skill" },
         {
           affix:
-            "Always attempts to trigger the Supported Skill if no Sentries are within (10-20) m. Interval: 0.3 s",
+            "Always attempts to trigger the Supported Skill if no Sentries are within (10-20) m. Interval: 0.1 s",
         },
       ],
       1: [
         { affix: "+(16-19)% additional damage for the supported skill" },
         {
           affix:
-            "+2 Sentries that can be deployed at a time by the supported skill",
+            "+2 Sentries that can be deployed at a time by the supported skill-30% Movement Speed",
         },
         {
           affix:
-            "Always attempts to trigger the Supported Skill if no Sentries are within (10-20) m. Interval: 0.3 s",
+            "Always attempts to trigger the Supported Skill if no Sentries are within (10-20) m. Interval: 0.1 s",
         },
       ],
       2: [
         { affix: "+(12-15)% additional damage for the supported skill" },
         {
           affix:
-            "+1 Sentries that can be deployed at a time by the supported skill",
+            "+1 Sentries that can be deployed at a time by the supported skill-30% Movement Speed",
         },
         {
           affix:
-            "Always attempts to trigger the Supported Skill if no Sentries are within (10-20) m. Interval: 0.3 s",
+            "Always attempts to trigger the Supported Skill if no Sentries are within (10-20) m. Interval: 0.1 s",
         },
       ],
       3: [
         { affix: "+(9-11)% additional damage for the supported skill" },
         {
           affix:
-            "-1 Sentries that can be deployed at a time by the supported skill",
+            "-1 Sentries that can be deployed at a time by the supported skill-30% Movement Speed",
         },
         {
           affix:
-            "Always attempts to trigger the Supported Skill if no Sentries are within (10-20) m. Interval: 0.3 s",
+            "Always attempts to trigger the Supported Skill if no Sentries are within (10-20) m. Interval: 0.1 s",
         },
       ],
     },
@@ -1198,11 +1307,18 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Severe Injury",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill when suffering a Severe Injury",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -1268,11 +1384,18 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Spell Burst",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill when activating Spell Burst. Interval: 0.1s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -1342,11 +1465,19 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Start",
     tags: [],
     description: [
+      "Supports Empower, Defensive, Restoration, Curse, Warcry, and Elixir Skills.\nCannot support Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill upon starting to move. Interval: 0.1s",
       "<Cooldown Recovery Speed or Duration Bonus>",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [
+      { tags: ["Empower"] },
+      { tags: ["Defensive"] },
+      { tags: ["Restoration"] },
+      { tags: ["Curse"] },
+      { tags: ["Warcry"] },
+      { tags: ["Elixir"] },
+    ],
+    cannotSupportTargets: [{ tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -1416,11 +1547,12 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Still Attack",
     tags: [],
     description: [
+      "Supports Attack Skills that deal damage\nCannot support Passive Skills and Channeled Skills\nThis skill can only be installed in the first Support Skill Slot of each Active Skill",
       "Automatically use the Supported Attack Skill to continuously attack the nearest enemy within 25m while standing still",
       "The supported skill is supported by Lv. (16–20) Willpower",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [{ tags: ["Attack"], requiredKind: "deal_damage" }],
+    cannotSupportTargets: [{ skillType: "passive" }, { tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -1458,11 +1590,11 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Tangle",
     tags: [],
     description: [
-      "Supports Active Spell Skills.\nCannot support Channeled Skills, Sentry Skills or skills that summon Minions.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.\nThe supported skill is cast as a Spell Tangle",
+      "Supports Active Spell Skills\nCannot support Channeled Skills, Sentry Skills, skills that summon Minions, Terra Skills, Scorching Pulse, Lightning Storm, and Whirlwind Blade\nThis skill can only be installed in the first Support Skill Slot of each Active Skill\nThe supported skill is cast as a Spell Tangle",
       "The supported skill is cast as a Spell Tangle",
       "+(11–15)% additional damage for the supported skill",
-      "10 米内的纠缠数量未达到上限时，触发被辅助技能，并以纠缠形式创建，间隔 0.4 秒\n额外创建 1 个纠缠",
-      "+(91–120)% Tangle Attach Range",
+      "When the number of Tangles within 10 m is below the upper limit, triggers the supported skill, creating it in the form of a Tangle. Interval: 0.4 s\nCreates 1 additional Tangle",
+      "+(91–120)% Tangle Attach Range-30% Movement Speed",
     ],
     supportTargets: [{ skillType: "active", tags: ["Spell"] }],
     cannotSupportTargets: [{ tags: ["Channeled"] }],
@@ -1473,11 +1605,15 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Track",
     tags: [],
     description: [
+      "Supports Active Skill that deal damage.\nCannot support Channeled Skills and Attack Mobility Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Triggers the supported skill once on up to 3 Locked-On enemy(ies) within (10–20) m every (0.7–0.8) s",
       "Always Locks On enemies within 20m.",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [{ skillType: "active", requiredKind: "deal_damage" }],
+    cannotSupportTargets: [
+      { tags: ["Channeled"] },
+      { tags: ["Attack", "Mobility"] },
+    ],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [
@@ -1513,12 +1649,13 @@ export const ActivationMediumSkills = [
     name: "Activation Medium: Wind Rhythm",
     tags: [],
     description: [
+      "Supports Spell Skills that deal damage.\nCannot support Passive Skills and Channeled Skills.\nThis skill can only be installed in the first Support Skill Slot of each Active Skill.",
       "Always attempts to trigger the supported skill on the closest enemy within 25m. Cooldown: 0.6 s",
       "(80–85)% of the bonuses and additional bonuses for Cast Speed is also applied to the Cooldown Recovery Speed of this Support Skill and the supported skill",
       "-80% additional damage for manually used Supported Skill",
     ],
-    supportTargets: [],
-    cannotSupportTargets: [],
+    supportTargets: [{ tags: ["Spell"], requiredKind: "deal_damage" }],
+    cannotSupportTargets: [{ skillType: "passive" }, { tags: ["Channeled"] }],
     manaCostMultiplierPct: 100,
     affixDefs: {
       0: [

@@ -89,14 +89,6 @@ export const FIRE_CANNON_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Base Affix",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "Projectile Quantity +2",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Fire Cannon",
-    affixType: "Base Affix",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+2 Parabolic Projectile Split Quantity",
   },
   {
@@ -179,5 +171,23 @@ export const FIRE_CANNON_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "2",
     craftableAffix: "+16% Life Regain and Energy Shield Regain",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Fire Cannon",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Quick Decision\nThe Main Skill is supported by Lv. 10 Wind Projectiles.",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Fire Cannon",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Increased Area\nMain Skill is supported by Lv. 10 Projectile Split",
   },
 ];

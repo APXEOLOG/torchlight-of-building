@@ -370,7 +370,7 @@ export const SHIELD_STR_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Ultimate",
     tier: "0",
     craftableAffix:
-      "+(29-39)% Elemental and Erosion Resistance Penetration\nMinion Damage penetrates (29-39)% Elemental Resistance",
+      "+(31-39)% Elemental and Erosion Resistance Penetration\nMinion Damage penetrates (31-39)% Elemental Resistance",
   },
   {
     equipmentSlot: "Shield",

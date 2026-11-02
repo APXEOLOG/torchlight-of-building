@@ -79,12 +79,18 @@ const cleanTlidbHtml = (html: string): string => {
 // Parsing
 // ============================================================================
 
+// biome-ignore lint/suspicious/noExplicitAny: cheerio internal type
+const typeText = ($: cheerio.CheerioAPI, row: any): string =>
+  $(row).find("td").eq(2).text().trim();
+
 const extractBaseAffixes = ($: cheerio.CheerioAPI): Prism[] => {
   const items: Prism[] = [];
-  const baseAffixTable = $("#BaseAffix table tbody tr");
-  console.log(`Found ${baseAffixTable.length} base affix rows`);
+  const rows = $("#EtherealPrismAffix table tbody tr").filter(
+    (_, row) => typeText($, row) === "Base Affix",
+  );
+  console.log(`Found ${rows.length} base affix rows`);
 
-  baseAffixTable.each((_, row) => {
+  rows.each((_, row) => {
     const td = $(row).find("td").first();
     const rawHtml = td.html() ?? "";
     const affix = cleanTlidbHtml(rawHtml);
@@ -97,32 +103,23 @@ const extractBaseAffixes = ($: cheerio.CheerioAPI): Prism[] => {
 
 const extractRandomAffixes = ($: cheerio.CheerioAPI): Prism[] => {
   const items: Prism[] = [];
-  const randomAffixTable = $("#RandomAffix table tbody tr");
-  console.log(`Found ${randomAffixTable.length} random affix rows`);
+  const rows = $("#EtherealPrismAffix table tbody tr").filter(
+    (_, row) => typeText($, row) !== "Base Affix",
+  );
+  console.log(`Found ${rows.length} random affix rows`);
 
-  randomAffixTable.each((_, row) => {
-    const tds = $(row).find("td");
-    const modifierTd = $(tds[0]);
-    const typeTd = $(tds[1]);
-
-    const rawHtml = modifierTd.html() ?? "";
+  rows.each((_, row) => {
+    const rawHtml = $(row).find("td").first().html() ?? "";
     const affix = cleanTlidbHtml(rawHtml);
 
-    // Parse type and rarity from the Type column link text
-    // e.g., "Prism Gauge - Rare" or "Prism Gauge - Legendary"
-    const typeLink = typeTd?.find("a");
-    const typeLinkText = typeLink?.text().trim() ?? "";
+    // e.g., "Random Affix", "Prism Gauge - Rare" or "Prism Gauge - Legendary"
+    const [type, rarity] = typeText($, row).split(" - ");
 
-    let type = "Random Affix";
-    let rarity = "";
-
-    if (typeLinkText !== "") {
-      const parts = typeLinkText.split(" - ");
-      type = parts[0]?.trim() ?? "Random Affix";
-      rarity = parts[1]?.trim() ?? "";
-    }
-
-    items.push({ type, rarity, affix });
+    items.push({
+      type: type?.trim() ?? "Random Affix",
+      rarity: rarity?.trim() ?? "",
+      affix,
+    });
   });
 
   return items;

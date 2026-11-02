@@ -289,7 +289,7 @@ export const TWO_HANDED_SWORD_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(328-468)% Critical Strike Rating",
+    craftableAffix: "+(361-468)% Critical Strike Rating",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -330,7 +330,7 @@ export const TWO_HANDED_SWORD_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix:
-      "+(66-94)% Attack and Cast Speed\n+(66-94)% Minion Attack and Cast Speed",
+      "+(73-94)% Attack and Cast Speed\n+(73-94)% Minion Attack and Cast Speed",
   },
   {
     equipmentSlot: "Two-Handed",

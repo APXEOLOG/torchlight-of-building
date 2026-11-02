@@ -182,4 +182,22 @@ export const TWO_HANDED_HAMMER_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "2",
     craftableAffix: "+16% Life Regain and Energy Shield Regain",
   },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Hammer",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Quick Return\nMain Skill is supported by Lv. 10 Critical Strike Damage Increase",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Hammer",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Melee Knockback\nMain Skill is supported by Lv. 10 Increased Area",
+  },
 ];

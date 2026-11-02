@@ -287,6 +287,42 @@ export const TIN_STAFF_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentSlot: "Two-Handed",
     equipmentType: "Tin Staff",
     affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    craftableAffix:
+      "+(78-98)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    craftableAffix:
+      "+(66-76)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "2",
+    craftableAffix:
+      "+(40-54)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "3",
+    craftableAffix:
+      "+(32-38)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix: "+(181-234) Intelligence",
@@ -473,6 +509,14 @@ export const TIN_STAFF_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
+    craftableAffix: "Min Channeled Stacks +(6-7)",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
     craftableAffix: "Min Channeled Stacks +5",
   },
   {
@@ -480,16 +524,8 @@ export const TIN_STAFF_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Tin Staff",
     affixType: "Prefix",
     craftingPool: "Ultimate",
-    tier: "1",
-    craftableAffix: "Min Channeled Stacks +4",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Tin Staff",
-    affixType: "Prefix",
-    craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "+5 to Max Channeled Stacks",
+    craftableAffix: "+(6-7) to Max Channeled Stacks",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -497,7 +533,7 @@ export const TIN_STAFF_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "1",
-    craftableAffix: "+4 to Max Channeled Stacks",
+    craftableAffix: "+5 to Max Channeled Stacks",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -569,7 +605,8 @@ export const TIN_STAFF_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "Max Terra Charge Stacks +(5-6)",
+    craftableAffix:
+      "Max Terra Charge Stacks +4\n+(15-20)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -577,7 +614,8 @@ export const TIN_STAFF_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "1",
-    craftableAffix: "Max Terra Charge Stacks +(3-4)",
+    craftableAffix:
+      "Max Terra Charge Stacks +4\n+(5-8)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -585,7 +623,8 @@ export const TIN_STAFF_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "2",
-    craftableAffix: "Max Terra Charge Stacks +(1-2)",
+    craftableAffix:
+      "Max Terra Charge Stacks +(2-3)\n+(3-5)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "Two-Handed",

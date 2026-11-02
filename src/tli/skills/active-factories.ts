@@ -95,14 +95,34 @@ export const activeSkillModFactories: Partial<
         to: "cold",
       },
       {
-        type: "MaxProjectile",
-        value: v(vals.maxProjectile, l),
-        override: true,
+        type: "Projectile",
+        value: v(vals.projectileAtRating, l),
+        per: {
+          stackable: "frostbite_rating",
+          amt: v(vals.ratingForProjectile, l),
+          limit: 1,
+        },
+        condThreshold: {
+          target: "frostbite_rating",
+          comparator: "gte",
+          value: v(vals.ratingForProjectile, l),
+        },
       },
       {
-        type: "Projectile",
-        value: v(vals.projectilePerFrostbiteRating, l),
-        per: { stackable: "frostbite_rating", amt: 35 },
+        type: "DmgPct",
+        value: v(vals.dmgPctAtRating, l),
+        dmgModType: "global",
+        addn: true,
+        per: {
+          stackable: "frostbite_rating",
+          amt: v(vals.ratingForDmg, l),
+          limit: 1,
+        },
+        condThreshold: {
+          target: "frostbite_rating",
+          comparator: "gte",
+          value: v(vals.ratingForDmg, l),
+        },
       },
       { type: "BaseProjectileQuant", value: v(vals.baseProjectile, l) },
       {

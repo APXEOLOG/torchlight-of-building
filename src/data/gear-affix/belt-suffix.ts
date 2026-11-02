@@ -9,7 +9,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Fire Resistance",
+    craftableAffix: "+(28-35)% Fire Resistance",
   },
   {
     equipmentSlot: "Trinket",
@@ -49,7 +49,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Cold Resistance",
+    craftableAffix: "+(28-35)% Cold Resistance",
   },
   {
     equipmentSlot: "Trinket",
@@ -89,7 +89,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Lightning Resistance",
+    craftableAffix: "+(28-35)% Lightning Resistance",
   },
   {
     equipmentSlot: "Trinket",
@@ -129,7 +129,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Erosion Resistance",
+    craftableAffix: "+(28-35)% Erosion Resistance",
   },
   {
     equipmentSlot: "Trinket",
@@ -393,7 +393,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix:
-      "+(10-12)% Elemental Resistance\n+(12-15)% chance to avoid Elemental Ailment",
+      "+(10-12)% Elemental Resistance\n+(12-15)% chance to avoid Elemental Ailments",
   },
   {
     equipmentSlot: "Trinket",
@@ -402,7 +402,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "1",
     craftableAffix:
-      "+(7-9)% Elemental Resistance\n+(12-15)% chance to avoid Elemental Ailment",
+      "+(7-9)% Elemental Resistance\n+(12-15)% chance to avoid Elemental Ailments",
   },
   {
     equipmentSlot: "Trinket",
@@ -411,7 +411,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "2",
     craftableAffix:
-      "+6% Elemental Resistance\n+(9-11)% chance to avoid Elemental Ailment",
+      "+6% Elemental Resistance\n+(9-11)% chance to avoid Elemental Ailments",
   },
   {
     equipmentSlot: "Trinket",
@@ -420,7 +420,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "3",
     craftableAffix:
-      "+(4-5)% Elemental Resistance\n+(6-8)% chance to avoid Elemental Ailment",
+      "+(4-5)% Elemental Resistance\n+(6-8)% chance to avoid Elemental Ailments",
   },
   {
     equipmentSlot: "Trinket",
@@ -548,7 +548,7 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "+(22-31)% Cooldown Recovery Speed",
+    craftableAffix: "+(25-31)% Cooldown Recovery Speed",
   },
   {
     equipmentSlot: "Trinket",
@@ -645,33 +645,6 @@ export const BELT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Ultimate",
     tier: "4",
     craftableAffix: "+(19-21)% Wilt Duration",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Belt",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "0",
-    craftableAffix:
-      "+(40-50)% chance to launch one more wave when casting a Barrage Skill",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Belt",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "1",
-    craftableAffix:
-      "+(30-37)% chance to launch one more wave when casting a Barrage Skill",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Belt",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "2",
-    craftableAffix:
-      "+(20-28)% chance to launch one more wave when casting a Barrage Skill",
   },
   {
     equipmentSlot: "Trinket",

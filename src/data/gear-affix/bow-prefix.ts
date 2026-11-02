@@ -209,7 +209,7 @@ export const BOW_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(197-281)% Projectile Damage",
+    craftableAffix: "+(217-281)% Projectile Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -402,14 +402,6 @@ export const BOW_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "4",
     craftableAffix: "+(59-72) Intelligence",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Bow",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
-    craftableAffix: "+(46-59)% Attack and Spell Block Chance",
   },
   {
     equipmentSlot: "Two-Handed",

@@ -89,14 +89,6 @@ export const PISTOL_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Base Affix",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "Projectile Quantity +1",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Pistol",
-    affixType: "Base Affix",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+1 Parabolic Projectile Split Quantity",
   },
   {
@@ -146,5 +138,21 @@ export const PISTOL_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "2",
     craftableAffix: "+8% Life Regain and Energy Shield Regain",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "Main Skill is supported by Lv. 10 Quick Decision",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "The Main Skill is supported by Lv. 10 Wind Projectiles.",
   },
 ];

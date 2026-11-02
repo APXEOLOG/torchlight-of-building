@@ -13,8 +13,11 @@ const GLOBAL = "global" as const;
 const parseWillpowerBlob = (input: string): Mod[] | undefined => {
   const normalized = input.toLowerCase();
 
-  // Check if this is a Willpower description
-  if (!normalized.includes("for every stack of buffs while standing still")) {
+  // Check if this is a Willpower description, which may be one blob or split into lines
+  if (
+    !normalized.includes("for every stack of buffs while standing still") &&
+    !normalized.startsWith("while standing still, gains 1 stack of buff")
+  ) {
     return undefined;
   }
 
@@ -203,6 +206,13 @@ const allSupportParsers = [
       per: { stackable: "skill_charges_on_use" },
     }),
   ),
+  t(
+    "{value:?dec%} effect for the supported skill for every +1 charge, up to {cap:?dec%}",
+  ).output((c) => ({
+    type: "SkillEffPct",
+    value: c.value,
+    per: { stackable: "skill_charges_on_use", valueLimit: c.cap },
+  })),
   t("{value:+int} shadow quantity for the supported skill").output((c) => ({
     type: "ShadowQuant",
     value: c.value,
@@ -417,11 +427,15 @@ const parseSupportAffix = (text: string): SupportMod[] | undefined => {
     return willpowerMods.map((mod) => ({ mod }));
   }
 
-  // Try template-based parsers
-  for (const parser of allSupportParsers) {
-    const mods = parser.parse(normalized);
-    if (mods !== undefined) {
-      return mods.map((mod) => ({ mod }));
+  // Try template-based parsers. tlidb's sign on a number varies by level, so each sign form is tried.
+  const unsigned = normalized.replace(/\+(?=\d)/, "");
+  const signed = normalized.replace(/(^|\s)(\d)/, "$1+$2");
+  for (const form of [normalized, unsigned, signed]) {
+    for (const parser of allSupportParsers) {
+      const mods = parser.parse(form);
+      if (mods !== undefined) {
+        return mods.map((mod) => ({ mod }));
+      }
     }
   }
   return undefined;

@@ -55,6 +55,7 @@ export const SKILL_TAGS = [
   "Shadow Strike",
   "Slash-Strike",
   "Spell",
+  "Minion",
   "Spirit Magus",
   "Strength",
   "Summon",

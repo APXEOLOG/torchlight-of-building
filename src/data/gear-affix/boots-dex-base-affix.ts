@@ -151,4 +151,29 @@ export const BOOTS_DEX_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftableAffix:
       "Converts (16-20)% of Physical Damage taken to Lightning Damage",
   },
+  {
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "+1 Max Deflection stacks",
+  },
+  {
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix:
+      "Spell Damage will not additionally reduce Evasion by default",
+  },
+  {
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "+2 Max Deflection stacks",
+  },
 ];

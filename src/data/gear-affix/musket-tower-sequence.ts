@@ -9,6 +9,22 @@ export const MUSKET_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
+    craftableAffix: "+8% gear Attack Speed",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Musket",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "+20% Attack Critical Strike Rating for this gear",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Musket",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
     craftableAffix: "+16% additional damage for Main-Hand Weapons",
   },
   {
@@ -57,22 +73,6 @@ export const MUSKET_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+8% gear Attack Speed",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Musket",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
-    craftableAffix: "+20% Attack Critical Strike Rating for this gear",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Musket",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+20% additional damage on Critical Strike",
   },
   {
@@ -81,7 +81,7 @@ export const MUSKET_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+16% all stats",
+    craftableAffix: "+16% All Stats",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -115,6 +115,23 @@ export const MUSKET_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
+      "+60% additional damage for Main-Hand Weapons\n-20% Attack Critical Strike Rating for this gear",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Musket",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "+50% Gear Elemental Damage\n-25% Gear Physical Damage",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Musket",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
       "Main Skill is supported by Lv. 25 Multiple Projectiles\n+25% additional Projectile Damage",
   },
   {
@@ -124,7 +141,7 @@ export const MUSKET_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "After reaching their max range, Projectiles will return and travel an additional 0% of that distance, hitting the enemies on their path again\n-30% additional Projectile Damage",
+      "After reaching their max range, Projectiles will return and travel an additional 0% of that distance, hitting the enemies on their path again\n-20% additional Projectile Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -142,23 +159,6 @@ export const MUSKET_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "+80% Gear Physical Damage\n-20% Attack Critical Strike Rating for this gear",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Musket",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "0",
-    craftableAffix:
-      "+30% additional Deterioration Damage\n10% chance to inflict 2 additional stack(s) of Deterioration",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Musket",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "0",
-    craftableAffix: "+50% Gear Elemental Damage\n-25% Gear Physical Damage",
+      "Main Skill is supported by Lv. 25 Attack Focus\n+25% additional Projectile Damage",
   },
 ];

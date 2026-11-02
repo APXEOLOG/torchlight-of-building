@@ -138,7 +138,7 @@ export const CHEST_ARMOR_STR_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Chest Armor (STR)",
     affixType: "Base Affix",
     craftingPool: "",
-    tier: "0",
+    tier: "1",
     craftableAffix: "Takes 10 True Damage every 0.1s",
   },
   {
@@ -156,5 +156,13 @@ export const CHEST_ARMOR_STR_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix: "+(13-14)% Armor Effective Rate for Non-Physical Damage",
+  },
+  {
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "+(2-3) Max Fortitude Stacks",
   },
 ];

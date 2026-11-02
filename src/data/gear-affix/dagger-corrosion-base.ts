@@ -68,13 +68,4 @@ export const DAGGER_CORROSION_BASE_AFFIXES: readonly BaseGearAffix[] = [
     tier: "0",
     craftableAffix: "+(25-30)% Elemental Damage",
   },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Dagger",
-    affixType: "Corrosion Base",
-    craftingPool: "",
-    tier: "0",
-    craftableAffix:
-      "Wilted enemies defeated by you will explode, dealing True Damage equal to (50-100)% of their Max Life to enemies within a 6 m radius",
-  },
 ];

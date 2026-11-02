@@ -158,4 +158,20 @@ export const HELMET_INT_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "1",
     craftableAffix: "Has Profane. Minions have Profane",
   },
+  {
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    craftableAffix: "+(12-20)% Critical Strike Damage Mitigation",
+  },
+  {
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "Nearby enemies within (15-20) m have Frail",
+  },
 ];

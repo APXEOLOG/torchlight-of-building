@@ -81,7 +81,7 @@ export const ONE_HANDED_AXE_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+10% all stats",
+    craftableAffix: "+10% All Stats",
   },
   {
     equipmentSlot: "One-Handed",
@@ -148,8 +148,7 @@ export const ONE_HANDED_AXE_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "0",
-    craftableAffix:
-      "+15% additional Deterioration Damage\n10% chance to inflict 1 additional stack(s) of Deterioration",
+    craftableAffix: "Main Skill is supported by Lv. 20 Attack Focus",
   },
   {
     equipmentSlot: "One-Handed",

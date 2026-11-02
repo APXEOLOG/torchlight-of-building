@@ -9,6 +9,14 @@ export const SCEPTER_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
+    craftableAffix: "+8% All Stats",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
     craftableAffix: "+8% additional Damage Over Time",
   },
   {
@@ -58,7 +66,7 @@ export const SCEPTER_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "Max Terra Charge Stacks -1\nMax Terra Quantity +1",
+    craftableAffix: "Max Terra Charge Stacks +1",
   },
   {
     equipmentSlot: "One-Handed",
@@ -75,14 +83,6 @@ export const SCEPTER_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "1",
     craftableAffix: "-10% All Resistance when the enemy has max Affliction",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Scepter",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
-    craftableAffix: "+8% all stats",
   },
   {
     equipmentSlot: "One-Handed",
@@ -142,7 +142,7 @@ export const SCEPTER_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "0",
-    craftableAffix: "+160 Affliction inflicted per second",
+    craftableAffix: "Main Skill is supported by Lv. 20 Shortened Duration",
   },
   {
     equipmentSlot: "One-Handed",

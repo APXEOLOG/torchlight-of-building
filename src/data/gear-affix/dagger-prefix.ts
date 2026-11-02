@@ -249,7 +249,7 @@ export const DAGGER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "Adds 72 - 88 Base Wilt Damage",
+    craftableAffix: "Adds 50 - 60 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -257,7 +257,7 @@ export const DAGGER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "Adds 56 - 67 Base Wilt Damage",
+    craftableAffix: "Adds 40 - 45 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -265,7 +265,7 @@ export const DAGGER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "2",
-    craftableAffix: "Adds 38 - 46 Base Wilt Damage",
+    craftableAffix: "Adds 25 - 30 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -273,7 +273,7 @@ export const DAGGER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "Adds 28 - 35 Base Wilt Damage",
+    craftableAffix: "Adds 20 - 25 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -281,7 +281,7 @@ export const DAGGER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "Adds 21 - 25 Base Wilt Damage",
+    craftableAffix: "Adds 15 - 20 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -492,14 +492,6 @@ export const DAGGER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentSlot: "One-Handed",
     equipmentType: "Dagger",
     affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
-    craftableAffix: "+(23-29)% Attack and Spell Block Chance",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Dagger",
-    affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
     craftableAffix: "+(26-32)% Armor DMG Mitigation Penetration",
@@ -542,7 +534,7 @@ export const DAGGER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "+(28-39)% Elemental and Erosion Resistance Penetration",
+    craftableAffix: "+(31-39)% Elemental and Erosion Resistance Penetration",
   },
   {
     equipmentSlot: "One-Handed",

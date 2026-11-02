@@ -130,7 +130,7 @@ export const SPIRIT_RING_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Base Affix",
     craftingPool: "",
     tier: "0",
-    craftableAffix: "周围 15 米内敌人受到 20 级不祥诅咒",
+    craftableAffix: "Nearby enemies within 15 m are cursed by Lv. 20 Ominous",
   },
   {
     equipmentSlot: "Trinket",
@@ -139,7 +139,7 @@ export const SPIRIT_RING_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Timid Curse when Minions deal damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Timid Curse when Minions deal damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",
@@ -148,7 +148,7 @@ export const SPIRIT_RING_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Entangled Pain Curse when Minions deal damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Entangled Pain Curse when Minions deal damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",
@@ -191,5 +191,13 @@ export const SPIRIT_RING_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "1",
     craftableAffix:
       "Gains Spell Aggression when Minion Spells land a Critical Strike",
+  },
+  {
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "+1 Max Bond Stacks",
   },
 ];

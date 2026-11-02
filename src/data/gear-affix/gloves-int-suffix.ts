@@ -9,7 +9,7 @@ export const GLOVES_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Fire Resistance",
+    craftableAffix: "+(28-35)% Fire Resistance",
   },
   {
     equipmentSlot: "Gloves",
@@ -49,7 +49,7 @@ export const GLOVES_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Cold Resistance",
+    craftableAffix: "+(28-35)% Cold Resistance",
   },
   {
     equipmentSlot: "Gloves",
@@ -89,7 +89,7 @@ export const GLOVES_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Lightning Resistance",
+    craftableAffix: "+(28-35)% Lightning Resistance",
   },
   {
     equipmentSlot: "Gloves",
@@ -129,7 +129,7 @@ export const GLOVES_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Erosion Resistance",
+    craftableAffix: "+(28-35)% Erosion Resistance",
   },
   {
     equipmentSlot: "Gloves",
@@ -169,7 +169,7 @@ export const GLOVES_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(111-156)% Critical Strike Rating",
+    craftableAffix: "+(121-156)% Critical Strike Rating",
   },
   {
     equipmentSlot: "Gloves",
@@ -322,7 +322,7 @@ export const GLOVES_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix:
-      "+(22-31)% Attack and Cast Speed\n+(22-31)% Minion Attack and Cast Speed",
+      "+(25-31)% Attack and Cast Speed\n+(25-31)% Minion Attack and Cast Speed",
   },
   {
     equipmentSlot: "Gloves",
@@ -454,33 +454,6 @@ export const GLOVES_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Ultimate",
     tier: "3",
     craftableAffix: "+(34-42)% Reaping Recovery Speed",
-  },
-  {
-    equipmentSlot: "Gloves",
-    equipmentType: "Gloves (INT)",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "0",
-    craftableAffix:
-      "+1 Jumps\n+6% additional damage for every Jump (multiplies)",
-  },
-  {
-    equipmentSlot: "Gloves",
-    equipmentType: "Gloves (INT)",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "1",
-    craftableAffix:
-      "+1 Jumps\n+(4-5)% additional damage for every Jump (multiplies)",
-  },
-  {
-    equipmentSlot: "Gloves",
-    equipmentType: "Gloves (INT)",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "2",
-    craftableAffix:
-      "+1 Jumps\n+(2-3)% additional damage for every Jump (multiplies)",
   },
   {
     equipmentSlot: "Gloves",

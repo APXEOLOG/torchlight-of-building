@@ -111,19 +111,21 @@ export const frostSpikeParser: SupportLevelParser = (input) => {
     skillName,
   ).value;
 
-  const maxProjectile = findMatch(
+  const projectileAtRating = findMatch(
     descript,
     ts(
-      "max amount of projectiles that can be fired by this skill is {value:int}",
+      "{value:+int} projectile quantity when this skill hits an enemy with at least {rating:int} frostbite rating",
     ),
     skillName,
-  ).value;
+  );
 
-  const projectilePerFrostbiteRating = findMatch(
+  const dmgAtRating = findMatch(
     descript,
-    ts("{value:+int} projectile quantity for every {_:int} frostbite rating"),
+    ts(
+      "{value:+int%} additional damage when this skill hits an enemy with at least {rating:int} frostbite rating",
+    ),
     skillName,
-  ).value;
+  );
 
   const baseProjectile = findMatch(
     descript,
@@ -146,10 +148,10 @@ export const frostSpikeParser: SupportLevelParser = (input) => {
     weaponAtkDmgPct,
     addedDmgEffPct,
     convertPhysicalToColdPct: createConstantLevels(convertPhysicalToColdPct),
-    maxProjectile: createConstantLevels(maxProjectile),
-    projectilePerFrostbiteRating: createConstantLevels(
-      projectilePerFrostbiteRating,
-    ),
+    projectileAtRating: createConstantLevels(projectileAtRating.value),
+    ratingForProjectile: createConstantLevels(projectileAtRating.rating),
+    dmgPctAtRating: createConstantLevels(dmgAtRating.value),
+    ratingForDmg: createConstantLevels(dmgAtRating.rating),
     baseProjectile: createConstantLevels(baseProjectile),
     dmgPctPerProjectile: createConstantLevels(dmgPctPerProjectile),
   };
@@ -162,7 +164,7 @@ export const chargingWarcryParser: SupportLevelParser = (input) => {
   const dmgMatch = findMatch(
     firstDescription,
     ts(
-      "shadow strike skills gain {dmg:int%} additional damage and Ailment Damage for every enemy",
+      "shadow strike skills gain {dmg:+dec%} additional damage and Ailment Damage for every enemy",
     ),
     skillName,
   );
@@ -202,7 +204,7 @@ export const mindControlParser: SupportLevelParser = (input) => {
     if (level <= 20 && text !== "") {
       const match = findMatch(
         text,
-        ts("deals {value:int} per second erosion damage over time"),
+        ts("deals {value:int} persistent erosion damage every second"),
         skillName,
       );
       persistentDamage[level] = match.value;

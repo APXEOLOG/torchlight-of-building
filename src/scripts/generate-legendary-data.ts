@@ -19,7 +19,7 @@ import {
   toSnakeCase,
 } from "./tlidb-tools";
 
-const CURRENT_SEASON = "SS12Season";
+const CURRENT_SEASON = "SS14Season";
 
 // ============================================================================
 // Fetching
@@ -42,8 +42,8 @@ const extractLegendaryLinksFromGearPage = (
   const links: { href: string; name: string }[] = [];
   const seen = new Set<string>();
 
-  // Find links with item_rarity100 class (legendary items) within the page
-  $("a.item_rarity100[href]").each((_, el) => {
+  // The icon links in this tab have no text, so only the named links count
+  $("#LegendaryGear a[href]").each((_, el) => {
     const href = $(el).attr("href") ?? "";
     const name = $(el).text().trim();
 
@@ -261,7 +261,7 @@ const extractNormalAffixes = (
   choiceCards: Map<string, AffixChoiceCard>,
 ): LegendaryAffix[] => {
   const affixes: LegendaryAffix[] = [];
-  card.find("div.t1").each((_, el) => {
+  card.find(".tierParent > div").each((_, el) => {
     const affixText = cleanHtmlText($(el), $);
     if (affixText) {
       affixes.push(parseAffix(affixText, choiceCards, false));
@@ -338,7 +338,7 @@ const extractLegendary = (
   // Extract corruption affixes (div.t0)
   const corruptionAffixes: LegendaryAffix[] = [];
   if (corrodedCard !== undefined) {
-    corrodedCard.find("div.t0").each((_, el) => {
+    corrodedCard.find(".tierParent > div").each((_, el) => {
       const affixText = cleanHtmlText($(el), $);
       if (affixText) {
         corruptionAffixes.push(parseAffix(affixText, choiceCards, true));

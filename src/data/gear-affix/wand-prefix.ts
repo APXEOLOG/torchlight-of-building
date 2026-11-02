@@ -287,6 +287,42 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentSlot: "One-Handed",
     equipmentType: "Wand",
     affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    craftableAffix:
+      "+(39-49)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    craftableAffix:
+      "+(33-38)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "2",
+    craftableAffix:
+      "+(20-27)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "3",
+    craftableAffix:
+      "+(16-19)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix: "+(91-117) Intelligence",
@@ -424,6 +460,14 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Wand",
     affixType: "Prefix",
     craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Physical Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
     tier: "0",
     craftableAffix: "+(2-3) Lightning Skill Level",
   },
@@ -434,6 +478,14 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "1",
     craftableAffix: "+2 Lightning Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Lightning Skill Level",
   },
   {
     equipmentSlot: "One-Handed",
@@ -456,6 +508,14 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Wand",
     affixType: "Prefix",
     craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Cold Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
     tier: "0",
     craftableAffix: "+(2-3) Fire Skill Level",
   },
@@ -466,6 +526,14 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "1",
     craftableAffix: "+2 Fire Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Fire Skill Level",
   },
   {
     equipmentSlot: "One-Handed",
@@ -561,7 +629,7 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "+(28-39)% Elemental and Erosion Resistance Penetration",
+    craftableAffix: "+(31-39)% Elemental and Erosion Resistance Penetration",
   },
   {
     equipmentSlot: "One-Handed",
@@ -593,7 +661,8 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "Max Terra Charge Stacks +3",
+    craftableAffix:
+      "Max Terra Charge Stacks +2\n+(10-12)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -601,7 +670,8 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "1",
-    craftableAffix: "Max Terra Charge Stacks +2",
+    craftableAffix:
+      "Max Terra Charge Stacks +2\n+(3-5)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -609,7 +679,8 @@ export const WAND_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "2",
-    craftableAffix: "Max Terra Charge Stacks +1",
+    craftableAffix:
+      "Max Terra Charge Stacks +1\n+(6-9)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "One-Handed",

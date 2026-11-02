@@ -1,4 +1,4 @@
-import type { CheerioAPI } from "cheerio";
+import type { Cheerio, CheerioAPI } from "cheerio";
 import { t } from "@/src/tli/mod-parser";
 import type { ProgressionColumn, SupportParserInput } from "./types";
 
@@ -19,19 +19,11 @@ export const extractProgressionTable = (
     return undefined;
   }
 
-  const headerRow = table.find("thead tr").first();
-  const headerCells = headerRow.find("th");
-
-  const headers: string[] = [];
-  headerCells.slice(1).each((_, cell) => {
-    headers.push($(cell).text().trim());
-  });
-
-  // Build column-centric structure: each column has all its level values
-  const columns: ProgressionColumn[] = headers.map((header) => ({
-    header,
-    rows: {},
-  }));
+  // Each level has one cell of data-source blocks. Columns are rebuilt in the order the parsers expect:
+  // one "Effectiveness of added damage" and "damage" pair per damage part, then "Descript".
+  const effColumns: ProgressionColumn[] = [];
+  const damageColumns: ProgressionColumn[] = [];
+  const descriptColumn: ProgressionColumn = { header: "Descript", rows: {} };
 
   table.find("tbody tr").each((_, row) => {
     const cells = $(row).find("td");
@@ -40,34 +32,42 @@ export const extractProgressionTable = (
     const level = Number.parseInt($(cells[0]).text().trim(), 10);
     if (Number.isNaN(level)) return;
 
-    cells.slice(1).each((i, cell) => {
-      if (columns[i] !== undefined) {
-        const header = columns[i].header.toLowerCase().trim();
-
-        if (header === "descript") {
-          // For Descript columns, preserve structure by converting <br/> and <hr> to \n
-          // First, remove hyperlink elements that have tooltip data-bs-title attributes
-          // containing HTML that would pollute the text extraction
-          const cellClone = $(cell).clone();
-          cellClone.find("e.Hyperlink").each((_, el) => {
-            const text = $(el).text();
-            $(el).replaceWith(text);
-          });
-          let html = cellClone.html() ?? "";
-          // Convert <br/> and <hr> to \n (both act as line separators)
-          html = html.replace(/<br\s*\/?>/gi, "\n");
-          html = html.replace(/<hr[^>]*\/?>/gi, "\n");
-          // Strip remaining HTML tags (like <span class="text-mod">)
-          const text = html.replace(/<[^>]+>/g, "");
-          columns[i].rows[level] = text.trim();
-        } else {
-          columns[i].rows[level] = $(cell).text().trim();
-        }
-      }
-    });
+    const description = descriptText(
+      $,
+      $(cells[1]).find('[data-source="des"]'),
+    );
+    descriptColumn.rows[level] = description;
+    $(cells[1])
+      .find('[data-source="damage_effective"]')
+      .each((i, block) => {
+        effColumns[i] ??= { header: "Effectiveness of added damage", rows: {} };
+        damageColumns[i] ??= { header: "damage", rows: {} };
+        effColumns[i].rows[level] = $(block)
+          .text()
+          .replace(/^effectiveness of added damage/i, "")
+          .trim();
+        damageColumns[i].rows[level] = description;
+      });
   });
 
-  return columns;
+  const columns = effColumns.flatMap((col, i) => [col, damageColumns[i]]);
+  return [...columns, descriptColumn];
+};
+
+// Hyperlink tooltips hold HTML that would pollute the text, and <br> and <hr> both separate lines.
+// biome-ignore lint/suspicious/noExplicitAny: cheerio internal type
+const descriptText = ($: CheerioAPI, block: Cheerio<any>): string => {
+  const clone = block.clone();
+  clone.find("e.Hyperlink").each((_, el) => {
+    $(el).replaceWith($(el).text());
+  });
+  const html = (clone.html() ?? "")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<hr[^>]*\/?>/gi, "\n");
+  return $("<div>")
+    .html(html.replace(/<[^>]+>/g, ""))
+    .text()
+    .trim();
 };
 
 export const validateAllLevels = (
@@ -283,10 +283,10 @@ export const extractActivationMediumProgressionTable = (
     if (Number.isNaN(tierNum) || tierNum < 0 || tierNum > 3) return;
     const tier = tierNum as 0 | 1 | 2 | 3;
 
-    // Extract all <li> elements as affix lines
+    // Each row of the cell is an affix line, written as either <li> or <div>
     const affixes: string[] = [];
     $(cells[1])
-      .find("li")
+      .children("li, div")
       .each((_, li) => {
         // Clone the <li> and strip hyperlink elements using DOM methods
         // (regex fails because cheerio decodes HTML entities in data-bs-title

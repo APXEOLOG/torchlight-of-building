@@ -9,6 +9,22 @@ export const CUDGEL_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
+    craftableAffix: "+8% gear Attack Speed",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "+20% Attack Critical Strike Rating for this gear",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
     craftableAffix: "+16% additional damage for Main-Hand Weapons",
   },
   {
@@ -57,22 +73,6 @@ export const CUDGEL_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+8% gear Attack Speed",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Cudgel",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
-    craftableAffix: "+20% Attack Critical Strike Rating for this gear",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Cudgel",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+20% additional damage on Critical Strike",
   },
   {
@@ -81,7 +81,7 @@ export const CUDGEL_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+16% all stats",
+    craftableAffix: "+16% All Stats",
   },
   {
     equipmentSlot: "One-Handed",
@@ -141,7 +141,7 @@ export const CUDGEL_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "+120% Gear Physical Damage\n-20% Attack Critical Strike Rating for this gear",
+      "+60% additional damage for Main-Hand Weapons\n-20% Attack Critical Strike Rating for this gear",
   },
   {
     equipmentSlot: "One-Handed",
@@ -150,7 +150,7 @@ export const CUDGEL_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "+30% additional Deterioration Damage\n10% chance to inflict 2 additional stack(s) of Deterioration",
+      "Main Skill is supported by Lv. 25 Attack Focus\n+25% additional Melee Damage",
   },
   {
     equipmentSlot: "One-Handed",

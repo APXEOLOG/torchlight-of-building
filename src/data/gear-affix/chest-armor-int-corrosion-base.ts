@@ -18,32 +18,7 @@ export const CHEST_ARMOR_INT_CORROSION_BASE_AFFIXES: readonly BaseGearAffix[] =
       affixType: "Corrosion Base",
       craftingPool: "",
       tier: "0",
-      craftableAffix: "+1 Support Skill Level",
-    },
-    {
-      equipmentSlot: "Chest Armor",
-      equipmentType: "Chest Armor (INT)",
-      affixType: "Corrosion Base",
-      craftingPool: "",
-      tier: "0",
       craftableAffix: "+(3-5)% Max Elemental Resistance",
-    },
-    {
-      equipmentSlot: "Chest Armor",
-      equipmentType: "Chest Armor (INT)",
-      affixType: "Corrosion Base",
-      craftingPool: "",
-      tier: "0",
-      craftableAffix: "(-6--4)% additional Physical Damage taken",
-    },
-    {
-      equipmentSlot: "Chest Armor",
-      equipmentType: "Chest Armor (INT)",
-      affixType: "Corrosion Base",
-      craftingPool: "",
-      tier: "0",
-      craftableAffix:
-        "+(10-15)% Attack and Spell Block Chance while standing still",
     },
     {
       equipmentSlot: "Chest Armor",
@@ -92,13 +67,5 @@ export const CHEST_ARMOR_INT_CORROSION_BASE_AFFIXES: readonly BaseGearAffix[] =
       craftingPool: "",
       tier: "0",
       craftableAffix: "+(30-50)% gear Energy Shield",
-    },
-    {
-      equipmentSlot: "Chest Armor",
-      equipmentType: "Chest Armor (INT)",
-      affixType: "Corrosion Base",
-      craftingPool: "",
-      tier: "0",
-      craftableAffix: "50% chance to gain Hardened when you are hit",
     },
   ];

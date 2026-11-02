@@ -175,6 +175,27 @@ const cleanAffixHtml = (html: string): string => {
     .join("\n");
 };
 
+const NUMBER = /[+-]?\d+(?:\.\d+)?/g;
+
+// Writes numbers that vary by level as "(+10/+16/+22/+28/+34)". Text that differs in more than its numbers stays per level.
+const mergeLevelTexts = (levelTexts: string[]): string => {
+  const first = levelTexts[0];
+  if (first === undefined) return "";
+  const shape = first.replace(NUMBER, "#");
+  if (levelTexts.some((text) => text.replace(NUMBER, "#") !== shape)) {
+    return levelTexts.map((text, i) => `Level ${i + 1}${text}`).join("\n");
+  }
+  const numbers = levelTexts.map((text) => text.match(NUMBER) ?? []);
+  let n = -1;
+  return first.replace(NUMBER, (number) => {
+    n++;
+    const values = numbers.map((row) => row[n]);
+    return values.every((value) => value === number)
+      ? number
+      : `(${values.join("/")})`;
+  });
+};
+
 interface TlidbHeroTraitFile {
   fileName: string;
   html: string;
@@ -217,12 +238,12 @@ const extractTraitsFromPage = (
     const level = parseInt(levelMatch[1], 10);
     if (Number.isNaN(level)) return;
 
-    // Get the affix div (the div after the <hr>)
-    const affixDiv = $(container).find("hr").next("div");
-    if (affixDiv.length === 0) return;
-
-    const affixHtml = affixDiv.html() ?? "";
-    const affix = cleanAffixHtml(affixHtml);
+    // Each level has its own block of the full affix text
+    const levelTexts = $(container)
+      .find('[data-tier-content] [data-src="affix"]')
+      .map((_, el) => cleanAffixHtml($(el).html() ?? ""))
+      .get();
+    const affix = mergeLevelTexts(levelTexts);
     if (affix.length === 0) return;
 
     traits.push({ hero: heroLabel, name, level, affix });

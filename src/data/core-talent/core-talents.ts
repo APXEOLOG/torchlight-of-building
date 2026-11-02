@@ -172,7 +172,7 @@ export const CoreTalents = [
   {
     name: "Euphoria",
     tree: "Marksman",
-    affix: "+4% additional Evasion for every stack of Agility Blessing",
+    affix: "+4% additional Evasion per stack of Agility Blessing",
   },
   {
     name: "Close Range Fire",
@@ -184,7 +184,7 @@ export const CoreTalents = [
     name: "Master Escapist",
     tree: "Marksman",
     affix:
-      "+1 Max Deflection stacks\nFor every 5 m moved, gains 1 stack(s) of Deflection",
+      "+1 Max Deflection stacks\nGains max stacks of Deflection on Evade\nGains max stacks of Deflection if you haven't been hit recently\nDeflection is not consumed immediately when hit, but after 0.5s instead",
   },
   {
     name: "Waiting Attack",
@@ -248,7 +248,7 @@ export const CoreTalents = [
   {
     name: "Queer Angle",
     tree: "Assassin",
-    affix: "You and Minions deal Lucky Damage against Numbed enemies",
+    affix: "Your and Minions' damage gains Lucky",
   },
   {
     name: "Thunderclap",
@@ -283,7 +283,7 @@ export const CoreTalents = [
   {
     name: "Acquaintance",
     tree: "Goddess of Knowledge",
-    affix: "Has Dormant Entanglement\n+1 Max Tangle Quantity",
+    affix: "Has Dormant Entanglement\n+25% additional Spell Damage",
   },
   {
     name: "Bunch",
@@ -381,7 +381,7 @@ export const CoreTalents = [
     name: "Cohesion",
     tree: "God of War",
     affix:
-      "+50% additional Critical Strike Rating for the next Main Skill used every 1 s",
+      "+40% additional Critical Strike Rating for the next Main Skill used every 1 s",
   },
   {
     name: "Blunt",
@@ -432,7 +432,7 @@ export const CoreTalents = [
     name: "Open Wounds",
     tree: "Shadowdancer",
     affix:
-      "+2 TraumaLimit\n-99% additional Trauma Damage\n+12% additional Hit Physical Damage taken, up to +60% , for every stack of Trauma the enemy has",
+      "+2 TraumaLimit\n-99% additional Trauma Damage\n+12% additional Hit Physical Damage taken for every stack of Trauma the enemy has, up to +60%",
   },
   {
     name: "Falling Leaves",
@@ -443,7 +443,7 @@ export const CoreTalents = [
     name: "Tradeoff",
     tree: "Ronin",
     affix:
-      "+20% additional Attack Speed when Dexterity is no less than Strength\n+25% additional Attack Damage when Strength is no less than Dexterity",
+      "While Dual Wielding, -10% additional Attack Speed, -30% Attack Block Chance, and +55% additional Melee Damage\nWhile holding a Shield, -15% Defense, +5% additional Movement Speed, and +50% Attack and Spell Block Chance",
   },
   {
     name: "Centralize",
@@ -485,8 +485,7 @@ export const CoreTalents = [
   {
     name: "Full Defense",
     tree: "Sentinel",
-    affix:
-      "+25% additional Defense gained from Shield\n-1% additional Damage Over Time taken for every 1% Block Ratio",
+    affix: "-1% additional Damage Over Time taken for every 1% Block Ratio",
   },
   {
     name: "Last Stand",
@@ -554,7 +553,7 @@ export const CoreTalents = [
     name: "Windwalk",
     tree: "Psychic",
     affix:
-      "+60% additional Reaping Duration against enemies with Max Affliction. Lasts for 4 s. Only takes effect once on each enemy",
+      "+60% additional Damage Over Time against enemies with Max Affliction. Lasts for 4 s. Only takes effect once on each enemy",
   },
   {
     name: "Holiness",
@@ -565,14 +564,13 @@ export const CoreTalents = [
   {
     name: "Inexorable Doom",
     tree: "Psychic",
-    affix:
-      "Inflicts 1 additional stacks of Ill Omen when inflicting Ill Omen for the first time\nWhen triggering Ill Omen, inflicts 3 stack(s) of Ill Omen on 1 Nearby non-Elite enemy",
+    affix: "Nearby enemies within 15 m are cursed by Lv. 20 Ominous",
   },
   {
     name: "Reap Purification",
     tree: "Psychic",
     affix:
-      "Ill Omen Effect becomes: Enemies take True Damage equal to 4% of Max Life when gaining 1 stack of Ill Omen",
+      "-50% Ill Omen Cumulative Efficiency\nIll Omen Effect is converted to: Enemies take True Damage equal to 2.5% of Max Life when gaining 1 stack of Ill Omen",
   },
   {
     name: "Verbal Abuse",
@@ -619,7 +617,7 @@ export const CoreTalents = [
     name: "Stab In The Back",
     tree: "Lich",
     affix:
-      "While Blur is active, loses Blur after casting a Main Skill, and +40% additional damage for that cast",
+      "While Blur is active, loses Blur after casting a Main Skill, and +30% additional damage for that cast",
   },
   {
     name: "Orders",
@@ -634,9 +632,9 @@ export const CoreTalents = [
       "Max Sentry Quantity +1\n+100% additional Cast Speed for Sentry Skills",
   },
   {
-    name: "Shrink Back",
+    name: "Boss",
     tree: "God of Machines",
-    affix: "Gains Barrier every 1s\n+50% Barrier Shield",
+    affix: "Can obtain Bond\n+5% additional Minion Damage while having Bond",
   },
   {
     name: "Mighty Guard",
@@ -656,10 +654,9 @@ export const CoreTalents = [
       "Minions gain the Main-Hand Weapon's bonuses.\n+30% additional Spell Damage for Minions when wielding a Wand or Tin Staff",
   },
   {
-    name: "Boss",
+    name: "Shrink Back",
     tree: "Machinist",
-    affix:
-      "+1 to Max Summonable Synthetic Troops\n+15% additional Minion Damage",
+    affix: "Gains Barrier every 1s\n+50% Barrier Shield",
   },
   {
     name: "Rally",
@@ -671,7 +668,7 @@ export const CoreTalents = [
     name: "Burning Aggression",
     tree: "Machinist",
     affix:
-      "Gains 30 point(s) of Command every 2 s when there is an Elite within 10 m",
+      "+1 Max Bond Stacks\n+15% additional Minion Damage at Max Bond stacks",
   },
   {
     name: "United Stand",
@@ -695,13 +692,13 @@ export const CoreTalents = [
     name: "Knowledgeable",
     tree: "Steel Vanguard",
     affix:
-      "+100% additional Focus Skill Damage\n+50% Sealed Mana Compensation for Focus Skills\nFocus Skills can be equipped to Active Skill slots",
+      "+100% additional Focus Skill Damage\n+50% Sealed Mana Compensation for Focus SkillsFocus Skills can be equipped to Active Skill slots",
   },
   {
     name: "Tailored Remedy",
     tree: "Steel Vanguard",
     affix:
-      "The Restoration Effect from Elixir Skills cannot be removed\n-40% additional Elixir Skill Effect Duration when equipped with no more than 1 Elixir Skill\n+60% additional Elixir Skill Effect when equipped with no more than 2 Elixir Skills",
+      "The Restoration Effect from Elixir Skills cannot be removed\n+60% additional Elixir Skill Effect while affected by no more than 2 Elixir Skills",
   },
   {
     name: "Source",
@@ -749,6 +746,6 @@ export const CoreTalents = [
     name: "Shared Fate",
     tree: "Artisan",
     affix:
-      "Triggers the Sentry Main Skill when there are no Sentries within 10 m. Interval: 1 s\nThe number of Sentries that can be deployed at a time is equal to the Max Sentry Quantity\n+25% additional Sentry Damage",
+      "Triggers the Sentry Main Skill when there are no Sentries within 10 m. Interval: 1 s\nThe number of Sentries that can be deployed at a time is equal to the Max Sentry Quantity\n+25% additional Sentry Damage\n-30% Movement Speed",
   },
 ] as const satisfies readonly BaseCoreTalent[];

@@ -5,6 +5,7 @@ import * as cheerio from "cheerio";
 import { program } from "commander";
 import type { God, Talent, Tree, Type } from "../data/talent/types";
 import { Gods, Trees } from "../data/talent/types";
+import { stripTalentNotes } from "./lib/tlidb";
 
 // ============================================================================
 // Fetching
@@ -177,7 +178,7 @@ const extractTalentData = (html: string): Talent[] => {
     // Remove the header div to get just the effect
     contentClone.find("div.d-flex.justify-content-between").remove();
     const effectHtml = contentClone.html() ?? "";
-    const effect = cleanEffectHtml(effectHtml);
+    const effect = stripTalentNotes(cleanEffectHtml(effectHtml));
 
     items.push({ god, tree: treeName, type, name, effect });
   });
@@ -185,12 +186,21 @@ const extractTalentData = (html: string): Talent[] => {
   return items;
 };
 
+// One large literal is too complex for TypeScript's union checks.
+const CHUNK_SIZE = 300;
+
 const generateDataFile = (items: Talent[]): string => {
+  const chunks = Array.from(
+    { length: Math.ceil(items.length / CHUNK_SIZE) },
+    (_, i) => items.slice(i * CHUNK_SIZE, (i + 1) * CHUNK_SIZE),
+  );
   return `// This file is machine-generated. Do not modify manually.
 // To regenerate, run: pnpm exec tsx src/scripts/generate-talent-data.ts
 import type { Talent } from "./types";
 
-export const Talents: readonly Talent[] = ${JSON.stringify(items)};
+${chunks.map((chunk, i) => `const Part${i}: readonly Talent[] = ${JSON.stringify(chunk)};`).join("\n\n")}
+
+export const Talents: readonly Talent[] = [${chunks.map((_, i) => `...Part${i}`).join(", ")}];
 `;
 };
 

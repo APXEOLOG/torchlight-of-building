@@ -266,7 +266,7 @@ export const SHIELD_DEX_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix:
-      "+(34-47)% Attack and Cast Speed\n+(34-47)% Minion Attack and Cast Speed",
+      "+(37-47)% Attack and Cast Speed\n+(37-47)% Minion Attack and Cast Speed",
   },
   {
     equipmentSlot: "Shield",
@@ -301,7 +301,7 @@ export const SHIELD_DEX_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(165-234)% Critical Strike Rating",
+    craftableAffix: "+(181-234)% Critical Strike Rating",
   },
   {
     equipmentSlot: "Shield",
@@ -341,7 +341,7 @@ export const SHIELD_DEX_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(83-117)% Critical Strike Damage",
+    craftableAffix: "+(91-117)% Critical Strike Damage",
   },
   {
     equipmentSlot: "Shield",

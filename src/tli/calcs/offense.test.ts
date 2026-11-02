@@ -1960,8 +1960,8 @@ describe("resolveSelectedSkillSupportMods via calculateOffense", () => {
     //
     // Attack speed calculation:
     //   Base: 1.0
-    //   Steamroll (-15% increased): 1.0 * 0.85 = 0.85
-    //   Quick Decision (+24.5% more): 0.85 * 1.245 = 1.05825
+    //   Steamroll (-20% increased): 1.0 * 0.8 = 0.8
+    //   Quick Decision (+24.5% more): 0.8 * 1.245 = 0.996
 
     const loadout = initLoadout({
       gearPage: { equippedGear: { mainHand: weaponWithAspd }, inventory: [] },
@@ -1984,8 +1984,8 @@ describe("resolveSelectedSkillSupportMods via calculateOffense", () => {
     });
 
     validate(results, "[Test] Simple Attack", {
-      avgHit: 192.609,
-      aspd: 1.05825,
+      avgHit: 189.18144,
+      aspd: 0.996,
     });
   });
 
@@ -2185,15 +2185,11 @@ describe("resolveSelectedSkillMods via calculateOffense", () => {
     });
 
   test("Frost Spike levelMods are resolved into resolvedMods at level 20", () => {
-    // Frost Spike has 5 levelMods:
-    // 1. ConvertDmgPct (100% phys → cold)
-    // 2. MaxProjectile (5, override: true)
-    // 3. Projectile per frostbite_rating (1 per 35 rating) - normalized, per removed
-    // 4. BaseProjectileQuant (base 2)
-    // 5. DmgPct (8% additional per projectile) - normalized, per removed
-    //
-    // Note: Mods with `per` property have values normalized (multiplied by stack count)
-    // and `per` is removed. BaseProjectileQuant does NOT count toward projectile stacks.
+    // With no Frostbite Rating, Frost Spike resolves to 3 levelMods:
+    // 1. ConvertDmgPct (100% phys -> cold)
+    // 2. BaseProjectileQuant (base 2)
+    // 3. DmgPct (8% additional per projectile), normalized to 0
+    // Its +1 Projectile at 60 rating and +10% at 30 rating are filtered out until met.
     const results = calculateOffense({
       loadout: createFrostSpikeLoadout(20),
       configuration: defaultConfiguration,
@@ -2204,8 +2200,7 @@ describe("resolveSelectedSkillMods via calculateOffense", () => {
     const mods = actual.resolvedMods;
     const skillMods = mods.filter((m) => m.src?.includes("Frost Spike Lv.20"));
 
-    // Should have exactly 5 mods from Frost Spike levelMods
-    expect(skillMods.length).toBe(5);
+    expect(skillMods.length).toBe(3);
 
     // Check ConvertDmgPct mod
     const convertMod = skillMods
@@ -2213,23 +2208,44 @@ describe("resolveSelectedSkillMods via calculateOffense", () => {
       .find((m) => m.from === "physical" && m.to === "cold");
     expect(convertMod?.value).toBe(100);
 
-    // Check MaxProjectile mod
-    const maxProjMod = skillMods.find((m) => m.type === "MaxProjectile");
-    expect(maxProjMod?.value).toBe(5);
-    expect((maxProjMod as { override?: boolean }).override).toBe(true);
-
     // Check BaseProjectileQuant mod (base 2 projectiles)
     const baseProjMod = skillMods.find((m) => m.type === "BaseProjectileQuant");
     expect(baseProjMod?.value).toBe(2);
 
-    // Check Projectile mod (per frostbite, normalized to 0 with no stacks)
-    const projMod = skillMods.find((m) => m.type === "Projectile");
-    expect(projMod?.value).toBe(0); // 1 per 35 frostbite_rating with 0 stacks
-
     // Check DmgPct per projectile mod (normalized to 0 with no projectile stacks)
     const dmgPctMod = skillMods.find((m) => m.type === "DmgPct");
-    expect(dmgPctMod?.value).toBe(0); // 8% * 0 projectile stacks = 0
+    expect(dmgPctMod?.value).toBe(0);
     expect((dmgPctMod as { addn?: boolean }).addn).toBe(true);
+  });
+
+  test.each([
+    { rating: 29, projectile: undefined, dmgPcts: [0] },
+    { rating: 30, projectile: undefined, dmgPcts: [10, 0] },
+    { rating: 59, projectile: undefined, dmgPcts: [10, 0] },
+    { rating: 60, projectile: 1, dmgPcts: [10, 8] },
+    { rating: 120, projectile: 1, dmgPcts: [10, 8] },
+  ])("Frost Spike rating bonuses at $rating Frostbite Rating", ({
+    rating,
+    projectile,
+    dmgPcts,
+  }) => {
+    const results = calculateOffense({
+      loadout: createFrostSpikeLoadout(20),
+      configuration: {
+        ...defaultConfiguration,
+        enemyFrostbittenEnabled: true,
+        enemyFrostbittenPoints: rating,
+      },
+    });
+    const skillMods = (
+      results.skills["Frost Spike"]?.resolvedMods ?? []
+    ).filter((m) => m.src?.includes("Frost Spike Lv.20"));
+    expect(skillMods.find((m) => m.type === "Projectile")?.value).toBe(
+      projectile,
+    );
+    expect(
+      skillMods.filter((m) => m.type === "DmgPct").map((m) => m.value),
+    ).toEqual(dmgPcts);
   });
 
   test("Frost Spike conversion mod affects damage calculation", () => {
@@ -2374,7 +2390,7 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
-    expect(iceBondBuffMod?.value).toBeCloseTo(33);
+    expect(iceBondBuffMod?.value).toBeCloseTo(24);
   });
 
   test("Bull's Rage provides buff mod when enabled", () => {
@@ -2444,7 +2460,7 @@ describe("resolveBuffSkillMods", () => {
   });
 
   test("buff skill level affects buff value", () => {
-    // Ice Bond at level 1: 23.5% additional cold damage
+    // Ice Bond at level 1: 14.5% additional cold damage
     // Ice Bond at level 20: 33% additional cold damage
     const loadoutL1 = createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
       { name: "Ice Bond", level: 1 },
@@ -2480,8 +2496,8 @@ describe("resolveBuffSkillMods", () => {
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
 
-    expect(buffModL1?.value).toBeCloseTo(23.5);
-    expect(buffModL20?.value).toBeCloseTo(33);
+    expect(buffModL1?.value).toBeCloseTo(14.5);
+    expect(buffModL20?.value).toBeCloseTo(24);
   });
 
   test("Mass Effect increases buff skill effect", () => {
@@ -2505,7 +2521,7 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
-    expect(iceBondBuffMod?.value).toBeCloseTo(33 * 1.4);
+    expect(iceBondBuffMod?.value).toBeCloseTo(24 * 1.4);
   });
 
   test("Well-Fought Battle increases buff skill effect", () => {
@@ -2529,7 +2545,7 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
-    expect(iceBondBuffMod?.value).toBeCloseTo(42.9);
+    expect(iceBondBuffMod?.value).toBeCloseTo(24 * 1.3);
   });
 
   test("Ice Bond and Bull's Rage with Mass Effect and Well-Fought Battle - supports only affect their attached skill", () => {
@@ -2550,7 +2566,7 @@ describe("resolveBuffSkillMods", () => {
     // - Base: 100 weapon * 2.01 = 201 phys → converted to 201 cold
     // - Ice Bond buff applies (modType: "cold" matches Frost Spike's cold damage)
     // - Bull's Rage buff applies (modType: "melee" matches Frost Spike's Melee tag)
-    // - avgHit = 201 * 1.561 * 1.459 = 457.78
+    // - avgHit = 201 * 1.408 * 1.459 = 412.908672
     //
     // Key assertion: Each skill's supports only affect that skill's buff, not other skills
     const loadout = createBuffSkillLoadout({ name: "Frost Spike" }, [
@@ -2578,7 +2594,7 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
-    expect(iceBondBuffMod?.value).toBeCloseTo(56.1);
+    expect(iceBondBuffMod?.value).toBeCloseTo(24 * 1.7);
 
     // Check Bull's Rage buff
     const bullsRageBuffMod = actual?.resolvedMods.find(
@@ -2587,7 +2603,7 @@ describe("resolveBuffSkillMods", () => {
     expect(bullsRageBuffMod?.value).toBeCloseTo(45.9);
 
     // Verify final avgHit includes both Ice Bond's cold buff and Bull's Rage's melee buff
-    expect(actual?.attackDpsSummary?.mainhand.avgHit).toBeCloseTo(457.78);
+    expect(actual?.attackDpsSummary?.mainhand.avgHit).toBeCloseTo(412.908672);
   });
 
   test("supports on main skill do not affect buff skills", () => {
@@ -2615,7 +2631,7 @@ describe("resolveBuffSkillMods", () => {
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
     // Should be base 33%, not affected by main skill's Mass Effect
-    expect(iceBondBuffMod?.value).toBeCloseTo(33);
+    expect(iceBondBuffMod?.value).toBeCloseTo(24);
   });
 
   test("supports on one buff skill do not affect another buff skill", () => {
@@ -2623,7 +2639,7 @@ describe("resolveBuffSkillMods", () => {
     // - Ice Bond with Mass Effect (20% per charge * 2 = 40% skill effect)
     // - Bull's Rage without supports
     //
-    // Ice Bond buff = 33% * 1.4 = 46.2%
+    // Ice Bond buff = 24% * 1.4 = 33.6%
     // Bull's Rage buff = 27% (no effect from Ice Bond's supports)
     const loadout = createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
       { name: "Ice Bond", supports: [{ name: "Mass Effect" }] },
@@ -2644,7 +2660,7 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
-    expect(iceBondBuffMod?.value).toBeCloseTo(33 * 1.4);
+    expect(iceBondBuffMod?.value).toBeCloseTo(24 * 1.4);
 
     // Bull's Rage should NOT be affected by Ice Bond's Mass Effect
     const bullsRageBuffMod = actual?.resolvedMods.find(
@@ -2679,7 +2695,7 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
-    expect(iceBondBuffMod?.value).toBeCloseTo(56.1);
+    expect(iceBondBuffMod?.value).toBeCloseTo(24 * 1.7);
   });
 
   test("support skill level affects skill effect bonus", () => {
@@ -2723,15 +2739,15 @@ describe("resolveBuffSkillMods", () => {
         m.cond === "enemy_frostbitten",
     ) as DmgPctMod | undefined;
 
-    expect(buffModL1?.value).toBeCloseTo(33 * 1.21);
-    expect(buffModL20?.value).toBeCloseTo(33 * 1.4);
+    expect(buffModL1?.value).toBeCloseTo(24 * 1.21);
+    expect(buffModL20?.value).toBeCloseTo(24 * 1.4);
   });
 
   test("passive skill Precise: Cruelty provides additional attack damage scaled by AuraEffPct", () => {
     // Precise: Cruelty at level 20 provides:
-    // - Base: 12.5% additional attack damage
+    // - Base: 22% additional attack damage
     // - AuraEffPct: 2% per cruelty_buff stack, default 40 stacks = 80% aura effect
-    // - Final: 12.5% * (1 + 0.8) = 22.5%
+    // - Final: 22% * (1 + 1) = 44%
     const loadout = initLoadout({
       gearPage: { equippedGear: { mainHand: baseWeapon }, inventory: [] },
       skillPage: {
@@ -2764,15 +2780,15 @@ describe("resolveBuffSkillMods", () => {
       (m) =>
         m.type === "DmgPct" && m.dmgModType === "attack" && m.addn === true,
     ) as DmgPctMod | undefined;
-    // Base 12.5% scaled by 80% aura effect = 22.5%
-    expect(preciseCrueltyBuffMod?.value).toBeCloseTo(12.5 * 1.8);
+    // Base 22% scaled by 100% aura effect = 44%
+    expect(preciseCrueltyBuffMod?.value).toBeCloseTo(22 * 2);
   });
 
   test("Precise: Cruelty AuraEffPct scales with crueltyBuffStacks config", () => {
     // Precise: Cruelty at level 20 with only 20 stacks:
-    // - Base: 12.5% additional attack damage
+    // - Base: 22% additional attack damage
     // - AuraEffPct: 2% * 20 = 40% aura effect
-    // - Final: 12.5% * (1 + 0.4) = 17.5%
+    // - Final: 22% * (1 + 0.5) = 33%
     const loadout = initLoadout({
       gearPage: { equippedGear: { mainHand: baseWeapon }, inventory: [] },
       skillPage: {
@@ -2810,8 +2826,8 @@ describe("resolveBuffSkillMods", () => {
       (m) =>
         m.type === "DmgPct" && m.dmgModType === "attack" && m.addn === true,
     ) as DmgPctMod | undefined;
-    // Base 12.5% scaled by 40% aura effect = 17.5%
-    expect(preciseCrueltyBuffMod?.value).toBeCloseTo(12.5 * 1.4);
+    // Base 22% scaled by 50% aura effect = 33%
+    expect(preciseCrueltyBuffMod?.value).toBeCloseTo(22 * 1.5);
   });
 
   test("AuraEffPct from levelMods does not appear in resolvedMods", () => {
@@ -2854,11 +2870,11 @@ describe("resolveBuffSkillMods", () => {
 
   test("AuraEffPct from loadout mods affects Precise: Cruelty", () => {
     // Precise: Cruelty at level 20 provides:
-    // - Base: 12.5% additional attack damage
+    // - Base: 22% additional attack damage
     // - Own AuraEffPct (addn: true): 2% * 40 stacks = 80% multiplicative
     // - Loadout AuraEffPct (addn: false): 50% additive
     // - Aura multiplier: (1 + 0.5) * (1 + 0.8) = 1.5 * 1.8 = 2.7
-    // - Final: 12.5% * 2.7 = 33.75%
+    // - Final: 22% * 3 = 66%
     const loadout = initLoadout({
       gearPage: { equippedGear: { mainHand: baseWeapon }, inventory: [] },
       customAffixLines: affixLines([
@@ -2894,12 +2910,12 @@ describe("resolveBuffSkillMods", () => {
       (m) =>
         m.type === "DmgPct" && m.dmgModType === "attack" && m.addn === true,
     ) as DmgPctMod | undefined;
-    // Base 12.5% with aura multiplier 2.7 = 33.75%
-    expect(preciseCrueltyBuffMod?.value).toBeCloseTo(12.5 * 2.7);
+    // Base 12.5% with aura multiplier 2.7 = 66%
+    expect(preciseCrueltyBuffMod?.value).toBeCloseTo(22 * 3);
 
-    // Verify avgHit: 100 base weapon * (1 + 0.3375 addn dmg) = 133.75
+    // Verify avgHit: 100 base weapon * (1 + 0.3375 addn dmg) = 166
     expect(actual?.attackDpsSummary?.mainhand.avgHit).toBeCloseTo(
-      100 * (1 + 0.125 * 2.7),
+      100 * (1 + 0.22 * 3),
     );
   });
 
@@ -5752,7 +5768,7 @@ describe("MainSkillSupportedBy mods", () => {
       configuration: defaultConfiguration,
     };
     const results = calculateOffense(input);
-    validate(results, skillName, { avgHit: 112.5 });
+    validate(results, skillName, { avgHit: 113.5 });
   });
 
   test("MainSkillSupportedBy only applies to main skill (slot 1), not other slots", () => {
@@ -6027,7 +6043,7 @@ describe("defense calculation (ES, Eva, Armor)", () => {
     // Energy Fortress level 20 flat: +67
     // Total flat ES: 690 + 500 + 67 = 1257
     // Energy Fortress level 20 increased ES: 3.2%
-    // Total energy shield: 1257 * 1.032 = 1297.2
+    // Energy Fortress level 20 is really +319.7 flat and +13.36%: 1509.7 * 1.1336 = 1711.4
     const input = {
       loadout: initLoadout({
         gearPage: {
@@ -6099,17 +6115,17 @@ describe("defense calculation (ES, Eva, Armor)", () => {
     };
 
     const results = calculateOffense(input);
-    expect(Math.round(results.defenses.energyShield)).toEqual(1297);
+    expect(Math.round(results.defenses.energyShield)).toEqual(1711);
   });
 
   test("calculate armor with gear affixes and flat modifiers", () => {
     // Chest: (200 base + 300 flat) * 1.5 gear% = 500 * 1.5 = 750
     // Gloves: (100 base + 100 flat) * 1.4 gear% = 200 * 1.4 = 280
     // Total from gear: 750 + 280 = 1030
-    // Steadfast level 20 flat: +2200
-    // Total flat armor: 1030 + 100 + 2200 = 3230
-    // Steadfast level 20 increased armor: 0.5%
-    // Total armor: 3330 * 1.005 = 3246.65
+    // Steadfast level 20 flat: +6000
+    // Total flat armor: 1030 + 6000 = 7030
+    // Steadfast level 20 increased armor: 10%
+    // Total armor: 7030 * 1.1 = 7733
     const input = {
       loadout: initLoadout({
         gearPage: {
@@ -6167,17 +6183,17 @@ describe("defense calculation (ES, Eva, Armor)", () => {
     };
 
     const results = calculateOffense(input);
-    expect(results.defenses.armor).toBeCloseTo(3246);
+    expect(results.defenses.armor).toBeCloseTo(7733);
   });
 
   test("calculate evasion with gear affixes and flat modifiers", () => {
     // Boots: (100 base + 300 flat) * 1.6 gear% = 400 * 1.6 = 640
     // Helmet: (100 base + 100 flat) * 1.3 gear% = 200 * 1.3 = 260
     // Total from gear: 640 + 260 = 900
-    // Nimbleness level 20 flat: +2200
-    // Total flat evasion: 900 + 100 + 2200 = 3100
-    // Nimbleness level 20 increased evasion: 0.5%
-    // Total evasion: 3100 * 1.005 = 3115.5
+    // Nimbleness level 20 flat: +6000
+    // Total flat evasion: 900 + 6000 = 6900
+    // Nimbleness level 20 increased evasion: 10%
+    // Total evasion: 6900 * 1.1 = 7590
     const input = {
       loadout: initLoadout({
         gearPage: {
@@ -6235,7 +6251,7 @@ describe("defense calculation (ES, Eva, Armor)", () => {
     };
 
     const results = calculateOffense(input);
-    expect(results.defenses.evasion).toBeCloseTo(3115);
+    expect(results.defenses.evasion).toBeCloseTo(7590);
   });
 });
 

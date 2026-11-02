@@ -141,4 +141,12 @@ export const GLOVES_INT_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "2",
     craftableAffix: "+(12-20)% Critical Strike Damage Mitigation",
   },
+  {
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "Gains Ferocity when dealing Physical Damage",
+  },
 ];

@@ -9,6 +9,22 @@ export const SHIELD_INT_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
+    craftableAffix: "+8% All Stats",
+  },
+  {
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (INT)",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "+10% Movement Speed",
+  },
+  {
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (INT)",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
     craftableAffix: "+8% Elemental Resistance",
   },
   {
@@ -41,14 +57,6 @@ export const SHIELD_INT_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+10% Movement Speed",
-  },
-  {
-    equipmentSlot: "Shield",
-    equipmentType: "Shield (INT)",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+80% Critical Strike Rating",
   },
   {
@@ -74,14 +82,6 @@ export const SHIELD_INT_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "1",
     craftableAffix: "Restores 3% Energy Shield on Block. Interval: 0.3s",
-  },
-  {
-    equipmentSlot: "Shield",
-    equipmentType: "Shield (INT)",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
-    craftableAffix: "+8% all stats",
   },
   {
     equipmentSlot: "Shield",
@@ -133,7 +133,7 @@ export const SHIELD_INT_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Spell Damage will not further reduce Evasion by default\n+1680 gear Evasion",
+      "Spell Damage will not additionally reduce Evasion by default\n+1680 gear Evasion",
   },
   {
     equipmentSlot: "Shield",

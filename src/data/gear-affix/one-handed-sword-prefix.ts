@@ -249,7 +249,7 @@ export const ONE_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "Adds 455 - 845 Base Ignite Damage",
+    craftableAffix: "Adds 320 - 590 Base Ignite Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -257,14 +257,6 @@ export const ONE_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "Adds 350 - 650 Base Ignite Damage",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "One-Handed Sword",
-    affixType: "Prefix",
-    craftingPool: "Basic",
-    tier: "2",
     craftableAffix: "Adds 245 - 455 Base Ignite Damage",
   },
   {
@@ -272,8 +264,16 @@ export const ONE_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "One-Handed Sword",
     affixType: "Prefix",
     craftingPool: "Basic",
+    tier: "2",
+    craftableAffix: "Adds 170 - 320 Base Ignite Damage",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Sword",
+    affixType: "Prefix",
+    craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "Adds 175 - 325 Base Ignite Damage",
+    craftableAffix: "Adds 125 - 230 Base Ignite Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -281,7 +281,7 @@ export const ONE_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "Adds 125 - 235 Base Ignite Damage",
+    craftableAffix: "Adds 90 - 165 Base Ignite Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -327,14 +327,6 @@ export const ONE_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "4",
     craftableAffix:
       "Reaps 0.07 s of Ignite Damage when dealing Damage Over Time. The effect has a 1 s Recovery Time against the same target",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "One-Handed Sword",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
-    craftableAffix: "+(23-29)% Attack and Spell Block Chance",
   },
   {
     equipmentSlot: "One-Handed",
@@ -566,7 +558,7 @@ export const ONE_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "+(28-39)% Elemental and Erosion Resistance Penetration",
+    craftableAffix: "+(31-39)% Elemental and Erosion Resistance Penetration",
   },
   {
     equipmentSlot: "One-Handed",

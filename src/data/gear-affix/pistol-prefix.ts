@@ -249,7 +249,7 @@ export const PISTOL_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "Adds 72 - 88 Base Wilt Damage",
+    craftableAffix: "Adds 50 - 60 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -257,7 +257,7 @@ export const PISTOL_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "Adds 56 - 67 Base Wilt Damage",
+    craftableAffix: "Adds 40 - 45 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -265,7 +265,7 @@ export const PISTOL_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "2",
-    craftableAffix: "Adds 38 - 46 Base Wilt Damage",
+    craftableAffix: "Adds 25 - 30 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -273,7 +273,7 @@ export const PISTOL_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "Adds 28 - 35 Base Wilt Damage",
+    craftableAffix: "Adds 20 - 25 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -281,7 +281,7 @@ export const PISTOL_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "Adds 21 - 25 Base Wilt Damage",
+    craftableAffix: "Adds 15 - 20 Base Wilt Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -327,6 +327,42 @@ export const PISTOL_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "4",
     craftableAffix:
       "Reaps 0.07 s of Wilt Damage when dealing Damage Over Time. The effect has a 1 s Recovery Time against the same target",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    craftableAffix:
+      "+(39-49)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    craftableAffix:
+      "+(33-38)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "2",
+    craftableAffix:
+      "+(20-27)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "3",
+    craftableAffix:
+      "+(16-19)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
   },
   {
     equipmentSlot: "One-Handed",
@@ -487,14 +523,6 @@ export const PISTOL_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "4",
     craftableAffix: "+(30-36) Strength",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Pistol",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
-    craftableAffix: "+(23-29)% Attack and Spell Block Chance",
   },
   {
     equipmentSlot: "One-Handed",

@@ -49,7 +49,7 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(319-455) Max Energy Shield",
+    craftableAffix: "+(351-455) Max Energy Shield",
   },
   {
     equipmentSlot: "Trinket",
@@ -209,7 +209,7 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(66-94)% Minion Damage",
+    craftableAffix: "+(73-94)% Minion Damage",
   },
   {
     equipmentSlot: "Trinket",
@@ -663,7 +663,7 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(26-30)% Ill Omen Cumulative Efficiency",
+    craftableAffix: "+(55-65)% Ill Omen Cumulative Efficiency",
   },
   {
     equipmentSlot: "Trinket",
@@ -671,7 +671,7 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "1",
-    craftableAffix: "+(21-25)% Ill Omen Cumulative Efficiency",
+    craftableAffix: "+(41-50)% Ill Omen Cumulative Efficiency",
   },
   {
     equipmentSlot: "Trinket",
@@ -679,7 +679,7 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "2",
-    craftableAffix: "+(16-20)% Ill Omen Cumulative Efficiency",
+    craftableAffix: "+(31-40)% Ill Omen Cumulative Efficiency",
   },
   {
     equipmentSlot: "Trinket",
@@ -687,7 +687,7 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "3",
-    craftableAffix: "+(11-15)% Ill Omen Cumulative Efficiency",
+    craftableAffix: "+(21-30)% Ill Omen Cumulative Efficiency",
   },
   {
     equipmentSlot: "Trinket",
@@ -695,7 +695,7 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "4",
-    craftableAffix: "+(5-10)% Ill Omen Cumulative Efficiency",
+    craftableAffix: "+(10-20)% Ill Omen Cumulative Efficiency",
   },
   {
     equipmentSlot: "Trinket",
@@ -751,22 +751,6 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "[Beacon] +2 Max Spell Burst",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Necklace",
-    affixType: "Prefix",
-    craftingPool: "Ultimate",
-    tier: "1",
-    craftableAffix: "+1 Max Spell Burst",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Necklace",
-    affixType: "Prefix",
-    craftingPool: "Ultimate",
-    tier: "0",
     craftableAffix: "+3 Active Skill Level",
   },
   {
@@ -799,7 +783,7 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "Multistrikes deal (36-52)% increasing damage",
+    craftableAffix: "Multistrikes deal (41-52)% increasing damage",
   },
   {
     equipmentSlot: "Trinket",
@@ -842,6 +826,24 @@ export const NECKLACE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "1",
     craftableAffix:
       "You can apply 1 additional Tangle(s) to enemies\n+(5-8)% Tangle Damage Enhancement",
+  },
+  {
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    craftableAffix:
+      "[Beacon] +2 Max Spell Burst\n(-1-1)% additional Hit Damage for skills cast by Spell Burst",
+  },
+  {
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    craftableAffix:
+      "[Beacon] +2 Max Spell Burst\n(-6--4)% additional Hit Damage for skills cast by Spell Burst",
   },
   {
     equipmentSlot: "Trinket",

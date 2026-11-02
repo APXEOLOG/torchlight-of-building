@@ -6,6 +6,11 @@ export const Prisms: readonly Prism[] = [
   {
     type: "Base Affix",
     rarity: "",
+    affix: "+75% to the effects of Random Affixes on this Prism",
+  },
+  {
+    type: "Base Affix",
+    rarity: "",
     affix:
       "Adds an additional effect to the Core Talent on the God of Might/Goddess of Hunting/Goddess of Knowledge/God of War/Goddess of Deception/God of Machines Advanced Talent Panel:\n+12% additional Attack Damage when holding a One-Handed Weapon\n+12% additional Base Damage for Two-Handed Weapons",
   },
@@ -31,7 +36,7 @@ export const Prisms: readonly Prism[] = [
     type: "Base Affix",
     rarity: "",
     affix:
-      "Adds an additional effect to the Core Talent on the God of Might/Goddess of Hunting/Goddess of Knowledge/God of War/Goddess of Deception/God of Machines Advanced Talent Panel:\nEliminates enemies with less than 12% Life and at least 30 stack(s) of Wilt when dealing damage",
+      "Adds an additional effect to the Core Talent on the God of Might/Goddess of Hunting/Goddess of Knowledge/God of War/Goddess of Deception/God of Machines Advanced Talent Panel:\n+30 Affliction inflicted per second\n+10% additional Damage Over Time",
   },
   {
     type: "Base Affix",
@@ -62,11 +67,6 @@ export const Prisms: readonly Prism[] = [
     rarity: "",
     affix:
       "Adds an additional effect to the Core Talent on the God of Might/Goddess of Hunting/Goddess of Knowledge/God of War/Goddess of Deception/God of Machines Advanced Talent Panel:\n+12% additional Spell Damage when you have Spell Aggression",
-  },
-  {
-    type: "Base Affix",
-    rarity: "",
-    affix: "+75% to the effects of Random Affixes on this Prism",
   },
   {
     type: "Base Affix",
@@ -203,503 +203,503 @@ export const Prisms: readonly Prism[] = [
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 3x3 Rectangle",
+    affix: "The area of effect expands to 3x3 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 3x4 Rectangle",
+    affix: "The area of effect expands to 3x4 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 4x3 Rectangle",
+    affix: "The area of effect expands to 4x3 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 2x2 Rectangle",
+    affix: "The area of effect expands to 2x2 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 7x1 Rectangle",
+    affix: "The area of effect expands to 7x1 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 2x4 Rectangle",
+    affix: "The area of effect expands to 2x4 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 4x2 Rectangle",
+    affix: "The area of effect expands to 4x2 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 3x3 Rectangle",
+    affix: "The area of effect expands to 3x3 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 3x4 Rectangle",
+    affix: "The area of effect expands to 3x4 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 4x3 Rectangle",
+    affix: "The area of effect expands to 4x3 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 2x2 Rectangle",
+    affix: "The area of effect expands to 2x2 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 7x1 Rectangle",
+    affix: "The area of effect expands to 7x1 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 2x4 Rectangle",
+    affix: "The area of effect expands to 2x4 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 4x2 Rectangle",
+    affix: "The area of effect expands to 4x2 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 3x3 Rectangle",
+    affix: "The area of effect expands to 3x3 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 3x4 Rectangle",
+    affix: "The area of effect expands to 3x4 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 4x3 Rectangle",
+    affix: "The area of effect expands to 4x3 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 2x2 Rectangle",
+    affix: "The area of effect expands to 2x2 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 7x1 Rectangle",
+    affix: "The area of effect expands to 7x1 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 2x4 Rectangle",
+    affix: "The area of effect expands to 2x4 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
-    affix: "The Effect Area expands to 4x2 Rectangle",
+    affix: "The area of effect expands to 4x2 Rectangle",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: One For All",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [One For All] Gains Cold and Lightning Resistance equal to 50% of Fire Resistance",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unwavering Fortress",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unwavering Fortress] Gains Bulwark equal to 1.5% of Armor and reduces 100% Non-True Damage taken every 10s. Bulwark is refreshed when gained again\nYour Max Life is set to 100\nYour Evasion and Max Energy Shield are fixed at 0",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unstoppable Force",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unstoppable Force] When a Combo Finisher is in Multistrike, it is guaranteed to deal damage equal to the Max Multistrike Count",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Hare's Agility",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Hare's Agility] When exiting Stand Still, gains 1 stack of buff that lasts for 2s, up to 5 times\n+14% additional damage dealt to enemies in proximity for each stack of buff. +8% Attack Speed",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Sweeping Fury",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Sweeping Fury] On hit, Main Ranged Horizontal Projectile Skills have a 100% chance to cast an additional Main Skill, whose projectiles fire in a ring and deal -60% additional damage. Interval: 0.03s. Does not affect Sentry Skills, Vertical Skills, and Channeled Skills.\nProjectile Quantity Upper limit: 5\n+2 Horizontal Projectile Penetration(s)",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Keen Intellect",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Keen Intellect] For every Active Empower Skill equipped, +13% additional Spell Damage (multiplies)\nFor every Active Curse Skill equipped, +6% Elemental and Erosion Resistance Penetration and +6% Armor DMG Mitigation Penetration.\nFor every Active Defensive Skill equipped, +13% additional Max Mana (multiplies)\nFor every Active Mobility Skill equipped, +13% additional Cast Speed (multiplies)",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Towering Presence",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Towering Presence] Adds 100% of the Main-Hand Weapon damage to Spells\nAdds 75% of Main-Hand Weapon's Critical Strike Rating to the Base Critical Strike Rating of Spell Skills\n-99% additional Ailment Damage",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Spell Ripple",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Spell Ripple] Main Spell Skills on hit have a 50% chance to spawn a Pulse, dealing True Damage equal to 150% of Hit Damage. Interval: 0.03s",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Juggernaut",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Juggernaut] -10% additional Armor and -2% Elemental and Erosion Resistance for enemies on Critical Strike for 8 s. Stacks up to 10 times",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Adaptive Defense",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Adaptive Defense] If you haven't been hit recently, +40% Injury Buffer. This effect lasts for another 4s when you are hit\nGains 1 stack(s) of Deflection every 0.5 s if you have been hit recently",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unmatched Valor",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unmatched Valor] Has 130 point(s) of fixed Fervor Rating",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Self-Delusion",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Self-Delusion] +12% additional Erosion Damage to an enemy for each type of Crowd Control Effect they are under\nCrowd Control Effects inflicted are reflected back onto you",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Escalating Affliction",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Escalating Affliction] Changes the effect of each point of Affliction to: 0.1% - +3% additional Damage Over Time taken. Refreshes every 1s and is affected by Lucky Damage bonuses\n90% of the bonuses and additional bonuses for Max Damage is also applied to Damage Over Time",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Commander's Gambit",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Commander's Gambit] -100% additional Tenacity Blessing, Agility Blessing, and Focus Blessing Effect\nWhen gaining any Blessing, Minions within 10m also gain it\nMinions' Max Blessing Stacks are three times your own",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Circle of Life",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Circle of Life] Gains Growth equal to 80% of the nearest Spirit Magus every 1s, and Growth gains Return Speed equal to Command\nFor every 10 Growth, +1% additional damage for Spirit Magi, 0.1% additional Physique and 0.5% Skill Area for yourself",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Miraculous Touch",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Miraculous Touch] Triggers Miraculous Gain when casting an Elixir Skill\nElixir Skills gain 1 Charging Progress every second",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Dark Advance",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Dark Advance] Moves in the target direction when casting Dark Gate\n+3 Max Charges for Dark Gate\n+50% additional Cooldown Recovery Speed to Dark Gate\n+30% additional Minion Damage if a Dark Gate has been cast recently",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Effortless Command",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: 1204411023",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Crushing Blast",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Crushing Blast] Enemies have a 25% chance to explode when defeated by an Attack or Spell, dealing True Damage equal to 250% of their Max Life to enemies within a 6 m radius\n+30% additional damage to Elites",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Storm's Command",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Storm's Command] +35% additional Attack Damage for each different Warcry cast for 8 s\n-99% additional Empower Skill and Defensive Skill Effect",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Fire's Allure",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Fire's Allure] Inflicts Scorch instead of Ignite\nNearby enemies within 10m -10% Fire Resistance for each stack of Scorch on them",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Fiery Fantasy",
+      "-5% Elemental Resistance\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Fiery Fantasy] +3% additional Ignite Damage, up to +150% , for every +1% Ignite Chance above 100%\n+3% additional Wilt Damage, up to +150% , for every +1% Wilt Chance above 100%\n+3% additional Trauma Damage, up to +150% , for every +1% Trauma Chance above 100%",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: One For All",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [One For All] Gains Cold and Lightning Resistance equal to 50% of Fire Resistance",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unwavering Fortress",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unwavering Fortress] Gains Bulwark equal to 1.5% of Armor and reduces 100% Non-True Damage taken every 10s. Bulwark is refreshed when gained again\nYour Max Life is set to 100\nYour Evasion and Max Energy Shield are fixed at 0",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unstoppable Force",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unstoppable Force] When a Combo Finisher is in Multistrike, it is guaranteed to deal damage equal to the Max Multistrike Count",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Hare's Agility",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Hare's Agility] When exiting Stand Still, gains 1 stack of buff that lasts for 2s, up to 5 times\n+14% additional damage dealt to enemies in proximity for each stack of buff. +8% Attack Speed",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Sweeping Fury",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Sweeping Fury] On hit, Main Ranged Horizontal Projectile Skills have a 100% chance to cast an additional Main Skill, whose projectiles fire in a ring and deal -60% additional damage. Interval: 0.03s. Does not affect Sentry Skills, Vertical Skills, and Channeled Skills.\nProjectile Quantity Upper limit: 5\n+2 Horizontal Projectile Penetration(s)",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Keen Intellect",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Keen Intellect] For every Active Empower Skill equipped, +13% additional Spell Damage (multiplies)\nFor every Active Curse Skill equipped, +6% Elemental and Erosion Resistance Penetration and +6% Armor DMG Mitigation Penetration.\nFor every Active Defensive Skill equipped, +13% additional Max Mana (multiplies)\nFor every Active Mobility Skill equipped, +13% additional Cast Speed (multiplies)",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Towering Presence",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Towering Presence] Adds 100% of the Main-Hand Weapon damage to Spells\nAdds 75% of Main-Hand Weapon's Critical Strike Rating to the Base Critical Strike Rating of Spell Skills\n-99% additional Ailment Damage",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Spell Ripple",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Spell Ripple] Main Spell Skills on hit have a 50% chance to spawn a Pulse, dealing True Damage equal to 150% of Hit Damage. Interval: 0.03s",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Juggernaut",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Juggernaut] -10% additional Armor and -2% Elemental and Erosion Resistance for enemies on Critical Strike for 8 s. Stacks up to 10 times",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Adaptive Defense",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Adaptive Defense] If you haven't been hit recently, +40% Injury Buffer. This effect lasts for another 4s when you are hit\nGains 1 stack(s) of Deflection every 0.5 s if you have been hit recently",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unmatched Valor",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unmatched Valor] Has 130 point(s) of fixed Fervor Rating",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Self-Delusion",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Self-Delusion] +12% additional Erosion Damage to an enemy for each type of Crowd Control Effect they are under\nCrowd Control Effects inflicted are reflected back onto you",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Escalating Affliction",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Escalating Affliction] Changes the effect of each point of Affliction to: 0.1% - +3% additional Damage Over Time taken. Refreshes every 1s and is affected by Lucky Damage bonuses\n90% of the bonuses and additional bonuses for Max Damage is also applied to Damage Over Time",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Commander's Gambit",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Commander's Gambit] -100% additional Tenacity Blessing, Agility Blessing, and Focus Blessing Effect\nWhen gaining any Blessing, Minions within 10m also gain it\nMinions' Max Blessing Stacks are three times your own",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Circle of Life",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Circle of Life] Gains Growth equal to 80% of the nearest Spirit Magus every 1s, and Growth gains Return Speed equal to Command\nFor every 10 Growth, +1% additional damage for Spirit Magi, 0.1% additional Physique and 0.5% Skill Area for yourself",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Miraculous Touch",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Miraculous Touch] Triggers Miraculous Gain when casting an Elixir Skill\nElixir Skills gain 1 Charging Progress every second",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Dark Advance",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Dark Advance] Moves in the target direction when casting Dark Gate\n+3 Max Charges for Dark Gate\n+50% additional Cooldown Recovery Speed to Dark Gate\n+30% additional Minion Damage if a Dark Gate has been cast recently",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Effortless Command",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: 1204411023",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Crushing Blast",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Crushing Blast] Enemies have a 25% chance to explode when defeated by an Attack or Spell, dealing True Damage equal to 250% of their Max Life to enemies within a 6 m radius\n+30% additional damage to Elites",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Storm's Command",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Storm's Command] +35% additional Attack Damage for each different Warcry cast for 8 s\n-99% additional Empower Skill and Defensive Skill Effect",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Fire's Allure",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Fire's Allure] Inflicts Scorch instead of Ignite\nNearby enemies within 10m -10% Fire Resistance for each stack of Scorch on them",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-15 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Fiery Fantasy",
+      "-30 to All Stats\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Fiery Fantasy] +3% additional Ignite Damage, up to +150% , for every +1% Ignite Chance above 100%\n+3% additional Wilt Damage, up to +150% , for every +1% Wilt Chance above 100%\n+3% additional Trauma Damage, up to +150% , for every +1% Trauma Chance above 100%",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: One For All",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [One For All] Gains Cold and Lightning Resistance equal to 50% of Fire Resistance",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unwavering Fortress",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unwavering Fortress] Gains Bulwark equal to 1.5% of Armor and reduces 100% Non-True Damage taken every 10s. Bulwark is refreshed when gained again\nYour Max Life is set to 100\nYour Evasion and Max Energy Shield are fixed at 0",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unstoppable Force",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unstoppable Force] When a Combo Finisher is in Multistrike, it is guaranteed to deal damage equal to the Max Multistrike Count",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Hare's Agility",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Hare's Agility] When exiting Stand Still, gains 1 stack of buff that lasts for 2s, up to 5 times\n+14% additional damage dealt to enemies in proximity for each stack of buff. +8% Attack Speed",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Sweeping Fury",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Sweeping Fury] On hit, Main Ranged Horizontal Projectile Skills have a 100% chance to cast an additional Main Skill, whose projectiles fire in a ring and deal -60% additional damage. Interval: 0.03s. Does not affect Sentry Skills, Vertical Skills, and Channeled Skills.\nProjectile Quantity Upper limit: 5\n+2 Horizontal Projectile Penetration(s)",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Keen Intellect",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Keen Intellect] For every Active Empower Skill equipped, +13% additional Spell Damage (multiplies)\nFor every Active Curse Skill equipped, +6% Elemental and Erosion Resistance Penetration and +6% Armor DMG Mitigation Penetration.\nFor every Active Defensive Skill equipped, +13% additional Max Mana (multiplies)\nFor every Active Mobility Skill equipped, +13% additional Cast Speed (multiplies)",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Towering Presence",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Towering Presence] Adds 100% of the Main-Hand Weapon damage to Spells\nAdds 75% of Main-Hand Weapon's Critical Strike Rating to the Base Critical Strike Rating of Spell Skills\n-99% additional Ailment Damage",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Spell Ripple",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Spell Ripple] Main Spell Skills on hit have a 50% chance to spawn a Pulse, dealing True Damage equal to 150% of Hit Damage. Interval: 0.03s",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Juggernaut",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Juggernaut] -10% additional Armor and -2% Elemental and Erosion Resistance for enemies on Critical Strike for 8 s. Stacks up to 10 times",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Adaptive Defense",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Adaptive Defense] If you haven't been hit recently, +40% Injury Buffer. This effect lasts for another 4s when you are hit\nGains 1 stack(s) of Deflection every 0.5 s if you have been hit recently",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Unmatched Valor",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Unmatched Valor] Has 130 point(s) of fixed Fervor Rating",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Self-Delusion",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Self-Delusion] +12% additional Erosion Damage to an enemy for each type of Crowd Control Effect they are under\nCrowd Control Effects inflicted are reflected back onto you",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Escalating Affliction",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Escalating Affliction] Changes the effect of each point of Affliction to: 0.1% - +3% additional Damage Over Time taken. Refreshes every 1s and is affected by Lucky Damage bonuses\n90% of the bonuses and additional bonuses for Max Damage is also applied to Damage Over Time",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Commander's Gambit",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Commander's Gambit] -100% additional Tenacity Blessing, Agility Blessing, and Focus Blessing Effect\nWhen gaining any Blessing, Minions within 10m also gain it\nMinions' Max Blessing Stacks are three times your own",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Circle of Life",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Circle of Life] Gains Growth equal to 80% of the nearest Spirit Magus every 1s, and Growth gains Return Speed equal to Command\nFor every 10 Growth, +1% additional damage for Spirit Magi, 0.1% additional Physique and 0.5% Skill Area for yourself",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Miraculous Touch",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Miraculous Touch] Triggers Miraculous Gain when casting an Elixir Skill\nElixir Skills gain 1 Charging Progress every second",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Dark Advance",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Dark Advance] Moves in the target direction when casting Dark Gate\n+3 Max Charges for Dark Gate\n+50% additional Cooldown Recovery Speed to Dark Gate\n+30% additional Minion Damage if a Dark Gate has been cast recently",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Effortless Command",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: 1204411023",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Crushing Blast",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Crushing Blast] Enemies have a 25% chance to explode when defeated by an Attack or Spell, dealing True Damage equal to 250% of their Max Life to enemies within a 6 m radius\n+30% additional damage to Elites",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Storm's Command",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Storm's Command] +35% additional Attack Damage for each different Warcry cast for 8 s\n-99% additional Empower Skill and Defensive Skill Effect",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Fire's Allure",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Fire's Allure] Inflicts Scorch instead of Ignite\nNearby enemies within 10m -10% Fire Resistance for each stack of Scorch on them",
   },
   {
     type: "Random Affix",
     rarity: "",
     affix:
-      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: Fiery Fantasy",
+      "-8% Defense\nMutated Core Talents no longer replace the original talent, but add the following to the Core Talent in the current Talent Panel: [Fiery Fantasy] +3% additional Ignite Damage, up to +150% , for every +1% Ignite Chance above 100%\n+3% additional Wilt Damage, up to +150% , for every +1% Wilt Chance above 100%\n+3% additional Trauma Damage, up to +150% , for every +1% Trauma Chance above 100%",
   },
   {
     type: "Prism Gauge",
@@ -1058,7 +1058,13 @@ export const Prisms: readonly Prism[] = [
     type: "Prism Gauge",
     rarity: "Rare",
     affix:
-      "All Medium Talent within the area also gain: +6% Sealed Mana Compensation",
+      "All Legendary Medium Talent within the area also gain: +6% Sealed Mana Compensation",
+  },
+  {
+    type: "Prism Gauge",
+    rarity: "Rare",
+    affix:
+      "All Legendary Medium Talent within the area also gain: +50% Terra Charge Recovery Speed",
   },
   {
     type: "Prism Gauge",
@@ -1420,7 +1426,13 @@ export const Prisms: readonly Prism[] = [
     type: "Prism Gauge",
     rarity: "Rare",
     affix:
-      "All Medium Talent within the area also gain: 10.5% Sealed Mana Compensation",
+      "All Legendary Medium Talent within the area also gain: 10.5% Sealed Mana Compensation",
+  },
+  {
+    type: "Prism Gauge",
+    rarity: "Rare",
+    affix:
+      "All Legendary Medium Talent within the area also gain: +88% Terra Charge Recovery Speed",
   },
   {
     type: "Prism Gauge",
@@ -1779,7 +1791,13 @@ export const Prisms: readonly Prism[] = [
     type: "Prism Gauge",
     rarity: "Rare",
     affix:
-      "All Medium Talent within the area also gain: +6% Sealed Mana Compensation",
+      "All Legendary Medium Talent within the area also gain: +6% Sealed Mana Compensation",
+  },
+  {
+    type: "Prism Gauge",
+    rarity: "Rare",
+    affix:
+      "All Legendary Medium Talent within the area also gain: +50% Terra Charge Recovery Speed",
   },
   {
     type: "Prism Gauge",
@@ -1924,6 +1942,12 @@ export const Prisms: readonly Prism[] = [
     rarity: "Legendary",
     affix:
       "When activating 2 Legendary Medium Talent within the area, Immune to Elemental Ailments\n-8% Elemental Resistance",
+  },
+  {
+    type: "Prism Gauge",
+    rarity: "Legendary",
+    affix:
+      "When activating 2 Legendary Medium Talent within the area, +1 Max Bond Stacks",
   },
   {
     type: "Prism Gauge",
@@ -2073,6 +2097,12 @@ export const Prisms: readonly Prism[] = [
     type: "Prism Gauge",
     rarity: "Legendary",
     affix:
+      "When activating 2 Legendary Medium Talent within the area, +2 Max Bond Stacks",
+  },
+  {
+    type: "Prism Gauge",
+    rarity: "Legendary",
+    affix:
       "Points can be allocated to all Micro Talent within the area 1 additional time(s)",
   },
   {
@@ -2212,5 +2242,11 @@ export const Prisms: readonly Prism[] = [
     rarity: "Legendary",
     affix:
       "When activating 2 Legendary Medium Talent within the area, Immune to Elemental Ailments\n-8% Elemental Resistance",
+  },
+  {
+    type: "Prism Gauge",
+    rarity: "Legendary",
+    affix:
+      "When activating 2 Legendary Medium Talent within the area, +1 Max Bond Stacks",
   },
 ];

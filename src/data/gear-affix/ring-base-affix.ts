@@ -97,15 +97,6 @@ export const RING_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Base Affix",
     craftingPool: "",
     tier: "1",
-    craftableAffix:
-      "+(20-25)% chance to launch one more wave when casting a Barrage Skill",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Ring",
-    affixType: "Base Affix",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+(15-20)% Fervor effect",
   },
   {
@@ -138,7 +129,7 @@ export const RING_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Base Affix",
     craftingPool: "",
     tier: "0",
-    craftableAffix: "周围 15 米内敌人受到 20 级不祥诅咒",
+    craftableAffix: "Nearby enemies within 15 m are cursed by Lv. 20 Ominous",
   },
   {
     equipmentSlot: "Trinket",
@@ -147,7 +138,7 @@ export const RING_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Timid Curse upon inflicting damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Timid Curse upon dealing damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",
@@ -156,7 +147,7 @@ export const RING_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Entangled Pain Curse upon inflicting damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Entangled Pain Curse upon dealing damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",

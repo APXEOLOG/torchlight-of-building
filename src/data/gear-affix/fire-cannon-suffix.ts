@@ -289,7 +289,7 @@ export const FIRE_CANNON_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(328-468)% Critical Strike Rating",
+    craftableAffix: "+(361-468)% Critical Strike Rating",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -330,7 +330,7 @@ export const FIRE_CANNON_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix:
-      "+(66-94)% Attack and Cast Speed\n+(66-94)% Minion Attack and Cast Speed",
+      "+(73-94)% Attack and Cast Speed\n+(73-94)% Minion Attack and Cast Speed",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -486,30 +486,6 @@ export const FIRE_CANNON_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Ultimate",
     tier: "2",
     craftableAffix: "(31-42)% additional damage applied to Life",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Fire Cannon",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "0",
-    craftableAffix: "Max Terra Quantity +2\n+10% additional damage",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Fire Cannon",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "1",
-    craftableAffix: "Max Terra Quantity +2\n+1% additional damage",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Fire Cannon",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "2",
-    craftableAffix: "Max Terra Quantity +2\n-20% additional damage",
   },
   {
     equipmentSlot: "Two-Handed",

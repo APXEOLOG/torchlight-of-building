@@ -214,9 +214,7 @@ export const frigidDomainParser: SupportLevelParser = (input) => {
 
     const dmgMatch = findMatch(
       text,
-      ts(
-        "{value:?dec%} additional cold damage against enemies affected by the skill",
-      ),
+      ts("{value:?dec%} additional cold damage"),
       skillName,
     );
     coldDmgPct[level] = dmgMatch.value;
@@ -238,9 +236,7 @@ export const preciseFrigidDomainParser: SupportLevelParser = (input) => {
 
     const dmgMatch = findMatch(
       text,
-      ts(
-        "{value:?dec%} additional cold damage against enemies affected by the skill",
-      ),
+      ts("{value:?dec%} additional cold damage"),
       skillName,
     );
     coldDmgPct[level] = dmgMatch.value;

@@ -321,7 +321,7 @@ export const CHEST_ARMOR_STR_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(55-78) Strength",
+    craftableAffix: "+(61-78) Strength",
   },
   {
     equipmentSlot: "Chest Armor",

@@ -9,7 +9,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(34-47)% Cast Speed\n+(34-47)% Minion Cast Speed",
+    craftableAffix: "+(37-47)% Cast Speed\n+(37-47)% Minion Cast Speed",
   },
   {
     equipmentSlot: "One-Handed",
@@ -49,7 +49,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "+(78-108)% Physical Damage",
+    craftableAffix: "+(77-108)% Physical Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -57,7 +57,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "2",
-    craftableAffix: "+(56-77)% Physical Damage",
+    craftableAffix: "+(55-76)% Physical Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -65,7 +65,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "+(40-55)% Physical Damage",
+    craftableAffix: "+(44-54)% Physical Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -73,7 +73,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "+(27-39)% Physical Damage",
+    craftableAffix: "+(36-43)% Physical Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -89,7 +89,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "+(78-108)% Elemental Damage",
+    craftableAffix: "+(77-108)% Elemental Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -97,7 +97,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "2",
-    craftableAffix: "+(56-77)% Elemental Damage",
+    craftableAffix: "+(55-76)% Elemental Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -105,7 +105,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "+(40-55)% Elemental Damage",
+    craftableAffix: "+(44-54)% Elemental Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -113,7 +113,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "+(27-39)% Elemental Damage",
+    craftableAffix: "+(36-43)% Elemental Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -321,7 +321,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(44-62)% Max Mana",
+    craftableAffix: "+(49-62)% Max Mana",
   },
   {
     equipmentSlot: "One-Handed",
@@ -441,6 +441,46 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
+    craftableAffix: "+(153-195)% Terra Charge Recovery Speed",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Suffix",
+    craftingPool: "Advanced",
+    tier: "1",
+    craftableAffix: "+(113-150)% Terra Charge Recovery Speed",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Suffix",
+    craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+(81-108)% Terra Charge Recovery Speed",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Suffix",
+    craftingPool: "Advanced",
+    tier: "3",
+    craftableAffix: "+(57-78)% Terra Charge Recovery Speed",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Suffix",
+    craftingPool: "Advanced",
+    tier: "4",
+    craftableAffix: "+(39-54)% Terra Charge Recovery Speed",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Suffix",
+    craftingPool: "Advanced",
+    tier: "0",
     craftableAffix: "+(181-234)% Critical Strike Rating",
   },
   {
@@ -546,7 +586,7 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Ultimate",
     tier: "0",
     craftableAffix:
-      "+(62-88)% additional Hit Damage for skills cast by Spell Burst",
+      "+(69-88)% additional Hit Damage for skills cast by Spell Burst",
   },
   {
     equipmentSlot: "One-Handed",
@@ -669,30 +709,6 @@ export const WAND_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "4",
     craftableAffix:
       "-15% additional Cast Speed\n+(18-21)% additional Spell Damage",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Wand",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "0",
-    craftableAffix: "Max Terra Quantity +1\n+5% additional damage",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Wand",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "1",
-    craftableAffix: "Max Terra Quantity +1\n+1% additional damage",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Wand",
-    affixType: "Suffix",
-    craftingPool: "Ultimate",
-    tier: "2",
-    craftableAffix: "Max Terra Quantity +1\n-10% additional damage",
   },
   {
     equipmentSlot: "One-Handed",

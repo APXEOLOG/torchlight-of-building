@@ -141,4 +141,37 @@ export const GLOVES_DEX_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "2",
     craftableAffix: "+(12-20)% Critical Strike Damage Mitigation",
   },
+  {
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "+1 Max Deflection stacks",
+  },
+  {
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix:
+      "Spell Damage will not additionally reduce Evasion by default",
+  },
+  {
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "+2 Max Deflection stacks",
+  },
+  {
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "Gains Ferocity when dealing Physical Damage",
+  },
 ];

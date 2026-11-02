@@ -153,15 +153,25 @@ export const TIN_STAFF_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Tin Staff",
     affixType: "Base Affix",
     craftingPool: "",
-    tier: "1",
-    craftableAffix: "Projectile Quantity +2",
+    tier: "2",
+    craftableAffix: "+16% Life Regain and Energy Shield Regain",
   },
   {
     equipmentSlot: "Two-Handed",
     equipmentType: "Tin Staff",
     affixType: "Base Affix",
     craftingPool: "",
-    tier: "2",
-    craftableAffix: "+16% Life Regain and Energy Shield Regain",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Quick Decision\nMain Skill is supported by Lv. 10 Empowered Insight",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Grudge\nMain Skill is supported by Lv. 10 Critical Strike Damage Increase",
   },
 ];

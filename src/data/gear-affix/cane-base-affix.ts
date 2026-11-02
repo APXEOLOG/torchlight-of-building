@@ -89,14 +89,6 @@ export const CANE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Base Affix",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "Projectile Quantity +1",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Cane",
-    affixType: "Base Affix",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+(6-8)% additional Projectile Damage",
   },
   {
@@ -146,5 +138,21 @@ export const CANE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "2",
     craftableAffix: "+8% Life Regain and Energy Shield Regain",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Cane",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "Main Skill is supported by Lv. 10 Quick Decision",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Cane",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "The Main Skill is supported by Lv. 10 Wind Projectiles.",
   },
 ];

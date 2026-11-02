@@ -11,13 +11,16 @@ const VORAX_DIR = join(process.cwd(), ".garbage", "tlidb", "vorax");
 const OUT_DIR = join(process.cwd(), "src", "data", "vorax");
 
 const VORAX_LIMB_PAGES = [
-  "Vorax_Limb%3A_Hands",
-  "Vorax_Limb%3A_Legs",
-  "Vorax_Limb%3A_Chest",
-  "Vorax_Limb%3A_Head",
-  "Vorax_Limb%3A_Neck",
-  "Vorax_Limb%3A_Waist",
-  "Vorax_Limb%3A_Digits",
+  "Vorax_Limb_Hands",
+  "Vorax_Limb_Legs",
+  "Vorax_Limb_Chest",
+  "Vorax_Limb_Head",
+  "Vorax_Limb_Neck",
+  "Vorax_Limb_Waist",
+  "Vorax_Limb_Digits",
+  "Vorax_Aberrant_Limb_Legs",
+  "Vorax_Aberrant_Limb_Digits",
+  "Vorax_Aberrant_Limb_Waist",
 ];
 
 /**
@@ -139,29 +142,27 @@ const parseLegendaryNames = ($: cheerio.CheerioAPI): string[] => {
 };
 
 /**
- * Parse base affixes from #BaseAffix section.
- * Table with columns: Tier, Modifier, Level, Weight
+ * Parse base affixes from the "Base Affix" card, which holds one tier-marked row per affix.
  */
 const parseBaseAffixes = (
   $: cheerio.CheerioAPI,
 ): VoraxLimbData["baseAffixes"] => {
   const affixes: VoraxLimbData["baseAffixes"] = [];
-  const section = $("#BaseAffix");
-  if (section.length === 0) return affixes;
+  const title = $(".card-title").filter(
+    (_, el) => $(el).text().trim() === "Base Affix",
+  );
 
-  const table = section.find("table");
-  if (table.length === 0) return affixes;
-
-  table.find("tbody tr").each((_, row) => {
-    const $row = $(row);
-    const tds = $row.find("td");
-    if (tds.length < 2) return;
-
-    const tier = $(tds[0]).text().trim();
-    const modifier = parseModifierText($(tds[1]), $);
-
-    affixes.push({ affix: modifier, tier });
-  });
+  title
+    .siblings(".tierParent")
+    .children("div")
+    .each((_, row) => {
+      const tier =
+        $(row)
+          .find(".tier")
+          .attr("class")
+          ?.match(/tier(\d+)/)?.[1] ?? "";
+      affixes.push({ affix: parseModifierText($(row), $), tier });
+    });
 
   return affixes;
 };
@@ -172,8 +173,8 @@ const parseBaseAffixes = (
 const parseVoraxLimbPage = (html: string, pageName: string): VoraxLimbData => {
   const $ = cheerio.load(html);
 
-  // Derive display name from page name: "Vorax_Limb%3A_Hands" -> "Vorax Limb: Hands"
-  const name = decodeURIComponent(pageName).replace(/_/g, " ");
+  // Derive display name from page name: "Vorax_Limb_Hands" -> "Vorax Limb: Hands"
+  const name = pageName.replace(/^(.*)_Limb_/, "$1_Limb: ").replace(/_/g, " ");
 
   const craftableAffixes = parseCraftableAffixes($);
   const legendaryNames = parseLegendaryNames($);

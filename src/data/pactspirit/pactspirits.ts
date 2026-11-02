@@ -9,11 +9,11 @@ export const Pactspirits = [
     name: "Abyssal King Soul",
     innerRing1: {
       name: "Reaping Cooldown I",
-      affix: "+5% Reaping Cooldown Recovery Speed",
+      affix: "+5% Reaping Recovery Speed",
     },
     innerRing2: {
       name: "Reaping Cooldown I",
-      affix: "+5% Reaping Cooldown Recovery Speed",
+      affix: "+5% Reaping Recovery Speed",
     },
     innerRing3: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
     innerRing4: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
@@ -27,22 +27,22 @@ export const Pactspirits = [
     },
     midRing1: {
       name: "Reaping Cooldown II",
-      affix: "+10% Reaping Cooldown Recovery Speed",
+      affix: "+10% Reaping Recovery Speed",
     },
     midRing2: { name: "Damage Over Time II", affix: "+24% Damage Over Time" },
     midRing3: { name: "Damage Affliction II", affix: "+20% Affliction Effect" },
     affix1:
-      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed",
+      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Recovery Speed",
     affix2:
-      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed\n+2% additional damage",
+      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Recovery Speed\n+2% additional damage",
     affix3:
-      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed\n+10% Movement Speed if you have caused Reaping recently\n+2% additional damage",
+      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Recovery Speed\n+10% Movement Speed if you have caused Reaping recently\n+2% additional damage",
     affix4:
-      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed\n+10% Movement Speed if you have caused Reaping recently\n+4% additional damage",
+      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Recovery Speed\n+10% Movement Speed if you have caused Reaping recently\n+4% additional damage",
     affix5:
-      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed\n+20% Movement Speed if you have caused Reaping recently\n+4% additional damage",
+      "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Recovery Speed\n+20% Movement Speed if you have caused Reaping recently\n+4% additional damage",
     affix6:
-      "50% chance for Damage Over Time to spread to targets in Proximity\n+35% additional Reaping Cooldown Recovery Speed\n+20% Movement Speed if you have caused Reaping recently\n+4% additional damage",
+      "50% chance for Damage Over Time to spread to targets in Proximity\n+35% additional Reaping Recovery Speed\n+20% Movement Speed if you have caused Reaping recently\n+4% additional damage",
   },
   {
     type: "Survival",
@@ -98,11 +98,11 @@ export const Pactspirits = [
     innerRing2: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
     innerRing3: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing4: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing5: {
       name: "Damage Affliction I",
@@ -143,11 +143,11 @@ export const Pactspirits = [
     },
     innerRing5: {
       name: "Crowd Control Effects II",
-      affix: "+5% crowd control effects",
+      affix: "+5% Crowd Control Effects",
     },
     innerRing6: {
       name: "Crowd Control Effects II",
-      affix: "+5% crowd control effects",
+      affix: "+5% Crowd Control Effects",
     },
     midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
     midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
@@ -238,10 +238,16 @@ export const Pactspirits = [
     name: "Awooawoo - White Mist",
     innerRing1: { name: "Cold Damage I", affix: "+14% Cold Damage" },
     innerRing2: { name: "Cold Damage I", affix: "+14% Cold Damage" },
-    innerRing3: { name: "Cold Penetration I", affix: "+2.5% Cold Penetration" },
-    innerRing4: { name: "Cold Penetration I", affix: "+2.5% Cold Penetration" },
-    innerRing5: { name: "Frozen Time I", affix: "+7% Frostbite Duration" },
-    innerRing6: { name: "Frozen Time I", affix: "+7% Frostbite Duration" },
+    innerRing3: { name: "Cold Penetration I", affix: "2.5% Cold Penetration" },
+    innerRing4: { name: "Cold Penetration I", affix: "2.5% Cold Penetration" },
+    innerRing5: {
+      name: "Max Frostbite Rating I",
+      affix: "+3 to Max Frostbite Rating",
+    },
+    innerRing6: {
+      name: "Max Frostbite Rating I",
+      affix: "+3 to Max Frostbite Rating",
+    },
     midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
     midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
     midRing3: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
@@ -335,11 +341,11 @@ export const Pactspirits = [
     innerRing4: { name: "Erosion Damage I", affix: "+14% Erosion Damage" },
     innerRing5: {
       name: "Erosion Penetration I",
-      affix: "+2.5% Erosion Resistance Penetration",
+      affix: "2.5% Erosion Resistance Penetration",
     },
     innerRing6: {
       name: "Erosion Penetration I",
-      affix: "+2.5% Erosion Resistance Penetration",
+      affix: "2.5% Erosion Resistance Penetration",
     },
     midRing1: { name: "Erosion Damage II", affix: "+28% Erosion Damage" },
     midRing2: { name: "Erosion Damage II", affix: "+28% Erosion Damage" },
@@ -401,11 +407,11 @@ export const Pactspirits = [
     innerRing2: { name: "Lightning Damage I", affix: "+14% Lightning Damage" },
     innerRing3: {
       name: "Lightning Penetration I",
-      affix: "+2.5% Lightning Penetration",
+      affix: "2.5% Lightning Penetration",
     },
     innerRing4: {
       name: "Lightning Penetration I",
-      affix: "+2.5% Lightning Penetration",
+      affix: "2.5% Lightning Penetration",
     },
     innerRing5: {
       name: "Attack and Cast Speed I",
@@ -443,19 +449,19 @@ export const Pactspirits = [
     name: "Captain Kitty of the Furious Sea",
     innerRing1: {
       name: "Warcry Duration I",
-      affix: "+7.5% Warcry Skill Effect Duration",
+      affix: "7.5% Warcry Skill Effect Duration",
     },
     innerRing2: {
       name: "Warcry Duration I",
-      affix: "+7.5% Warcry Skill Effect Duration",
+      affix: "7.5% Warcry Skill Effect Duration",
     },
     innerRing3: {
       name: "Warcry Cooldown I",
-      affix: "+5.5% Warcry Cooldown Recovery Speed",
+      affix: "5.5% Warcry Cooldown Recovery Speed",
     },
     innerRing4: {
       name: "Warcry Cooldown I",
-      affix: "+5.5% Warcry Cooldown Recovery Speed",
+      affix: "5.5% Warcry Cooldown Recovery Speed",
     },
     innerRing5: { name: "Warcry Effect I", affix: "+3% Warcry Effect" },
     innerRing6: { name: "Warcry Effect I", affix: "+3% Warcry Effect" },
@@ -554,11 +560,11 @@ export const Pactspirits = [
     name: "Crossroad Walker",
     innerRing1: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing2: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing3: { name: "Ailment Damage I", affix: "+12% Ailment Damage" },
     innerRing4: { name: "Ailment Damage I", affix: "+12% Ailment Damage" },
@@ -566,7 +572,7 @@ export const Pactspirits = [
     innerRing6: { name: "Ailment Duration I", affix: "+6% Ailment Duration" },
     midRing1: {
       name: "Ailment Chance II",
-      affix: "+7% chance to cause Ailments",
+      affix: "+7% chance to inflict Damaging Ailments",
     },
     midRing2: { name: "Ailment Damage II", affix: "+24% Ailment Damage" },
     midRing3: { name: "Ailment Duration II", affix: "+12% Ailment Duration" },
@@ -575,13 +581,13 @@ export const Pactspirits = [
     affix2:
       "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+2% additional damage",
     affix3:
-      "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+10% curse effect\n+2% additional damage",
+      "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+10% Curse Effect\n+2% additional damage",
     affix4:
-      "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+10% curse effect\n+4% additional damage",
+      "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+10% Curse Effect\n+4% additional damage",
     affix5:
-      "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+20% curse effect\n+4% additional damage",
+      "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+20% Curse Effect\n+4% additional damage",
     affix6:
-      "+18% additional Ailment Damage against Cursed enemies\n+15% Curse effect\n+20% curse effect\n+4% additional damage",
+      "+18% additional Ailment Damage against Cursed enemies\n+15% Curse effect\n+20% Curse Effect\n+4% additional damage",
   },
   {
     type: "Attack",
@@ -789,6 +795,31 @@ export const Pactspirits = [
       "+19% additional Elemental Damage dealt by Spell Skills\n1.2% Elemental Resistance Penetration when hitting an enemy with Elemental Damage, stacking up to 4 times\n+3% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+4% additional damage",
   },
   {
+    type: "Elixir",
+    rarity: "Legendary",
+    name: "Elixir Fairies",
+    innerRing1: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing2: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing3: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing4: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing5: { name: "Movement Speed I", affix: "+2% Movement Speed" },
+    innerRing6: { name: "Movement Speed I", affix: "+2% Movement Speed" },
+    midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing3: { name: "Movement Speed II", affix: "+4% Movement Speed" },
+    affix1: "+35% Elixir Skill Effect",
+    affix2:
+      "+35% Elixir Skill Effect\n+4% additional damage and Minion Damage while an Elixir Skill is active",
+    affix3:
+      "+35% Elixir Skill Effect\n+4% additional damage and Minion Damage while an Elixir Skill is active\n+5% Movement Speed while an Elixir Skill is active",
+    affix4:
+      "+35% Elixir Skill Effect\n+8% additional damage and Minion Damage while an Elixir Skill is active\n+5% Movement Speed while an Elixir Skill is active",
+    affix5:
+      "+35% Elixir Skill Effect\n+8% additional damage and Minion Damage while an Elixir Skill is active\n+10% Movement Speed while an Elixir Skill is active",
+    affix6:
+      "+35% Elixir Skill Effect\n+8% additional damage and Minion Damage while an Elixir Skill is active\n+10% Movement Speed while an Elixir Skill is active\n1.5% Elixir Skill Effect for every Elixir Skill cast recently. Stacks up to 12 time(s)",
+  },
+  {
     type: "Survival",
     rarity: "Magic",
     name: "Explorer Otter - Mudstone",
@@ -813,11 +844,17 @@ export const Pactspirits = [
         "-10% XP falloff caused by the level difference between the player and the map",
     },
     midRing1: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing2: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing3: {
       name: "Mana Restoration II",
       affix: "+30% Mana Regeneration Speed",
     },
-    midRing2: { name: "", affix: "" },
-    midRing3: { name: "", affix: "" },
     affix1: "-5% additional damage taken",
     affix2: "-5% additional damage taken\n-2% additional damage taken",
     affix3:
@@ -872,28 +909,34 @@ export const Pactspirits = [
     name: "Explorer Otter - Quicksand",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Damage Avoidance I",
-      affix: "+1.5% chance to avoid damage",
+      affix: "1.5% chance to avoid damage",
     },
     innerRing4: {
       name: "Damage Avoidance I",
-      affix: "+1.5% chance to avoid damage",
+      affix: "1.5% chance to avoid damage",
     },
     innerRing5: { name: "XP Protection I", affix: "-10% XP lost upon death" },
     innerRing6: { name: "XP Protection I", affix: "-10% XP lost upon death" },
     midRing1: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing2: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing3: {
       name: "Mana Restoration II",
       affix: "+30% Mana Regeneration Speed",
     },
-    midRing2: { name: "", affix: "" },
-    midRing3: { name: "", affix: "" },
     affix1: "-5% additional damage taken",
     affix2: "-5% additional damage taken\n-2% additional damage taken",
     affix3:
@@ -922,11 +965,17 @@ export const Pactspirits = [
     innerRing5: { name: "XP Bonus I", affix: "+3% XP earned" },
     innerRing6: { name: "XP Bonus I", affix: "+3% XP earned" },
     midRing1: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing2: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing3: {
       name: "Mana Restoration II",
       affix: "+30% Mana Regeneration Speed",
     },
-    midRing2: { name: "", affix: "" },
-    midRing3: { name: "", affix: "" },
     affix1: "-5% additional damage taken",
     affix2: "-5% additional damage taken\n-2% additional damage taken",
     affix3:
@@ -1057,11 +1106,11 @@ export const Pactspirits = [
     innerRing2: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
     innerRing3: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing4: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing5: {
       name: "Damage Affliction I",
@@ -1074,21 +1123,21 @@ export const Pactspirits = [
     midRing1: { name: "Damage Over Time II", affix: "+24% Damage Over Time" },
     midRing2: {
       name: "Ailment Chance II",
-      affix: "+7% chance to cause Ailments",
+      affix: "+7% chance to inflict Damaging Ailments",
     },
     midRing3: { name: "Damage Affliction II", affix: "+20% Affliction Effect" },
     affix1:
-      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times",
+      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s Recovery Time against the same target\n+4% Reaping Duration for each recent Reaping. Stacks up to 4 time(s)",
     affix2:
-      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times\n+2% additional damage",
+      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s Recovery Time against the same target\n+4% Reaping Duration for each recent Reaping. Stacks up to 4 time(s)\n+2% additional damage",
     affix3:
-      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times\n+7% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+2% additional damage",
+      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s Recovery Time against the same target\n+4% Reaping Duration for each recent Reaping. Stacks up to 4 time(s)\n+7% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+2% additional damage",
     affix4:
-      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times\n+7% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
+      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s Recovery Time against the same target\n+4% Reaping Duration for each recent Reaping. Stacks up to 4 time(s)\n+7% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
     affix5:
-      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times\n+14% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
+      "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s Recovery Time against the same target\n+4% Reaping Duration for each recent Reaping. Stacks up to 4 time(s)\n+14% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
     affix6:
-      "Reaps 1 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+6% Reaping Duration for each recent Reaping, stacks up to 4 times\n+14% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
+      "Reaps 1 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s Recovery Time against the same target\n+6% Reaping Duration for each recent Reaping. Stacks up to 4 time(s)\n+14% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
   },
   {
     type: "Persistent",
@@ -1171,19 +1220,19 @@ export const Pactspirits = [
     name: "First Mate of the Furious Sea - Sky",
     innerRing1: {
       name: "Warcry Duration I",
-      affix: "+7.5% Warcry Skill Effect Duration",
+      affix: "7.5% Warcry Skill Effect Duration",
     },
     innerRing2: {
       name: "Warcry Duration I",
-      affix: "+7.5% Warcry Skill Effect Duration",
+      affix: "7.5% Warcry Skill Effect Duration",
     },
     innerRing3: {
       name: "Warcry Cooldown I",
-      affix: "+5.5% Warcry Cooldown Recovery Speed",
+      affix: "5.5% Warcry Cooldown Recovery Speed",
     },
     innerRing4: {
       name: "Warcry Cooldown I",
-      affix: "+5.5% Warcry Cooldown Recovery Speed",
+      affix: "5.5% Warcry Cooldown Recovery Speed",
     },
     innerRing5: { name: "Warcry Effect I", affix: "+3% Warcry Effect" },
     innerRing6: { name: "Warcry Effect I", affix: "+3% Warcry Effect" },
@@ -1290,11 +1339,11 @@ export const Pactspirits = [
     name: "Greedy Chestnut - Emerald",
     innerRing1: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing2: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing3: { name: "Ailment Damage I", affix: "+12% Ailment Damage" },
     innerRing4: { name: "Ailment Damage I", affix: "+12% Ailment Damage" },
@@ -1302,7 +1351,7 @@ export const Pactspirits = [
     innerRing6: { name: "Ailment Duration I", affix: "+6% Ailment Duration" },
     midRing1: {
       name: "Ailment Chance II",
-      affix: "+7% chance to cause Ailments",
+      affix: "+7% chance to inflict Damaging Ailments",
     },
     midRing2: { name: "Ailment Damage II", affix: "+24% Ailment Damage" },
     midRing3: { name: "Ailment Duration II", affix: "+12% Ailment Duration" },
@@ -1310,13 +1359,13 @@ export const Pactspirits = [
     affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
     affix3:
-      "+5% additional damage; +5% additional Minion Damage\n+5% curse effect\n+2% additional damage",
+      "+5% additional damage; +5% additional Minion Damage\n+5% Curse Effect\n+2% additional damage",
     affix4:
-      "+5% additional damage; +5% additional Minion Damage\n+5% curse effect\n+4% additional damage",
+      "+5% additional damage; +5% additional Minion Damage\n+5% Curse Effect\n+4% additional damage",
     affix5:
-      "+5% additional damage; +5% additional Minion Damage\n+10% curse effect\n+4% additional damage",
+      "+5% additional damage; +5% additional Minion Damage\n+10% Curse Effect\n+4% additional damage",
     affix6:
-      "+7% additional damage; +7% additional Minion Damage\n+10% curse effect\n+4% additional damage",
+      "+7% additional damage; +7% additional Minion Damage\n+10% Curse Effect\n+4% additional damage",
   },
   {
     type: "Persistent",
@@ -1326,11 +1375,11 @@ export const Pactspirits = [
     innerRing2: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
     innerRing3: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing4: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing5: {
       name: "Damage Affliction I",
@@ -1343,7 +1392,7 @@ export const Pactspirits = [
     midRing1: { name: "Damage Over Time II", affix: "+24% Damage Over Time" },
     midRing2: {
       name: "Ailment Chance II",
-      affix: "+7% chance to cause Ailments",
+      affix: "+7% chance to inflict Damaging Ailments",
     },
     midRing3: { name: "Damage Affliction II", affix: "+20% Affliction Effect" },
     affix1: "+5% additional damage; +5% additional Minion Damage",
@@ -1449,11 +1498,11 @@ export const Pactspirits = [
     innerRing2: { name: "Lightning Damage I", affix: "+14% Lightning Damage" },
     innerRing3: {
       name: "Lightning Penetration I",
-      affix: "+2.5% Lightning Penetration",
+      affix: "2.5% Lightning Penetration",
     },
     innerRing4: {
       name: "Lightning Penetration I",
-      affix: "+2.5% Lightning Penetration",
+      affix: "2.5% Lightning Penetration",
     },
     innerRing5: {
       name: "Attack and Cast Speed I",
@@ -1484,8 +1533,8 @@ export const Pactspirits = [
     name: "Happy Chonky - Ember",
     innerRing1: { name: "Fire Damage I", affix: "+14% Fire Damage" },
     innerRing2: { name: "Fire Damage I", affix: "+14% Fire Damage" },
-    innerRing3: { name: "Fire Penetration I", affix: "+2.5% Fire Penetration" },
-    innerRing4: { name: "Fire Penetration I", affix: "+2.5% Fire Penetration" },
+    innerRing3: { name: "Fire Penetration I", affix: "2.5% Fire Penetration" },
+    innerRing4: { name: "Fire Penetration I", affix: "2.5% Fire Penetration" },
     innerRing5: { name: "Fire Area I", affix: "+14% Fire Skill Area" },
     innerRing6: { name: "Fire Area I", affix: "+14% Fire Skill Area" },
     midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
@@ -1504,16 +1553,50 @@ export const Pactspirits = [
       "+7% additional damage; +7% additional Minion Damage\n+3% additional Fire Damage\n+4% additional damage",
   },
   {
+    type: "Spell",
+    rarity: "Rare",
+    name: "Heartbloom",
+    innerRing1: { name: "Spell Damage I", affix: "+12% Spell Damage" },
+    innerRing2: { name: "Spell Damage I", affix: "+12% Spell Damage" },
+    innerRing3: {
+      name: "Spell Critical Strike I",
+      affix: "+22% Spell Critical Strike Rating",
+    },
+    innerRing4: {
+      name: "Spell Critical Strike I",
+      affix: "+22% Spell Critical Strike Rating",
+    },
+    innerRing5: { name: "Cast Speed I", affix: "+4% Cast Speed" },
+    innerRing6: { name: "Cast Speed I", affix: "+4% Cast Speed" },
+    midRing1: { name: "Spell Damage II", affix: "+24% Spell Damage" },
+    midRing2: {
+      name: "Spell Critical Strike II",
+      affix: "+45% Spell Critical Strike Rating",
+    },
+    midRing3: { name: "Cast Speed II", affix: "+8% Cast Speed" },
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
+      "+5% additional damage; +5% additional Minion Damage\n+12% Spell Damage",
+    affix3:
+      "+5% additional damage; +5% additional Minion Damage\n+12% Spell Damage\n+2% additional damage",
+    affix4:
+      "+5% additional damage; +5% additional Minion Damage\n+24% Spell Damage\n+2% additional damage",
+    affix5:
+      "+5% additional damage; +5% additional Minion Damage\n+24% Spell Damage\n+4% additional damage",
+    affix6:
+      "+7% additional damage; +7% additional Minion Damage\n+24% Spell Damage\n+4% additional damage",
+  },
+  {
     type: "Survival",
     rarity: "Rare",
     name: "Hell Cavalry",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Damage Mitigation I",
@@ -1551,13 +1634,22 @@ export const Pactspirits = [
     name: "Hell Cavalry - Crushed Ice",
     innerRing1: { name: "Cold Damage I", affix: "+14% Cold Damage" },
     innerRing2: { name: "Cold Damage I", affix: "+14% Cold Damage" },
-    innerRing3: { name: "Cold Penetration I", affix: "+2.5% Cold Penetration" },
-    innerRing4: { name: "Cold Penetration I", affix: "+2.5% Cold Penetration" },
-    innerRing5: { name: "Frozen Time I", affix: "+7% Frostbite Duration" },
-    innerRing6: { name: "Frozen Time I", affix: "+7% Frostbite Duration" },
+    innerRing3: { name: "Cold Penetration I", affix: "2.5% Cold Penetration" },
+    innerRing4: { name: "Cold Penetration I", affix: "2.5% Cold Penetration" },
+    innerRing5: {
+      name: "Max Frostbite Rating I",
+      affix: "+3 to Max Frostbite Rating",
+    },
+    innerRing6: {
+      name: "Max Frostbite Rating I",
+      affix: "+3 to Max Frostbite Rating",
+    },
     midRing1: { name: "Cold Damage II", affix: "+28% Cold Damage" },
     midRing2: { name: "Cold Penetration II", affix: "+5% Cold Penetration" },
-    midRing3: { name: "Frozen Time II", affix: "+14% Frostbite Duration" },
+    midRing3: {
+      name: "Max Frostbite Rating II",
+      affix: "+6 to Max Frostbite Rating",
+    },
     affix1: "+5% additional damage; +5% additional Minion Damage",
     affix2:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Cold Damage",
@@ -1621,11 +1713,11 @@ export const Pactspirits = [
     innerRing2: { name: "Lightning Damage I", affix: "+14% Lightning Damage" },
     innerRing3: {
       name: "Lightning Penetration I",
-      affix: "+2.5% Lightning Penetration",
+      affix: "2.5% Lightning Penetration",
     },
     innerRing4: {
       name: "Lightning Penetration I",
-      affix: "+2.5% Lightning Penetration",
+      affix: "2.5% Lightning Penetration",
     },
     innerRing5: {
       name: "Attack and Cast Speed I",
@@ -1672,11 +1764,11 @@ export const Pactspirits = [
     },
     innerRing5: {
       name: "Crowd Control Effects II",
-      affix: "+5% crowd control effects",
+      affix: "+5% Crowd Control Effects",
     },
     innerRing6: {
       name: "Crowd Control Effects II",
-      affix: "+5% crowd control effects",
+      affix: "+5% Crowd Control Effects",
     },
     midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
     midRing2: {
@@ -1685,7 +1777,7 @@ export const Pactspirits = [
     },
     midRing3: {
       name: "Crowd Control Effects II",
-      affix: "+10% crowd control effects",
+      affix: "+10% Crowd Control Effects",
     },
     affix1: "+5% additional damage; +5% additional Minion Damage",
     affix2:
@@ -1705,13 +1797,22 @@ export const Pactspirits = [
     name: "Ice Puppet",
     innerRing1: { name: "Cold Damage I", affix: "+14% Cold Damage" },
     innerRing2: { name: "Cold Damage I", affix: "+14% Cold Damage" },
-    innerRing3: { name: "Cold Penetration I", affix: "+2.5% Cold Penetration" },
-    innerRing4: { name: "Cold Penetration I", affix: "+2.5% Cold Penetration" },
-    innerRing5: { name: "Frozen Time I", affix: "+7% Frostbite Duration" },
-    innerRing6: { name: "Frozen Time I", affix: "+7% Frostbite Duration" },
+    innerRing3: { name: "Cold Penetration I", affix: "2.5% Cold Penetration" },
+    innerRing4: { name: "Cold Penetration I", affix: "2.5% Cold Penetration" },
+    innerRing5: {
+      name: "Max Frostbite Rating I",
+      affix: "+3 to Max Frostbite Rating",
+    },
+    innerRing6: {
+      name: "Max Frostbite Rating I",
+      affix: "+3 to Max Frostbite Rating",
+    },
     midRing1: { name: "Cold Damage II", affix: "+28% Cold Damage" },
     midRing2: { name: "Cold Penetration II", affix: "+5% Cold Penetration" },
-    midRing3: { name: "Frozen Time II", affix: "+14% Frostbite Duration" },
+    midRing3: {
+      name: "Max Frostbite Rating II",
+      affix: "+6 to Max Frostbite Rating",
+    },
     affix1:
       "Focus energy to create an ice prison Near yourself and the Pact Holder, which debuffs Frostbitten enemies inside every second and makes them take +10% additional Cold Damage, up to 4 stacks, for 6s.\nCooldown: 10s",
     affix2:
@@ -1726,16 +1827,51 @@ export const Pactspirits = [
       "Focus energy to create an ice prison Near yourself and the Pact Holder, which debuffs Frostbitten enemies inside every second and makes them take +13% additional Cold Damage, up to 4 stacks, for 6s.\nCooldown: 10s\n+12% additional Cold Damage\n+4% additional damage",
   },
   {
+    type: "Spell",
+    rarity: "Legendary",
+    name: "Icemirror",
+    innerRing1: { name: "Terra Damage I", affix: "+12% Terra Skill Damage" },
+    innerRing2: { name: "Terra Damage I", affix: "+12% Terra Skill Damage" },
+    innerRing3: {
+      name: "Terra Charge I",
+      affix: "+8% Terra Charge Recovery Speed",
+    },
+    innerRing4: {
+      name: "Terra Charge I",
+      affix: "+8% Terra Charge Recovery Speed",
+    },
+    innerRing5: { name: "Terra Area I", affix: "+8% Terra Skill Area" },
+    innerRing6: { name: "Terra Area I", affix: "+8% Terra Skill Area" },
+    midRing1: { name: "Terra Damage II", affix: "+24% Terra Skill Damage" },
+    midRing2: {
+      name: "Terra Charge II",
+      affix: "+16% Terra Charge Recovery Speed",
+    },
+    midRing3: { name: "Terra Area II", affix: "+16% Terra Skill Area" },
+    affix1:
+      "Gains 1 stack of Mirrored Shade every 1 s while standing on a Terra Skill",
+    affix2:
+      "Gains 1 stack of Mirrored Shade every 1 s while standing on a Terra Skill\n+1 to Max Mirrored Shade Stacks",
+    affix3:
+      "Gains 1 stack of Mirrored Shade every 1 s while standing on a Terra Skill\n+1 to Max Mirrored Shade Stacks\n+4% additional Terra Skill Damage while having Mirrored Shade",
+    affix4:
+      "Gains 1 stack of Mirrored Shade every 1 s while standing on a Terra Skill\n+2 to Max Mirrored Shade Stacks\n+4% additional Terra Skill Damage while having Mirrored Shade",
+    affix5:
+      "Gains 1 stack of Mirrored Shade every 1 s while standing on a Terra Skill\n+2 to Max Mirrored Shade Stacks\n+8% additional Terra Skill Damage while having Mirrored Shade",
+    affix6:
+      "Gains 1 stack of Mirrored Shade every 1 s while standing on a Terra Skill\n+2 to Max Mirrored Shade Stacks\n+8% additional Terra Skill Damage while having Mirrored Shade\n+1 to Max Terra Charge Stacks when Mirrored Shade reaches max stacks",
+  },
+  {
     type: "Persistent",
     rarity: "Magic",
     name: "Idling Weasel - Abyss",
     innerRing1: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing2: {
       name: "Ailment Chance I",
-      affix: "+3.5% chance to cause Ailments",
+      affix: "3.5% chance to inflict Damaging Ailments",
     },
     innerRing3: { name: "Ailment Damage I", affix: "+12% Ailment Damage" },
     innerRing4: { name: "Ailment Damage I", affix: "+12% Ailment Damage" },
@@ -1748,13 +1884,13 @@ export const Pactspirits = [
     affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
     affix3:
-      "+5% additional damage; +5% additional Minion Damage\n2.5% curse effect\n+2% additional damage",
+      "+5% additional damage; +5% additional Minion Damage\n2.5% Curse Effect\n+2% additional damage",
     affix4:
-      "+5% additional damage; +5% additional Minion Damage\n2.5% curse effect\n+4% additional damage",
+      "+5% additional damage; +5% additional Minion Damage\n2.5% Curse Effect\n+4% additional damage",
     affix5:
-      "+5% additional damage; +5% additional Minion Damage\n+5% curse effect\n+4% additional damage",
+      "+5% additional damage; +5% additional Minion Damage\n+5% Curse Effect\n+4% additional damage",
     affix6:
-      "+7% additional damage; +7% additional Minion Damage\n+5% curse effect\n+4% additional damage",
+      "+7% additional damage; +7% additional Minion Damage\n+5% Curse Effect\n+4% additional damage",
   },
   {
     type: "Attack",
@@ -1929,11 +2065,11 @@ export const Pactspirits = [
     name: "Knight of Pale Blue",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Damage Mitigation I",
@@ -2016,11 +2152,11 @@ export const Pactspirits = [
     name: "Letice - Flame",
     innerRing1: {
       name: "Reaping Cooldown I",
-      affix: "+5% Reaping Cooldown Recovery Speed",
+      affix: "+5% Reaping Recovery Speed",
     },
     innerRing2: {
       name: "Reaping Cooldown I",
-      affix: "+5% Reaping Cooldown Recovery Speed",
+      affix: "+5% Reaping Recovery Speed",
     },
     innerRing3: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
     innerRing4: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
@@ -2034,7 +2170,7 @@ export const Pactspirits = [
     },
     midRing1: {
       name: "Reaping Cooldown II",
-      affix: "+10% Reaping Cooldown Recovery Speed",
+      affix: "+10% Reaping Recovery Speed",
     },
     midRing2: { name: "Damage Over Time II", affix: "+24% Damage Over Time" },
     midRing3: { name: "Damage Affliction II", affix: "+20% Affliction Effect" },
@@ -2186,19 +2322,19 @@ export const Pactspirits = [
     name: "Luluri - Shallow Sea",
     innerRing1: {
       name: "Warcry Duration I",
-      affix: "+7.5% Warcry Skill Effect Duration",
+      affix: "7.5% Warcry Skill Effect Duration",
     },
     innerRing2: {
       name: "Warcry Duration I",
-      affix: "+7.5% Warcry Skill Effect Duration",
+      affix: "7.5% Warcry Skill Effect Duration",
     },
     innerRing3: {
       name: "Warcry Cooldown I",
-      affix: "+5.5% Warcry Cooldown Recovery Speed",
+      affix: "5.5% Warcry Cooldown Recovery Speed",
     },
     innerRing4: {
       name: "Warcry Cooldown I",
-      affix: "+5.5% Warcry Cooldown Recovery Speed",
+      affix: "5.5% Warcry Cooldown Recovery Speed",
     },
     innerRing5: { name: "Warcry Effect I", affix: "+3% Warcry Effect" },
     innerRing6: { name: "Warcry Effect I", affix: "+3% Warcry Effect" },
@@ -2351,8 +2487,8 @@ export const Pactspirits = [
     name: "Melting Flames",
     innerRing1: { name: "Fire Damage I", affix: "+14% Fire Damage" },
     innerRing2: { name: "Fire Damage I", affix: "+14% Fire Damage" },
-    innerRing3: { name: "Fire Penetration I", affix: "+2.5% Fire Penetration" },
-    innerRing4: { name: "Fire Penetration I", affix: "+2.5% Fire Penetration" },
+    innerRing3: { name: "Fire Penetration I", affix: "2.5% Fire Penetration" },
+    innerRing4: { name: "Fire Penetration I", affix: "2.5% Fire Penetration" },
     innerRing5: { name: "Fire Area I", affix: "+14% Fire Skill Area" },
     innerRing6: { name: "Fire Area I", affix: "+14% Fire Skill Area" },
     midRing1: { name: "Fire Damage II", affix: "+28% Fire Damage" },
@@ -2370,6 +2506,121 @@ export const Pactspirits = [
       "Covers targets within a 5m radius with flames and debuffs enemies within the area.\nDebuff: + 26% additional Fire Damage taken by the enemy for 3s.\nCooldown: 5 s.\n+12% additional Fire Damage\n+4% additional damage",
     affix6:
       "Covers targets within a 5m radius with flames and debuffs enemies within the area.\nDebuff: + 35% additional Fire Damage taken by the enemy for 3s.\nCooldown: 5 s.\n+12% additional Fire Damage\n+4% additional damage",
+  },
+  {
+    type: "Elixir",
+    rarity: "Magic",
+    name: "Meowth",
+    innerRing1: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing2: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing3: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing4: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing5: { name: "Movement Speed I", affix: "+2% Movement Speed" },
+    innerRing6: { name: "Movement Speed I", affix: "+2% Movement Speed" },
+    midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing3: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
+      "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
+    affix3:
+      "+5% additional damage; +5% additional Minion Damage\n+1% additional damage and Minion Damage while an Elixir Skill is active\n+2% additional damage",
+    affix4:
+      "+5% additional damage; +5% additional Minion Damage\n+1% additional damage and Minion Damage while an Elixir Skill is active\n+4% additional damage",
+    affix5:
+      "+5% additional damage; +5% additional Minion Damage\n+2% additional damage and Minion Damage while an Elixir Skill is active\n+4% additional damage",
+    affix6:
+      "+7% additional damage; +7% additional Minion Damage\n+4% additional damage and Minion Damage while an Elixir Skill is active\n+4% additional damage",
+  },
+  {
+    type: "Spell",
+    rarity: "Magic",
+    name: "Meowth - Jade",
+    innerRing1: { name: "Terra Damage I", affix: "+12% Terra Skill Damage" },
+    innerRing2: { name: "Terra Damage I", affix: "+12% Terra Skill Damage" },
+    innerRing3: {
+      name: "Terra Charge I",
+      affix: "+8% Terra Charge Recovery Speed",
+    },
+    innerRing4: {
+      name: "Terra Charge I",
+      affix: "+8% Terra Charge Recovery Speed",
+    },
+    innerRing5: { name: "Terra Area I", affix: "+8% Terra Skill Area" },
+    innerRing6: { name: "Terra Area I", affix: "+8% Terra Skill Area" },
+    midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing3: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
+      "+5% additional damage; +5% additional Minion Damage\n+6% Terra Skill Damage",
+    affix3:
+      "+5% additional damage; +5% additional Minion Damage\n+6% Terra Skill Damage\n+2% additional damage",
+    affix4:
+      "+5% additional damage; +5% additional Minion Damage\n+12% Terra Skill Damage\n+2% additional damage",
+    affix5:
+      "+5% additional damage; +5% additional Minion Damage\n+12% Terra Skill Damage\n+4% additional damage",
+    affix6:
+      "+7% additional damage; +7% additional Minion Damage\n+12% Terra Skill Damage\n+4% additional damage",
+  },
+  {
+    type: "Elixir",
+    rarity: "Rare",
+    name: "Miss Melancholy",
+    innerRing1: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing2: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing3: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing4: { name: "Damage I", affix: "+12% damage\n+12% Minion Damage" },
+    innerRing5: { name: "Movement Speed I", affix: "+2% Movement Speed" },
+    innerRing6: { name: "Movement Speed I", affix: "+2% Movement Speed" },
+    midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing3: { name: "Movement Speed II", affix: "+4% Movement Speed" },
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
+      "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
+    affix3:
+      "+5% additional damage; +5% additional Minion Damage\n+2% additional damage and Minion Damage while an Elixir Skill is active\n+2% additional damage",
+    affix4:
+      "+5% additional damage; +5% additional Minion Damage\n+2% additional damage and Minion Damage while an Elixir Skill is active\n+4% additional damage",
+    affix5:
+      "+5% additional damage; +5% additional Minion Damage\n+4% additional damage and Minion Damage while an Elixir Skill is active\n+4% additional damage",
+    affix6:
+      "+7% additional damage; +7% additional Minion Damage\n+4% additional damage and Minion Damage while an Elixir Skill is active\n+4% additional damage",
+  },
+  {
+    type: "Spell",
+    rarity: "Rare",
+    name: "Miss Melancholy - Bone",
+    innerRing1: { name: "Terra Damage I", affix: "+12% Terra Skill Damage" },
+    innerRing2: { name: "Terra Damage I", affix: "+12% Terra Skill Damage" },
+    innerRing3: {
+      name: "Terra Charge I",
+      affix: "+8% Terra Charge Recovery Speed",
+    },
+    innerRing4: {
+      name: "Terra Charge I",
+      affix: "+8% Terra Charge Recovery Speed",
+    },
+    innerRing5: { name: "Terra Area I", affix: "+8% Terra Skill Area" },
+    innerRing6: { name: "Terra Area I", affix: "+8% Terra Skill Area" },
+    midRing1: { name: "Terra Damage II", affix: "+24% Terra Skill Damage" },
+    midRing2: {
+      name: "Terra Charge II",
+      affix: "+16% Terra Charge Recovery Speed",
+    },
+    midRing3: { name: "Terra Area II", affix: "+16% Terra Skill Area" },
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
+      "+5% additional damage; +5% additional Minion Damage\n+12% Terra Skill Damage",
+    affix3:
+      "+5% additional damage; +5% additional Minion Damage\n+12% Terra Skill Damage\n+2% additional damage",
+    affix4:
+      "+5% additional damage; +5% additional Minion Damage\n+24% Terra Skill Damage\n+2% additional damage",
+    affix5:
+      "+5% additional damage; +5% additional Minion Damage\n+24% Terra Skill Damage\n+4% additional damage",
+    affix6:
+      "+7% additional damage; +7% additional Minion Damage\n+24% Terra Skill Damage\n+4% additional damage",
   },
   {
     type: "Survival",
@@ -2464,14 +2715,14 @@ export const Pactspirits = [
       name: "Cursed Enemy Weakening I",
       affix: "-2% additional damage taken from Cursed enemies",
     },
-    innerRing5: { name: "Curse Effect I", affix: "+1.5% curse effect" },
-    innerRing6: { name: "Curse Effect I", affix: "+1.5% curse effect" },
+    innerRing5: { name: "Curse Effect I", affix: "1.5% Curse Effect" },
+    innerRing6: { name: "Curse Effect I", affix: "1.5% Curse Effect" },
     midRing1: { name: "Damage II", affix: "+20% damage" },
     midRing2: {
       name: "Cursed Enemy Weakening II",
       affix: "-4% additional damage taken from Cursed enemies",
     },
-    midRing3: { name: "Curse Effect II", affix: "+3% curse effect" },
+    midRing3: { name: "Curse Effect II", affix: "+3% Curse Effect" },
     affix1:
       "You can cast 1 additional Curses\n+4% Movement Speed if you have cast a Curse Skill recently",
     affix2:
@@ -2495,11 +2746,11 @@ export const Pactspirits = [
     innerRing4: { name: "Erosion Damage I", affix: "+14% Erosion Damage" },
     innerRing5: {
       name: "Erosion Penetration I",
-      affix: "+2.5% Erosion Resistance Penetration",
+      affix: "2.5% Erosion Resistance Penetration",
     },
     innerRing6: {
       name: "Erosion Penetration I",
-      affix: "+2.5% Erosion Resistance Penetration",
+      affix: "2.5% Erosion Resistance Penetration",
     },
     midRing1: { name: "Erosion Damage II", affix: "+28% Erosion Damage" },
     midRing2: { name: "Erosion Damage II", affix: "+28% Erosion Damage" },
@@ -2525,19 +2776,19 @@ export const Pactspirits = [
     name: "Preserver of Eternity",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Damage Avoidance I",
-      affix: "+1.5% chance to avoid damage",
+      affix: "1.5% chance to avoid damage",
     },
     innerRing4: {
       name: "Damage Avoidance I",
-      affix: "+1.5% chance to avoid damage",
+      affix: "1.5% chance to avoid damage",
     },
     innerRing5: { name: "XP Protection I", affix: "-10% XP lost upon death" },
     innerRing6: { name: "XP Protection I", affix: "-10% XP lost upon death" },
@@ -2623,6 +2874,37 @@ export const Pactspirits = [
       "+19% chance for Attacks to inflict Paralysis on hit\n+10% additional Attack Damage dealt to Nearby enemies\n+12% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
     affix6:
       "+26% chance for Attacks to inflict Paralysis on hit\n+14% additional Attack Damage dealt to Nearby enemies\n+12% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
+  },
+  {
+    type: "Spell",
+    rarity: "Magic",
+    name: "Ripplepop",
+    innerRing1: { name: "Spell Damage I", affix: "+12% Spell Damage" },
+    innerRing2: { name: "Spell Damage I", affix: "+12% Spell Damage" },
+    innerRing3: {
+      name: "Spell Critical Strike I",
+      affix: "+22% Spell Critical Strike Rating",
+    },
+    innerRing4: {
+      name: "Spell Critical Strike I",
+      affix: "+22% Spell Critical Strike Rating",
+    },
+    innerRing5: { name: "Cast Speed I", affix: "+4% Cast Speed" },
+    innerRing6: { name: "Cast Speed I", affix: "+4% Cast Speed" },
+    midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    midRing3: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
+      "+5% additional damage; +5% additional Minion Damage\n+6% Spell Damage",
+    affix3:
+      "+5% additional damage; +5% additional Minion Damage\n+6% Spell Damage\n+2% additional damage",
+    affix4:
+      "+5% additional damage; +5% additional Minion Damage\n+12% Spell Damage\n+2% additional damage",
+    affix5:
+      "+5% additional damage; +5% additional Minion Damage\n+12% Spell Damage\n+4% additional damage",
+    affix6:
+      "+7% additional damage; +7% additional Minion Damage\n+12% Spell Damage\n+4% additional damage",
   },
   {
     type: "Summon",
@@ -2736,11 +3018,11 @@ export const Pactspirits = [
     name: "Shocket - Violet",
     innerRing1: {
       name: "Reaping Cooldown I",
-      affix: "+5% Reaping Cooldown Recovery Speed",
+      affix: "+5% Reaping Recovery Speed",
     },
     innerRing2: {
       name: "Reaping Cooldown I",
-      affix: "+5% Reaping Cooldown Recovery Speed",
+      affix: "+5% Reaping Recovery Speed",
     },
     innerRing3: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
     innerRing4: { name: "Damage Over Time I", affix: "+12% Damage Over Time" },
@@ -2875,11 +3157,11 @@ export const Pactspirits = [
     name: "Spiny Snail - Cloudless Sky",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Damage Mitigation I",
@@ -2892,11 +3174,17 @@ export const Pactspirits = [
     innerRing5: { name: "XP Bonus I", affix: "+3% XP earned" },
     innerRing6: { name: "XP Bonus I", affix: "+3% XP earned" },
     midRing1: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing2: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing3: {
       name: "Mana Restoration II",
       affix: "+30% Mana Regeneration Speed",
     },
-    midRing2: { name: "", affix: "" },
-    midRing3: { name: "", affix: "" },
     affix1: "-5% additional damage taken",
     affix2: "-5% additional damage taken\n-2% additional damage taken",
     affix3:
@@ -2922,8 +3210,8 @@ export const Pactspirits = [
       name: "Cursed Enemy Weakening I",
       affix: "-2% additional damage taken from Cursed enemies",
     },
-    innerRing5: { name: "Curse Effect I", affix: "+1.5% curse effect" },
-    innerRing6: { name: "Curse Effect I", affix: "+1.5% curse effect" },
+    innerRing5: { name: "Curse Effect I", affix: "1.5% Curse Effect" },
+    innerRing6: { name: "Curse Effect I", affix: "1.5% Curse Effect" },
     midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
     midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
     midRing3: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
@@ -2976,11 +3264,11 @@ export const Pactspirits = [
     name: "Spiny Snail - Green",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Mana Restoration I",
@@ -2993,11 +3281,17 @@ export const Pactspirits = [
     innerRing5: { name: "XP Bonus I", affix: "+3% XP earned" },
     innerRing6: { name: "XP Bonus I", affix: "+3% XP earned" },
     midRing1: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing2: {
+      name: "Damage Mitigation II",
+      affix: "-4% additional Physical Damage taken",
+    },
+    midRing3: {
       name: "Mana Restoration II",
       affix: "+30% Mana Regeneration Speed",
     },
-    midRing2: { name: "", affix: "" },
-    midRing3: { name: "", affix: "" },
     affix1: "-5% additional damage taken",
     affix2: "-5% additional damage taken\n-2% additional damage taken",
     affix3:
@@ -3149,11 +3443,11 @@ export const Pactspirits = [
     innerRing4: { name: "Erosion Damage I", affix: "+14% Erosion Damage" },
     innerRing5: {
       name: "Erosion Penetration I",
-      affix: "+2.5% Erosion Resistance Penetration",
+      affix: "2.5% Erosion Resistance Penetration",
     },
     innerRing6: {
       name: "Erosion Penetration I",
-      affix: "+2.5% Erosion Resistance Penetration",
+      affix: "2.5% Erosion Resistance Penetration",
     },
     midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
     midRing2: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
@@ -3193,17 +3487,17 @@ export const Pactspirits = [
     },
     midRing3: { name: "Cast Speed II", affix: "+8% Cast Speed" },
     affix1:
-      "Activating Spell Burst with at least 6 stack(s) of Max Spell Burst grants 1 stack of Squidnova",
+      "Consuming Spell Burst with at least 4 stack(s) of Max Spell Burst grants 1 stack of Squidnova",
     affix2:
-      "Activating Spell Burst with at least 6 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+25% Squidnova Effect",
+      "Consuming Spell Burst with at least 4 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+25% Squidnova Effect",
     affix3:
-      "Activating Spell Burst with at least 6 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+25% Squidnova Effect\n+4% additional Spell Damage when having Squidnova",
+      "Consuming Spell Burst with at least 4 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+25% Squidnova Effect\n+4% additional Spell Damage when having Squidnova",
     affix4:
-      "Activating Spell Burst with at least 6 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+50% Squidnova Effect\n+4% additional Spell Damage when having Squidnova",
+      "Consuming Spell Burst with at least 4 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+50% Squidnova Effect\n+4% additional Spell Damage when having Squidnova",
     affix5:
-      "Activating Spell Burst with at least 6 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+50% Squidnova Effect\n+8% additional Spell Damage when having Squidnova",
+      "Consuming Spell Burst with at least 4 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+50% Squidnova Effect\n+8% additional Spell Damage when having Squidnova",
     affix6:
-      "Activating Spell Burst with at least 6 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+50% Squidnova Effect\n+8% additional Spell Damage when having Squidnova\n+1 to Max Spell Burst when having Squidnova",
+      "Consuming Spell Burst with at least 4 stack(s) of Max Spell Burst grants 1 stack of Squidnova\n+50% Squidnova Effect\n+8% additional Spell Damage when having Squidnova\n+1 to Max Spell Burst when having Squidnova",
   },
   {
     type: "Spell",
@@ -3280,22 +3574,22 @@ export const Pactspirits = [
       name: "Attack and Cast Speed II",
       affix: "+8% Attack and Cast Speed",
     },
-    affix1: "Max Channeled Stacks +2",
+    affix1: "+2 to Max Channeled Stacks",
     affix2:
-      "Max Channeled Stacks +2\nAt max channeled stacks, +4% additional damage for Channeled Skills for 4 s",
+      "+2 to Max Channeled Stacks\nAt max channeled stacks, +4% additional damage for Channeled Skills for 4 s",
     affix3:
-      "Max Channeled Stacks +2\nAt max channeled stacks, +4% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 10 m",
+      "+2 to Max Channeled Stacks\nAt max channeled stacks, +4% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 10 m",
     affix4:
-      "Max Channeled Stacks +2\nAt max channeled stacks, +8% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 10 m",
+      "+2 to Max Channeled Stacks\nAt max channeled stacks, +8% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 10 m",
     affix5:
-      "Max Channeled Stacks +2\nAt max channeled stacks, +8% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 20 m",
+      "+2 to Max Channeled Stacks\nAt max channeled stacks, +8% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 20 m",
     affix6:
-      "Max Channeled Stacks +2\nAt max channeled stacks, +12% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 20 m",
+      "+2 to Max Channeled Stacks\nAt max channeled stacks, +12% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 20 m",
   },
   {
     type: "Spell",
     rarity: "Legendary",
-    name: "The Bone worm's Daughter",
+    name: "The Bone worms Daughter",
     innerRing1: {
       name: "Mana Restoration I",
       affix: "+15% Mana Regeneration Speed",
@@ -3342,19 +3636,19 @@ export const Pactspirits = [
     name: "Traveling Lizard - Flower",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Damage Avoidance I",
-      affix: "+1.5% chance to avoid damage",
+      affix: "1.5% chance to avoid damage",
     },
     innerRing4: {
       name: "Damage Avoidance I",
-      affix: "+1.5% chance to avoid damage",
+      affix: "1.5% chance to avoid damage",
     },
     innerRing5: { name: "XP Protection I", affix: "-10% XP lost upon death" },
     innerRing6: { name: "XP Protection I", affix: "-10% XP lost upon death" },
@@ -3488,7 +3782,7 @@ export const Pactspirits = [
   {
     type: "Attack",
     rarity: "Legendary",
-    name: "Valkyrie's Night Patrol",
+    name: "Valkyries Night Patrol",
     innerRing1: { name: "Attack Damage I", affix: "+12% Attack Damage" },
     innerRing2: { name: "Attack Damage I", affix: "+12% Attack Damage" },
     innerRing3: {
@@ -3525,11 +3819,11 @@ export const Pactspirits = [
     name: "Warbler of Plum Blossoms",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Mana Restoration I",
@@ -3638,8 +3932,8 @@ export const Pactspirits = [
     name: "Winter Darer - Lava",
     innerRing1: { name: "Fire Damage I", affix: "+14% Fire Damage" },
     innerRing2: { name: "Fire Damage I", affix: "+14% Fire Damage" },
-    innerRing3: { name: "Fire Penetration I", affix: "+2.5% Fire Penetration" },
-    innerRing4: { name: "Fire Penetration I", affix: "+2.5% Fire Penetration" },
+    innerRing3: { name: "Fire Penetration I", affix: "2.5% Fire Penetration" },
+    innerRing4: { name: "Fire Penetration I", affix: "2.5% Fire Penetration" },
     innerRing5: { name: "Fire Area I", affix: "+14% Fire Skill Area" },
     innerRing6: { name: "Fire Area I", affix: "+14% Fire Skill Area" },
     midRing1: { name: "Fire Damage II", affix: "+28% Fire Damage" },
@@ -3663,11 +3957,11 @@ export const Pactspirits = [
     name: "Winter Darer - Rock",
     innerRing1: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing2: {
       name: "Elemental Resistance I",
-      affix: "+2.5% Elemental Resistance",
+      affix: "2.5% Elemental Resistance",
     },
     innerRing3: {
       name: "Mana Restoration I",
@@ -3747,14 +4041,14 @@ export const Pactspirits = [
       name: "Cursed Enemy Weakening I",
       affix: "-2% additional damage taken from Cursed enemies",
     },
-    innerRing5: { name: "Curse Effect I", affix: "+1.5% curse effect" },
-    innerRing6: { name: "Curse Effect I", affix: "+1.5% curse effect" },
+    innerRing5: { name: "Curse Effect I", affix: "1.5% Curse Effect" },
+    innerRing6: { name: "Curse Effect I", affix: "1.5% Curse Effect" },
     midRing1: { name: "Damage II", affix: "+20% damage" },
     midRing2: {
       name: "Cursed Enemy Weakening II",
       affix: "-4% additional damage taken from Cursed enemies",
     },
-    midRing3: { name: "Curse Effect II", affix: "+3% curse effect" },
+    midRing3: { name: "Curse Effect II", affix: "+3% Curse Effect" },
     affix1: "+5% additional damage; +5% additional Minion Damage",
     affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
@@ -3783,11 +4077,11 @@ export const Pactspirits = [
     },
     innerRing5: {
       name: "Crowd Control Effects II",
-      affix: "+5% crowd control effects",
+      affix: "+5% Crowd Control Effects",
     },
     innerRing6: {
       name: "Crowd Control Effects II",
-      affix: "+5% crowd control effects",
+      affix: "+5% Crowd Control Effects",
     },
     midRing1: { name: "Damage II", affix: "+24% damage\n+24% Minion Damage" },
     midRing2: {
@@ -3796,7 +4090,7 @@ export const Pactspirits = [
     },
     midRing3: {
       name: "Crowd Control Effects II",
-      affix: "+10% crowd control effects",
+      affix: "+10% Crowd Control Effects",
     },
     affix1:
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 5 s",
@@ -3810,5 +4104,40 @@ export const Pactspirits = [
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 5 s\nFor every type of crowd control effect the enemy has, you and your Minions deal +3% additional damage to them\n+4% additional damage",
     affix6:
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 4 s\nFor every type of crowd control effect the enemy has, you and your Minions deal +3% additional damage to them\n+4% additional damage",
+  },
+  {
+    type: "Spell",
+    rarity: "Legendary",
+    name: "Witch of the Night",
+    innerRing1: { name: "Spell Damage I", affix: "+12% Spell Damage" },
+    innerRing2: { name: "Spell Damage I", affix: "+12% Spell Damage" },
+    innerRing3: {
+      name: "Spell Critical Strike I",
+      affix: "+22% Spell Critical Strike Rating",
+    },
+    innerRing4: {
+      name: "Spell Critical Strike I",
+      affix: "+22% Spell Critical Strike Rating",
+    },
+    innerRing5: { name: "Cast Speed I", affix: "+4% Cast Speed" },
+    innerRing6: { name: "Cast Speed I", affix: "+4% Cast Speed" },
+    midRing1: { name: "Spell Damage II", affix: "+24% Spell Damage" },
+    midRing2: {
+      name: "Spell Critical Strike II",
+      affix: "+45% Spell Critical Strike Rating",
+    },
+    midRing3: { name: "Cast Speed II", affix: "+8% Cast Speed" },
+    affix1:
+      "Gains 1 stack of Night Feather Entanglement for every 1 active Tangle",
+    affix2:
+      "Gains 1 stack of Night Feather Entanglement for every 1 active Tangle\n+25% Night Feather Entanglement Effect",
+    affix3:
+      "Gains 1 stack of Night Feather Entanglement for every 1 active Tangle\n+25% Night Feather Entanglement Effect\n+4% additional Spell Damage when having Night Feather Entanglement",
+    affix4:
+      "Gains 1 stack of Night Feather Entanglement for every 1 active Tangle\n+50% Night Feather Entanglement Effect\n+4% additional Spell Damage when having Night Feather Entanglement",
+    affix5:
+      "Gains 1 stack of Night Feather Entanglement for every 1 active Tangle\n+50% Night Feather Entanglement Effect\n+8% additional Spell Damage when having Night Feather Entanglement",
+    affix6:
+      "Gains 1 stack of Night Feather Entanglement for every 1 active Tangle\n+50% Night Feather Entanglement Effect\n+8% additional Spell Damage when having Night Feather Entanglement\nGains 1 stack of Focus Blessing every 1 s when Night Feather Entanglement reaches max stacks",
   },
 ] as const satisfies readonly Pactspirit[];

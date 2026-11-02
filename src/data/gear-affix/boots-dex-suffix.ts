@@ -9,7 +9,7 @@ export const BOOTS_DEX_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Fire Resistance",
+    craftableAffix: "+(28-35)% Fire Resistance",
   },
   {
     equipmentSlot: "Boots",
@@ -49,7 +49,7 @@ export const BOOTS_DEX_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Cold Resistance",
+    craftableAffix: "+(28-35)% Cold Resistance",
   },
   {
     equipmentSlot: "Boots",
@@ -89,7 +89,7 @@ export const BOOTS_DEX_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Lightning Resistance",
+    craftableAffix: "+(28-35)% Lightning Resistance",
   },
   {
     equipmentSlot: "Boots",
@@ -129,7 +129,7 @@ export const BOOTS_DEX_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Erosion Resistance",
+    craftableAffix: "+(28-35)% Erosion Resistance",
   },
   {
     equipmentSlot: "Boots",

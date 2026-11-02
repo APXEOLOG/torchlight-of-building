@@ -133,4 +133,20 @@ export const ROD_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "0",
     craftableAffix: "+1 to Max Focus Blessing Stacks",
   },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Rod",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "Main Skill is supported by Lv. 10 Quick Decision",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Rod",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "Main Skill is supported by Lv. 10 Ailment Termination",
+  },
 ];

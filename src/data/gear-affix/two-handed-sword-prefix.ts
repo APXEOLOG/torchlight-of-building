@@ -249,7 +249,7 @@ export const TWO_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "Adds 910 - 1690 Base Ignite Damage",
+    craftableAffix: "Adds 640 - 1180 Base Ignite Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -257,14 +257,6 @@ export const TWO_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "Adds 700 - 1300 Base Ignite Damage",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Two-Handed Sword",
-    affixType: "Prefix",
-    craftingPool: "Basic",
-    tier: "2",
     craftableAffix: "Adds 490 - 910 Base Ignite Damage",
   },
   {
@@ -272,8 +264,16 @@ export const TWO_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Two-Handed Sword",
     affixType: "Prefix",
     craftingPool: "Basic",
+    tier: "2",
+    craftableAffix: "Adds 340 - 640 Base Ignite Damage",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
+    affixType: "Prefix",
+    craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "Adds 350 - 650 Base Ignite Damage",
+    craftableAffix: "Adds 250 - 460 Base Ignite Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -281,7 +281,7 @@ export const TWO_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "Adds 250 - 470 Base Ignite Damage",
+    craftableAffix: "Adds 180 - 330 Base Ignite Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -327,14 +327,6 @@ export const TWO_HANDED_SWORD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "4",
     craftableAffix:
       "Reaps 0.14 s of Ignite Damage when dealing Damage Over Time. The effect has a 1 s Recovery Time against the same target",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Two-Handed Sword",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
-    craftableAffix: "+(46-59)% Attack and Spell Block Chance",
   },
   {
     equipmentSlot: "Two-Handed",

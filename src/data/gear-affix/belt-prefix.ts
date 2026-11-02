@@ -214,7 +214,7 @@ export const BELT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(66-94)% Minion Damage",
+    craftableAffix: "+(73-94)% Minion Damage",
   },
   {
     equipmentSlot: "Trinket",
@@ -446,30 +446,6 @@ export const BELT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "Barrage Skills +(26-32)% damage increase per wave",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Belt",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "1",
-    craftableAffix: "Barrage Skills +(20-25)% damage increase per wave",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Belt",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "2",
-    craftableAffix: "Barrage Skills +(12-18)% damage increase per wave",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Belt",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
     craftableAffix:
       "Gains a stack of Fortitude when using a Melee Skill\n(-8--6)% additional damage taken",
   },
@@ -571,7 +547,7 @@ export const BELT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "+2 to Max Channeled Stacks",
+    craftableAffix: "+2 to Max Channeled Stacks\n+(1-2)% additional damage",
   },
   {
     equipmentSlot: "Trinket",
@@ -579,7 +555,7 @@ export const BELT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "1",
-    craftableAffix: "+1 to Max Channeled Stacks",
+    craftableAffix: "+2 to Max Channeled Stacks\n(-3--1)% additional damage",
   },
   {
     equipmentSlot: "Trinket",
@@ -587,7 +563,7 @@ export const BELT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "Min Channeled Stacks +2",
+    craftableAffix: "Min Channeled Stacks +2\n+(1-2)% additional damage",
   },
   {
     equipmentSlot: "Trinket",
@@ -595,7 +571,7 @@ export const BELT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "1",
-    craftableAffix: "Min Channeled Stacks +1",
+    craftableAffix: "Min Channeled Stacks +2\n(-3--1)% additional damage",
   },
   {
     equipmentSlot: "Trinket",

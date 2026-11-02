@@ -556,7 +556,7 @@ export const ROD_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Ultimate",
     tier: "0",
     craftableAffix:
-      "+(28-39)% Elemental and Erosion Resistance Penetration for Minions",
+      "+(31-39)% Elemental and Erosion Resistance Penetration for Minions",
   },
   {
     equipmentSlot: "One-Handed",

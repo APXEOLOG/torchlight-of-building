@@ -928,6 +928,77 @@ const convertParsedValuesToLevelValues = (
   return result;
 };
 
+const NUMBER = /[+-]?\d+(?:\.\d+)?/g;
+
+// tlidb writes "+38%" on whole numbers and "28.5%" on the rest, so a number signed at any level gets its sign at all of them.
+const evenSigns = (values: string[]): string[] => {
+  const signed = new Set<number>();
+  for (const value of values) {
+    [...value.matchAll(NUMBER)].forEach((match, n) => {
+      if (match[0].startsWith("+")) signed.add(n);
+    });
+  }
+  return values.map((value) => {
+    let n = -1;
+    return value.replace(NUMBER, (number) => {
+      n++;
+      return signed.has(n) && /^\d/.test(number) ? `+${number}` : number;
+    });
+  });
+};
+
+// tlidb gives one text per level, so each line becomes fixed when no level differs, and a {value} template when one number does.
+const addDescriptLines = (
+  levelTexts: string[],
+  fixedAffixes: string[],
+  templates: SupportSkillTemplate[],
+): void => {
+  const levelLines = levelTexts.map((text) =>
+    text
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => !/^(supports? |cannot support|$)/i.test(line)),
+  );
+  const first = levelLines[0];
+  if (levelLines.some((lines) => lines.length !== first.length)) {
+    templates.push({ template: "{value}", levelValues: levelTexts });
+    return;
+  }
+
+  first.forEach((_, i) => {
+    const values = evenSigns(levelLines.map((lines) => lines[i]));
+    const line = values[0];
+    if (values.every((value) => value === line)) {
+      fixedAffixes.push(line);
+      return;
+    }
+    const numbers = values.map((value) => value.match(NUMBER) ?? []);
+    const shape = line.replace(NUMBER, "#");
+    const varying = (numbers[0] ?? []).flatMap((_, n) =>
+      numbers.some((row) => row[n] !== numbers[0][n]) ? [n] : [],
+    );
+    if (
+      varying.length !== 1 ||
+      values.some((value) => value.replace(NUMBER, "#") !== shape)
+    ) {
+      templates.push({ template: "{value}", levelValues: values });
+      return;
+    }
+    // A value like Haunt's goes from -3% at level 1 to 0.8% at level 20, so it keeps its own sign per level.
+    const levelNumbers = numbers.map((row) =>
+      Number.parseFloat(row[varying[0]]),
+    );
+    const crossesZero = levelNumbers.some((value) => value < 0);
+    let seen = -1;
+    const template = line.replace(NUMBER, (number) => {
+      seen++;
+      if (seen !== varying[0]) return number;
+      return !crossesZero && number.startsWith("+") ? "+{value}" : "{value}";
+    });
+    templates.push({ template, levelValues: levelNumbers });
+  });
+};
+
 /**
  * Build support skill affix data from description and progression table.
  * Determines which affixes are fixed (constant) vs templated (level-scaling).
@@ -952,20 +1023,19 @@ const buildSupportSkillAffixData = (
   );
 
   if (descriptColumn !== undefined) {
-    // For Descript columns, treat entire text as a single template value
-    const levelValues: string[] = [];
+    const levelTexts: string[] = [];
     for (let level = 1; level <= 40; level++) {
       const valueStr = descriptColumn.rows[level];
       if (valueStr === undefined) {
         // Missing level - can't use this approach
         break;
       }
-      levelValues.push(valueStr);
+      levelTexts.push(valueStr);
     }
 
-    if (levelValues.length === 40) {
-      templates.push({ template: "{value}", levelValues });
-      return { fixedAffixes, templates }; // No fixed affixes for Descript skills
+    if (levelTexts.length === 40) {
+      addDescriptLines(levelTexts, fixedAffixes, templates);
+      return { fixedAffixes, templates };
     }
   }
 

@@ -5,6 +5,7 @@ import * as cheerio from "cheerio";
 import { program } from "commander";
 import type { BaseCoreTalent } from "../data/core-talent/types";
 import { isTree } from "../data/talent";
+import { stripTalentNotes } from "./lib/tlidb";
 
 // ============================================================================
 // Fetching
@@ -100,7 +101,7 @@ const extractCoreTalents = ($: cheerio.CheerioAPI): BaseCoreTalent[] => {
     const contentClone = contentDiv.clone();
     contentClone.find("div.d-flex.justify-content-between").remove();
     const affixHtml = contentClone.html() || "";
-    const affix = cleanAffixText(affixHtml);
+    const affix = stripTalentNotes(cleanAffixText(affixHtml));
 
     if (affix) {
       talents.push({ name, tree, affix });

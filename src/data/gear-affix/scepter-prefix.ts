@@ -389,6 +389,14 @@ export const SCEPTER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Scepter",
     affixType: "Prefix",
     craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Physical Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
     tier: "0",
     craftableAffix: "+(2-3) Lightning Skill Level",
   },
@@ -399,6 +407,14 @@ export const SCEPTER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "1",
     craftableAffix: "+2 Lightning Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Lightning Skill Level",
   },
   {
     equipmentSlot: "One-Handed",
@@ -421,6 +437,14 @@ export const SCEPTER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Scepter",
     affixType: "Prefix",
     craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Cold Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
     tier: "0",
     craftableAffix: "+(2-3) Fire Skill Level",
   },
@@ -431,6 +455,14 @@ export const SCEPTER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "1",
     craftableAffix: "+2 Fire Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Fire Skill Level",
   },
   {
     equipmentSlot: "One-Handed",
@@ -452,9 +484,18 @@ export const SCEPTER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     equipmentSlot: "One-Handed",
     equipmentType: "Scepter",
     affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "2",
+    craftableAffix: "+1 Erosion Skill Level",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "Max Terra Charge Stacks +3",
+    craftableAffix:
+      "Max Terra Charge Stacks +2\n+(10-12)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -462,7 +503,8 @@ export const SCEPTER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "1",
-    craftableAffix: "Max Terra Charge Stacks +2",
+    craftableAffix:
+      "Max Terra Charge Stacks +2\n+(3-5)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -470,7 +512,8 @@ export const SCEPTER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "2",
-    craftableAffix: "Max Terra Charge Stacks +1",
+    craftableAffix:
+      "Max Terra Charge Stacks +1\n+(6-9)% additional Terra Skill Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -502,7 +545,7 @@ export const SCEPTER_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Ultimate",
     tier: "0",
-    craftableAffix: "+(28-39)% Elemental and Erosion Resistance Penetration",
+    craftableAffix: "+(31-39)% Elemental and Erosion Resistance Penetration",
   },
   {
     equipmentSlot: "One-Handed",

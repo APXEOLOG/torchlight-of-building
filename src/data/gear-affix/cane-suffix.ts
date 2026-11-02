@@ -9,7 +9,7 @@ export const CANE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(29-41)% gear Attack Speed",
+    craftableAffix: "+(33-41)% gear Attack Speed",
   },
   {
     equipmentSlot: "One-Handed",
@@ -249,7 +249,7 @@ export const CANE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(47-64)% Attack Critical Strike Rating for this gear",
+    craftableAffix: "+(51-64)% Attack Critical Strike Rating for this gear",
   },
   {
     equipmentSlot: "One-Handed",
@@ -289,7 +289,7 @@ export const CANE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(166-234)% Critical Strike Rating",
+    craftableAffix: "+(181-234)% Critical Strike Rating",
   },
   {
     equipmentSlot: "One-Handed",
@@ -330,7 +330,7 @@ export const CANE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix:
-      "+(33-47)% Attack and Cast Speed\n+(33-47)% Minion Attack and Cast Speed",
+      "+(37-47)% Attack and Cast Speed\n+(37-47)% Minion Attack and Cast Speed",
   },
   {
     equipmentSlot: "One-Handed",

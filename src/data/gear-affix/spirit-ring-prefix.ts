@@ -161,7 +161,7 @@ export const SPIRIT_RING_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(319-455) Max Energy Shield",
+    craftableAffix: "+(351-455) Max Energy Shield",
   },
   {
     equipmentSlot: "Trinket",

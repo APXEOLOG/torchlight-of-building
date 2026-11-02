@@ -266,7 +266,7 @@ export const SHIELD_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "0",
     craftableAffix:
-      "+(34-47)% Attack and Cast Speed\n+(34-47)% Minion Attack and Cast Speed",
+      "+(37-47)% Attack and Cast Speed\n+(37-47)% Minion Attack and Cast Speed",
   },
   {
     equipmentSlot: "Shield",
@@ -301,7 +301,7 @@ export const SHIELD_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(165-234)% Critical Strike Rating",
+    craftableAffix: "+(181-234)% Critical Strike Rating",
   },
   {
     equipmentSlot: "Shield",
@@ -341,7 +341,7 @@ export const SHIELD_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(83-117)% Critical Strike Damage",
+    craftableAffix: "+(91-117)% Critical Strike Damage",
   },
   {
     equipmentSlot: "Shield",
@@ -421,7 +421,7 @@ export const SHIELD_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(5-6)% Mana Regeneration Speed",
+    craftableAffix: "+(91-120)% Mana Regeneration Speed",
   },
   {
     equipmentSlot: "Shield",
@@ -429,7 +429,7 @@ export const SHIELD_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "1",
-    craftableAffix: "+(19-24)% Mana Regeneration Speed",
+    craftableAffix: "+(65-90)% Mana Regeneration Speed",
   },
   {
     equipmentSlot: "Shield",
@@ -437,7 +437,7 @@ export const SHIELD_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "2",
-    craftableAffix: "+(12-18)% Mana Regeneration Speed",
+    craftableAffix: "+(50-64)% Mana Regeneration Speed",
   },
   {
     equipmentSlot: "Shield",
@@ -445,7 +445,7 @@ export const SHIELD_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "3",
-    craftableAffix: "+(7-11)% Mana Regeneration Speed",
+    craftableAffix: "+(37-49)% Mana Regeneration Speed",
   },
   {
     equipmentSlot: "Shield",
@@ -453,7 +453,7 @@ export const SHIELD_INT_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "4",
-    craftableAffix: "+(60-76)% Mana Regeneration Speed",
+    craftableAffix: "+(30-36)% Mana Regeneration Speed",
   },
   {
     equipmentSlot: "Shield",

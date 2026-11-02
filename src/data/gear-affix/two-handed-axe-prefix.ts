@@ -209,7 +209,7 @@ export const TWO_HANDED_AXE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "Adds 1260 - 2940 Base Trauma Damage",
+    craftableAffix: "Adds 880 - 2060 Base Trauma Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -217,7 +217,7 @@ export const TWO_HANDED_AXE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "Adds 960 - 2240 Base Trauma Damage",
+    craftableAffix: "Adds 670 - 1570 Base Trauma Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -225,7 +225,7 @@ export const TWO_HANDED_AXE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "2",
-    craftableAffix: "Adds 660 - 1540 Base Trauma Damage",
+    craftableAffix: "Adds 460 - 1080 Base Trauma Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -233,7 +233,7 @@ export const TWO_HANDED_AXE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "Adds 480 - 1120 Base Trauma Damage",
+    craftableAffix: "Adds 340 - 780 Base Trauma Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -241,7 +241,7 @@ export const TWO_HANDED_AXE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "Adds 360 - 840 Base Trauma Damage",
+    craftableAffix: "Adds 250 - 590 Base Trauma Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -487,14 +487,6 @@ export const TWO_HANDED_AXE_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "4",
     craftableAffix: "+(59-72) Intelligence",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Two-Handed Axe",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
-    craftableAffix: "+(46-59)% Attack and Spell Block Chance",
   },
   {
     equipmentSlot: "Two-Handed",

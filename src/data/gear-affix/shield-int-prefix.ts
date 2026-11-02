@@ -145,7 +145,7 @@ export const SHIELD_INT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(311-442) Max Energy Shield",
+    craftableAffix: "+(341-442) Max Energy Shield",
   },
   {
     equipmentSlot: "Shield",
@@ -378,7 +378,7 @@ export const SHIELD_INT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Ultimate",
     tier: "0",
     craftableAffix:
-      "+(29-39)% Elemental and Erosion Resistance Penetration\nMinion Damage penetrates (29-39)% Elemental Resistance",
+      "+(31-39)% Elemental and Erosion Resistance Penetration\nMinion Damage penetrates (31-39)% Elemental Resistance",
   },
   {
     equipmentSlot: "Shield",

@@ -89,7 +89,7 @@ export const CHEST_ARMOR_INT_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(61-86)% gear Energy Shield",
+    craftableAffix: "+(67-86)% gear Energy Shield",
   },
   {
     equipmentSlot: "Chest Armor",

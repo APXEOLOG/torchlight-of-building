@@ -171,4 +171,22 @@ export const CUDGEL_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "2",
     craftableAffix: "+16% Life Regain and Energy Shield Regain",
   },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Quick Decision\nMain Skill is supported by Lv. 10 Weakness Infiltration",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Channel Preparation\nMain Skill is supported by Lv. 10 Empowered Channeling",
+  },
 ];

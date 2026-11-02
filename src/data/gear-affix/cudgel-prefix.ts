@@ -249,14 +249,6 @@ export const CUDGEL_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(46-59)% Attack and Spell Block Chance",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Cudgel",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
     craftableAffix: "+(81-104)% Gear Physical Damage",
   },
   {

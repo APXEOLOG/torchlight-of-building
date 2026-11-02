@@ -109,6 +109,13 @@ const BASE_URL = "https://tlidb.com/en";
 
 export const GEAR_TYPE_DIR = join(process.cwd(), ".garbage", "tlidb", "gear");
 
+export const TOWER_SEQUENCE_PATH = join(
+  process.cwd(),
+  ".garbage",
+  "tlidb",
+  "tower_sequence.html",
+);
+
 /** Fetches all gear type pages from tlidb and caches them in GEAR_TYPE_DIR */
 export const fetchGearTypePages = async (): Promise<void> => {
   await mkdir(GEAR_TYPE_DIR, { recursive: true });
@@ -129,6 +136,11 @@ export const fetchGearTypePages = async (): Promise<void> => {
       console.error(`Error fetching gear type page ${pageName}:`, error);
     }
   });
+
+  await writeFile(
+    TOWER_SEQUENCE_PATH,
+    await fetchPage(`${BASE_URL}/TOWER_Sequence`),
+  );
 };
 
 export const extractLegendaryGearLinks = (

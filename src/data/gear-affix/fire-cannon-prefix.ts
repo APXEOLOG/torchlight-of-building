@@ -209,7 +209,7 @@ export const FIRE_CANNON_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(197-281)% Projectile Damage",
+    craftableAffix: "+(217-281)% Projectile Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -249,7 +249,7 @@ export const FIRE_CANNON_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "Adds 144 - 176 Base Wilt Damage",
+    craftableAffix: "Adds 100 - 120 Base Wilt Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -257,7 +257,7 @@ export const FIRE_CANNON_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "Adds 112 - 134 Base Wilt Damage",
+    craftableAffix: "Adds 80 - 90 Base Wilt Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -265,7 +265,7 @@ export const FIRE_CANNON_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "2",
-    craftableAffix: "Adds 76 - 92 Base Wilt Damage",
+    craftableAffix: "Adds 50 - 60 Base Wilt Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -273,7 +273,7 @@ export const FIRE_CANNON_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "Adds 56 - 70 Base Wilt Damage",
+    craftableAffix: "Adds 40 - 50 Base Wilt Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -281,7 +281,7 @@ export const FIRE_CANNON_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "Adds 42 - 50 Base Wilt Damage",
+    craftableAffix: "Adds 30 - 40 Base Wilt Damage",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -327,6 +327,42 @@ export const FIRE_CANNON_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "4",
     craftableAffix:
       "Reaps 0.14 s of Wilt Damage when dealing Damage Over Time. The effect has a 1 s Recovery Time against the same target",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Fire Cannon",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    craftableAffix:
+      "+(78-98)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Fire Cannon",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    craftableAffix:
+      "+(66-76)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Fire Cannon",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "2",
+    craftableAffix:
+      "+(40-54)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Fire Cannon",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "3",
+    craftableAffix:
+      "+(32-38)% chance to +1 to Barrage Skill Total Waves when casting a Barrage Skill",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -487,14 +523,6 @@ export const FIRE_CANNON_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "4",
     craftableAffix: "+(59-72) Dexterity",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Fire Cannon",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
-    craftableAffix: "+(46-59)% Attack and Spell Block Chance",
   },
   {
     equipmentSlot: "Two-Handed",

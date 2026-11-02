@@ -67,7 +67,7 @@ export const Destinies: readonly Destiny[] = [
   {
     type: "Micro Fate",
     name: "Life Regeneration",
-    affix: "+(3-5)% Life Regeneration Speed",
+    affix: "+(5-7.5)% Life Regeneration Speed",
   },
   {
     type: "Micro Fate",
@@ -87,6 +87,11 @@ export const Destinies: readonly Destiny[] = [
   },
   { type: "Micro Fate", name: "Mana%", affix: "+(6-8)% Max Mana" },
   { type: "Micro Fate", name: "Focus Speed", affix: "+(7-9)% Focus Speed" },
+  {
+    type: "Micro Fate",
+    name: "Terra Charge Recovery Speed",
+    affix: "+(20-25)% Terra Charge Recovery Speed",
+  },
   { type: "Micro Fate", name: "Aura Effect", affix: "+(2-3)% Aura Effect" },
   {
     type: "Micro Fate",
@@ -274,7 +279,7 @@ export const Destinies: readonly Destiny[] = [
   {
     type: "Medium Fate",
     name: "Life Regeneration",
-    affix: "+(6-10)% Life Regeneration Speed",
+    affix: "+(10-15)% Life Regeneration Speed",
   },
   {
     type: "Medium Fate",
@@ -294,6 +299,11 @@ export const Destinies: readonly Destiny[] = [
   },
   { type: "Medium Fate", name: "Mana%", affix: "+(12-16)% Max Mana" },
   { type: "Medium Fate", name: "Focus Speed", affix: "+(14-18)% Focus Speed" },
+  {
+    type: "Medium Fate",
+    name: "Terra Charge Recovery Speed",
+    affix: "+(40-50)% Terra Charge Recovery Speed",
+  },
   { type: "Medium Fate", name: "Aura Effect", affix: "+(5-7)% Aura Effect" },
   {
     type: "Medium Fate",
@@ -395,12 +405,6 @@ export const Destinies: readonly Destiny[] = [
   },
   {
     type: "Kismet",
-    name: "Shackles",
-    affix:
-      "Gains (30-35)% Movement Speed when consuming Demolisher Charge. The effect gradually falls off to 0 within 1 s.",
-  },
-  {
-    type: "Kismet",
     name: "War Hammer",
     affix:
       "+(50-60)% Demolisher Charge Restoration Speed when wielding a hammer",
@@ -442,8 +446,7 @@ export const Destinies: readonly Destiny[] = [
   {
     type: "Kismet",
     name: "Screw",
-    affix:
-      "+(120-150) Minion Critical Strike Rating\n-1% additional Minion Attack and Cast Speed for every 2 Synthetic Troop Minions you have",
+    affix: "+(100-120) Minion Critical Strike Rating",
   },
   {
     type: "Kismet",
@@ -483,13 +486,13 @@ export const Destinies: readonly Destiny[] = [
     type: "Kismet",
     name: "Growth Ring",
     affix:
-      "+(10-15)% Terra Skill Duration\n+50% chance to +100% Skill Area when casting a Terra Skill\n+50% chance to -75% additional Skill Area when casting a Terra Skill",
+      "+(10-15)% Terra Skill Duration\n+(20-25)% Terra Skill Area\n+(30-35)% Terra Charge Recovery Speed",
   },
   {
     type: "Kismet",
     name: "Spades",
     affix:
-      "+(8-10)% Max Life\n+5% additional Damage Over Time\nRegenerates 1% Life per second",
+      "+(8-10)% Max Life\n+5% additional Damage Over Time\nRegenerates 2% Life per second",
   },
   {
     type: "Kismet",
@@ -519,7 +522,7 @@ export const Destinies: readonly Destiny[] = [
     type: "Kismet",
     name: "Hunter",
     affix:
-      "Projectile Damage increases with the distance traveled, dealing up to +(70-100)% damage to distant enemies\nProjectile Damage increases with the distance traveled, increasing the Critical Strike Rating by up to +(70-100)% against distant enemies",
+      "Projectile Damage increases with the distance traveled, dealing up to +(70-100)% damage to Distant enemies\nProjectile Damage increases with the distance traveled, increasing the Critical Strike Rating by up to +(70-100)% against distant enemies",
   },
   {
     type: "Kismet",
@@ -554,7 +557,7 @@ export const Destinies: readonly Destiny[] = [
     type: "Kismet",
     name: "Guard",
     affix:
-      "+(5-6)% additional Sentry Skill Cast Frequency\n+1 Sentry quantity that can be deployed at a time",
+      "+(5-6)% additional Sentry Skill Cast Frequency\n+1 Sentries that can be deployed at a time",
   },
   {
     type: "Kismet",
@@ -607,7 +610,7 @@ export const Destinies: readonly Destiny[] = [
     type: "Kismet",
     name: "Creek",
     affix:
-      "Restoration Skills gain 1 Charging Progress every second\n+(6-9)% Movement Speed while the Restoration Skill lasts",
+      "Elixir Skills gain 1 Charging Progress every second\n+(6-9)% Movement Speed while an Elixir Skill is active",
   },
   {
     type: "Kismet",
@@ -636,6 +639,11 @@ export const Destinies: readonly Destiny[] = [
     name: "Tiger's Chain",
     affix:
       "When casting Combo Starters, Reverse Knocks Back enemies within 8 m by (1.5-2) m\nThe effective radius is affected by Skill Area bonuses\n+8% Knockback Distance for each Combo Finisher cast recently. Stacks up to 5 time(s)\n+(4-6)% additional Combo Skill Damage",
+  },
+  {
+    type: "Kismet",
+    name: "Deeproot",
+    affix: "Obtain a Lv. 20 Precise: Rejuvenation buff",
   },
   {
     type: "Dual Kismet",
@@ -731,7 +739,7 @@ export const Destinies: readonly Destiny[] = [
     type: "Dual Kismet",
     name: "Hanging Bird",
     affix:
-      "Activates the following effects when there are 2 of this Kismet on the same pact page:\nEvading has the Lucky effect when you have at least 3 stacks of Deflection\n-50% additional Evasion",
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\nWhen having at least 3 stacks of Deflection, Damage gains Lucky",
   },
   {
     type: "Dual Kismet",
@@ -791,13 +799,7 @@ export const Destinies: readonly Destiny[] = [
     type: "Dual Kismet",
     name: "Pointer",
     affix:
-      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+1 Max Deflection\nGains 1 additional stack of Deflection",
-  },
-  {
-    type: "Dual Kismet",
-    name: "Pendulum",
-    affix:
-      "Activates the following effects when there are 2 of this Kismet on the same pact page:\nGains 1 stack of Deflection for every 5m of movement\n10% chance to gain 3 stacks of Deflection when gaining Deflection",
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+1 to Max Deflection\n+8% Evasion for every 1 stack of Deflection",
   },
   {
     type: "Dual Kismet",
@@ -815,7 +817,7 @@ export const Destinies: readonly Destiny[] = [
     type: "Dual Kismet",
     name: "Two-Headed Crow",
     affix:
-      "Activates the following effects when there are 2 of this Kismet on the same pact page:\nYou can inflict 1 additional Curse\nEnemies are immune to Curse until they have max Affliction",
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\nYou can inflict 1 additional Curse\n-5% Curse Effect",
   },
   {
     type: "Dual Kismet",
@@ -857,7 +859,7 @@ export const Destinies: readonly Destiny[] = [
     type: "Dual Kismet",
     name: "Perched River",
     affix:
-      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+2 to Spell Burst Upper Limit\nCritical Strikes have the Unlucky effect",
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+30% additionalSpell Burst Charge Speed\nLoses 1 stack of Focus Blessingwhen consuming Spell Burst",
   },
   {
     type: "Dual Kismet",
@@ -887,7 +889,7 @@ export const Destinies: readonly Destiny[] = [
     type: "Dual Kismet",
     name: "Unholy Grail",
     affix:
-      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n-40% Restoration Duration for Restoration Skills\nWhen casting a Restoration Skill, gains 4 stacks of a random Blessing",
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n-40% Restoration Duration for Restoration Skills\nWhen casting an Elixir Skill, gains 4 stacks of a random Blessing",
   },
   {
     type: "Dual Kismet",
@@ -933,15 +935,9 @@ export const Destinies: readonly Destiny[] = [
   },
   {
     type: "Dual Kismet",
-    name: "Destiny's Betrayal",
-    affix:
-      "Activates the following effects when there are 2 of this Kismet on the same pact page: Changes the negative effects from Dream Interpretation into positive effects",
-  },
-  {
-    type: "Dual Kismet",
     name: "Bitterbond",
     affix:
-      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+3% Max Elemental Resistance for each inactivated Tangle\n+25% Spell Aggression Effect for each activated Tangle",
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+5% Max Elemental Resistance for each inactivated Tangle\n+25% Spell Aggression Effect for each activated Tangle",
   },
   {
     type: "Dual Kismet",
@@ -949,5 +945,25 @@ export const Destinies: readonly Destiny[] = [
     affix:
       "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+1 to Max Tangle Quantity\n+10% Tangle Duration",
   },
+  {
+    type: "Dual Kismet",
+    name: "Banshee",
+    affix:
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+15% additional Reaping Duration after triggering Ill Omen, Lasts 2s\nInflicts 3 stacks of Ill Omen on 3 Nearby non-Elite enemies after triggering Ill Omen",
+  },
+  {
+    type: "Dual Kismet",
+    name: "Shackles",
+    affix:
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\nGains 45% Movement Speed when consuming Demolisher Charge. This effect gradually falls off to 0 within 2s\n+10% additional Demolisher Skill Area",
+  },
+  {
+    type: "Dual Kismet",
+    name: "Ribbon",
+    affix:
+      "Activates the following effects when there are 2 of this Kismet on the same pact page:\n+1 to Max Bond Stacks\n+50% Bond Gaining Speed",
+  },
   { type: "Undetermined Fate", name: "Undetermined Fate", affix: "" },
+  { type: "Wandering Star", name: "Wandering Star", affix: "" },
+  { type: "Star Net", name: "Star Net", affix: "" },
 ];

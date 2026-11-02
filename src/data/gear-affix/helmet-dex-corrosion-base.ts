@@ -26,7 +26,7 @@ export const HELMET_DEX_CORROSION_BASE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. (15-20) Timid Curse upon inflicting damage. Cooldown: 0.3 s",
+      "Triggers Lv. (15-20) Timid Curse upon dealing damage to enemies. Cooldown: 0.3 s",
   },
   {
     equipmentSlot: "Helmet",
@@ -34,7 +34,7 @@ export const HELMET_DEX_CORROSION_BASE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Corrosion Base",
     craftingPool: "",
     tier: "0",
-    craftableAffix: "周围 15 米内敌人受到 20 级不祥诅咒",
+    craftableAffix: "Nearby enemies within 15 m are cursed by Lv. 20 Ominous",
   },
   {
     equipmentSlot: "Helmet",
@@ -59,14 +59,6 @@ export const HELMET_DEX_CORROSION_BASE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix: "+(15-20)% Max Life",
-  },
-  {
-    equipmentSlot: "Helmet",
-    equipmentType: "Helmet (DEX)",
-    affixType: "Corrosion Base",
-    craftingPool: "",
-    tier: "0",
-    craftableAffix: "(-50--30)% Curse effect against you",
   },
   {
     equipmentSlot: "Helmet",

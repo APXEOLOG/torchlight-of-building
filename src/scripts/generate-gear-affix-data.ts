@@ -13,6 +13,7 @@ import {
   EQUIPMENT_TYPE_PAGES,
   fetchGearTypePages,
   GEAR_TYPE_DIR,
+  TOWER_SEQUENCE_PATH,
   toSnakeCase,
 } from "./tlidb-tools";
 
@@ -116,22 +117,20 @@ const parseModifierText = (
 };
 
 /**
- * Extract tier from tooltip like: data-bs-title="Tier: 1, Level: 86, Weight: 100"
+ * Extract tier from a marker like: <span class="tier tier1"></span>
  */
-const extractTierFromTooltip = (
+const tierOf = (
   // biome-ignore lint/suspicious/noExplicitAny: cheerio internal type
-  row: cheerio.Cheerio<any>,
-): string => {
-  const tooltip = row.find('[data-bs-title*="Tier:"]').attr("data-bs-title");
-  if (!tooltip) return "";
-
-  const match = tooltip.match(/Tier:\s*(\d+)/);
-  return match ? match[1] : "";
-};
+  el: cheerio.Cheerio<any>,
+): string =>
+  el
+    .find(".tier")
+    .attr("class")
+    ?.match(/tier(\d+)/)?.[1] ?? "";
 
 /**
- * Parse sequences from #Affix section
- * Filters rows where Type column contains "Sequence"
+ * Parse sequences from the shared TOWER Sequence page.
+ * The Source column lists the gear types each sequence can roll on, e.g. "Claw, Cane, STR Shield".
  */
 const parseSequences = (
   $: cheerio.CheerioAPI,
@@ -139,27 +138,26 @@ const parseSequences = (
   slot: EquipmentSlot,
 ): BaseGearAffix[] => {
   const affixes: BaseGearAffix[] = [];
-  const table = $("#Affix table.DataTable");
-  if (!table.length) return affixes;
 
-  table.find("tbody tr").each((_, row) => {
-    const $row = $(row);
-    const tds = $row.find("td");
+  $("table tbody tr").each((_, row) => {
+    const tds = $(row).find("td");
     if (tds.length < 3) return;
 
-    const typeText = $(tds[2]).text().trim();
-    if (!typeText.includes("Sequence")) return;
-
-    const modifier = parseModifierText($(tds[0]), $);
-    const tier = extractTierFromTooltip($row);
+    const types = $(tds[1])
+      .text()
+      .split(",")
+      .map((type) =>
+        type.trim().replace(/^(STR|DEX|INT) Shield$/, "Shield ($1)"),
+      );
+    if (!types.includes(equipmentType)) return;
 
     affixes.push({
       equipmentSlot: slot,
       equipmentType,
       affixType: "Tower Sequence",
       craftingPool: "",
-      tier,
-      craftableAffix: modifier,
+      tier: tierOf($(tds[0])),
+      craftableAffix: parseModifierText($(tds[0]), $),
     });
   });
 
@@ -172,11 +170,12 @@ const parseSequences = (
  */
 const parseBaseGear = (
   $: cheerio.CheerioAPI,
+  sectionId: string,
   equipmentType: EquipmentType,
   slot: EquipmentSlot,
 ): BaseGear[] => {
   const items: BaseGear[] = [];
-  const section = $("#Item");
+  const section = $(sectionId);
   if (!section.length) return items;
 
   // Find all item cards
@@ -234,10 +233,9 @@ const parseBaseGear = (
 };
 
 /**
- * Parse affixes from a simple table (BaseAffix, CorrosionBase, SweetDreamAffix)
- * Table structure: Tier, Modifier, Level, Weight
+ * Parse a titled affix card from the #XXXCraft section (Base Affix, Corrosion Base)
  */
-const parseSimpleAffixTable = (
+const parseCraftCard = (
   $: cheerio.CheerioAPI,
   sectionId: string,
   equipmentType: EquipmentType,
@@ -245,29 +243,23 @@ const parseSimpleAffixTable = (
   affixType: AffixType,
 ): BaseGearAffix[] => {
   const affixes: BaseGearAffix[] = [];
-  const section = $(sectionId);
-  if (!section.length) return affixes;
+  const title = $(sectionId)
+    .find(".card-title")
+    .filter((_, el) => $(el).text().trim() === affixType);
 
-  const table = section.find("table");
-  if (!table.length) return affixes;
-
-  table.find("tbody tr").each((_, row) => {
-    const $row = $(row);
-    const tds = $row.find("td");
-    if (tds.length < 2) return;
-
-    const tier = $(tds[0]).text().trim();
-    const modifier = parseModifierText($(tds[1]), $);
-
-    affixes.push({
-      equipmentSlot: slot,
-      equipmentType,
-      affixType,
-      craftingPool: "",
-      tier,
-      craftableAffix: modifier,
+  title
+    .siblings(".tierParent")
+    .children("div")
+    .each((_, row) => {
+      affixes.push({
+        equipmentSlot: slot,
+        equipmentType,
+        affixType,
+        craftingPool: "",
+        tier: tierOf($(row)),
+        craftableAffix: parseModifierText($(row), $),
+      });
     });
-  });
 
   return affixes;
 };
@@ -428,6 +420,7 @@ const main = async (options: Options): Promise<void> => {
 
   const allAffixes: BaseGearAffix[] = [];
   const allBaseGear: BaseGear[] = [];
+  const $tower = cheerio.load(await readFile(TOWER_SEQUENCE_PATH, "utf-8"));
 
   for (const file of htmlFiles) {
     const equipmentInfo = EQUIPMENT_MAP[file];
@@ -446,28 +439,21 @@ const main = async (options: Options): Promise<void> => {
     console.log(`Processing ${file} -> ${type} (${sectionPrefix})`);
 
     // Parse all sections
-    const sequences = parseSequences($, type, slot);
-    const baseGear = parseBaseGear($, type, slot);
-    const baseAffixes = parseSimpleAffixTable(
+    const sequences = parseSequences($tower, type, slot);
+    const baseGear = parseBaseGear($, `#${sectionPrefix}`, type, slot);
+    const baseAffixes = parseCraftCard(
       $,
-      `#${sectionPrefix}BaseAffix`,
+      `#${sectionPrefix}Craft`,
       type,
       slot,
       "Base Affix",
     );
-    const corrosionBase = parseSimpleAffixTable(
+    const corrosionBase = parseCraftCard(
       $,
-      `#${sectionPrefix}CorrosionBase`,
+      `#${sectionPrefix}Craft`,
       type,
       slot,
       "Corrosion Base",
-    );
-    const sweetDreamAffixes = parseSimpleAffixTable(
-      $,
-      `#${sectionPrefix}SweetDreamAffix`,
-      type,
-      slot,
-      "Sweet Dream Affix",
     );
     const craftAffixes = parseCraftAffixes(
       $,
@@ -480,14 +466,13 @@ const main = async (options: Options): Promise<void> => {
       ...sequences,
       ...baseAffixes,
       ...corrosionBase,
-      ...sweetDreamAffixes,
       ...craftAffixes,
     );
 
     allBaseGear.push(...baseGear);
 
     console.log(
-      `  Sequences: ${sequences.length}, BaseGear: ${baseGear.length}, BaseAffix: ${baseAffixes.length}, Corrosion: ${corrosionBase.length}, SweetDream: ${sweetDreamAffixes.length}, Craft: ${craftAffixes.length}`,
+      `  Sequences: ${sequences.length}, BaseGear: ${baseGear.length}, BaseAffix: ${baseAffixes.length}, Corrosion: ${corrosionBase.length}, Craft: ${craftAffixes.length}`,
     );
   }
 

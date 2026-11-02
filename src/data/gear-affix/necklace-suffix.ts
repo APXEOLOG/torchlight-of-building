@@ -9,7 +9,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Fire Resistance",
+    craftableAffix: "+(28-35)% Fire Resistance",
   },
   {
     equipmentSlot: "Trinket",
@@ -49,7 +49,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Cold Resistance",
+    craftableAffix: "+(28-35)% Cold Resistance",
   },
   {
     equipmentSlot: "Trinket",
@@ -89,7 +89,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Lightning Resistance",
+    craftableAffix: "+(28-35)% Lightning Resistance",
   },
   {
     equipmentSlot: "Trinket",
@@ -129,7 +129,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "+(25-35)% Erosion Resistance",
+    craftableAffix: "+(28-35)% Erosion Resistance",
   },
   {
     equipmentSlot: "Trinket",
@@ -286,42 +286,6 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix:
-      "80% chance to gain 1 charge stacks when using a Terra Skill",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Necklace",
-    affixType: "Suffix",
-    craftingPool: "Advanced",
-    tier: "1",
-    craftableAffix:
-      "60% chance to gain 1 charge stacks when using a Terra Skill",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Necklace",
-    affixType: "Suffix",
-    craftingPool: "Advanced",
-    tier: "2",
-    craftableAffix:
-      "40% chance to gain 1 charge stacks when using a Terra Skill",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Necklace",
-    affixType: "Suffix",
-    craftingPool: "Advanced",
-    tier: "3",
-    craftableAffix:
-      "20% chance to gain 1 charge stacks when using a Terra Skill",
-  },
-  {
-    equipmentSlot: "Trinket",
-    equipmentType: "Necklace",
-    affixType: "Suffix",
-    craftingPool: "Advanced",
-    tier: "0",
     craftableAffix: "+(11-13)% Elemental Resistance",
   },
   {
@@ -394,7 +358,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "0",
-    craftableAffix: "+(11-13)% all stats",
+    craftableAffix: "+(11-13)% All Stats",
   },
   {
     equipmentSlot: "Trinket",
@@ -402,7 +366,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "1",
-    craftableAffix: "+(8-10)% all stats",
+    craftableAffix: "+(8-10)% All Stats",
   },
   {
     equipmentSlot: "Trinket",
@@ -410,7 +374,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "2",
-    craftableAffix: "+(6-7)% all stats",
+    craftableAffix: "+(6-7)% All Stats",
   },
   {
     equipmentSlot: "Trinket",
@@ -418,7 +382,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "3",
-    craftableAffix: "+5% all stats",
+    craftableAffix: "+5% All Stats",
   },
   {
     equipmentSlot: "Trinket",
@@ -426,7 +390,7 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Suffix",
     craftingPool: "Advanced",
     tier: "4",
-    craftableAffix: "+4% all stats",
+    craftableAffix: "+4% All Stats",
   },
   {
     equipmentSlot: "Trinket",
@@ -556,6 +520,22 @@ export const NECKLACE_SUFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Ultimate",
     tier: "3",
     craftableAffix: "+1% damage per 24 stats",
+  },
+  {
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
+    affixType: "Suffix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    craftableAffix: "Can obtain Bond\n+5% additional Minion Damage",
+  },
+  {
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
+    affixType: "Suffix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    craftableAffix: "Can obtain Bond",
   },
   {
     equipmentSlot: "Trinket",

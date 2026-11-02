@@ -44,3 +44,10 @@ export const readAllTlidbSkills = async (): Promise<TlidbSkillFile[]> => {
 
   return results;
 };
+
+// tlidb appends notes to talent text that aren't part of the affix.
+export const stripTalentNotes = (text: string): string =>
+  text
+    .replace(/\(Max Active Divinity: \d+\)/g, "")
+    .replace(/Source:\s*Hero Trait/g, "")
+    .trim();

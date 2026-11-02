@@ -9,6 +9,7 @@ import type {
   TreeName,
 } from "../data/talent-tree/types";
 import { ALL_TREES, isTreeName } from "../data/talent-tree/types";
+import { stripTalentNotes } from "./lib/tlidb";
 
 // ============================================================================
 // Fetching
@@ -82,19 +83,14 @@ const parseAffix = (htmlContent: string): string => {
   const decoded = decodeHtmlEntities(htmlContent);
   const $ = cheerio.load(decoded);
 
-  $("div.fw-bold").remove();
-  const text = $.text().trim();
-
-  if (!text) return "";
-
-  const affix = decoded
-    .replace(/<div[^>]*>.*?<\/div>/gi, "")
-    .split(/<br\s*\/?>/i)
-    .map((line) => cheerio.load(line).text().trim())
+  // The tooltip holds the node name, then the affix text in data-source="attr" blocks
+  return $('[data-source="attr"]')
+    .map((_, block) => $(block).html() ?? "")
+    .get()
+    .flatMap((html) => html.split(/<br\s*\/?>/i))
+    .map((line) => stripTalentNotes(cheerio.load(line).text()))
     .filter((line) => line.length > 0)
     .join("\n");
-
-  return affix;
 };
 
 const parseProfessionTree = async (

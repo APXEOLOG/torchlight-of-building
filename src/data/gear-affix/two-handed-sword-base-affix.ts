@@ -171,4 +171,22 @@ export const TWO_HANDED_SWORD_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "2",
     craftableAffix: "+16% Life Regain and Energy Shield Regain",
   },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Quick Decision\nMain Skill is supported by Lv. 10 Weakness Infiltration",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix:
+      "Main Skill is supported by Lv. 10 Melee Knockback\nMain Skill is supported by Lv. 10 Increased Area",
+  },
 ];

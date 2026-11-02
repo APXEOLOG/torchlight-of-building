@@ -138,7 +138,7 @@ export const NECKLACE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Vulnerability Curse upon inflicting damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Vulnerability Curse upon dealing damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",
@@ -147,7 +147,7 @@ export const NECKLACE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Scorch Curse upon inflicting damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Scorch Curse upon dealing damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",
@@ -156,7 +156,7 @@ export const NECKLACE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Biting Cold Curse upon inflicting damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Biting Cold Curse upon dealing damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",
@@ -165,7 +165,7 @@ export const NECKLACE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Electrocute Curse upon inflicting damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Electrocute Curse upon dealing damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",
@@ -174,7 +174,7 @@ export const NECKLACE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "Triggers Lv. 20 Corruption Curse upon inflicting damage. Cooldown: 0.2 s",
+      "Triggers Lv. 20 Corruption Curse upon dealing damage to enemies. Cooldown: 0.2 s",
   },
   {
     equipmentSlot: "Trinket",
@@ -199,5 +199,13 @@ export const NECKLACE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "1",
     craftableAffix: "Has Profane. Minions have Profane",
+  },
+  {
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "Gains Ferocity when dealing Physical Damage",
   },
 ];

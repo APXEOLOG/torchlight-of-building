@@ -9,6 +9,14 @@ export const ROD_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
+    craftableAffix: "+8% All Stats",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Rod",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
     craftableAffix: "+8% additional Minion Damage",
   },
   {
@@ -80,14 +88,6 @@ export const ROD_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     equipmentType: "Rod",
     affixType: "Tower Sequence",
     craftingPool: "",
-    tier: "1",
-    craftableAffix: "+8% all stats",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Rod",
-    affixType: "Tower Sequence",
-    craftingPool: "",
     tier: "0",
     craftableAffix: "+80 initial Growth for Spirit Magi",
   },
@@ -140,7 +140,7 @@ export const ROD_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "0",
-    craftableAffix: "Triggers Lv. 20 Dark Gate when moving. Interval: 4 s",
+    craftableAffix: "Main Skill is supported by Lv. 20 Elemental Duo",
   },
   {
     equipmentSlot: "One-Handed",

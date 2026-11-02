@@ -147,4 +147,20 @@ export const ONE_HANDED_AXE_BASE_AFFIX_AFFIXES: readonly BaseGearAffix[] = [
     tier: "2",
     craftableAffix: "+8% Life Regain and Energy Shield Regain",
   },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "Main Skill is supported by Lv. 10 Quick Decision",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    craftableAffix: "Main Skill is supported by Lv. 10 Tendonslicer",
+  },
 ];

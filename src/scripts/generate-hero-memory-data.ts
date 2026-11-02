@@ -131,7 +131,7 @@ const extractHeroMemoryData = (html: string): HeroMemory[] => {
     }
 
     // Find 5-column tables within this card (Tier, Modifier, Level, Weight, Source)
-    $card.find("table.DataTable").each((_, table) => {
+    $card.find("table").each((_, table) => {
       const $table = $(table);
       const headers = $table.find("thead th");
       if (headers.length !== 5) {

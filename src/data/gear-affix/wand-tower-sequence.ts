@@ -9,14 +9,6 @@ export const WAND_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+8% additional Spell Damage",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Wand",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+6% Armor DMG Mitigation Penetration",
   },
   {
@@ -57,6 +49,22 @@ export const WAND_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
+    craftableAffix: "+10% additional damage on Critical Strike",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "+8% additional Spell Damage",
+  },
+  {
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
     craftableAffix: "+16% Cast Speed",
   },
   {
@@ -73,15 +81,7 @@ export const WAND_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+10% additional damage on Critical Strike",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Wand",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
-    craftableAffix: "+8% all stats",
+    craftableAffix: "+8% All Stats",
   },
   {
     equipmentSlot: "One-Handed",
@@ -140,8 +140,7 @@ export const WAND_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "0",
-    craftableAffix:
-      "+15% additional Deterioration Damage\n10% chance to inflict 1 additional stack(s) of Deterioration",
+    craftableAffix: "Main Skill is supported by Lv. 20 Overload",
   },
   {
     equipmentSlot: "One-Handed",

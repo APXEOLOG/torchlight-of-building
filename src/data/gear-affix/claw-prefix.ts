@@ -249,7 +249,7 @@ export const CLAW_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "0",
-    craftableAffix: "Adds 630 - 1470 Base Trauma Damage",
+    craftableAffix: "Adds 440 - 1030 Base Trauma Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -257,7 +257,7 @@ export const CLAW_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "1",
-    craftableAffix: "Adds 480 - 1120 Base Trauma Damage",
+    craftableAffix: "Adds 335 - 785 Base Trauma Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -265,7 +265,7 @@ export const CLAW_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "2",
-    craftableAffix: "Adds 330 - 770 Base Trauma Damage",
+    craftableAffix: "Adds 230 - 540 Base Trauma Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -273,7 +273,7 @@ export const CLAW_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "3",
-    craftableAffix: "Adds 240 - 560 Base Trauma Damage",
+    craftableAffix: "Adds 170 - 390 Base Trauma Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -281,7 +281,7 @@ export const CLAW_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Prefix",
     craftingPool: "Basic",
     tier: "4",
-    craftableAffix: "Adds 180 - 420 Base Trauma Damage",
+    craftableAffix: "Adds 125 - 295 Base Trauma Damage",
   },
   {
     equipmentSlot: "One-Handed",
@@ -487,14 +487,6 @@ export const CLAW_PREFIX_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "Advanced",
     tier: "4",
     craftableAffix: "+(30-36) Strength",
-  },
-  {
-    equipmentSlot: "One-Handed",
-    equipmentType: "Claw",
-    affixType: "Prefix",
-    craftingPool: "Advanced",
-    tier: "0",
-    craftableAffix: "+(23-29)% Attack and Spell Block Chance",
   },
   {
     equipmentSlot: "One-Handed",

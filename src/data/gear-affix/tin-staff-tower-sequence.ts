@@ -9,14 +9,6 @@ export const TIN_STAFF_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
-    craftableAffix: "+16% additional Spell Damage",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Tin Staff",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
     craftableAffix: "+12% Armor DMG Mitigation Penetration",
   },
   {
@@ -57,6 +49,30 @@ export const TIN_STAFF_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     affixType: "Tower Sequence",
     craftingPool: "",
     tier: "1",
+    craftableAffix: "+20% additional damage on Critical Strike",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "+16% All Stats",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
+    craftableAffix: "+16% additional Spell Damage",
+  },
+  {
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
+    affixType: "Tower Sequence",
+    craftingPool: "",
+    tier: "1",
     craftableAffix: "+32% Cast Speed",
   },
   {
@@ -66,22 +82,6 @@ export const TIN_STAFF_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "1",
     craftableAffix: "+110 Spell Critical Strike Rating",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Tin Staff",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
-    craftableAffix: "+20% additional damage on Critical Strike",
-  },
-  {
-    equipmentSlot: "Two-Handed",
-    equipmentType: "Tin Staff",
-    affixType: "Tower Sequence",
-    craftingPool: "",
-    tier: "1",
-    craftableAffix: "+16% all stats",
   },
   {
     equipmentSlot: "Two-Handed",
@@ -142,7 +142,7 @@ export const TIN_STAFF_TOWER_SEQUENCE_AFFIXES: readonly BaseGearAffix[] = [
     craftingPool: "",
     tier: "0",
     craftableAffix:
-      "+30% additional Deterioration Damage\n10% chance to inflict 2 additional stack(s) of Deterioration",
+      "Main Skill is supported by Lv. 25 Spell Concentration\n+25% additional Spell Damage",
   },
   {
     equipmentSlot: "Two-Handed",
