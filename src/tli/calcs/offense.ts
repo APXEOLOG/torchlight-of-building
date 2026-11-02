@@ -2215,7 +2215,7 @@ const resolveModsForOffenseSkill = (
       return;
     }
     const markEffMult = calcEffMult(mods, "MarkEffPct");
-    const baseValue = 20;
+    const baseValue = 10;
     mods.push({
       type: "CritDmgPct",
       value: baseValue * markEffMult,

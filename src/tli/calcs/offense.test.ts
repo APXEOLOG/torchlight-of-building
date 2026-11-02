@@ -3720,6 +3720,28 @@ describe("shadow damage", () => {
   });
 });
 
+test("Mark gives +10% additional Critical Strike Damage", () => {
+  const skillPage = simpleAttackSkillPage();
+  const gearPage = { equippedGear: { mainHand: baseWeapon }, inventory: [] };
+  const critFor = (targetEnemyMarked: boolean): number => {
+    const configuration = createDefaultConfiguration();
+    configuration.targetEnemyMarked = targetEnemyMarked;
+    const results = calculateOffense({
+      loadout: initLoadout({ gearPage, skillPage }),
+      configuration,
+    });
+    const summary = results.skills["[Test] Simple Attack"]?.attackDpsSummary;
+    const { avgHit, avgHitWithCrit, critChance } = summary?.mainhand ?? {
+      avgHit: 1,
+      avgHitWithCrit: 1,
+      critChance: { actual: 1 },
+    };
+    // The crit multiplier, worked back from the average hit with crits.
+    return (avgHitWithCrit / avgHit - 1) / critChance.actual + 1;
+  };
+  expect(critFor(true) / critFor(false)).toBeCloseTo(1.1, 5);
+});
+
 // Resistance and Armor Penetration tests
 describe("penetration", () => {
   const skillName = "[Test] Simple Attack" as const;

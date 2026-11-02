@@ -16,6 +16,8 @@ import type { RawLogin } from "./parse-log";
 export interface ManualEntries {
   pactspiritLines?: string[];
   talentNodes?: Record<string, { x: number; y: number; points: number }[]>;
+  // What a follower's skills give the player, since the login doesn't list followers.
+  follower?: { lines?: string[]; marksTarget?: boolean };
 }
 
 export interface Capture {
@@ -430,6 +432,7 @@ export const loginToBuild = (
     ...talentLines(Item.EnchantTalentList),
   ]);
   const pactLines = manual.pactspiritLines ?? [];
+  const followerLines = manual.follower?.lines ?? [];
 
   const heroId = view.heroPurchaseId;
   const heroName = heroId === undefined ? undefined : HEROES[heroId];
@@ -479,7 +482,10 @@ export const loginToBuild = (
     },
     configurationPage: {
       ...EMPTY_SAVE_DATA.configurationPage,
-      customAffixLines: [...slateLines, ...pactLines],
+      targetEnemyMarked:
+        manual.follower?.marksTarget ??
+        EMPTY_SAVE_DATA.configurationPage.targetEnemyMarked,
+      customAffixLines: [...slateLines, ...followerLines, ...pactLines],
     },
   };
 
@@ -499,6 +505,7 @@ export const loginToBuild = (
         : [m.baseStat, ...m.fixedAffixes, ...m.randomAffixes],
     ),
     ...slateLines,
+    ...followerLines,
     ...pactLines,
   ].filter((l): l is string => l !== undefined && l !== "");
 

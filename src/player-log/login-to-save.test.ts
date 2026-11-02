@@ -190,6 +190,23 @@ describe("loginToBuild", () => {
     expect(capture.coverage.talentTrees[0].points).toBe(4);
   });
 
+  test("adds follower lines before pactspirit lines and marks the target", () => {
+    const { save, capture } = loginToBuild(login({}), [], ids, {
+      pactspiritLines: ["+2% additional damage"],
+      follower: {
+        lines: ["+40% Projectile Speed", "This line means nothing"],
+        marksTarget: true,
+      },
+    });
+    expect(save.configurationPage.customAffixLines).toEqual([
+      "+40% Projectile Speed",
+      "This line means nothing",
+      "+2% additional damage",
+    ]);
+    expect(save.configurationPage.targetEnemyMarked).toBe(true);
+    expect(capture.unreadable).toEqual(["This line means nothing"]);
+  });
+
   test("reads hero, traits and memories, inferring the base stat by ID", () => {
     const { save, capture } = build({
       heroCharacterv3OverView: {

@@ -117,7 +117,7 @@ A build file has two parts:
 
 ## Manual entries
 
-`.player/manual.json` holds what the log can't give. Both fields are optional:
+`.player/manual.json` holds what the log can't give. All fields are optional:
 
 ```json
 {
@@ -130,11 +130,16 @@ A build file has two parts:
     "Prophet": [
       { "x": 6, "y": 4, "points": 1 }
     ]
+  },
+  "follower": {
+    "lines": ["+40% Projectile Speed", "+20% Attack and Cast Speed"],
+    "marksTarget": true
   }
 }
 ```
 
 - **`pactspiritLines`:** one line per stat, repeated if a stat appears more than once, in the wording `parseMod` reads. Lines it can't read show up under `unreadable`.
+- **`follower`:** the login doesn't list followers, so enter what their Tartarus skills give you. `lines` are plain stat lines, in the wording `parseMod` reads, and count as always active. `marksTarget` turns on Mark in the build's configuration, for a skill like Forking Thunder. In the save, follower lines sit between the slate lines and the pactspirit lines.
 - **`talentNodes`:** keyed by the tree name shown in `coverage.talentTrees`, such as `Goddess_of_Hunting`. `x` is the column and `y` the row, both from 0, and `points` is how many points the node has.
 
 Talent nodes are always added to what the log reports, so keep them in step with the game:
