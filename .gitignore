@@ -50,3 +50,5 @@ src/routeTree.gen.ts
 
 # lingui compiled files
 src/locales/**/*.ts
+# one player's logins and builds, never committed
+.player

@@ -274,6 +274,8 @@ generateItemId(); // crypto.randomUUID()
 | Update talent trees    | `pnpm exec tsx src/scripts/generate-talent-tree-data.ts`                                                      |
 | Regenerate affixes     | `pnpm exec tsx src/scripts/generate-gear-affix-data.ts`                                                       |
 | Regenerate skills      | `pnpm exec tsx src/scripts/generate-skill-data.ts`                                                            |
+| Regenerate game IDs    | `pnpm exec tsx src/scripts/generate-game-ids.ts` - scans every cached tlidb page, so run after the others     |
+| Import own character   | `pnpm exec tsx src/scripts/import-log.ts` - reads `UE_game.log`, writes to the gitignored `.player` folder    |
 
 ## Code Generation Pattern
 

@@ -16,6 +16,8 @@ const GENERATORS = {
   destinies: "generate-destiny-data.ts",
   vorax: "generate-vorax-data.ts",
   hyperlinks: "generate-hyperlink-data.ts",
+  // Scans the pages the others cache, so it runs last.
+  "game-ids": "generate-game-ids.ts",
 } as const;
 
 type GeneratorName = keyof typeof GENERATORS;
