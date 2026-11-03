@@ -143,8 +143,22 @@ export const scaleTalentAffix = (
   src: string,
 ): Affix => {
   const scaledText = scaleAffixText(rawAffix, Math.max(1, points));
-  return convertAffixTextToAffix(scaledText, src);
+  return convertAffixTextToAffix(addMissingSigns(scaledText), src);
 };
+
+// Some talent data drops the "+" on decimal bonuses, e.g. "7.5% Critical Strike Damage".
+// A line is only signed when it doesn't parse as it is and does with the sign.
+const addMissingSigns = (text: string): string =>
+  text
+    .split("\n")
+    .map((line) =>
+      /^\d/.test(line) &&
+      parseMod(line) === undefined &&
+      parseMod(`+${line}`) !== undefined
+        ? `+${line}`
+        : line,
+    )
+    .join("\n");
 
 export const getPrismAffixesForNode = (
   nodePosition: { x: number; y: number },

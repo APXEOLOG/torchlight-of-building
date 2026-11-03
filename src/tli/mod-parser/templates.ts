@@ -312,6 +312,16 @@ export const allParsers = [
     isEnemyDebuff: true,
     cond: "target_enemy_frozen_recently",
   })),
+  t(
+    "every {interval:dec} s, {value:+dec%} additional damage taken for enemies within {dist:int} m. stacks up to {limit:int} times",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value * c.limit,
+    dmgModType: "global",
+    addn: true,
+    isEnemyDebuff: true,
+    cond: "target_enemy_is_nearby",
+  })),
   t("{value:+dec%} additional damage taken by nearby enemies").output((c) => ({
     type: "DmgPct",
     value: c.value,
@@ -1565,6 +1575,15 @@ export const allParsers = [
     value: 1,
     dmgModType: "projectile",
     addn: true,
+    per: { stackable: "proj_speed_pct", amt: 100 / c.value },
+  })),
+  t(
+    "{value:dec%} of the projectile speed bonus is also applied to projectile damage",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: 1,
+    dmgModType: "projectile",
+    addn: false,
     per: { stackable: "proj_speed_pct", amt: 100 / c.value },
   })),
   t(

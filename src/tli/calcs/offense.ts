@@ -802,6 +802,8 @@ interface DerivedCtx {
   dualWielding: boolean;
   hasFervor: boolean;
   fervorPts: number;
+  // Set once the resource pool is known; life can't rise above what isn't sealed.
+  sealedLifePct: number;
 }
 
 const isOneHandedWeapon = (gear: Gear): boolean => {
@@ -847,6 +849,7 @@ const resolveDerivedCtx = (
     dualWielding,
     hasFervor,
     fervorPts,
+    sealedLifePct: 0,
   };
 };
 
@@ -986,7 +989,11 @@ const filterModsByCond = (
         "frostbitten_heart_is_active",
         () => config.frostbittenHeartIsActive,
       )
-      .with("at_low_life", () => config.currentLifePct < 35)
+      .with(
+        "at_low_life",
+        () =>
+          Math.min(config.currentLifePct, 100 - derivedCtx.sealedLifePct) <= 35,
+      )
       .exhaustive();
   });
 };
@@ -3597,6 +3604,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
     config,
     derivedCtx,
   );
+  derivedCtx.sealedLifePct = resourcePool.sealedResources.sealedLifePct;
 
   const unresolvedLoadoutAndBuffMods = [
     ...loadoutMods,
