@@ -15,6 +15,40 @@ describe("parseSupportAffixes", () => {
     ]);
   });
 
+  test("parse Ice Fission's additional Phantom damage against Frozen enemies", () => {
+    const result = parseSupportAffixes([
+      "+51% additional Phantom Damage when the supported skill hits a Frozen enemy",
+    ]);
+    expect(result).toEqual([
+      [
+        {
+          mod: {
+            type: "ShadowDmgPct",
+            value: 51,
+            addn: true,
+            cond: "enemy_frozen",
+          },
+        },
+      ],
+    ]);
+  });
+
+  test("parse Deepened Curse's damage taken on cursed enemies", () => {
+    const result = parseSupportAffixes([
+      "Enemies take +5% additional damage if affected by curses inflicted by the supported skill for at least 2 s",
+    ]);
+    expect(result).toEqual([[{ mod: { type: "CurseDmgTakenPct", value: 5 } }]]);
+  });
+
+  test("parse Offshoot's Max Frostbite Rating after use", () => {
+    const result = parseSupportAffixes([
+      "+20 Max Frostbite Rating for 2 s after using the supported skill",
+    ]);
+    expect(result).toEqual([
+      [{ mod: { type: "MaxFrostbiteRating", value: 20 } }],
+    ]);
+  });
+
   test("parse Overload damage per focus blessing stack", () => {
     const result = parseSupportAffixes([
       "4% additional damage for the supported skill for every stack of Focus Blessing, stacking up to 8 times",

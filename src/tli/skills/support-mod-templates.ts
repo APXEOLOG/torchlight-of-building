@@ -119,6 +119,20 @@ const allSupportParsers = [
     addn: true,
   })),
   t(
+    "enemies take {value:+dec%} additional damage if affected by curses inflicted by the supported skill for at least {dur:int} s",
+  ).output((c) => ({ type: "CurseDmgTakenPct", value: c.value })),
+  t(
+    "{value:+dec%} additional phantom damage when the supported skill hits a frozen enemy",
+  ).output((c) => ({
+    type: "ShadowDmgPct",
+    value: c.value,
+    addn: true,
+    cond: "enemy_frozen",
+  })),
+  t(
+    "{value:+int} max frostbite rating for {dur:int} s after using the supported skill",
+  ).output((c) => ({ type: "MaxFrostbiteRating", value: c.value })),
+  t(
     "the supported skill deals {value:dec%} additional damage to cursed enemies",
   ).output((c) => ({
     type: "DmgPct",

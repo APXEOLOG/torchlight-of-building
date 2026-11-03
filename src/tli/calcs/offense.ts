@@ -1248,6 +1248,20 @@ const resolveBuffSkillMods = (
         value: multValue(finalValue, uptime),
       } as Mod);
     }
+
+    // A support's damage taken on cursed enemies lasts as long as the curse, but curse effect doesn't scale it.
+    if (buffSkillType === "curse") {
+      for (const m of filterMods(supportMods, "CurseDmgTakenPct")) {
+        resolvedMods.push({
+          type: "DmgPct",
+          value: multValue(m.value, uptime),
+          dmgModType: "global",
+          addn: true,
+          isEnemyDebuff: true,
+          src: buffSrc,
+        });
+      }
+    }
   }
   return resolvedMods;
 };

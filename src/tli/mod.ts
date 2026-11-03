@@ -409,6 +409,8 @@ interface ModDefinitions {
   ShadowQuant: { value: number };
   ShadowQuantChance: { chancePct: number; value: number };
   ShadowDmgPct: { value: number; addn: boolean };
+  // From a support on a curse: enemies cursed by the supported skill take this much additional damage.
+  CurseDmgTakenPct: { value: number };
   LuckyDmg: object;
   LuckyCrit: object;
   Jump: { value: number };
