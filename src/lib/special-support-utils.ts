@@ -140,22 +140,11 @@ export const parseValueFromCraftedAffix = (craftedAffix: string): number => {
   return parseFloat(match[1]);
 };
 
-const BASE_DAMAGE_PATTERN =
-  /^[+-]?\d+(?:\.\d+)?% additional damage for the supported skill$/i;
-
 /**
- * The fixed additional damage every copy carries, whatever its rank or tier.
- * tlidb only lists it in the overview (description[0]); a line repeated verbatim
- * in the fixed part is a fixed affix, not the base.
+ * Additional damage for the supported skill from a magnificent/noble support's stars (ranks 1-5),
+ * on top of its rolled affix. Ranks 1, 2, 3 and 5 are read from in-game tooltips; rank 4 is assumed.
  */
-export const getBaseDamageAffixes = (
-  descriptions: readonly string[],
-): string[] => {
-  const rest = new Set(descriptions.slice(1).flatMap((d) => d.split("\n")));
-  return (descriptions[0] ?? "")
-    .split("\n")
-    .filter((l) => BASE_DAMAGE_PATTERN.test(l) && !rest.has(l));
-};
+export const RANK_DAMAGE_VALUES = [0, 4, 8, 12, 20] as const;
 
 /**
  * Get the worst (lowest quality) defaults for a special support skill.
