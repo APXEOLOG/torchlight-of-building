@@ -389,6 +389,34 @@ export const allParsers = [
     addn: true,
     cond: "target_enemy_is_in_proximity",
   })),
+  t("{value:+dec%} additional damage taken by enemies in proximity").output(
+    (c) => ({
+      type: "DmgPct",
+      value: c.value,
+      dmgModType: "global",
+      addn: true,
+      isEnemyDebuff: true,
+      cond: "target_enemy_is_in_proximity",
+    }),
+  ),
+  t(
+    "while standing still, {value:+dec%} additional attack damage and ailment damage dealt by attacks. {taken:+dec%} additional damage taken",
+  ).outputMany([
+    spec((c) => ({
+      type: "DmgPct",
+      value: c.value,
+      dmgModType: "attack",
+      addn: true,
+      cond: "is_standing_still",
+    })),
+    spec((c) => ({
+      type: "DmgPct",
+      value: c.value,
+      dmgModType: "ailment",
+      addn: true,
+      cond: "is_standing_still",
+    })),
+  ]),
   t(
     "{value:+dec%} additional attack damage and ailment damage dealt by attacks when there are elites within 10m nearby",
   ).outputMany([
