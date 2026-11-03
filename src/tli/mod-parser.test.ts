@@ -1355,6 +1355,16 @@ test("parse has hasten", () => {
   expect(result).toEqual([{ type: "HasHasten" }]);
 });
 
+test("parse corroded heart's resistance reduction", () => {
+  const result = parseMod(
+    "-40% Elemental and Erosion Resistance for enemies within 15m",
+  );
+  expect(result).toEqual([
+    { type: "EnemyRes", value: -40, resType: "elemental" },
+    { type: "EnemyRes", value: -40, resType: "erosion" },
+  ]);
+});
+
 test("parse have fervor", () => {
   const result = parseMod("Have Fervor");
   expect(result).toEqual([{ type: "HaveFervor" }]);

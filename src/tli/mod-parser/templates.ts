@@ -1584,6 +1584,12 @@ export const allParsers = [
   })),
   t("has hasten").output(() => ({ type: "HasHasten" })),
   t(
+    "{value:+dec%} elemental and erosion resistance for enemies within {dist:int}m",
+  ).outputMany([
+    spec((c) => ({ type: "EnemyRes", value: c.value, resType: "elemental" })),
+    spec((c) => ({ type: "EnemyRes", value: c.value, resType: "erosion" })),
+  ]),
+  t(
     "damage becomes lucky and at least {stacks:int} stack(s) of spell burst charge is consumed when spell burst is activated",
   ).output(() => ({ type: "LuckyDmg" })),
   t(
@@ -2650,6 +2656,23 @@ export const allParsers = [
     skillName: c.skillName,
     level: c.level,
   })),
+  t(
+    "you have a lv. {level:int} {skillName:words} when not at full mana",
+  ).output((c) => ({
+    type: "TriggersSkill",
+    skillName: c.skillName,
+    level: c.level,
+    cond: "not_at_full_mana",
+  })),
+  t("{value:+dec%} additional spell damage when not at full mana").output(
+    (c) => ({
+      type: "DmgPct",
+      value: c.value,
+      dmgModType: "spell",
+      addn: true,
+      cond: "not_at_full_mana",
+    }),
+  ),
   t(
     "support skill's mana multiplier is {(set to|fixed at)} {value:dec%}.",
   ).output((c) => ({

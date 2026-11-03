@@ -215,6 +215,7 @@ export const Conditions = [
   "enemy_has_desecration",
   "enemy_has_trauma",
   "has_full_mana",
+  "not_at_full_mana",
   "has_low_mana",
   "enemy_paralyzed",
   "target_enemy_is_elite",

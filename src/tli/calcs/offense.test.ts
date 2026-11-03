@@ -4219,6 +4219,42 @@ describe("resource pool: mana and mercury pts", () => {
     validate(results, skillName, { avgHit: 300 });
   });
 
+  test("mana consumed recently comes from Mystic Mercury's 10% per attack", () => {
+    // 1000 mana, none sealed: each attack consumes 100
+    // 1 attack per second over 4 s → 400 mana consumed recently
+    // DmgPct: 1% additional cold per 100 mana consumed → +4%
+    // 100 cold * 1.04 = 104
+    const weapon = {
+      ...coldWeapon,
+      baseStats: {
+        baseStatLines: [
+          ...coldWeapon.baseStats.baseStatLines,
+          {
+            text: "1 Attack Speed",
+            mods: [{ type: "GearBaseAttackSpeed", value: 1 } as const],
+          },
+        ],
+      },
+    };
+    const perMana = {
+      type: "DmgPct",
+      value: 1,
+      dmgModType: "cold",
+      addn: true,
+      per: { stackable: "mana_consumed_recently", amt: 100 },
+    } as const;
+    const input = createInput(affixLines([flatManaTo1000, perMana]));
+    input.loadout.gearPage.equippedGear.mainHand = weapon;
+    validate(calculateOffense(input), skillName, { aspd: 1, avgHit: 104 });
+
+    // A value set in the configuration is used as is
+    const fixed = calculateOffense({
+      ...input,
+      configuration: { ...input.configuration, manaConsumedRecently: 0 },
+    });
+    validate(fixed, skillName, { avgHit: 100 });
+  });
+
   test("mercury pts scale linearly with more mana", () => {
     // 2000 mana (add 1485 instead of 485)
     // MaxMercuryPtsPct: 1.0 per 1000 mana → 200% bonus → 300 mercury pts

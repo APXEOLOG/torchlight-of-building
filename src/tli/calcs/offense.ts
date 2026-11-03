@@ -883,6 +883,7 @@ const filterModsByCond = (
       .with("enemy_has_trauma", () => config.enemyHasTrauma)
       .with("enemy_paralyzed", () => config.enemyParalyzed)
       .with("has_full_mana", () => config.hasFullMana)
+      .with("not_at_full_mana", () => !config.hasFullMana)
       .with("target_enemy_is_elite", () => config.targetEnemyIsElite)
       .with("target_enemy_is_nearby", () => config.targetEnemyIsNearby)
       .with("target_enemy_is_distant", () => config.targetEnemyIsDistant)
@@ -1109,7 +1110,11 @@ const resolveBuffSkillMods = (
   const allSkillSlots: SkillSlot[] = [
     ...activeSkillSlots,
     ...passiveSkillSlots,
-    ...filterMods(loadoutMods, "TriggersSkill").map((m) => ({
+    // A granted skill can depend on a condition, e.g. only when not at full mana.
+    ...filterMods(
+      filterModsByCond(loadoutMods, loadout, config, derivedCtx),
+      "TriggersSkill",
+    ).map((m) => ({
       enabled: true,
       skillName: m.skillName,
       level: m.level,
@@ -1480,6 +1485,28 @@ const calculateMercuryPts = (
   }
   const mult = calcEffMult(mods, "MaxMercuryPtsPct");
   return 100 * mult;
+};
+
+// Rosa 2's Mystic Mercury consumes 10% of Unsealed Max Mana per non-channeled attack, and nothing else
+// consumes mana. Over the 4 s of "recently" that is 0.4 x unsealed max mana x attack speed. It assumes
+// the 10% always succeeds; a dummy test with Compensatory Life matched this within about 1.5%.
+// Returns undefined when the configuration sets the value or the skill isn't an attack.
+const mysticMercuryManaConsumedRecently = (
+  loadout: Loadout,
+  resourcePool: ResourcePool,
+  config: Configuration,
+  aspd: number | undefined,
+): number | undefined => {
+  if (
+    config.manaConsumedRecently !== undefined ||
+    aspd === undefined ||
+    !isHero("Lightbringer Rosa: Unsullied Blade (#2)", loadout)
+  ) {
+    return undefined;
+  }
+  const sealedPct = Math.min(100, resourcePool.sealedResources.sealedManaPct);
+  const unsealedMaxMana = resourcePool.maxMana * (1 - sealedPct / 100);
+  return 0.1 * unsealedMaxMana * aspd * 4;
 };
 
 const resolveBuffSkillEffMults = (
@@ -3606,103 +3633,122 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
         resourcePool,
       );
 
-    const derivedOffenseCtx = resolveModsForOffenseSkill(
-      [...unresolvedLoadoutAndBuffMods, ...perSkillContext.mods],
-      perSkillContext.skill,
-      skillLevel,
-      resourcePool,
-      defenses,
-      loadout,
-      config,
-      derivedCtx,
-    );
-    const { mods, movementSpeedBonusPct, tangleSummary } = derivedOffenseCtx;
-    errors.push(...derivedOffenseCtx.errors);
+    // Only the errors of the result that's kept are reported.
+    let lastErrors: string[] = [];
+    const calculateSkillOffense = (
+      config: Configuration,
+    ): NonNullable<OffenseResults["skills"][ImplementedActiveSkillName]> => {
+      const derivedOffenseCtx = resolveModsForOffenseSkill(
+        [...unresolvedLoadoutAndBuffMods, ...perSkillContext.mods],
+        perSkillContext.skill,
+        skillLevel,
+        resourcePool,
+        defenses,
+        loadout,
+        config,
+        derivedCtx,
+      );
+      const { mods, movementSpeedBonusPct, tangleSummary } = derivedOffenseCtx;
+      lastErrors = derivedOffenseCtx.errors;
 
-    const attackHitSummary = calcAvgAttackDps(
-      mods,
-      loadout,
-      perSkillContext,
-      skillLevel,
-      derivedOffenseCtx,
-      derivedCtx,
-      config,
-    );
+      const attackHitSummary = calcAvgAttackDps(
+        mods,
+        loadout,
+        perSkillContext,
+        skillLevel,
+        derivedOffenseCtx,
+        derivedCtx,
+        config,
+      );
 
-    const slashStrikeDpsSummary = calcAvgSlashStrikeDps(
-      mods,
-      loadout,
-      perSkillContext,
-      skillLevel,
-      derivedOffenseCtx,
-      derivedCtx,
-      config,
-    );
+      const slashStrikeDpsSummary = calcAvgSlashStrikeDps(
+        mods,
+        loadout,
+        perSkillContext,
+        skillLevel,
+        derivedOffenseCtx,
+        derivedCtx,
+        config,
+      );
 
-    const comboDpsSummary = calcAvgComboDps(
-      mods,
-      loadout,
-      perSkillContext,
-      skillLevel,
-      derivedCtx,
-      config,
-    );
+      const comboDpsSummary = calcAvgComboDps(
+        mods,
+        loadout,
+        perSkillContext,
+        skillLevel,
+        derivedCtx,
+        config,
+      );
 
-    const spellDpsSummary = calcAvgSpellDps(
-      mods,
-      loadout,
-      perSkillContext,
-      skillLevel,
-      derivedCtx,
-      config,
-    );
+      const spellDpsSummary = calcAvgSpellDps(
+        mods,
+        loadout,
+        perSkillContext,
+        skillLevel,
+        derivedCtx,
+        config,
+      );
 
-    const spellBurstDpsSummary =
-      spellDpsSummary !== undefined && derivedOffenseCtx.maxSpellBurst > 0
-        ? calcAvgSpellBurstDps(
-            mods,
-            spellDpsSummary.avgHitWithCrit,
-            derivedOffenseCtx,
-            derivedCtx,
-          )
-        : undefined;
+      const spellBurstDpsSummary =
+        spellDpsSummary !== undefined && derivedOffenseCtx.maxSpellBurst > 0
+          ? calcAvgSpellBurstDps(
+              mods,
+              spellDpsSummary.avgHitWithCrit,
+              derivedOffenseCtx,
+              derivedCtx,
+            )
+          : undefined;
 
-    const persistentDpsSummary = calcAvgPersistentDps({
-      mods,
-      loadout,
-      perSkillContext,
-      skillLevel,
-      config,
-    });
+      const persistentDpsSummary = calcAvgPersistentDps({
+        mods,
+        loadout,
+        perSkillContext,
+        skillLevel,
+        config,
+      });
 
-    const totalReapDpsSummary =
-      persistentDpsSummary !== undefined
-        ? calcTotalReapDps(mods, persistentDpsSummary)
-        : undefined;
+      const totalReapDpsSummary =
+        persistentDpsSummary !== undefined
+          ? calcTotalReapDps(mods, persistentDpsSummary)
+          : undefined;
 
-    const totalDps =
-      (attackHitSummary?.avgDps ?? 0) +
-      (slashStrikeDpsSummary?.avgDps ?? 0) +
-      (comboDpsSummary?.avgDps ?? 0) +
-      (spellDpsSummary?.avgDps ?? 0) +
-      (spellBurstDpsSummary?.avgDps ?? 0) +
-      (spellBurstDpsSummary?.ingenuityOverload?.avgDps ?? 0) +
-      (persistentDpsSummary?.total ?? 0) +
-      (totalReapDpsSummary?.totalReapDps ?? 0);
+      const totalDps =
+        (attackHitSummary?.avgDps ?? 0) +
+        (slashStrikeDpsSummary?.avgDps ?? 0) +
+        (comboDpsSummary?.avgDps ?? 0) +
+        (spellDpsSummary?.avgDps ?? 0) +
+        (spellBurstDpsSummary?.avgDps ?? 0) +
+        (spellBurstDpsSummary?.ingenuityOverload?.avgDps ?? 0) +
+        (persistentDpsSummary?.total ?? 0) +
+        (totalReapDpsSummary?.totalReapDps ?? 0);
 
-    skills[slot.skillName as ImplementedActiveSkillName] = {
-      attackDpsSummary: attackHitSummary,
-      slashStrikeDpsSummary,
-      comboDpsSummary,
-      spellDpsSummary,
-      spellBurstDpsSummary,
-      persistentDpsSummary,
-      totalReapDpsSummary,
-      totalDps,
-      movementSpeedBonusPct,
-      tangleSummary,
-      resolvedMods: mods,
+      return {
+        attackDpsSummary: attackHitSummary,
+        slashStrikeDpsSummary,
+        comboDpsSummary,
+        spellDpsSummary,
+        spellBurstDpsSummary,
+        persistentDpsSummary,
+        totalReapDpsSummary,
+        totalDps,
+        movementSpeedBonusPct,
+        tangleSummary,
+        resolvedMods: mods,
+      };
     };
+
+    const first = calculateSkillOffense(config);
+    const manaConsumedRecently = mysticMercuryManaConsumedRecently(
+      loadout,
+      resourcePool,
+      config,
+      first.attackDpsSummary?.mainhand.aspd,
+    );
+    skills[slot.skillName as ImplementedActiveSkillName] =
+      manaConsumedRecently === undefined
+        ? first
+        : calculateSkillOffense({ ...config, manaConsumedRecently });
+    errors.push(...lastErrors);
   }
 
   return {
