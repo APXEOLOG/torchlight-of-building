@@ -55,6 +55,7 @@ import type {
   TalentTree as SaveDataTalentTree,
   UndeterminedFate as SaveDataUndeterminedFate,
 } from "@/src/lib/save-data";
+import { getBaseDamageAffixes } from "@/src/lib/special-support-utils";
 import type {
   ActiveSkillSlots,
   Affix,
@@ -1038,12 +1039,10 @@ const convertDivinityPage = (
   return { placedSlates: placements, inventory };
 };
 
-// Rank damage bonus values for magnificent/noble supports: [0, 5, 10, 15, 20] for ranks 1-5
-const RANK_DAMAGE_VALUES = [0, 5, 10, 15, 20] as const;
-
 /**
  * Build affix texts for a magnificent/noble support skill slot.
- * Combines: craftedAffix + fixed affixes + rank damage bonus.
+ * Combines: craftedAffix + fixed affixes + the base additional damage every copy has.
+ * Rank isn't used: in game the base +20% shows from rank 1, and what ranks change isn't known.
  *
  * Description structure:
  * - 2 parts: [overview, tier-scaled] → no fixed affixes
@@ -1052,7 +1051,6 @@ const RANK_DAMAGE_VALUES = [0, 5, 10, 15, 20] as const;
 const buildSpecialSupportAffixTexts = (
   descriptions: string[],
   craftedAffix: string,
-  rank: 1 | 2 | 3 | 4 | 5,
 ): string[] => {
   // Fixed affixes only exist when there are 3 description parts (at index 1)
   const fixedAffixes =
@@ -1060,18 +1058,10 @@ const buildSpecialSupportAffixTexts = (
       ? descriptions[1].split("\n")
       : [];
 
-  // Calculate rank damage bonus
-  const rankDmg = RANK_DAMAGE_VALUES[rank - 1];
-  const rankDmgAffix =
-    rankDmg > 0
-      ? `+${rankDmg}% additional damage for the supported skill`
-      : undefined;
-
-  // Combine all affixes: craftedAffix, fixed affixes, rank damage
   return [
     ...(craftedAffix !== "" ? [craftedAffix] : []),
     ...fixedAffixes,
-    ...(rankDmgAffix !== undefined ? [rankDmgAffix] : []),
+    ...getBaseDamageAffixes(descriptions),
   ];
 };
 
@@ -1132,7 +1122,6 @@ const convertSupportSkillSlot = (
       const affixTexts = buildSpecialSupportAffixTexts(
         skill?.description ?? [],
         slot.craftedAffix,
-        slot.rank,
       );
       const parsedMods = parseSupportAffixes(affixTexts);
       return {
@@ -1148,7 +1137,6 @@ const convertSupportSkillSlot = (
       const affixTexts = buildSpecialSupportAffixTexts(
         skill?.description ?? [],
         slot.craftedAffix,
-        slot.rank,
       );
       const parsedMods = parseSupportAffixes(affixTexts);
       return {

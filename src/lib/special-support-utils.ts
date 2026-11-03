@@ -140,6 +140,23 @@ export const parseValueFromCraftedAffix = (craftedAffix: string): number => {
   return parseFloat(match[1]);
 };
 
+const BASE_DAMAGE_PATTERN =
+  /^[+-]?\d+(?:\.\d+)?% additional damage for the supported skill$/i;
+
+/**
+ * The fixed additional damage every copy carries, whatever its rank or tier.
+ * tlidb only lists it in the overview (description[0]); a line repeated verbatim
+ * in the fixed part is a fixed affix, not the base.
+ */
+export const getBaseDamageAffixes = (
+  descriptions: readonly string[],
+): string[] => {
+  const rest = new Set(descriptions.slice(1).flatMap((d) => d.split("\n")));
+  return (descriptions[0] ?? "")
+    .split("\n")
+    .filter((l) => BASE_DAMAGE_PATTERN.test(l) && !rest.has(l));
+};
+
 /**
  * Get the worst (lowest quality) defaults for a special support skill.
  * Defaults to tier 2, rank 1, and the minimum value for the tier range.

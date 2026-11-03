@@ -13,6 +13,7 @@ import type {
 import {
   findTierScaledDescription,
   formatCraftedAffix,
+  getBaseDamageAffixes,
   getQualityPercentage,
   getTierRange,
   interpolateSpecialValue,
@@ -54,9 +55,6 @@ const RANK_OPTIONS = [
   { value: 4 as const, label: "Rank 4" },
   { value: 5 as const, label: "Rank 5" },
 ];
-
-// Rank damage bonus values: [0, 5, 10, 15, 20] for ranks 1-5
-const RANK_DAMAGE_VALUES = [0, 5, 10, 15, 20] as const;
 
 export const SpecialSupportEditModal = ({
   isOpen,
@@ -146,11 +144,8 @@ export const SpecialSupportEditModal = ({
       }
     }
 
-    // Add rank damage bonus
-    const rankDmg = RANK_DAMAGE_VALUES[rank - 1];
-    if (rankDmg > 0) {
-      lines.push(`+${rankDmg}% additional damage for the supported skill`);
-    }
+    // Add the base additional damage every copy has, whatever its rank
+    lines.push(...getBaseDamageAffixes(skill.description));
 
     return lines.join("\n");
   };
