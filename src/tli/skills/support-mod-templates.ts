@@ -202,6 +202,9 @@ const allSupportParsers = [
   t("{value:+dec%} cooldown recovery speed for the supported skill").output(
     (c) => ({ type: "CdrPct", value: c.value }),
   ),
+  t(
+    "the supported skill {value:+dec%} additional cooldown recovery speed",
+  ).output((c) => ({ type: "CdrPct", value: c.value, addn: true })),
   t("{value:+dec%} duration for the supported skill").output((c) => ({
     type: "SkillEffDurationPct",
     value: c.value,

@@ -421,7 +421,7 @@ interface ModDefinitions {
   SpellBurstChargeSpeedPct: { value: number; addn?: boolean };
   SpellBurstAdditionalDmgPct: { value: number; addn: true };
   PlaySafe: { value: number };
-  CdrPct: { value: number };
+  CdrPct: { value: number; addn?: boolean };
   PrepareIntervalSec: { value: number };
   SkillAreaPct: {
     value: number;

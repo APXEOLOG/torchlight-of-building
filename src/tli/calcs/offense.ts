@@ -1081,17 +1081,39 @@ const calcBuffSkillType = (
 
 // Preparation casts the skill every interval, or as soon as the cooldown ends if that's longer.
 // When the cooldown doesn't finish before the next cast, the skill never stores a charge.
+// Activation Medium: Start casts the skill on starting to move, taken as every time its cooldown ends
+// while moving, and never while standing still. A skill without a duration stays on once cast.
 const calcPreparationEffects = (
   skill: BaseActiveSkill | BasePassiveSkill,
   skillMods: Mod[],
   config: Configuration,
+  castsOnStartingToMove: boolean,
 ): { uptime: number; chargesOnUse: number } => {
   const interval = findMod(skillMods, "PrepareIntervalSec")?.value;
-  if (interval === undefined || skill.type !== "Active") {
+  if (
+    skill.type !== "Active" ||
+    (interval === undefined && !castsOnStartingToMove)
+  ) {
     return { uptime: 1, chargesOnUse: DEFAULT_CHARGES_ON_USE };
   }
   const { cooldownSec, durationSec } = skill as BaseActiveSkill;
   const cooldown = (cooldownSec ?? 0) / calcEffMult(skillMods, "CdrPct");
+  if (interval === undefined) {
+    // Cast as soon as one charge is back, so each cast uses one.
+    const startCharges = 1;
+    if (durationSec === undefined || config.buffsAlwaysActive) {
+      return { uptime: 1, chargesOnUse: startCharges };
+    }
+    if (!config.hasMovedRecently) {
+      return { uptime: 0, chargesOnUse: startCharges };
+    }
+    const duration =
+      durationSec * calcEffMult(skillMods, "SkillEffDurationPct");
+    return {
+      uptime: Math.min(1, duration / Math.max(cooldown, 0.001)),
+      chargesOnUse: startCharges,
+    };
+  }
   const chargesOnUse = cooldown >= interval ? 0 : DEFAULT_CHARGES_ON_USE;
   if (durationSec === undefined || config.buffsAlwaysActive) {
     return { uptime: 1, chargesOnUse };
@@ -1209,6 +1231,9 @@ const resolveBuffSkillMods = (
       skill,
       prenormMods,
       config,
+      Object.values(skillSlot.supportSkills).some(
+        (s) => s?.name === "Activation Medium: Start",
+      ),
     );
     const {
       skillEffMult,
