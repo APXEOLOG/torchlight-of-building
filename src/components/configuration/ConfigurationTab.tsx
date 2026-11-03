@@ -549,6 +549,16 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
             className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
           />
 
+          <label className="text-right text-zinc-50">
+            Has Low Energy Shield
+          </label>
+          <input
+            type="checkbox"
+            checked={config.hasLowEnergyShield}
+            onChange={(e) => onUpdate({ hasLowEnergyShield: e.target.checked })}
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
+
           <label className="text-right text-zinc-50">Target Is Elite</label>
           <input
             type="checkbox"
@@ -703,6 +713,17 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
             checked={config.enemyHasAilment}
             onChange={(e) => onUpdate({ enemyHasAilment: e.target.checked })}
             className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
+
+          <label className="text-right text-zinc-50">
+            Enemy Ailment Types
+            <InfoTooltip text="Number of Ailment types the enemy has: Trauma, Ignite, Frostbite, Freeze, Numbed, Wilt. Defaults to 0." />
+          </label>
+          <NumberInput
+            value={config.enemyAilmentTypes}
+            onChange={(v) => onUpdate({ enemyAilmentTypes: v ?? 0 })}
+            min={0}
+            max={6}
           />
 
           <label className="text-right text-zinc-50">Channeling</label>

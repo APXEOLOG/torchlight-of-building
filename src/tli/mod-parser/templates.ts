@@ -222,6 +222,62 @@ export const allParsers = [
     addn: c.additional !== undefined,
     cond: "enemy_is_cursed",
   })),
+  t(
+    "{value:+dec%} additional damage for you and your minions against cursed enemies",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "global",
+    addn: true,
+    cond: "enemy_is_cursed",
+  })),
+  t(
+    "upon inflicting damage, {value:+dec%} hit damage for every type of ailment the enemy has",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "hit",
+    addn: false,
+    per: { stackable: "num_enemy_ailment_types" },
+  })),
+  t(
+    "upon inflicting damage, {value:+dec%} additional damage for every type of ailment the enemy has (multiplies)",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "global",
+    addn: true,
+    per: { stackable: "num_enemy_ailment_types", multiplicative: true },
+  })),
+  t(
+    "upon inflicting damage, {value:+dec%} additional hit damage (multiplies) for every type of ailment the enemy has",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "hit",
+    addn: true,
+    per: { stackable: "num_enemy_ailment_types", multiplicative: true },
+  })),
+  t(
+    "when minions deal damage, {value:+dec%} hit damage for every type of ailment the enemy has",
+  ).outputNone(),
+  t(
+    "when minions deal damage, {value:+dec%} additional hit damage (multiplies) for every type of ailment the enemy has",
+  ).outputNone(),
+  t(
+    "{value:+dec%} additional spell damage when the energy shield is not low",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "spell",
+    addn: true,
+    cond: "energy_shield_not_low",
+  })),
+  t("{value:+dec%} additional damage taken at low energy shield").outputNone(),
+  t("{value:+dec%} additional base damage for two-handed weapons").outputNone(),
+  t(
+    "adds {value:dec%} of max mana as energy shield, up to {limit:int}",
+  ).outputNone(),
   t("{value:+dec%} additional erosion area damage against elites").output(
     (c) => ({
       type: "DmgPct",
@@ -1361,6 +1417,14 @@ export const allParsers = [
     value: c.value,
     resType: c.resType,
     per: { stackable: "repentance" },
+  })),
+  t(
+    "{value:+dec%} {resType:ResType} resistance per {amt:int} stats, up to {limit:+dec%}",
+  ).output((c) => ({
+    type: "ResistancePct",
+    value: c.value,
+    resType: c.resType,
+    per: { stackable: "stat", amt: c.amt, valueLimit: c.limit },
   })),
   t("{value:+dec%} {resType:ResType} resistance per {amt:int} stats").output(
     (c) => ({

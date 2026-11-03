@@ -85,6 +85,8 @@ export interface Configuration {
   hasFullMana: boolean;
   // default to false
   hasLowMana: boolean;
+  // default to false
+  hasLowEnergyShield: boolean;
   // default to false: buffs from Preparation count at their average uptime
   buffsAlwaysActive: boolean;
   // default to false
@@ -121,6 +123,8 @@ export interface Configuration {
   numSecondsWithEliteNearby: number;
   // default to false
   enemyHasAilment: boolean;
+  // default to 0: Ailment types the enemy has (Trauma, Ignite, Frostbite, Freeze, Numbed, Wilt)
+  enemyAilmentTypes: number;
   // default to false
   hasCritRecently: boolean;
   // default fo false
@@ -257,6 +261,7 @@ export const DEFAULT_CONFIGURATION: Configuration = {
   hasTenacityBlessing: false,
   hasFullMana: false,
   hasLowMana: false,
+  hasLowEnergyShield: false,
   buffsAlwaysActive: false,
   enemyParalyzed: false,
   enemyNumbed: false,
@@ -275,6 +280,7 @@ export const DEFAULT_CONFIGURATION: Configuration = {
   hasElitesNearby: false,
   numSecondsWithEliteNearby: 0,
   enemyHasAilment: false,
+  enemyAilmentTypes: 0,
   hasCritRecently: false,
   channeling: false,
   channeledStacks: undefined,

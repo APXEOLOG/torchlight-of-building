@@ -64,6 +64,16 @@ const allSupportParsers = [
   t(
     "{value:int%} additional damage for minions summoned by the supported skill",
   ).output((c) => ({ type: "MinionDmgPct", value: c.value, addn: true })),
+  t(
+    "the supported skill deals {value:?dec%} additional damage for every type of ailment on enemy (multiplies)",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: GLOBAL,
+    addn: true,
+    per: { stackable: "num_enemy_ailment_types", multiplicative: true },
+  })),
+  t("the supported skill {value:+dec%} ailment duration").outputNone(),
   // Signed version (e.g., "+19.8% additional damage for the supported skill")
   t("{value:+dec%} additional damage for the supported skill").output((c) => ({
     type: "DmgPct",
@@ -191,6 +201,16 @@ const allSupportParsers = [
     type: "AuraEffPct",
     value: c.value,
   })),
+  t(
+    "when having at least {count:int} type(s) of spirit magus at the same time, origin of spirit magus provided by the supported skill {value:+dec%} effect",
+  ).output((c) => ({
+    type: "SpiritMagusOriginEffPct",
+    value: c.value,
+    minSpiritMagusTypes: c.count,
+  })),
+  t(
+    "{value:+dec%} infiltration effect taken by enemies for {dur:int} s when the supported skill deals damage",
+  ).output((c) => ({ type: "InfiltrationEffTakenPct", value: c.value })),
   t("{value:dec%} buff effect for the supported skill").output((c) => ({
     type: "FocusBuffEffPct",
     value: c.value,

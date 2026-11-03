@@ -32,13 +32,14 @@ import type {
 } from "../core";
 import type { EquipmentType } from "../gear-data-types";
 import { getHeroTraitMods } from "../hero/hero-trait-mods";
-import type {
-  DmgChunkType,
-  Mod,
-  ModT,
-  ResType,
-  Stackable,
-  StatType,
+import {
+  type DmgChunkType,
+  InfiltrationTypes,
+  type Mod,
+  type ModT,
+  type ResType,
+  type Stackable,
+  type StatType,
 } from "../mod";
 import { getActiveSkillMods } from "../skills/active-mods";
 import { getPassiveSkillMods } from "../skills/passive-mods";
@@ -985,6 +986,7 @@ const filterModsByCond = (
       })
       .with("taking_damage_over_time", () => config.takingDamageOverTime)
       .with("has_low_mana", () => config.hasLowMana)
+      .with("energy_shield_not_low", () => !config.hasLowEnergyShield)
       .with(
         "frostbitten_heart_is_active",
         () => config.frostbittenHeartIsActive,
@@ -1161,6 +1163,18 @@ const resolveBuffSkillMods = (
       | undefined;
     return skill?.tags.includes("Aura") === true;
   }).length;
+  const numSpiritMagusTypes = new Set(
+    allSkillSlots
+      .filter((slot) => slot.enabled && slot.skillName !== undefined)
+      .map(
+        (slot) =>
+          PassiveSkills.find((s) => s.name === slot.skillName) as
+            | BasePassiveSkill
+            | undefined,
+      )
+      .filter((s) => s?.tags.includes("Spirit Magus") === true)
+      .map((s) => s?.name),
+  ).size;
 
   for (const skillSlot of allSkillSlots) {
     if (!skillSlot.enabled || skillSlot.skillName === undefined) {
@@ -1241,6 +1255,7 @@ const resolveBuffSkillMods = (
       curseEffMult,
       spiritMagusOriginEffMult,
       warcryEffMult,
+      focusBuffEffMult,
     } = resolveBuffSkillEffMults(
       prenormMods,
       loadout,
@@ -1249,6 +1264,7 @@ const resolveBuffSkillMods = (
       skill.name,
       numAuraSkills,
       chargesOnUse,
+      numSpiritMagusTypes,
     );
 
     // === Apply multipliers to buff mods ===
@@ -1273,12 +1289,28 @@ const resolveBuffSkillMods = (
         } else {
           finalValue = multValue(finalValue, skillEffMult);
         }
+        if (skill.tags.includes("Focus")) {
+          finalValue = multValue(finalValue, focusBuffEffMult);
+        }
       }
 
       resolvedMods.push({
         ...mod,
         value: multValue(finalValue, uptime),
       } as Mod);
+    }
+
+    // A support's debuff on enemies applies to every skill's hits, whichever skill carries the support.
+    // It's taken as always up, as if the supported skill keeps hitting the target.
+    for (const m of filterMods(supportMods, "InfiltrationEffTakenPct")) {
+      for (const infiltrationType of InfiltrationTypes) {
+        resolvedMods.push({
+          type: "InfiltrationEffPct",
+          value: m.value,
+          infiltrationType,
+          src: `${skill.name}: ${m.src ?? "support"}`,
+        });
+      }
     }
 
     // A support's damage taken on cursed enemies lasts as long as the curse, but curse effect doesn't scale it.
@@ -1563,19 +1595,23 @@ const resolveBuffSkillEffMults = (
   buffSkillName: string,
   numAuraSkills: number,
   chargesOnUse: number,
+  numSpiritMagusTypes: number,
 ): {
   skillEffMult: number;
   auraEffMult: number;
   curseEffMult: number;
   spiritMagusOriginEffMult: number;
   warcryEffMult: number;
+  focusBuffEffMult: number;
 } => {
   const buffSkillEffMods = unresolvedModsFromParam.filter(
     (m) =>
       m.type === "SkillEffPct" ||
       m.type === "CurseEffPct" ||
-      m.type === "SpiritMagusOriginEffPct" ||
+      (m.type === "SpiritMagusOriginEffPct" &&
+        (m.minSpiritMagusTypes ?? 0) <= numSpiritMagusTypes) ||
       m.type === "WarcryEffPct" ||
+      m.type === "FocusBuffEffPct" ||
       // AuraEffPct: include if no skillName (global) or skillName matches.
       // Also match if the skill is a "Precise: X" variant and the mod targets "X".
       (m.type === "AuraEffPct" &&
@@ -1610,6 +1646,7 @@ const resolveBuffSkillEffMults = (
   const curseEffMult = calcEffMult(mods, "CurseEffPct");
   const spiritMagusOriginEffMult = calcEffMult(mods, "SpiritMagusOriginEffPct");
   const warcryEffMult = calcEffMult(mods, "WarcryEffPct");
+  const focusBuffEffMult = calcEffMult(mods, "FocusBuffEffPct");
 
   return {
     skillEffMult,
@@ -1617,6 +1654,7 @@ const resolveBuffSkillEffMults = (
     curseEffMult,
     spiritMagusOriginEffMult,
     warcryEffMult,
+    focusBuffEffMult,
   };
 };
 
@@ -2026,6 +2064,7 @@ const resolveModsForOffenseSkill = (
     normalize("twisted_spacetime", config.twistedSpacetimeStacks ?? 5);
     normalize("num_ice_puppet_stacks", config.numIcePuppetStacks ?? 0);
     normalize("num_times_regained_recently", config.numTimesRegainedRecently);
+    normalize("num_enemy_ailment_types", config.enemyAilmentTypes);
     normalize("pct_life_lost", 100 - config.currentLifePct);
   };
   const pushStatNorms = (): void => {

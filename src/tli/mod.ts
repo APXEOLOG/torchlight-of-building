@@ -165,6 +165,7 @@ export const Stackables = [
   "seconds_with_elite_nearby",
   "num_ice_puppet_stacks",
   "num_times_regained_recently",
+  "num_enemy_ailment_types",
   "pct_life_lost",
   "feline_stimulant",
   // defenses
@@ -217,6 +218,7 @@ export const Conditions = [
   "has_full_mana",
   "not_at_full_mana",
   "has_low_mana",
+  "energy_shield_not_low",
   "enemy_paralyzed",
   "target_enemy_is_elite",
   "target_enemy_is_nearby",
@@ -438,8 +440,15 @@ interface ModDefinitions {
     skillName?: string;
   };
   FocusBuffEffPct: { value: number; addn?: boolean };
+  // a debuff the supported skill puts on enemies, raising every Infiltration Effect they take
+  InfiltrationEffTakenPct: { value: number };
   FocusSpeedPct: { value: number; addn?: boolean };
-  SpiritMagusOriginEffPct: { value: number; addn?: boolean };
+  SpiritMagusOriginEffPct: {
+    value: number;
+    addn?: boolean;
+    // only applies while at least this many types of Spirit Magus are summoned
+    minSpiritMagusTypes?: number;
+  };
   CurseEffPct: { value: number; addn?: boolean };
   CurseDurationPct: { value: number };
   AddnCurse: { value: number };
