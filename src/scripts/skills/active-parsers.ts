@@ -902,3 +902,37 @@ export const berserkingBladeParser: SupportLevelParser = (input) => {
     steepStrikeChancePct: createConstantLevels(steepStrikeChancePct),
   };
 };
+
+export const groundshakerParser: SupportLevelParser = (input) => {
+  const { skillName, progressionTable } = input;
+  // The first damage part is Fission; the second is the fissure's secondary damage.
+  const fissionCol = findColumn(
+    progressionTable,
+    "effectiveness of added damage",
+    skillName,
+  );
+
+  const weaponAtkDmgPct: Record<number, number> = {};
+  const addedDmgEffPct: Record<number, number> = {};
+  for (const [levelStr, text] of Object.entries(fissionCol.rows)) {
+    const level = Number(levelStr);
+    const value = parseNumericValue(text);
+    weaponAtkDmgPct[level] = value;
+    addedDmgEffPct[level] = value;
+  }
+  // tlidb lists fewer than 40 levels; the rest repeat the highest listed one
+  const listed = Object.keys(weaponAtkDmgPct).map(Number);
+  const top = Math.max(...listed);
+  if (top < 20) {
+    throw new Error(`${skillName}: only ${top} levels listed`);
+  }
+  for (let level = top + 1; level <= 40; level++) {
+    weaponAtkDmgPct[level] = weaponAtkDmgPct[top];
+    addedDmgEffPct[level] = addedDmgEffPct[top];
+  }
+
+  validateAllLevels(weaponAtkDmgPct, skillName);
+  validateAllLevels(addedDmgEffPct, skillName);
+
+  return { weaponAtkDmgPct, addedDmgEffPct };
+};

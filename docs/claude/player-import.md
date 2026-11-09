@@ -80,7 +80,7 @@ A build file has two parts:
 ### What isn't converted
 
 - **Slate layout:** slates go in as plain lines, because their effects don't depend on position and the log's shape IDs aren't the engine's. `divinityPage` stays empty.
-- **Pactspirits:** `pactspiritPage` stays empty, and their stats come from `manual.json` as plain lines. `ContractInfosV2` is kept in the login file but not read.
+- **Pactspirits:** `pactspiritPage` stays empty, and their stats come from `manual.json` as plain lines. `ContractInfosV2` is kept in the login file but not read. It gives each slot's pet as a numeric `servantId` (no name) and the pact nodes as `pointDatas`. A node with a Fate installed also carries `tattoInfo`: the Fate's `BaseId` and its rolled values in `BaseAffix[].DynArgs`, but no name or wording. `pointDatas` is one of the lists the game cuts at 30 entries, so a login may show only some of the installed Fates.
 - **Other tree effects:** `talentBlockInfluence` is kept in the login file but not read.
 - **Legendary sections other than implicit, prefix and suffix:** these don't reach `legendaryAffixes`.
 - **Vorax gear:** the engine's base gear list has no Vorax entries, so it's reported under `unknownGear`.

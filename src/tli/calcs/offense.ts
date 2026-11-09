@@ -143,7 +143,24 @@ interface OffenseSummary {
   movementSpeedBonusPct: number;
   tangleSummary?: TangleSummary;
   resolvedMods: Mod[];
+  // Set when the skill only fires through another skill, e.g. Banishment: Shadow Strike
+  trigger?: TriggerSummary;
 }
+
+export interface TriggerSummary {
+  bySkill: string;
+  castsPerSec: number;
+  triggersPerCast: number;
+  // the skill's own attack rate, replaced by castsPerSec * triggersPerCast
+  ownAttacksPerSec: number;
+}
+
+// Attacks per second when the weapons alternate, or the Main-Hand alone without an Off-Hand attack
+const attacksPerSec = (summary: OffenseAttackDpsSummary): number => {
+  const mh = summary.mainhand.aspd;
+  const oh = summary.offhand?.aspd;
+  return oh === undefined ? mh : 2 / (1 / mh + 1 / oh);
+};
 
 // === Stats Types and Calculations ===
 
@@ -1542,9 +1559,18 @@ const resolvePerSkillMods = (
     resourcePool,
   );
 
+  const gainedTags = filterMods(supportMods, "SkillGainsTag")
+    .map((m) => m.tag)
+    .filter((tag) => !skill.tags.includes(tag as never));
   return {
     mods: [...selectedSkillMods, ...supportMods],
-    skill: skill as BaseActiveSkill,
+    skill:
+      gainedTags.length > 0
+        ? ({
+            ...skill,
+            tags: [...skill.tags, ...gainedTags],
+          } as BaseActiveSkill)
+        : (skill as BaseActiveSkill),
   };
 };
 
@@ -1640,6 +1666,19 @@ const resolveBuffSkillEffMults = (
     config.crueltyBuffStacks ?? 40,
   );
   pushNormalizedStackable(mods, prenormMods, "num_aura", numAuraSkills);
+  pushNormalizedStackable(
+    mods,
+    prenormMods,
+    "sealed_mana_comp_pct",
+    sumByValue(
+      filterMods(unresolvedModsFromParam, "SealedManaCompPct").filter(
+        (m) =>
+          m.addn !== true &&
+          m.skillName === undefined &&
+          m.skillType === undefined,
+      ),
+    ),
+  );
 
   const skillEffMult = calcEffMult(mods, "SkillEffPct");
   const auraEffMult = calcEffMult(mods, "AuraEffPct");
@@ -2574,6 +2613,14 @@ const resolveModsForOffenseSkill = (
   pushSpellAggression();
   pushMark();
   const movementSpeedBonusPct = pushMspd();
+  if (skill.tags.includes("Mobility")) {
+    for (const m of filterMods(mods, "MobilitySkillAspdPct")) {
+      pm({ type: "AspdPct", value: m.value, addn: false, src: m.src });
+    }
+    for (const m of filterMods(mods, "MobilitySkillCspdPct")) {
+      pm({ type: "CspdPct", value: m.value, addn: false, src: m.src });
+    }
+  }
   pushInfiltrations();
   pushTrinity();
   pushNumbed();
@@ -3016,10 +3063,19 @@ interface CalcWeaponAttackInput {
   addedDmgEffPct: number;
 }
 
+// Joined Force (60%) and Conspire (100%) don't stack; the larger share applies
+const maxJoinedForcePct = (mods: Mod[]): { value: number } | undefined => {
+  const values = filterMods(mods, "JoinedForceAddOffhandToMainhandPct").map(
+    (m) => m.value,
+  );
+  return values.length > 0 ? { value: Math.max(...values) } : undefined;
+};
+
 const calcWeaponAttack = (
   weapon: Gear,
   extraJoinedForceAvgHitDmg: number,
   input: CalcWeaponAttackInput,
+  isOffhand = false,
 ): WeaponAttackSummary => {
   const {
     mods,
@@ -3030,7 +3086,16 @@ const calcWeaponAttack = (
     weaponAtkDmgPct,
     addedDmgEffPct,
   } = input;
-  const gearDmg = calculateGearDmg(weapon, mods);
+  const rawGearDmg = calculateGearDmg(weapon, mods);
+  const gearDmg = isOffhand
+    ? {
+        ...rawGearDmg,
+        mainHand: multDRs(
+          rawGearDmg.mainHand,
+          calcEffMult(mods, "OffhandBaseDmgPct"),
+        ),
+      }
+    : rawGearDmg;
   const flatDmg = calculateFlatDmg(mods, "attack");
   const skillHit = calcAtkHit(
     gearDmg.mainHand,
@@ -3045,7 +3110,22 @@ const calcWeaponAttack = (
 
   const avgHit = skillHit.avg + extraJoinedForceAvgHitDmg;
   const aspd = calculateAspd(weapon, mods, skill);
-  const critChance = calculateCritChance(mods, skill);
+  const critChance = calculateCritChance(
+    isOffhand
+      ? mods
+      : [
+          ...mods,
+          ...filterMods(mods, "MainhandCritRatingPct").map(
+            (m): Mod => ({
+              type: "CritRatingPct",
+              value: m.value,
+              modType: "global",
+              src: m.src,
+            }),
+          ),
+        ],
+    skill,
+  );
   const avgHitWithCrit =
     avgHit * critChance.actual * critDmgMult + avgHit * (1 - critChance.actual);
   return { avgHit, aspd, critChance, avgHitWithCrit };
@@ -3113,12 +3193,9 @@ const calcAvgAttackDps = (
   // Only calculate offhand attack if offhand is a one-handed weapon (not a shield)
   const offhandAtk =
     offhand !== undefined && isOneHandedWeapon(offhand)
-      ? calcWeaponAttack(offhand, 0, calcWeaponAttackInput)
+      ? calcWeaponAttack(offhand, 0, calcWeaponAttackInput, true)
       : undefined;
-  const joinedForceAddedDmgPct = findMod(
-    mods,
-    "JoinedForceAddOffhandToMainhandPct",
-  );
+  const joinedForceAddedDmgPct = maxJoinedForcePct(mods);
   const joinedForceAddedDmg =
     ((joinedForceAddedDmgPct?.value ?? 0) / 100) * (offhandAtk?.avgHit ?? 0);
   const mainhandAtk = calcWeaponAttack(
@@ -3202,13 +3279,10 @@ const calcAvgSlashStrikeDps = (
   };
   const sweepOffhandAtk =
     offhand !== undefined && isOneHandedWeapon(offhand)
-      ? calcWeaponAttack(offhand, 0, sweepInput)
+      ? calcWeaponAttack(offhand, 0, sweepInput, true)
       : undefined;
 
-  const joinedForceAddedDmgPct = findMod(
-    mods,
-    "JoinedForceAddOffhandToMainhandPct",
-  );
+  const joinedForceAddedDmgPct = maxJoinedForcePct(mods);
   const joinedForceAddedDmg =
     ((joinedForceAddedDmgPct?.value ?? 0) / 100) *
     (sweepOffhandAtk?.avgHit ?? 0);
@@ -3232,7 +3306,7 @@ const calcAvgSlashStrikeDps = (
   };
   const steepOffhandAtk =
     offhand !== undefined && isOneHandedWeapon(offhand)
-      ? calcWeaponAttack(offhand, 0, steepInput)
+      ? calcWeaponAttack(offhand, 0, steepInput, true)
       : undefined;
 
   // For steep mode, recalculate joined force bonus with steep offhand damage
@@ -3365,7 +3439,7 @@ const calcAvgComboDps = (
       return mhAtk;
     }
     // biome-ignore lint/style/noNonNullAssertion: guarded by isDualWield
-    const ohAtk = calcWeaponAttack(offhand!, 0, input);
+    const ohAtk = calcWeaponAttack(offhand!, 0, input, true);
     return {
       avgHit: (mhAtk.avgHit + ohAtk.avgHit) / 2,
       aspd: (mhAtk.aspd + ohAtk.aspd) / 2,
@@ -3696,6 +3770,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
 
   //  Calculate for each implemented skill
   const skills: OffenseResults["skills"] = {};
+  const skillTags = new Map<string, readonly string[]>();
   for (const slot of enabledSlots) {
     const perSkillContext = resolvePerSkillMods(
       slot,
@@ -3708,6 +3783,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
     if (perSkillContext === undefined) {
       continue; // Skip non-implemented skills
     }
+    skillTags.set(slot.skillName as string, perSkillContext.skill.tags);
     const skillLevel =
       (slot.level || 20) +
       calculateAddedSkillLevels(
@@ -3837,11 +3913,66 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
     errors.push(...lastErrors);
   }
 
+  applyMainShadowStrikeTrigger(skills, skillTags, loadout, loadoutMods);
+
   return {
     errors,
     skills,
     resourcePool,
     defenses,
     heroTraitLevels: heroTraitResult.traitLevels,
+  };
+};
+
+// Banishment: Shadow Strike triggers the Main Shadow Strike Skill each time an Attack Mobility Skill is cast.
+// The main skill then hits at the mobility skill's cast rate times the triggers, instead of its own attack speed.
+const applyMainShadowStrikeTrigger = (
+  skills: OffenseResults["skills"],
+  skillTags: Map<string, readonly string[]>,
+  loadout: Loadout,
+  loadoutMods: Mod[],
+): void => {
+  const triggersPerCast = Math.max(
+    0,
+    ...filterMods(loadoutMods, "TriggerMainShadowStrikeOnAtkMobility").map(
+      (m) => m.value,
+    ),
+  );
+  const mainName = loadout.skillPage.activeSkills[1]?.skillName;
+  if (triggersPerCast <= 0 || mainName === undefined) return;
+  const main = skills[mainName as ImplementedActiveSkillName];
+  const mainAttack = main?.attackDpsSummary;
+  if (
+    main === undefined ||
+    mainAttack === undefined ||
+    skillTags.get(mainName)?.includes("Shadow Strike") !== true
+  ) {
+    return;
+  }
+  // The fastest Attack Mobility Skill drives the triggers.
+  let best: { name: string; castsPerSec: number } | undefined;
+  for (const [name, tags] of skillTags) {
+    if (name === mainName) continue;
+    if (!tags.includes("Attack") || !tags.includes("Mobility")) continue;
+    const atk = skills[name as ImplementedActiveSkillName]?.attackDpsSummary;
+    if (atk === undefined) continue;
+    const castsPerSec = attacksPerSec(atk);
+    if (best === undefined || castsPerSec > best.castsPerSec) {
+      best = { name, castsPerSec };
+    }
+  }
+  if (best === undefined) return;
+
+  const ownAttacksPerSec = attacksPerSec(mainAttack);
+  if (ownAttacksPerSec <= 0) return;
+  const scale = (best.castsPerSec * triggersPerCast) / ownAttacksPerSec;
+  const triggeredAvgDps = mainAttack.avgDps * scale;
+  main.totalDps += triggeredAvgDps - mainAttack.avgDps;
+  main.attackDpsSummary = { ...mainAttack, avgDps: triggeredAvgDps };
+  main.trigger = {
+    bySkill: best.name,
+    castsPerSec: best.castsPerSec,
+    triggersPerCast,
+    ownAttacksPerSec,
   };
 };

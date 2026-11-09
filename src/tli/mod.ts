@@ -179,6 +179,7 @@ export const Stackables = [
   "skill_area",
   "num_aura",
   "steep_strike_chance_pct",
+  "sealed_mana_comp_pct",
 ] as const;
 
 export type Stackable = (typeof Stackables)[number];
@@ -590,6 +591,17 @@ interface ModDefinitions {
   SpellRipple: { chancePct: number; pctOfHitDmg: number };
   JoinedForceDisableOffhand: object;
   JoinedForceAddOffhandToMainhandPct: { value: number };
+  // Demons' Touch: scales the Off-Hand Weapon's base (gear) damage
+  OffhandBaseDmgPct: { value: number; addn: true };
+  MainhandCritRatingPct: { value: number };
+  // Demons' Touch: the weapons' own attack speed, before any Attack Speed bonus
+  WeaponAspdFixed: { value: number };
+  // Nether King's Banishment: Shadow Strike - casting an Attack Mobility Skill triggers the Main Shadow Strike Skill
+  TriggerMainShadowStrikeOnAtkMobility: { value: number };
+  // skills of the given tag gain the stat; per movement_speed_bonus_pct for conversions
+  MobilitySkillAspdPct: { value: number };
+  MobilitySkillCspdPct: { value: number };
+  SkillGainsTag: { tag: string };
   Conductive: { value: number };
   ChangeTenacityToAddnDmgPct: { value: number };
   // hero-specific mods

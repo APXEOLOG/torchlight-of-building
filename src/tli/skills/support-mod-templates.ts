@@ -169,6 +169,10 @@ const allSupportParsers = [
     value: c.value,
     addn: false,
   })),
+  t("{value:+dec%} attack and cast speed for the supported skill").outputMany([
+    spec((c) => ({ type: "AspdPct", value: c.value, addn: false })),
+    spec((c) => ({ type: "CspdPct", value: c.value, addn: false })),
+  ]),
   t(
     "{value:+dec%} additional hit damage for skills cast by spell burst when spell burst is activated by the supported skill",
   ).output((c) => ({
@@ -459,6 +463,21 @@ const allSupportParsers = [
     value: 1,
     addn: true,
     per: { stackable: "skill_area", amt: 100 / c.value },
+  })),
+  // Wrathful Vault: the data's fixed lines leave out "now has the Mobility tag", which goes with the jump
+  t(
+    "the supported skill is now cast when jumping forward and creates fissures upon landing. the supported skill can no longer be triggered",
+  ).output(() => ({ type: "SkillGainsTag", tag: "Mobility" })),
+  t(
+    "this skill gains the mobility tag. charges forward when casting this skill",
+  ).output(() => ({ type: "SkillGainsTag", tag: "Mobility" })),
+  t(
+    "{value:dec%} of the bonuses for movement speed is also applied to the additional attack speed of the skill, up to {limit:+dec%} additional attack speed",
+  ).output((c) => ({
+    type: "AspdPct",
+    value: c.value / 100,
+    addn: true,
+    per: { stackable: "movement_speed_bonus_pct", valueLimit: c.limit },
   })),
 ];
 

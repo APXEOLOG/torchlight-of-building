@@ -1803,6 +1803,9 @@ export const allParsers = [
     }),
   ),
   t("has attack aggression").output(() => ({ type: "HasAttackAggression" })),
+  t("both you and your minions have attack aggression").output(() => ({
+    type: "HasAttackAggression",
+  })),
   t(
     "{value:+dec%} spell aggression effect for every main spell skill cast recently. stacks up to {limit:int} times",
   ).output((c) => ({
@@ -2323,6 +2326,227 @@ export const allParsers = [
   ).output((c) => ({
     type: "JoinedForceAddOffhandToMainhandPct",
     value: c.value,
+  })),
+  // The loader expands keyword lines (Conspire, Solar Ring, Wield My Sword) into these texts
+  t(
+    "adds {value:dec%} of the damage of the off-hand weapon to the base damage of the main-hand weapon instead",
+  ).output((c) => ({
+    type: "JoinedForceAddOffhandToMainhandPct",
+    value: c.value,
+  })),
+  t(
+    "enemies within the {(solar ring|corona)} take {value:+dec%} additional damage",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "global",
+    addn: true,
+    isEnemyDebuff: true,
+  })),
+  t("{value:+dec%} block ratio and block ratio upper limit").output((c) => ({
+    type: "BlockRatioPct",
+    value: c.value,
+  })),
+  t(
+    "{value:+dec%} additional damage for you and your minions for every {amt:+dec%} attack or spell block chance",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "global",
+    addn: true,
+    per: { stackable: "attack_block_pct", amt: c.amt },
+  })),
+  t("{value:+dec%} projectile critical strike damage").output((c) => ({
+    type: "CritDmgPct",
+    value: c.value,
+    addn: false,
+    modType: "projectile_skill",
+  })),
+  t(
+    "{value:+dec%} attack speed and cast speed when having agility blessing",
+  ).outputMany([
+    spec((c) => ({
+      type: "AspdPct",
+      value: c.value,
+      addn: false,
+      cond: "has_agility_blessing",
+    })),
+    spec((c) => ({
+      type: "CspdPct",
+      value: c.value,
+      addn: false,
+      cond: "has_agility_blessing",
+    })),
+  ]),
+  // Waiting Attack: taken at the blessings held, assuming they refill before the next consume
+  t(
+    "consumes all agility blessing every {interval:int}s. for each stack consumed, {value:+dec%} additional damage in the next {duration:int}s",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "global",
+    addn: true,
+    per: { stackable: "agility_blessing" },
+  })),
+  t("weapon attack speed is fixed at {value:dec}").output((c) => ({
+    type: "WeaponAspdFixed",
+    value: c.value,
+  })),
+  t("conspire").outputMany([
+    spec(() => ({ type: "JoinedForceDisableOffhand" })),
+    spec(() => ({ type: "JoinedForceAddOffhandToMainhandPct", value: 100 })),
+  ]),
+  t("{value:+dec%} additional base damage for off-hand weapons").output(
+    (c) => ({ type: "OffhandBaseDmgPct", value: c.value, addn: true }),
+  ),
+  t("{value:+dec%} critical strike rating for the main-hand weapon").output(
+    (c) => ({ type: "MainhandCritRatingPct", value: c.value }),
+  ),
+  t("solar ring").outputMany([
+    spec(() => ({
+      type: "SkillAreaPct",
+      value: 48,
+      skillAreaModType: "global",
+    })),
+    spec(() => ({
+      type: "DmgPct",
+      value: 40,
+      dmgModType: "global",
+      addn: true,
+      isEnemyDebuff: true,
+    })),
+  ]),
+  t("corona").outputMany([
+    spec(() => ({
+      type: "SkillAreaPct",
+      value: 48,
+      skillAreaModType: "global",
+    })),
+    spec(() => ({
+      type: "DmgPct",
+      value: 60,
+      dmgModType: "global",
+      addn: true,
+      isEnemyDebuff: true,
+    })),
+  ]),
+  t("wield my sword").outputMany([
+    spec(() => ({ type: "BlockRatioPct", value: 10 })),
+    spec(() => ({
+      type: "DmgPct",
+      value: 1,
+      dmgModType: "global",
+      addn: true,
+      per: { stackable: "attack_block_pct", amt: 4 },
+    })),
+  ]),
+  t("absolve my sin").output(() => ({ type: "BlockRatioPct", value: 10 })),
+  t("{value:+dec%} additional cold damage on critical strike").output((c) => ({
+    type: "CritDmgPct",
+    value: c.value,
+    addn: true,
+    modType: "cold_skill",
+  })),
+  t("{value:+dec%} additional damage on projectile critical strike").output(
+    (c) => ({
+      type: "CritDmgPct",
+      value: c.value,
+      addn: true,
+      modType: "projectile_skill",
+    }),
+  ),
+  t(
+    "{value:+dec%} additional attack horizontal projectile damage taken by nearby enemies",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "projectile",
+    addn: true,
+    isEnemyDebuff: true,
+    cond: "target_enemy_is_nearby",
+  })),
+  t(
+    "triggers the main shadow strike skill {value:int} time(s) when casting an attack mobility skill",
+  ).output((c) => ({
+    type: "TriggerMainShadowStrikeOnAtkMobility",
+    value: c.value,
+  })),
+  t(
+    "{value:+dec%} additional shadow strike skill damage for 4s after casting an attack mobility skill",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.value,
+    dmgModType: "shadow_strike_skill",
+    addn: true,
+    cond: "has_used_mobility_skill_recently",
+  })),
+  t(
+    "{value:dec%} of the bonuses for movement speed is also applied to the attack and cast speed of mobility skills",
+  ).outputMany([
+    spec((c) => ({
+      type: "MobilitySkillAspdPct",
+      value: c.value / 100,
+      per: { stackable: "movement_speed_bonus_pct" },
+    })),
+    spec((c) => ({
+      type: "MobilitySkillCspdPct",
+      value: c.value / 100,
+      per: { stackable: "movement_speed_bonus_pct" },
+    })),
+  ]),
+  t(
+    "{value:dec%} of the bonuses for movement speed is also applied to the cooldown recovery speed of mobility skills",
+  ).output((c) => ({
+    type: "MobilitySkillCdrPct",
+    value: c.value / 100,
+    per: { stackable: "movement_speed_bonus_pct" },
+  })),
+  t("you have a lv. {level:int} precise: {skillName:words}").output((c) => ({
+    type: "TriggersSkill",
+    skillName: `Precise: ${c.skillName}`,
+    level: c.level,
+  })),
+  // The game's own wording on Lone Walker's Boots, as the log gives it
+  t("you have a lv. {level:int} precise {skillName:words}.").output((c) => ({
+    type: "TriggersSkill",
+    skillName: `Precise: ${c.skillName}`,
+    level: c.level,
+  })),
+  t(
+    "{value:+dec%} aura effect when affected by {amt:int} or more auras",
+  ).output((c) => ({
+    type: "AuraEffPct",
+    value: c.value,
+    // num_aura is only resolved for per-stackable mods, so a one-stack per carries the threshold
+    per: { stackable: "num_aura", limit: 1 },
+    condThreshold: { target: "num_aura", comparator: "gte", value: c.amt },
+  })),
+  t(
+    "{value:+dec%} aura effect per {amt:+dec%} sealed mana compensation",
+  ).output((c) => ({
+    type: "AuraEffPct",
+    value: c.value,
+    per: { stackable: "sealed_mana_comp_pct", amt: c.amt },
+  })),
+  t(
+    "if you have moved {dist:int}m or more in the last 1s, {aspd:+dec%} additional attack speed and {ms:+dec%} movement speed",
+  ).outputMany([
+    spec((c) => ({
+      type: "AspdPct",
+      value: c.aspd,
+      addn: true,
+      cond: "is_moving",
+    })),
+    spec((c) => ({ type: "MovementSpeedPct", value: c.ms, cond: "is_moving" })),
+  ]),
+  t(
+    "if you have moved less than {dist:int}m in the last 1s, {dmg:+dec%} additional damage and {physique:+dec%} physique",
+  ).output((c) => ({
+    type: "DmgPct",
+    value: c.dmg,
+    dmgModType: "global",
+    addn: true,
+    cond: "is_standing_still",
   })),
   // Conductive - changes Numbed to provide additional Lightning Damage taken
   t(

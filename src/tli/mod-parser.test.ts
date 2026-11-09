@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { describe, expect, test } from "vitest";
 import { parseMod } from "./mod-parser/index";
 
 test("parse basic damage without type (global)", () => {
@@ -4532,4 +4532,107 @@ test("parse flat damage for every stat", () => {
       per: { stackable: "dex", amt: 10 },
     },
   ]);
+});
+
+describe("Rosa 2 Groundshaker build lines", () => {
+  test.each([
+    [
+      "Both you and your Minions have Attack Aggression",
+      [{ type: "HasAttackAggression" }],
+    ],
+    [
+      "Conspire",
+      [
+        { type: "JoinedForceDisableOffhand" },
+        { type: "JoinedForceAddOffhandToMainhandPct", value: 100 },
+      ],
+    ],
+    [
+      "+27% additional Base Damage for Off-Hand Weapons",
+      [{ type: "OffhandBaseDmgPct", value: 27, addn: true }],
+    ],
+    [
+      "+38% Critical Strike Rating for the Main-Hand Weapon",
+      [{ type: "MainhandCritRatingPct", value: 38 }],
+    ],
+    [
+      "+14% additional Cold Damage on Critical Strike",
+      [{ type: "CritDmgPct", value: 14, addn: true, modType: "cold_skill" }],
+    ],
+    [
+      "+16% additional damage on Projectile Critical Strike",
+      [
+        {
+          type: "CritDmgPct",
+          value: 16,
+          addn: true,
+          modType: "projectile_skill",
+        },
+      ],
+    ],
+    [
+      "+5% additional Shadow Strike Skill Damage for 4s after casting an Attack Mobility Skill",
+      [
+        {
+          type: "DmgPct",
+          value: 5,
+          dmgModType: "shadow_strike_skill",
+          addn: true,
+          cond: "has_used_mobility_skill_recently",
+        },
+      ],
+    ],
+    [
+      "You have a Lv. 20 Precise: Cruelty",
+      [{ type: "TriggersSkill", skillName: "Precise: Cruelty", level: 20 }],
+    ],
+    [
+      "You have a Lv. 20 Precise Cruelty.",
+      [{ type: "TriggersSkill", skillName: "Precise: Cruelty", level: 20 }],
+    ],
+    [
+      "+2% Aura Effect per +3% Sealed Mana Compensation",
+      [
+        {
+          type: "AuraEffPct",
+          value: 2,
+          per: { stackable: "sealed_mana_comp_pct", amt: 3 },
+        },
+      ],
+    ],
+    [
+      "Adds 100% of the damage of the Off-Hand Weapon to the Base Damage of the Main-Hand Weapon instead",
+      [{ type: "JoinedForceAddOffhandToMainhandPct", value: 100 }],
+    ],
+    [
+      "Enemies within the Solar Ring take +40% additional damage",
+      [
+        {
+          type: "DmgPct",
+          value: 40,
+          dmgModType: "global",
+          addn: true,
+          isEnemyDebuff: true,
+        },
+      ],
+    ],
+    [
+      "Weapon Attack Speed is fixed at 1.35",
+      [{ type: "WeaponAspdFixed", value: 1.35 }],
+    ],
+    [
+      "Consumes all Agility Blessing every 8s. For each stack consumed, +5% additional damage in the next 8s",
+      [
+        {
+          type: "DmgPct",
+          value: 5,
+          dmgModType: "global",
+          addn: true,
+          per: { stackable: "agility_blessing" },
+        },
+      ],
+    ],
+  ])("parse %s", (text, expected) => {
+    expect(parseMod(text)).toEqual(expected);
+  });
 });

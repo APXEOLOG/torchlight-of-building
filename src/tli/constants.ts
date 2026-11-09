@@ -47,6 +47,7 @@ export const CRIT_DMG_MOD_TYPES = [
   "fire_skill",
   "erosion_skill",
   "sentry_skill",
+  "projectile_skill",
 ] as const;
 
 export type CritDmgModType = (typeof CRIT_DMG_MOD_TYPES)[number];

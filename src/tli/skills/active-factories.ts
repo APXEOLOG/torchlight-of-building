@@ -82,6 +82,13 @@ export const activeSkillModFactories: Partial<
       { type: "InflictNumbed" },
     ],
   }),
+  // Fission hit only; the fissure's secondary damage needs Demolisher Charge timing
+  Groundshaker: (l, vals) => ({
+    offense: {
+      weaponAtkDmgPct: { value: v(vals.weaponAtkDmgPct, l) },
+      addedDmgEffPct: { value: v(vals.addedDmgEffPct, l) },
+    },
+  }),
   "Frost Spike": (l, vals) => ({
     offense: {
       weaponAtkDmgPct: { value: v(vals.weaponAtkDmgPct, l) },

@@ -584,8 +584,12 @@ export function applyDmgBonusesAndPen(
   const { dmgPools, mods, baseDmgModTypes, config, ignoreArmor } = input;
   const allDmgPcts = filterMods(mods, "DmgPct");
 
-  // Convert ElementalSpellDmgPct to elemental DmgPct when skill is a spell
-  if (baseDmgModTypes.includes("spell")) {
+  // Convert ElementalSpellDmgPct to elemental DmgPct when skill is a spell,
+  // or for attacks when spell damage bonuses also apply to attacks (Unsullied Blade)
+  if (
+    baseDmgModTypes.includes("spell") ||
+    modExists(mods, "SpellDmgBonusAppliesToAtkDmg")
+  ) {
     for (const m of filterMods(mods, "ElementalSpellDmgPct")) {
       allDmgPcts.push({
         type: "DmgPct",
@@ -751,6 +755,10 @@ export const calculateFlatDmg = (
 };
 
 export const calculateGearAspd = (weapon: Gear, allMods: Mod[]): number => {
+  const fixed = findMod(allMods, "WeaponAspdFixed");
+  if (fixed !== undefined) {
+    return fixed.value;
+  }
   const baseAspdMod = weapon.baseStats?.baseStatLines
     .flatMap((l) => l.mods ?? [])
     .find((m) => m.type === "GearBaseAttackSpeed");
@@ -844,6 +852,9 @@ export const calculateCritDmg = (
   }
   if (skill.tags.includes("Sentry")) {
     modTypes.push("sentry_skill");
+  }
+  if (skill.tags.includes("Projectile")) {
+    modTypes.push("projectile_skill");
   }
   const mods = filterMods(allMods, "CritDmgPct").filter((m) =>
     modTypes.includes(m.modType),

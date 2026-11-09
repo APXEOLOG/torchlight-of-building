@@ -3,11 +3,17 @@
 import type { GameIdTable, GameIdText } from "@/src/data/game-ids/types";
 import { ALL_BASE_GEAR } from "@/src/data/gear-base/all-base-gear";
 import { Legendaries } from "@/src/data/legendary/legendaries";
+import { ActivationMediumSkills } from "@/src/data/skill/activation-medium";
+import { MagnificentSupportSkills } from "@/src/data/skill/support-magnificent";
+import { NobleSupportSkills } from "@/src/data/skill/support-noble";
+import type { ActivationMediumAffixDef } from "@/src/data/skill/types";
 import type { Gear } from "@/src/lib/save-data";
 import {
   EMPTY_SAVE_DATA,
   type SaveData,
 } from "@/src/lib/schemas/save-data.schema";
+import type { BaseSupportSkillSlot as SupportSlot } from "@/src/lib/schemas/skill.schema";
+import { parseTierRange } from "@/src/lib/special-support-utils";
 import { parseMod } from "@/src/tli/mod-parser";
 import type { RawLogin } from "./parse-log";
 
@@ -65,7 +71,8 @@ type RawItem = {
 };
 interface RawSkillItem {
   Index: number;
-  Item: { BaseId: number; Level?: number };
+  // For Magnificent and Noble supports, Level is the star rank. Prefix holds rolled lines (theirs and Activation Mediums').
+  Item: { BaseId: number; Level?: number; Prefix?: RawAffix[] };
 }
 interface RawGenius {
   geniusId: number;
@@ -109,23 +116,107 @@ const ACTIVE_SLOTS = [1, 2, 3, 4, 5];
 const PASSIVE_SLOTS = [1001, 1007, 1013, 1019];
 const MEMORY_BASE_STAT = /^4031(\d\d)\d{3}$/;
 
+// The range a rolled line was rolled in, such as "+(18–22)", which tells its tier.
+const rolledRange = (
+  entry: GameIdText | undefined,
+): { min: number; max: number } | undefined => {
+  const arg = entry?.args.find((a) => a.includes("–"));
+  return arg === undefined ? undefined : parseTierRange(arg);
+};
+
+// tlidb's description gives only the Tier 1 range of a Magnificent or Noble support's rolled line.
+const specialTier = (
+  description: readonly string[],
+  range: { min: number; max: number } | undefined,
+): 0 | 1 | 2 => {
+  const tier1 = description.map(parseTierRange).find((r) => r !== undefined);
+  if (range === undefined || tier1 === undefined) return 1;
+  if (range.min === tier1.min && range.max === tier1.max) return 1;
+  return range.max > tier1.max ? 0 : 2;
+};
+
+// An Activation Medium's tier is the one whose affix list has the same range as its rolled line.
+const mediumTier = (
+  defs: Record<0 | 1 | 2 | 3, ActivationMediumAffixDef[]> | undefined,
+  rolled: { range?: { min: number; max: number } }[],
+): 0 | 1 | 2 | 3 => {
+  const range = rolled.find((r) => r.range !== undefined)?.range;
+  if (defs === undefined || range === undefined) return 0;
+  const tier = ([0, 1, 2, 3] as const).find((t) =>
+    (defs[t] ?? []).some((d) => {
+      const r = parseTierRange(d.affix);
+      return r !== undefined && r.min === range.min && r.max === range.max;
+    }),
+  );
+  return tier ?? 0;
+};
+
 const list = <T>(value: unknown): T[] =>
   Array.isArray(value) ? (value as T[]) : [];
 
 const fmt = (v: number): string =>
   Number.isInteger(v) ? String(v) : String(Number(v.toFixed(2)));
 
+// How well a logged value fits a tlidb number: 2 for the same fixed number, 1 for inside its range, 0 otherwise.
+const valueFit = (arg: string | undefined, v: number): number => {
+  const nums = (arg ?? "").match(/\d+(?:\.\d+)?/g)?.map(Number) ?? [];
+  const x = Math.abs(v);
+  if (nums.length === 1) return nums[0] === x ? 2 : 0;
+  if (nums.length === 2) {
+    return x >= Math.min(nums[0], nums[1]) && x <= Math.max(nums[0], nums[1])
+      ? 1
+      : 0;
+  }
+  return 0;
+};
+
+// The log keeps a line's values in the game's source-language order, which can differ from the English text: Lone
+// Walker's "+29% Aura effect when affected by 4 or more Auras" is logged as [4, 29]. Each value goes to the number it
+// fits best; ties keep the logged order.
+const orderValues = (
+  args: (string | undefined)[],
+  values: number[],
+): number[] => {
+  if (values.length < 2 || values.length > 6) return values;
+  let best = values;
+  let bestScore = -1;
+  const permute = (left: number[], taken: number[]): void => {
+    if (left.length === 0) {
+      const score = taken.reduce((s, v, i) => s + valueFit(args[i], v), 0);
+      if (score > bestScore) {
+        bestScore = score;
+        best = taken;
+      }
+      return;
+    }
+    left.forEach((v, i) => {
+      permute([...left.slice(0, i), ...left.slice(i + 1)], [...taken, v]);
+    });
+  };
+  permute(values, []);
+  return best;
+};
+
 // Puts rolled values into a tlidb template. If the log has fewer values than the text has numbers, the values belong to
 // the ranged numbers: a fixed number like Gale's 60% isn't logged. A number with no rolled value keeps the page's own text.
 export const renderText = (entry: GameIdText, values: number[]): string => {
-  let next = 0;
+  const marks = entry.template.match(/\+?#/g) ?? [];
+  const takes = marks.map(
+    (_, i) =>
+      values.length >= entry.args.length ||
+      entry.args[i]?.includes("–") === true,
+  );
+  const slots = takes.flatMap((t, i) => (t ? [i] : []));
+  const ordered = orderValues(
+    slots.map((i) => entry.args[i]),
+    values.slice(0, slots.length),
+  );
   let i = 0;
   return entry.template.replace(/\+?#/g, (mark) => {
     const arg = entry.args[i];
-    const takes = values.length >= entry.args.length || arg?.includes("–");
+    const slot = slots.indexOf(i);
     i += 1;
-    const v = takes === true ? values[next] : undefined;
-    if (takes === true) next += 1;
+    const v = slot >= 0 ? ordered[slot] : undefined;
     if (v !== undefined) {
       return mark.startsWith("+") && v >= 0 ? `+${fmt(v)}` : fmt(v);
     }
@@ -211,10 +302,12 @@ export const loginToBuild = (
         equipmentType: legendary.equipmentType,
         rarity: "legendary",
         legendaryName: legendary.name,
+        // A legendary has no base affix of its own: the log keeps its corroded line there.
         legendaryAffixes: [
           ...(parts.implicit ?? []),
           ...(parts.prefixes ?? []),
           ...(parts.suffixes ?? []),
+          ...(parts.baseAffix ?? []),
         ],
       };
     }
@@ -247,15 +340,23 @@ export const loginToBuild = (
   );
 
   // Slot number to skill: the login's two lists first, then earlier logins.
-  const slotSkills = new Map<number, { id: number; level?: number }>();
+  const slotSkills = new Map<
+    number,
+    { id: number; level?: number; prefix?: RawAffix[] }
+  >();
   const readSkills = (from: RawLogin, label: string | undefined): void => {
-    const add = (slot: number, id: number, level?: number): void => {
+    const add = (
+      slot: number,
+      id: number,
+      level?: number,
+      prefix?: RawAffix[],
+    ): void => {
       if (slotSkills.has(slot)) return;
-      slotSkills.set(slot, { id, level });
+      slotSkills.set(slot, { id, level, prefix });
       if (label !== undefined) inferred.push(`skill slot ${slot}: ${label}`);
     };
     for (const s of list<RawSkillItem>(from.dressSkillItems)) {
-      add(s.Index, s.Item.BaseId, s.Item.Level);
+      add(s.Index, s.Item.BaseId, s.Item.Level, s.Item.Prefix);
     }
     const layout = from.skillLayout as { slots?: unknown } | undefined;
     for (const s of list<{ key: number; value?: { skillId?: unknown } }>(
@@ -270,7 +371,7 @@ export const loginToBuild = (
 
   const named = (
     slot: number,
-  ): { name: string; level?: number } | undefined => {
+  ): { name: string; level?: number; prefix?: RawAffix[] } | undefined => {
     const skill = slotSkills.get(slot);
     if (skill === undefined) return undefined;
     const name = ids.skills[String(skill.id)]?.name;
@@ -278,21 +379,65 @@ export const loginToBuild = (
       noName.push(skill.id);
       return undefined;
     }
-    return { name, level: skill.level };
+    return { name, level: skill.level, prefix: skill.prefix };
   };
+  const toSupport = (x: {
+    name: string;
+    level?: number;
+    prefix?: RawAffix[];
+  }): SupportSlot => {
+    const rolled = (x.prefix ?? []).map((a) => ({
+      lines: affixLines(a),
+      range: rolledRange(ids.modifiers[String(a.Id)]),
+      value: Object.values(a.DynArgs ?? {}).find(
+        (v): v is number => typeof v === "number",
+      ),
+    }));
+    const special =
+      MagnificentSupportSkills.find((s) => s.name === x.name) ??
+      NobleSupportSkills.find((s) => s.name === x.name);
+    const first = rolled.find((r) => r.value !== undefined);
+    if (special !== undefined && first !== undefined) {
+      return {
+        skillType: MagnificentSupportSkills.some((s) => s.name === x.name)
+          ? "magnificent_support"
+          : "noble_support",
+        name: x.name,
+        tier: specialTier(special.description, first.range),
+        rank: Math.min(5, Math.max(1, x.level ?? 1)) as 1 | 2 | 3 | 4 | 5,
+        craftedAffix: first.lines.join("\n"),
+        value: first.value ?? 0,
+      };
+    }
+    const medium = (
+      ActivationMediumSkills as readonly {
+        name: string;
+        affixDefs?: Record<0 | 1 | 2 | 3, ActivationMediumAffixDef[]>;
+      }[]
+    ).find((s) => s.name === x.name);
+    if (medium !== undefined && rolled.length > 0) {
+      return {
+        skillType: "activation_medium",
+        name: x.name,
+        tier: mediumTier(medium.affixDefs, rolled),
+        affixes: rolled.flatMap((r) => r.lines),
+      };
+    }
+    return { skillType: "support", name: x.name, level: x.level };
+  };
+  // Supports keep their slot number, since Magnificent, Noble and Activation Medium supports only fit one slot each.
   const toSkill = (slot: number, supportSlots: number[]) => {
     const main = named(slot);
     if (main === undefined) return undefined;
-    const supports = supportSlots.flatMap((s) => named(s) ?? []);
     return {
       skillName: main.name,
       enabled: true,
       level: main.level,
       supportSkills: Object.fromEntries(
-        supports.map((x, i) => [
-          i + 1,
-          { skillType: "support" as const, name: x.name, level: x.level },
-        ]),
+        supportSlots.flatMap((s, i) => {
+          const x = named(s);
+          return x === undefined ? [] : [[i + 1, toSupport(x)]];
+        }),
       ),
     };
   };

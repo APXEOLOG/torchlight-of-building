@@ -10,6 +10,7 @@ import {
   entangledPainParser,
   fearlessWarcryParser,
   frostSpikeParser,
+  groundshakerParser,
   iceBondParser,
   iceLancesParser,
   manaBoilParser,
@@ -61,6 +62,11 @@ export const SKILL_PARSERS: SkillParserEntry[] = [
     parser: frostSpikeParser,
   },
   { skillName: "Ice Bond", categories: ["active"], parser: iceBondParser },
+  {
+    skillName: "Groundshaker",
+    categories: ["active"],
+    parser: groundshakerParser,
+  },
   { skillName: "Bull's Rage", categories: ["active"], parser: bullsRageParser },
   {
     skillName: "Charging Warcry",

@@ -52,6 +52,36 @@ describe("renderText", () => {
     expect(renderText(entry, [3])).toBe("60% and +3%");
   });
 
+  test("puts values logged in another order where they fit", () => {
+    const aura = {
+      template: "+#% Aura effect when affected by # or more Auras",
+      args: ["+(15–30)", "(4–5)"],
+    };
+    expect(renderText(aura, [4, 29])).toBe(
+      "+29% Aura effect when affected by 4 or more Auras",
+    );
+    const comp = {
+      template: "+#% Aura Effect per +#% Sealed Mana Compensation",
+      args: ["+2", "+3"],
+    };
+    expect(renderText(comp, [3, 2])).toBe(
+      "+2% Aura Effect per +3% Sealed Mana Compensation",
+    );
+    const barrier = {
+      template:
+        "#% chance to gain a Barrier for every # m you move\n+#% Barrier Shield",
+      args: ["100", "5", "+25"],
+    };
+    expect(renderText(barrier, [5, 100, 25])).toBe(
+      "100% chance to gain a Barrier for every 5 m you move\n+25% Barrier Shield",
+    );
+  });
+
+  test("keeps the logged order when the values fit either way", () => {
+    const entry = { template: "+#% and +#%", args: ["+(1–50)", "+(1–50)"] };
+    expect(renderText(entry, [40, 3])).toBe("+40% and +3%");
+  });
+
   test("keeps tlidb's text for a number without a value", () => {
     expect(renderText({ template: "+#%", args: ["+(1–5)"] }, [])).toBe(
       "+(1–5)%",
